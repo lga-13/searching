@@ -22,10 +22,6 @@ export default class Block {
 
     constructor(tagName: string = "div", propsAndChildren: object = {}) {
 
-        // Производим отсеивание пропсов и детей
-        const {children, props} = this._getChildren(propsAndChildren);
-        this.children = children;
-
         // Создаем новый EventBus для этого компонента
         const eventBus = new EventBus();
         this.eventBus = () => eventBus;
@@ -33,16 +29,21 @@ export default class Block {
         // Регистрация событий
         this._registerEvents(eventBus);
 
-        // Запись в свойства
-        this._meta = {
-            tagName,
-            props
-        }
 
         // ПРИСВАИВАНИЕ ПРОПСОВ через _makePropsProxy
 
         // _makePropsProxy дернет за ниточку CDU
 
+        // Производим отсеивание пропсов и детей
+        const {children, props} = this._getChildren(propsAndChildren);
+        this.children = children;
+        // Запись в свойства
+        this._meta = {
+            tagName,
+            props
+        }
+        console.log("Раскидали на this.children ", this.children)
+        console.log("Раскидали на props ", props)
         if (props.settings && props.settings.withInternalID) {
             // Присваивание внутреннего uuid
             this._id = makeUUID();
@@ -95,10 +96,15 @@ export default class Block {
             },
             set(target, prop, value) {
 
+                console.log(`Переданы новые пропсы для ключа ${prop}=${value}`)
+
+
                 // Копируем текущие пропсы
                 const oldProps = { ...self.props };
-
                 target[prop] = value;
+                console.log(`Старые пропсы ${oldProps.className} ${oldProps.child}`)
+                console.log(`Новые пропсы ${target.className} ${target.child}`)
+
                 self.componentDidUpdate(oldProps, target)
                 return true;
             },
@@ -150,7 +156,7 @@ export default class Block {
         // Для создания элемента будет использован тег из _meta
         //
         this._createResources();
-        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
     // -----------------------------------------------------------------------------------------------------------------
 
@@ -159,10 +165,13 @@ export default class Block {
 
         // Проверка изменились ли пропсы
 
-        const response = oldProps.text !== newProps.text;
+        console.log("Проверяем нужно ли перерендеривать компонент")
+        const response = oldProps !== newProps;
         if (response) {
-            this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+            console.log("Надо")
+            this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
         }
+        console.log("Не Надо")
         return response;
     }
     // -----------------------------------------------------------------------------------------------------------------
@@ -170,13 +179,12 @@ export default class Block {
     // ----------------------------------------Эмитится Block.EVENTS.FLOW_CDM ------------------------------------------
 
     dispatchComponentDidMount() {
+        console.log(`Из dispatchComponentDidMount эмитим FLOW_CDM`)
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 
     _componentDidMount() {
         this.componentDidMount();
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
-
         Object.values(this.children).forEach(child => {
             child.dispatchComponentDidMount();
         });
@@ -199,14 +207,21 @@ export default class Block {
         if (!nextProps) {
             return;
         }
-
+        console.log("В блок переданы новые пропсы", nextProps)
         Object.assign(this.props, nextProps);
     };
 
     // ----------------------------------------Эмитится Block.EVENTS.FLOW_RENDER ---------------------------------------
     _render() {
-        console.log("Вызван внутренний метод рендер")
-        this._element.innerHTML = this.render(); // render теперь возвращает DocumentFragment
+        console.log("Вызыван рендер блока")
+        const block = this.render(); // render теперь возвращает DocumentFragment
+
+        this._removeEvents();
+        this._element.innerHTML = ''; // удаляем предыдущее содержимое
+
+        this._element.appendChild(block);
+
+        this._addEvents();
     }
 
     render() {
@@ -217,23 +232,22 @@ export default class Block {
     compile(template, props) {
         const propsAndStubs = { ...props };
 
+        console.log("Вызвана компиляция")
+
         Object.entries(this.children).forEach(([key, child]) => {
-            propsAndStubs[key] = `<div id="${child._id}"></div>`
+            propsAndStubs[key] = `<div data_id="${child._id}"></div>`
         });
 
         const fragment = this._createDocumentElement('template')
-        const templateReder = Handlebars.compile(template)
-        fragment.innerHTML = templateReder(propsAndStubs);
 
+        const currentTemplate = Handlebars.compile(template)
+
+        fragment.innerHTML = currentTemplate(propsAndStubs);
         Object.values(this.children).forEach(child => {
-
-            const stub = fragment.content.querySelector(`[id="${child._id}"]`);
-            console.log(child.getContent())
-            console.log(stub)
+            const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
             stub.replaceWith(child.getContent());
         });
-        console.log(fragment.innerHTML)
-        console.log(fragment.content)
+
         return fragment.content;
     }
 

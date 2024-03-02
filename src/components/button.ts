@@ -1,18 +1,19 @@
-import Block from "./components/base/block";
-import Handlebars from "handlebars";
-import greetings from "./template.ts"
-import {type} from "node:os";
+import Block from "./base/block.ts";
+import greetings from "./button_template.ts"
+
 
 export default class Button extends Block {
-    constructor(props) {
+
+    // Кнопка
+
+    constructor(props: {className: string, child: string}) {
         // Создаём враппер DOM-элемент button
         super("button", props);
     }
 
     render() {
-        // Разметка кнопки
-        const template = Handlebars.compile(greetings)
-        return  template(this.props);
+        console.log("Вызыван рендер Button")
+        return this.compile(greetings, this.props);
     }
 }
 
@@ -23,8 +24,5 @@ export function render(query, block) {
     console.log(root instanceof HTMLElement)
     console.log(block.getContent() instanceof HTMLElement)
     root.appendChild(block.getContent());
-
-    block.dispatchComponentDidMount();
-
     return root;
 }
