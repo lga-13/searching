@@ -12,17 +12,7 @@ export default class Button extends Block {
     }
 
     render() {
-        console.log("Вызыван рендер Button")
         return this.compile(greetings, this.props);
     }
 }
 
-
-export function render(query, block) {
-    const root = document.querySelector(query);
-    // Можно завязаться на реализации вашего класса Block
-    console.log(root instanceof HTMLElement)
-    console.log(block.getContent() instanceof HTMLElement)
-    root.appendChild(block.getContent());
-    return root;
-}

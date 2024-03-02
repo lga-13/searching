@@ -42,8 +42,6 @@ export default class Block {
             tagName,
             props
         }
-        console.log("Раскидали на this.children ", this.children)
-        console.log("Раскидали на props ", props)
         if (props.settings && props.settings.withInternalID) {
             // Присваивание внутреннего uuid
             this._id = makeUUID();
@@ -96,14 +94,9 @@ export default class Block {
             },
             set(target, prop, value) {
 
-                console.log(`Переданы новые пропсы для ключа ${prop}=${value}`)
-
-
                 // Копируем текущие пропсы
                 const oldProps = { ...self.props };
                 target[prop] = value;
-                console.log(`Старые пропсы ${oldProps.className} ${oldProps.child}`)
-                console.log(`Новые пропсы ${target.className} ${target.child}`)
 
                 self.componentDidUpdate(oldProps, target)
                 return true;
@@ -129,7 +122,6 @@ export default class Block {
             if (this._id) {
                 element.setAttribute('data-id', this._id);
             }
-            console.log(element instanceof HTMLElement)
             return element;
         } else {
             throw new Error("Передан неверный тег элемента");
@@ -144,7 +136,6 @@ export default class Block {
             const {tagName} = this._meta;
             // Процесс создания элемента
             this._element = this._createDocumentElement(tagName);
-            console.log(this._element instanceof HTMLElement)
         } else {
             throw new Error("Нет данных для создания элемента.");
         }
@@ -165,13 +156,10 @@ export default class Block {
 
         // Проверка изменились ли пропсы
 
-        console.log("Проверяем нужно ли перерендеривать компонент")
         const response = oldProps !== newProps;
         if (response) {
-            console.log("Надо")
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
         }
-        console.log("Не Надо")
         return response;
     }
     // -----------------------------------------------------------------------------------------------------------------
@@ -179,7 +167,6 @@ export default class Block {
     // ----------------------------------------Эмитится Block.EVENTS.FLOW_CDM ------------------------------------------
 
     dispatchComponentDidMount() {
-        console.log(`Из dispatchComponentDidMount эмитим FLOW_CDM`)
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 
@@ -207,13 +194,11 @@ export default class Block {
         if (!nextProps) {
             return;
         }
-        console.log("В блок переданы новые пропсы", nextProps)
         Object.assign(this.props, nextProps);
     };
 
     // ----------------------------------------Эмитится Block.EVENTS.FLOW_RENDER ---------------------------------------
     _render() {
-        console.log("Вызыван рендер блока")
         const block = this.render(); // render теперь возвращает DocumentFragment
 
         this._removeEvents();
@@ -231,8 +216,6 @@ export default class Block {
 
     compile(template, props) {
         const propsAndStubs = { ...props };
-
-        console.log("Вызвана компиляция")
 
         Object.entries(this.children).forEach(([key, child]) => {
             propsAndStubs[key] = `<div data_id="${child._id}"></div>`
