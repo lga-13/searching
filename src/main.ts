@@ -5,7 +5,7 @@ import UserProfile from "./pages/main_page.ts";
 
 const button = new Button({
     className: 'my-class',
-    child: 'Click me',
+    text: 'Click me',
     settings: {withInternalID: true},
     events: {
         // Названия события точно такие же, как и у первого аргумента addEventListener:
@@ -24,22 +24,6 @@ const profile = new UserProfile(
     })
 
 render("#app", profile);
-
-// const button = new Button({
-//         className: 'my-class',
-//         child: 'Click me',
-//         events: {
-//             // Названия события точно такие же, как и у первого аргумента addEventListener:
-//             // click, mouseEnter, ...
-//             click: event => {
-//                 console.log(event);
-//             },
-//         },
-//         settings: {withInternalID: true}
-//     }
-// );
-//
-// render("#app", button);
 
 // Через секунду контент изменится сам, достаточно обновить пропсы
 // setTimeout(() => {

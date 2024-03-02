@@ -2,6 +2,6 @@
 
 export default `
 <div class="{{ userName }}">
-    {{ button }}
+    {{ text }}
 </div>
 `;

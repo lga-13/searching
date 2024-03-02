@@ -6,7 +6,7 @@ export default class Button extends Block {
 
     // Кнопка
 
-    constructor(props: {className: string, child: string}) {
+    constructor(props: {className: string, text: string}) {
         // Создаём враппер DOM-элемент button
         super("button", props);
     }
