@@ -1,4 +1,4 @@
-import Block from "./base/block.ts";
+import Block from "../base/block.ts";
 import greetings from "./button_template.ts"
 
 

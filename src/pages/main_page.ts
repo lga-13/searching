@@ -1,6 +1,6 @@
 import Block from "../components/base/block.ts";
 import greetings from "./main_page_templates.ts"
-import Button from "../components/button.ts";
+import Button from "../components/button/button.ts";
 
 
 export default class UserProfile extends Block {
