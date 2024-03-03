@@ -136,7 +136,7 @@ const registrationFormRepeatPasswordInput = new Input(
 const registrationFormButton = new Button(
     {
         className: 'registration-form__button',
-        text: 'Регистрация',
+        text: 'Зарегистрироваться',
         settings: {withInternalID: true},
         events: {}
     })

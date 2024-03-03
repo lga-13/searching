@@ -1,0 +1,13 @@
+import Block from "../base/block.ts";
+import greetings from "./error-message-template.ts";
+
+export default class ErrorMessage extends Block {
+    constructor(props: {className: string, errorMessage: ErrorMessage})
+    {
+        super("p", props);
+    }
+
+    render() {
+        return this.compile(greetings, this.props);
+    }
+}
