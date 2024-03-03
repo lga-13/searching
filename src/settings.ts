@@ -1,0 +1,1 @@
+export const MOCK_SERVER_REQUESTS = True
