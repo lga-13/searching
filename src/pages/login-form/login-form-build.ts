@@ -7,7 +7,7 @@ import Link from "../../components/links/link.ts";
 import {Validator} from "../../utils/field_validator.ts";
 
 
-const formTitle = new FormTitle(
+const loginFormTitle = new FormTitle(
     {
         className: 'login-form__title',
         text: 'Войти',
@@ -15,7 +15,7 @@ const formTitle = new FormTitle(
     }
 )
 
-const formLoginLabel = new Label(
+const loginFormLoginLabel = new Label(
     {
         className: 'login-form__label',
         text: 'Логин',
@@ -23,7 +23,7 @@ const formLoginLabel = new Label(
     }
 )
 
-const formPasswordLabel = new Label(
+const loginFormPasswordLabel = new Label(
     {
         className: 'login-form__label',
         text: 'Пароль',
@@ -31,14 +31,14 @@ const formPasswordLabel = new Label(
     }
 )
 
-const formLoginInput = new Input(
+const loginFormLoginInput = new Input(
     {
         className: 'login-form__input',
         text: 'login',
         settings: {withInternalID: true},
         events: {
             blur: event => {
-                if (!Validator.validateLogin(formLoginInput.getInputValue())) {
+                if (!Validator.validateLogin(loginFormLoginInput.getInputValue())) {
                     return;
                 }
             }
@@ -46,14 +46,14 @@ const formLoginInput = new Input(
     }
 )
 
-const formPasswordInput = new Input(
+const loginFormPasswordInput = new Input(
     {
         className: 'login-form__input',
         text: 'password',
         settings: {withInternalID: true},
         events: {
             blur: event => {
-                if (!Validator.validatePassword(formPasswordInput.getInputValue())) {
+                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue())) {
                     return;
                 }
             }
@@ -70,19 +70,19 @@ const loginFormButton = new Button(
             click: event => {
 
                 // Проверка допустимой длины логина и пароля
-                if (!Validator.validatePassword(formPasswordInput.getInputValue()) || !Validator.validateLogin(formLoginInput.getInputValue())) {
+                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue()) || !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
                     return;
                 }
                 else {
-                    console.log(`Login: ${formLoginInput.getInputValue()}, Password: ${formPasswordInput.getInputValue()}`);
-                    formPasswordInput.clear();
-                    formLoginInput.clear();
+                    console.log(`Login: ${loginFormLoginInput.getInputValue()}, Password: ${loginFormPasswordInput.getInputValue()}`);
+                    loginFormPasswordInput.clear();
+                    loginFormLoginInput.clear();
                 }
             },
         },
     })
 
-const loginFormPasswordLink = new Link(
+const loginFormForgotPasswordLink = new Link(
     {
         className: 'login-form__forgot-password',
         href: '#',
@@ -91,7 +91,7 @@ const loginFormPasswordLink = new Link(
     }
 )
 
-const loginFormLink = new Link(
+const loginFormRegistrationLink = new Link(
     {
         className: 'login-form__registration',
         href: '#',
@@ -104,12 +104,12 @@ export const loginForm = new LoginForm(
     {
         className: "login-form",
         settings: {withInternalID: true},
-        formTitle: formTitle,
-        formLoginLabel: formLoginLabel,
-        formPasswordLabel: formPasswordLabel,
-        formLoginInput: formLoginInput,
-        formPasswordInput: formPasswordInput,
+        formTitle: loginFormTitle,
+        formLoginLabel: loginFormLoginLabel,
+        formPasswordLabel: loginFormPasswordLabel,
+        formLoginInput: loginFormLoginInput,
+        formPasswordInput: loginFormPasswordInput,
         loginFormButton: loginFormButton,
-        loginFormLink: loginFormLink,
-        loginFormPasswordLink: loginFormPasswordLink,
+        loginFormLink: loginFormRegistrationLink,
+        loginFormPasswordLink: loginFormForgotPasswordLink,
     })
