@@ -5,6 +5,7 @@ import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import Button from "../../components/button/button.ts";
 import SettingsPage from "./settings-page.ts";
+import btnback from "../../public/static/img/btn-back.svg";
 
 
 const  settingsImg = new Img(
@@ -109,14 +110,15 @@ const settingsPasswordLink = new Link(
         settings: {withInternalID: true}
     }
 )
-const buttonWithImg = new Button(
+const buttonWithImg = new Img(
     {
         className: 'settings__btn-back',
-        settings: {withInternalID: true},
         typeName: 'button',
         href: '',
-        src: '',
-        alt: 'btn'
+        src: btnback,
+        alt: 'btn',
+        settings: {withInternalID: true},
+        events: {},
     }
 )
 const settingsPlugLink = new Link(

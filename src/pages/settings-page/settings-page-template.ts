@@ -6,17 +6,22 @@ export default `
             {{{ settingsImg }}}
             {{{ settingsLoginLabel }}}
             {{{ settingsLoginInput }}}
+            <hr>
             {{{ settingsNameLabel }}}
             {{{ settingsNameInput }}}
+            <hr>
             {{{ settingsSecondNameLabel }}}
             {{{ settingsSecondNameInput }}}
+            <hr>
             {{{ settingsEmailLabel }}}
             {{{ settingsEmailInput }}}
+            <hr>
             {{{ settingsPhoneLabel }}}
             {{{ settingsPhoneInput }}}
+            <hr>
             {{{ settingsDataLink }}}
             {{{ settingsPasswordLink }}}
-            {{{ buttonWithImg }}}
+            {{{ buttonWithImg }}}    
         </form>
         <div class="settings-window">
             {{{ settingsPlugLink }}}
