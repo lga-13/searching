@@ -12,11 +12,14 @@ export default class Form extends Block{
         });
     }
 
-    validate() {
+    validate(): boolean {
         Object.values(this.children).forEach(child => {
             if (child instanceof Input) {
-                child.validate()
+                if (!child.submit_validate()) {
+                    return false
+                }
             }
+            return true
         });
     }
 

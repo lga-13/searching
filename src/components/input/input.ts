@@ -46,11 +46,21 @@ export default class Input extends Block {
         this.already_check = false
     }
 
-    validate() {
-        if (!this.already_check && !this.props.validator(this.getInputValue())) {
+
+
+    validate(): boolean {
+        if (!this.already_check) {
+            const result = this.props.validator(this.getInputValue())
             this.already_check = true
-            return;
+            return result;
         }
+        // При blur-валидациии, одного раза достаточно
+        return true
+    }
+
+
+    submit_validate(): boolean {
+        return this.props.validator(this.getInputValue())
     }
 
 

@@ -7,6 +7,8 @@ import Link from "../../components/links/link.ts";
 import {Validator} from "../../utils/field_validator.ts";
 
 
+
+
 const loginFormTitle = new FormTitle(
     {
         className: 'login-form__title',
@@ -58,11 +60,11 @@ const loginFormPasswordInput = new Input(
         validator: Validator.validatePassword,
         events: {
             blur: () => {
-                loginFormLoginInput.validate()
+                loginFormPasswordInput.validate()
             },
             focus: () => {
                 // код, который будет выполняться при получении фокуса
-                loginFormLoginInput.focus()
+                loginFormPasswordInput.focus()
             }
         }
     }
@@ -75,16 +77,13 @@ const loginFormButton = new Button(
         settings: {withInternalID: true},
         events: {
             click: () => {
-
                 // Проверка допустимой длины логина и пароля
-                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue()) ||
-                    !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
-                    return;
-                }
-                else {
+                if (loginForm.validate()) {
                     console.log(loginForm.get_data());
                     loginForm.clear();
                 }
+
+
             },
         },
     })
