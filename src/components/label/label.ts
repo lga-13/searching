@@ -2,7 +2,7 @@ import Block from "../base/block.ts";
 import greetings from "./label-template.ts";
 
 export default class Label extends Block {
-    constructor(props: {className: string, text: string}) {
+    constructor(props: {className: string, text: string, settings: {withInternalID: true}}) {
         super("label", props);
     }
 
