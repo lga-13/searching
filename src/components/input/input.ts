@@ -2,7 +2,7 @@ import Block from "../base/block.ts"
 import greetings from "./input-template.ts";
 
 export default class Input extends Block {
-    constructor(props: {className: string, text: string, placeholder: string}) {
+    constructor(props: {className: string, text: string, settings: {withInternalID: true}, events: {blur: (event)=>void}}) {
         super("input", props);
     }
 
@@ -20,10 +20,8 @@ export default class Input extends Block {
 
     validateLength(min, max) {
         const valueLength = this.element.value.length;
-        if(valueLength >= min && valueLength <= max) {
-            return true;
-        }
-        return false;
+        return valueLength >= min && valueLength <= max;
+
     }
 
     validatePattern(pattern) {
