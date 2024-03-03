@@ -8,7 +8,7 @@ import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
 
 
 // render("#app", loginForm);
-render("#app", settingsPage);
+render("#app", error404);
 
 
 // const client = new APIClient();

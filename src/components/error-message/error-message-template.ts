@@ -1,7 +1,7 @@
 // language=hbs
 
 export default `
-<div class="{{ className }}">
+<p class="{{ className }}">
     {{ text }}
-</div>
+</p>
 `;
