@@ -8,7 +8,7 @@ export default class Button extends Block {
 
     constructor(props: {className: string, text: string, settings: {withInternalID: true}, events: {click: (event)=>void}}) {
         // Создаём враппер DOM-элемент button
-        super("button", props);
+        super("div", props);
     }
 
     render() {

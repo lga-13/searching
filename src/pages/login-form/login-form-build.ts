@@ -101,7 +101,7 @@ const loginFormRegistrationLink = new Link(
     {
         className: 'login-form__registration',
         href: '#',
-        text: 'Еще не зарегестрированны?',
+        text: 'Еще не зарегестрированы?',
         settings: {withInternalID: true}
     }
 )

@@ -13,7 +13,7 @@ export default class SettingsPage extends Block {
         settingsSecondNameInput: Input, settingsEmailLabel: Label,
         settingsEmailInput: Input, settingsPhoneLabel: Label, settingsPhoneInput:Input, settingsDataLink: Link,
         settingsPasswordLink: Link}) {
-        super('settings-data', props);
+        super('div', props);
     }
     render() {
         return this.compile(greetings, this.props);

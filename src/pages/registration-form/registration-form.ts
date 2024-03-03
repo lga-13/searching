@@ -17,7 +17,7 @@ export default class RegistrationForm extends Form {
                         registrationFormPasswordInput: Input, registrationFormRepeatPasswordLabel: Label,
                         registrationFormRepeatPasswordInput: Input, registrationFormButton: Button,
                         registrationFormLink: Link}) {
-        super('registration-form', props)
+        super('div', props)
     }
     render() {
         return this.compile(greetings, this.props);

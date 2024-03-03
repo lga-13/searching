@@ -7,7 +7,7 @@ export default class FormTitle extends Block {
 
     constructor(props: {className: string, text: string, settings: {withInternalID: boolean}}) {
         // Создаём враппер DOM-элемент button
-        super("h2", props);
+        super("div", props);
     }
 
     render() {
