@@ -31,6 +31,7 @@ const registrationFormEmailInput = new Input(
         fieldName: "email",
         text: 'email',
         settings: {withInternalID: true},
+        validator: Validator.validateEmail,
         events: {
                 blur: () => {
                         if (!registrationFormEmailInput.already_check && !Validator.validateEmail(registrationFormEmailInput.getInputValue())) {
@@ -59,6 +60,7 @@ const registrationFormLoginInput = new Input(
         fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
+        validator: Validator.validateLogin,
         events: {
                 blur: () => {
                         if (!registrationFormLoginInput.already_check && !Validator.validateLogin(registrationFormLoginInput.getInputValue())) {
@@ -87,15 +89,13 @@ const registrationFormNameInput = new Input(
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
+        validator: Validator.validateName,
         events: {
                 blur: () => {
-                        if (!registrationFormNameInput.already_check && !Validator.validateName(registrationFormNameInput.getInputValue())) {
-                                registrationFormLoginInput.already_check = true
-                                return;
-                        }
+                        registrationFormNameInput.validate()
                 },
                 focus: () => {
-                        registrationFormNameInput.already_check = false
+                        registrationFormNameInput.focus()
                 }
         }
     }
@@ -115,15 +115,13 @@ const registrationFormSecondNameInput = new Input(
         fieldName: "second_name",
         text: 'second-name',
         settings: {withInternalID: true},
+        validator: Validator.validateName,
         events: {
                 blur: () => {
-                        if (!registrationFormSecondNameInput.already_check && !Validator.validateName(registrationFormSecondNameInput.getInputValue())) {
-                                registrationFormSecondNameInput.already_check = true
-                                return;
-                        }
+                        registrationFormSecondNameInput.validate()
                 },
                 focus: () => {
-                        registrationFormSecondNameInput.already_check = false
+                        registrationFormSecondNameInput.focus()
                 }
         }
     }
@@ -143,15 +141,13 @@ const registrationFormPhoneInput = new Input(
         fieldName: "phone",
         text: 'phone',
         settings: {withInternalID: true},
+        validator: Validator.validatePhone,
         events: {
                 blur: () => {
-                        if (!registrationFormPhoneInput.already_check && !Validator.validatePhone(registrationFormPhoneInput.getInputValue())) {
-                                registrationFormPhoneInput.already_check = true
-                                return;
-                        }
+                        registrationFormPhoneInput.validate()
                 },
                 focus: () => {
-                        registrationFormPhoneInput.already_check = false
+                        registrationFormPhoneInput.focus()
                 }
         }
         }
@@ -171,15 +167,13 @@ const registrationFormPasswordInput = new Input(
         fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
+        validator: Validator.validatePassword,
         events: {
                 blur: () => {
-                        if (!registrationFormPasswordInput.already_check && !Validator.validatePassword(registrationFormPasswordInput.getInputValue())) {
-                                registrationFormPasswordInput.already_check = true
-                                return;
-                        }
+                        registrationFormPasswordInput.validate()
                 },
                 focus: () => {
-                        registrationFormPasswordInput.already_check = false
+                        registrationFormPasswordInput.focus()
                 }
         }
     }
@@ -199,15 +193,13 @@ const registrationFormRepeatPasswordInput = new Input(
         className: 'registration-form__input',
         text: 'repeat password',
         settings: {withInternalID: true},
+        validator: Validator.validatePassword,
         events: {
                 blur: () => {
-                        if (!registrationFormRepeatPasswordInput.already_check && !Validator.validatePassword(registrationFormRepeatPasswordInput.getInputValue())) {
-                                registrationFormRepeatPasswordInput.already_check = true
-                                return;
-                        }
+                        registrationFormRepeatPasswordInput.validate()
                 },
                 focus: () => {
-                        registrationFormRepeatPasswordInput.already_check = false
+                        registrationFormRepeatPasswordInput.focus()
                 }
         }
     }

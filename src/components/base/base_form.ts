@@ -12,6 +12,14 @@ export default class Form extends Block{
         });
     }
 
+    validate() {
+        Object.values(this.children).forEach(child => {
+            if (child instanceof Input) {
+                child.validate()
+            }
+        });
+    }
+
     get_data(): {string: string} {
 
         const current_condition = {}

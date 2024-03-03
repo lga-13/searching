@@ -7,7 +7,7 @@ import APIClient from "./clients/base/fetch.ts";
 
 
 // render("#app", loginForm);
-render("#app", loginForm);
+render("#app", registrationForm);
 
 
 // const client = new APIClient();

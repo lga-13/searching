@@ -14,7 +14,8 @@ export default class Input extends Block {
             events: {
                 blur: ()=>void
                 focus: () => void
-            }
+            },
+            validator: {}
         }
         ) {
         super("input", props);
@@ -39,6 +40,17 @@ export default class Input extends Block {
 
     getInputValue():  string {
         return this.element.value;
+    }
+
+    focus() {
+        this.already_check = false
+    }
+
+    validate() {
+        if (!this.already_check && !this.props.validator(this.getInputValue())) {
+            this.already_check = true
+            return;
+        }
     }
 
 

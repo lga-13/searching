@@ -37,16 +37,13 @@ const loginFormLoginInput = new Input(
         fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
+        validator: Validator.validateLogin,
         events: {
             blur: () => {
-                if (!loginFormLoginInput.already_check && !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
-                    loginFormLoginInput.already_check = true
-                    return;
-                }
-
+                loginFormLoginInput.validate()
             },
             focus: () => {
-                loginFormLoginInput.already_check = false
+                loginFormLoginInput.focus()
             }
         }
     }
@@ -58,16 +55,14 @@ const loginFormPasswordInput = new Input(
         fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
+        validator: Validator.validatePassword,
         events: {
             blur: () => {
-                if (!loginFormLoginInput.already_check && !Validator.validatePassword(loginFormPasswordInput.getInputValue())) {
-                    loginFormLoginInput.already_check = true
-                    return;
-                }
+                loginFormLoginInput.validate()
             },
             focus: () => {
                 // код, который будет выполняться при получении фокуса
-                loginFormLoginInput.already_check = false
+                loginFormLoginInput.focus()
             }
         }
     }
