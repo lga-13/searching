@@ -11,7 +11,7 @@ export default class SettingsPage extends Block {
         settingsLoginInput: Input, settingsNameLabel: Label,
         settingsNameInput: Input, settingsSecondNameLabel: Label,
         settingsSecondNameInput: Input, settingsEmailLabel: Label,
-        settingsEmailInput: Input, settingsDataLink: Link,
+        settingsEmailInput: Input, settingsPhoneLabel: Label, settingsPhoneInput:Input, settingsDataLink: Link,
         settingsPasswordLink: Link}) {
         super('settings-data', props);
     }

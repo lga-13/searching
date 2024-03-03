@@ -3,7 +3,7 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
-import ButtonWithImage from "../../components/button-with-img/button-with-img.ts";
+import Button from "../../components/button/button.ts";
 import SettingsPage from "./settings-page.ts";
 
 
@@ -78,6 +78,21 @@ const settingsEmailInput = new Input(
         events: {}
     }
 )
+const settingsPhoneLabel = new Label(
+    {
+        className: 'settings__label',
+        text: 'Телефон',
+        settings: {withInternalID: true}
+    }
+)
+const settingsPhoneInput = new Input(
+    {
+        className: 'settings__input',
+        text: 'phone',
+        settings: {withInternalID: true},
+        events: {}
+    }
+)
 const settingsDataLink = new Link(
     {
         className: 'settings__change-data',
@@ -88,16 +103,20 @@ const settingsDataLink = new Link(
 )
 const settingsPasswordLink = new Link(
     {
-            className: 'settings__change-password',
-            href: '#',
-            text: 'Сменить пароль',
-            settings: {withInternalID: true}
+        className: 'settings__change-password',
+        href: '#',
+        text: 'Сменить пароль',
+        settings: {withInternalID: true}
     }
 )
-const buttonWithImg = new ButtonWithImage(
+const buttonWithImg = new Button(
     {
         className: 'settings__btn-back',
-        typeName: 'button'
+        settings: {withInternalID: true},
+        typeName: 'button',
+        href: '',
+        src: '',
+        alt: 'btn'
     }
 )
 const settingsPlugLink = new Link(
@@ -122,6 +141,8 @@ export const settingsPage = new SettingsPage(
         settingsSecondNameInput: settingsSecondNameInput,
         settingsEmailLabel: settingsEmailLabel,
         settingsEmailInput: settingsEmailInput,
+        settingsPhoneLabel: settingsPhoneLabel,
+        settingsPhoneInput: settingsPhoneInput,
         settingsDataLink: settingsDataLink,
         settingsPasswordLink: settingsPasswordLink,
         buttonWithImg: buttonWithImg,

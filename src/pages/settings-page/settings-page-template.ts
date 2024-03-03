@@ -12,6 +12,8 @@ export default `
             {{{ settingsSecondNameInput }}}
             {{{ settingsEmailLabel }}}
             {{{ settingsEmailInput }}}
+            {{{ settingsPhoneLabel }}}
+            {{{ settingsPhoneInput }}}
             {{{ settingsDataLink }}}
             {{{ settingsPasswordLink }}}
             {{{ buttonWithImg }}}
@@ -19,7 +21,6 @@ export default `
         <div class="settings-window">
             {{{ settingsPlugLink }}}
         </div>
-    </div>
     </div>
 `;
 

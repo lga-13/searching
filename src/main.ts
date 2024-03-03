@@ -4,14 +4,15 @@ import {registrationForm} from "./pages/registration-form/registration-form-buil
 import {error404} from "./pages/error404/error404-build.ts";
 import {error500} from "./pages/error500/error500-build.ts";
 import APIClient from "./clients/base/fetch.ts";
+import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
 
 
 // render("#app", loginForm);
-render("#app", error500);
+render("#app", settingsPage);
 
 
-const client = new APIClient();
-
-client.get('http://localhost:8000/', {param1: 'value1', param2: 'value2'})
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+// const client = new APIClient();
+//
+// client.get('http://10.177.233.169:8000/', {param1: 'value1', param2: 'value2'})
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
