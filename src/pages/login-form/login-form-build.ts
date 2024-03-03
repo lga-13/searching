@@ -34,6 +34,7 @@ const loginFormPasswordLabel = new Label(
 const loginFormLoginInput = new Input(
     {
         className: 'login-form__input',
+        fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
         events: {
@@ -54,6 +55,7 @@ const loginFormLoginInput = new Input(
 const loginFormPasswordInput = new Input(
     {
         className: 'login-form__input',
+        fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
         events: {
@@ -85,9 +87,8 @@ const loginFormButton = new Button(
                     return;
                 }
                 else {
-                    console.log(`Login: ${loginFormLoginInput.getInputValue()}, Password: ${loginFormPasswordInput.getInputValue()}`);
-                    loginFormPasswordInput.clear();
-                    loginFormLoginInput.clear();
+                    console.log(loginForm.get_data());
+                    loginForm.clear();
                 }
             },
         },

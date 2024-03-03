@@ -8,6 +8,7 @@ export default class Input extends Block {
     constructor(
         props: {
             className: string,
+            fieldName: string,
             text: string,
             settings: {withInternalID: true},
             events: {
@@ -36,19 +37,13 @@ export default class Input extends Block {
         this.element.value = '';
     }
 
-    getInputValue() {
+    getInputValue():  string {
         return this.element.value;
     }
 
-    validateLength(min, max) {
-        const valueLength = this.element.value.length;
-        return valueLength >= min && valueLength <= max;
 
-    }
-
-    validatePattern(pattern) {
-        const regex = new RegExp(pattern);
-        return regex.test(this.element.value);
+    getName(): string {
+        return this.props.fieldName
     }
 
 }
