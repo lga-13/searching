@@ -23,6 +23,8 @@
     "handlebars": "^4.7.8",
     "rollup-plugin-handlebars-plus": "^0.4.2",
     "uuid": "^9.0.1",
-    "vite-plugin-handlebars": "^2.0.0"
+    "vite-plugin-handlebars": "^2.0.0",
+    "xhr2": "^0.2.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
