@@ -7,6 +7,8 @@ import Link from "../../components/links/link.ts";
 import {Validator} from "../../utils/field_validator.ts";
 
 
+
+
 const loginFormTitle = new FormTitle(
     {
         className: 'login-form__title',
@@ -34,13 +36,16 @@ const loginFormPasswordLabel = new Label(
 const loginFormLoginInput = new Input(
     {
         className: 'login-form__input',
+        fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
+        validator: Validator.validateLogin,
         events: {
-            blur: event => {
-                if (!Validator.validateLogin(loginFormLoginInput.getInputValue())) {
-                    return;
-                }
+            blur: () => {
+                loginFormLoginInput.validate()
+            },
+            focus: () => {
+                loginFormLoginInput.focus()
             }
         }
     }
@@ -49,13 +54,17 @@ const loginFormLoginInput = new Input(
 const loginFormPasswordInput = new Input(
     {
         className: 'login-form__input',
+        fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
+        validator: Validator.validatePassword,
         events: {
-            blur: event => {
-                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue())) {
-                    return;
-                }
+            blur: () => {
+                loginFormPasswordInput.validate()
+            },
+            focus: () => {
+                // код, который будет выполняться при получении фокуса
+                loginFormPasswordInput.focus()
             }
         }
     }
@@ -67,17 +76,14 @@ const loginFormButton = new Button(
         text: 'Авторизация',
         settings: {withInternalID: true},
         events: {
-            click: event => {
-
+            click: () => {
                 // Проверка допустимой длины логина и пароля
-                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue()) || !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
-                    return;
+                if (loginForm.validate()) {
+                    console.log(loginForm.get_data());
+                    loginForm.clear();
                 }
-                else {
-                    console.log(`Login: ${loginFormLoginInput.getInputValue()}, Password: ${loginFormPasswordInput.getInputValue()}`);
-                    loginFormPasswordInput.clear();
-                    loginFormLoginInput.clear();
-                }
+
+
             },
         },
     })

@@ -4,8 +4,10 @@ import Label from "../../components/label/label.ts";
 import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import RegistrationForm from "./registration-form.ts";
+import {Validator} from "../../utils/field_validator.ts";
 
 
+// Заголовок формы регистрации
 const registrationTitle = new FormTitle(
     {
         className: 'registration-form__title',
@@ -13,6 +15,7 @@ const registrationTitle = new FormTitle(
         settings: {withInternalID: true}
     }
 )
+
 
 const registrationFormEmailLabel = new Label(
     {
@@ -25,9 +28,21 @@ const registrationFormEmailLabel = new Label(
 const registrationFormEmailInput = new Input(
     {
         className: 'registration-form__input',
+        fieldName: "email",
         text: 'email',
         settings: {withInternalID: true},
-        events: {}
+        validator: Validator.validateEmail,
+        events: {
+                blur: () => {
+                        if (!registrationFormEmailInput.already_check && !Validator.validateEmail(registrationFormEmailInput.getInputValue())) {
+                                registrationFormEmailInput.already_check = true
+                                return;
+                        }
+                },
+                focus: () => {
+                        registrationFormEmailInput.already_check = false
+                }
+        }
     }
 )
 
@@ -42,9 +57,21 @@ const registrationFormLoginLabel = new Label(
 const registrationFormLoginInput = new Input(
     {
         className: 'registration-form__input',
+        fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
-        events: {}
+        validator: Validator.validateLogin,
+        events: {
+                blur: () => {
+                        if (!registrationFormLoginInput.already_check && !Validator.validateLogin(registrationFormLoginInput.getInputValue())) {
+                                registrationFormLoginInput.already_check = true
+                                return;
+                        }
+                },
+                focus: () => {
+                        registrationFormLoginInput.already_check = false
+                }
+        }
     }
 )
 
@@ -59,9 +86,18 @@ const registrationFormNameLabel = new Label(
 const registrationFormNameInput = new Input(
     {
         className: 'registration-form__input',
+        fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
-        events: {}
+        validator: Validator.validateName,
+        events: {
+                blur: () => {
+                        registrationFormNameInput.validate()
+                },
+                focus: () => {
+                        registrationFormNameInput.focus()
+                }
+        }
     }
 )
 
@@ -76,9 +112,18 @@ const registrationFormSecondNameLabel = new Label(
 const registrationFormSecondNameInput = new Input(
     {
         className: 'registration-form__input',
+        fieldName: "second_name",
         text: 'second-name',
         settings: {withInternalID: true},
-        events: {}
+        validator: Validator.validateName,
+        events: {
+                blur: () => {
+                        registrationFormSecondNameInput.validate()
+                },
+                focus: () => {
+                        registrationFormSecondNameInput.focus()
+                }
+        }
     }
 )
 
@@ -93,10 +138,19 @@ const registrationFormPhoneLabel = new Label(
 const registrationFormPhoneInput = new Input(
     {
         className: 'registration-form__input',
+        fieldName: "phone",
         text: 'phone',
         settings: {withInternalID: true},
-        events: {}
-    }
+        validator: Validator.validatePhone,
+        events: {
+                blur: () => {
+                        registrationFormPhoneInput.validate()
+                },
+                focus: () => {
+                        registrationFormPhoneInput.focus()
+                }
+        }
+        }
 )
 
 const registrationFormPasswordLabel = new Label(
@@ -110,9 +164,18 @@ const registrationFormPasswordLabel = new Label(
 const registrationFormPasswordInput = new Input(
     {
         className: 'registration-form__input',
+        fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
-        events: {}
+        validator: Validator.validatePassword,
+        events: {
+                blur: () => {
+                        registrationFormPasswordInput.validate()
+                },
+                focus: () => {
+                        registrationFormPasswordInput.focus()
+                }
+        }
     }
 )
 
@@ -126,10 +189,19 @@ const registrationFormRepeatPasswordLabel = new Label(
 
 const registrationFormRepeatPasswordInput = new Input(
     {
+        fieldName: "repeatPassword",
         className: 'registration-form__input',
         text: 'repeat password',
         settings: {withInternalID: true},
-        events: {}
+        validator: Validator.validatePassword,
+        events: {
+                blur: () => {
+                        registrationFormRepeatPasswordInput.validate()
+                },
+                focus: () => {
+                        registrationFormRepeatPasswordInput.focus()
+                }
+        }
     }
 )
 
@@ -138,7 +210,26 @@ const registrationFormButton = new Button(
         className: 'registration-form__button',
         text: 'Зарегистрироваться',
         settings: {withInternalID: true},
-        events: {}
+        events: {
+                click: () => {
+
+                        // Проверка допустимой длины логина и пароля
+                        if (!Validator.validateEmail(registrationFormEmailInput.getInputValue()) ||
+                            !Validator.validateLogin(registrationFormLoginInput.getInputValue()) ||
+                            !Validator.validatePassword(registrationFormPasswordInput.getInputValue()) ||
+                            !Validator.validatePhone(registrationFormPhoneInput.getInputValue()) ||
+                            !Validator.validateName(registrationFormNameInput.getInputValue()) ||
+                            !Validator.validateName(registrationFormSecondNameInput.getInputValue())
+
+                        ) {
+                                return;
+                        }
+                        else {
+                                console.log(registrationForm.get_data());
+                                registrationForm.clear()
+                        }
+                },
+        }
     })
 
 const registrationFormLoginLink = new Link(
