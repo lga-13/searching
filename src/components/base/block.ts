@@ -13,9 +13,12 @@ export default class Block {
         FLOW_RENDER: "flow:render",
         FLOW_CDU: "flow:component-did-update"
     }
+
+
     _id: UUID | null = null;
-    _element: HTMLElement
+    _element: HTMLElement | null = null
     _meta: {tagName: string, props: object} | null
+    props: object
 
     eventBus: () => EventBus
 

@@ -37,10 +37,15 @@ const loginFormLoginInput = new Input(
         text: 'login',
         settings: {withInternalID: true},
         events: {
-            blur: event => {
-                if (!Validator.validateLogin(loginFormLoginInput.getInputValue())) {
+            blur: () => {
+                if (!loginFormLoginInput.already_check && !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
+                    loginFormLoginInput.already_check = true
                     return;
                 }
+
+            },
+            focus: () => {
+                loginFormLoginInput.already_check = false
             }
         }
     }
@@ -52,10 +57,15 @@ const loginFormPasswordInput = new Input(
         text: 'password',
         settings: {withInternalID: true},
         events: {
-            blur: event => {
-                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue())) {
+            blur: () => {
+                if (!loginFormLoginInput.already_check && !Validator.validatePassword(loginFormPasswordInput.getInputValue())) {
+                    loginFormLoginInput.already_check = true
                     return;
                 }
+            },
+            focus: () => {
+                // код, который будет выполняться при получении фокуса
+                loginFormLoginInput.already_check = false
             }
         }
     }
@@ -67,10 +77,11 @@ const loginFormButton = new Button(
         text: 'Авторизация',
         settings: {withInternalID: true},
         events: {
-            click: event => {
+            click: () => {
 
                 // Проверка допустимой длины логина и пароля
-                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue()) || !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
+                if (!Validator.validatePassword(loginFormPasswordInput.getInputValue()) ||
+                    !Validator.validateLogin(loginFormLoginInput.getInputValue())) {
                     return;
                 }
                 else {

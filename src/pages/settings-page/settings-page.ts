@@ -7,7 +7,7 @@ import Link from "../../components/links/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 
 export default class SettingsPage extends Block {
-    constructor(props: {className: string, settingsImg: Img, settingsLoginLabel: Label,
+    constructor(props: {className: string, settings: {withInternalID: boolean}, settingsImg: Img, settingsLoginLabel: Label,
         settingsLoginInput: Input, settingsNameLabel: Label,
         settingsNameInput: Input, settingsSecondNameLabel: Label,
         settingsSecondNameInput: Input, settingsEmailLabel: Label,

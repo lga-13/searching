@@ -6,6 +6,7 @@ import Link from "../../components/links/link.ts";
 import RegistrationForm from "./registration-form.ts";
 
 
+// Заголовок формы регистрации
 const registrationTitle = new FormTitle(
     {
         className: 'registration-form__title',
@@ -13,6 +14,7 @@ const registrationTitle = new FormTitle(
         settings: {withInternalID: true}
     }
 )
+
 
 const registrationFormEmailLabel = new Label(
     {
