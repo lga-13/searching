@@ -1,5 +1,5 @@
 // language=hbs
 
 export default `
-    <a class="{{classsName}}" href="{{href}}">{{{text}}}</a>
+    <a class="{{className}}" href="{{href}}">{{{text}}}</a>
 `;

@@ -3,7 +3,7 @@ import greetings from "./label-template.ts";
 
 export default class Label extends Block {
     constructor(props: {className: string, text: string, settings: {withInternalID: true}}) {
-        super("label", props);
+        super("div", props);
     }
 
     render() {

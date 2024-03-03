@@ -13,7 +13,7 @@ import search from "../../public/static/img/search.svg";
 
 export default class ChatPage extends Block {
     constructor(props) {
-        super('chats', props);
+        super('div', props);
         this.chatsElements = this.props.chatData.map(chat => {
             return {
                 'img': new Img({
@@ -115,3 +115,24 @@ window.onload = function() {
         elem.style.marginTop = "0";
     }
 };
+
+import "./login-form.css"
+import greetings from "./login-form-template.ts"
+
+
+
+
+
+
+export default class ChatPage extends Form {
+
+    constructor(props: {}) {
+        // Создаём враппер DOM-элемент button
+        super("div", props);
+    }
+
+
+    render() {
+        return this.compile(greetings, this.props);
+    }
+}

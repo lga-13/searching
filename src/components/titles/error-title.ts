@@ -3,7 +3,7 @@ import greetings from "./error-title-template.ts";
 
 export default class ErrorTitle extends Block {
     constructor(props: {className: string, text: string}) {
-        super("h1", props);
+        super("div", props);
     }
 
     render() {
