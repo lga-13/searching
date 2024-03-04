@@ -1,5 +1,5 @@
 import "./registration-form.css";
-import greetings from "./registration-from-template.ts";
+import greetings from "./registration-form-template.ts";
 import FormTitle from "../../components/titles/form-title.ts";
 import Label from "../../components/label/label.ts";
 import Input from "../../components/input/input.ts";

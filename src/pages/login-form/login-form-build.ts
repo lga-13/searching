@@ -6,9 +6,6 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import {Validator} from "../../utils/field_validator.ts";
 
-
-
-
 const loginFormTitle = new FormTitle(
     {
         className: 'login-form__title',
@@ -16,7 +13,6 @@ const loginFormTitle = new FormTitle(
         settings: {withInternalID: true}
     }
 )
-
 const loginFormLoginLabel = new Label(
     {
         className: 'login-form__label',
@@ -24,7 +20,6 @@ const loginFormLoginLabel = new Label(
         settings: {withInternalID: true}
     }
 )
-
 const loginFormPasswordLabel = new Label(
     {
         className: 'login-form__label',
@@ -32,7 +27,6 @@ const loginFormPasswordLabel = new Label(
         settings: {withInternalID: true}
     }
 )
-
 const loginFormLoginInput = new Input(
     {
         className: 'login-form__input',
@@ -50,7 +44,6 @@ const loginFormLoginInput = new Input(
         }
     }
 )
-
 const loginFormPasswordInput = new Input(
     {
         className: 'login-form__input',
@@ -69,7 +62,6 @@ const loginFormPasswordInput = new Input(
         }
     }
 )
-
 const loginFormButton = new Button(
     {
         className: 'login-form__button',
@@ -96,7 +88,6 @@ const loginFormForgotPasswordLink = new Link(
         settings: {withInternalID: true}
     }
 )
-
 const loginFormRegistrationLink = new Link(
     {
         className: 'login-form__registration',

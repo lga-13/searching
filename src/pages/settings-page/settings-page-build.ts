@@ -3,7 +3,6 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
-import Button from "../../components/button/button.ts";
 import SettingsPage from "./settings-page.ts";
 import btnback from "../../public/static/img/btn-back.svg";
 
@@ -11,9 +10,9 @@ import btnback from "../../public/static/img/btn-back.svg";
 const  settingsImg = new Img(
     {
         className: 'settings__img',
-        src: avatar,
-        alt: 'photo',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        srcName: avatar,
+        altText: 'photo',
     }
 )
 const settingsLoginLabel = new Label(
@@ -115,7 +114,7 @@ const buttonWithImg = new Img(
         className: 'settings__btn-back',
         typeName: 'button',
         href: '',
-        src: btnback,
+        srcName: btnback,
         alt: 'btn',
         settings: {withInternalID: true},
         events: {},
