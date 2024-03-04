@@ -2,6 +2,6 @@
 
 export default `
 <div class="{{ className }}">
-    {{ text }}
+    {{ errorMessage }}
 </div>
 `;

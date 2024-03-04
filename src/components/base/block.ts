@@ -66,7 +66,7 @@ export default class Block {
         const props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
-            if (value instanceof Array && value.every(element => element instanceof Block) || value instanceof Block )  {
+            if (value instanceof Block )  {
                 children[key] = value;
             } else {
                 props[key] = value;
@@ -229,6 +229,7 @@ export default class Block {
         const currentTemplate = Handlebars.compile(template)
 
         fragment.innerHTML = currentTemplate(propsAndStubs);
+        console.log(this.children)
         Object.values(this.children).forEach(child => {
             const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
             stub.replaceWith(child.getContent());

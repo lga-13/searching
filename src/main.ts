@@ -5,10 +5,11 @@ import {error404} from "./pages/error404/error404-build.ts";
 import {error500} from "./pages/error500/error500-build.ts";
 import APIClient from "./clients/base/fetch.ts";
 import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
+import {chatList, chatPage} from "./pages/chat-page/chat-page-build.ts";
 
 
 // render("#app", loginForm);
-render("#app", settingsPage);
+render("#app", error500);
 
 
 // const client = new APIClient();
