@@ -53,7 +53,7 @@ const changeDataFormLoginInput = new Input(
 )
 const loginErrorMessage = new ErrorMessage(
     {
-        className: 'login-form__error-message',
+        className: 'change-data-form__error-message',
         errorMessage: 'логин введен неверно',
         settings: {withInternalID: true}
     }

@@ -44,7 +44,7 @@ const PasswordInput = new Input(
 )
 const passwordErrorMessage = new ErrorMessage(
     {
-        className: 'registration-form__error-message',
+        className: 'change-password-form__error-message',
         errorMessage: 'старый пароль введен неверно',
         settings: {withInternalID: true}
     }
@@ -76,7 +76,7 @@ const newPasswordInput = new Input(
 )
 const newPasswordErrorMessage = new ErrorMessage(
     {
-        className: 'registration-form__error-message',
+        className: 'change-password-form__error-message',
         errorMessage: 'новый пароль введен неверно',
         settings: {withInternalID: true}
     }
@@ -108,7 +108,7 @@ const repeatNewPasswordInput = new Input(
 )
 const repeatNewPasswordErrorMessage = new ErrorMessage(
     {
-        className: 'registration-form__error-message',
+        className: 'change-password-form__error-message',
         errorMessage: 'пароли не совпадают',
         settings: {withInternalID: true}
     }
