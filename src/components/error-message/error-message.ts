@@ -4,7 +4,7 @@ import greetings from "./error-message-template.ts";
 export default class ErrorMessage extends Block {
     constructor(props: {className: string, errorMessage: string, settings: {withInternalID: boolean}})
     {
-        super("p", props);
+        super("div", props);
     }
 
     render() {

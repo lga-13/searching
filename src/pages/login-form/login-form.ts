@@ -7,10 +7,6 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Form from "../../components/base/base_form.ts";
 
-
-
-
-
 export default class LoginForm extends Form {
 
     constructor(props: {className: string, settings: {withInternalID: true}, formTitle: Title, formLoginLabel: Label, formPasswordLabel: Label,

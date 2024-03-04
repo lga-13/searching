@@ -3,16 +3,16 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
-import Button from "../../components/button/button.ts";
 import SettingsPage from "./settings-page.ts";
+import btnback from "../../public/static/img/btn-back.svg";
 
 
 const  settingsImg = new Img(
     {
         className: 'settings__img',
-        src: avatar,
-        alt: 'photo',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        srcName: avatar,
+        altText: 'photo',
     }
 )
 const settingsLoginLabel = new Label(
@@ -109,14 +109,15 @@ const settingsPasswordLink = new Link(
         settings: {withInternalID: true}
     }
 )
-const buttonWithImg = new Button(
+const buttonWithImg = new Img(
     {
         className: 'settings__btn-back',
-        settings: {withInternalID: true},
         typeName: 'button',
         href: '',
-        src: '',
-        alt: 'btn'
+        srcName: btnback,
+        alt: 'btn',
+        settings: {withInternalID: true},
+        events: {},
     }
 )
 const settingsPlugLink = new Link(
