@@ -6,6 +6,7 @@ import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
 import ChangePasswordForm from "./change-password-form.ts";
+import ErrorMessage from "../../components/error-message/error-message.ts";
 
 // Заголовок формы регистрации
 const  changePasswordFormImg = new Img(
@@ -26,6 +27,7 @@ const PasswordLabel = new Label(
 const PasswordInput = new Input(
     {
         className: 'change-password-form__input',
+        typeName: '',
         fieldName: "old-password",
         text: 'old_password',
         settings: {withInternalID: true},
@@ -40,6 +42,13 @@ const PasswordInput = new Input(
         }
     }
 )
+const passwordErrorMessage = new ErrorMessage(
+    {
+        className: 'registration-form__error-message',
+        errorMessage: 'старый пароль введен неверно',
+        settings: {withInternalID: true}
+    }
+)
 const newPasswordLabel = new Label(
     {
         className: 'change-password-form__label',
@@ -50,6 +59,7 @@ const newPasswordLabel = new Label(
 const newPasswordInput = new Input(
     {
         className: 'change-password-form__input',
+        typeName: '',
         fieldName: "new_password",
         text: 'new_password',
         settings: {withInternalID: true},
@@ -64,6 +74,13 @@ const newPasswordInput = new Input(
         }
     }
 )
+const newPasswordErrorMessage = new ErrorMessage(
+    {
+        className: 'registration-form__error-message',
+        errorMessage: 'новый пароль введен неверно',
+        settings: {withInternalID: true}
+    }
+)
 const repeatNewPasswordLabel = new Label(
     {
         className: 'change-password-form__label',
@@ -74,6 +91,7 @@ const repeatNewPasswordLabel = new Label(
 const repeatNewPasswordInput = new Input(
     {
         className: 'change-password-form__input',
+        typeName: 'password',
         fieldName: "repeat_new_password",
         text: 'repeat_new_password',
         settings: {withInternalID: true},
@@ -86,6 +104,13 @@ const repeatNewPasswordInput = new Input(
                 repeatNewPasswordInput.focus()
             }
         }
+    }
+)
+const repeatNewPasswordErrorMessage = new ErrorMessage(
+    {
+        className: 'registration-form__error-message',
+        errorMessage: 'пароли не совпадают',
+        settings: {withInternalID: true}
     }
 )
 const changePasswordFormButton = new Button(
@@ -128,10 +153,13 @@ export const changePasswordForm = new ChangePasswordForm(
         changePasswordFormImg: changePasswordFormImg,
         PasswordLabel: PasswordLabel,
         PasswordInput: PasswordInput,
+        passwordErrorMessage: passwordErrorMessage,
         newPasswordLabel: newPasswordLabel,
         newPasswordInput: newPasswordInput,
+        newPasswordErrorMessage: newPasswordErrorMessage,
         repeatNewPasswordLabel: repeatNewPasswordLabel,
         repeatNewPasswordInput: repeatNewPasswordInput,
+        repeatNewPasswordErrorMessage: repeatNewPasswordErrorMessage,
         changePasswordFormButton: changePasswordFormButton,
         changePasswordButtonWithImg: changePasswordButtonWithImg,
     })

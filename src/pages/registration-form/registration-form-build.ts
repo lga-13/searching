@@ -5,6 +5,7 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import RegistrationForm from "./registration-form.ts";
 import {Validator} from "../../utils/field_validator.ts";
+import ErrorMessage from "../../components/error-message/error-message.ts";
 
 
 // Заголовок формы регистрации
@@ -29,6 +30,7 @@ const registrationFormEmailLabel = new Label(
 const registrationFormEmailInput = new Input(
     {
         className: 'registration-form__input',
+        typeName: '',
         fieldName: "email",
         text: 'email',
         settings: {withInternalID: true},
@@ -46,7 +48,13 @@ const registrationFormEmailInput = new Input(
         }
     }
 )
-
+const emailErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'почта введена неверно',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormLoginLabel = new Label(
     {
         className: 'registration-form__label',
@@ -58,6 +66,7 @@ const registrationFormLoginLabel = new Label(
 const registrationFormLoginInput = new Input(
     {
         className: 'registration-form__input',
+        typeName: '',
         fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
@@ -75,7 +84,13 @@ const registrationFormLoginInput = new Input(
         }
     }
 )
-
+const loginErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'логин введен неверно',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormNameLabel = new Label(
     {
         className: 'registration-form__label',
@@ -87,6 +102,7 @@ const registrationFormNameLabel = new Label(
 const registrationFormNameInput = new Input(
     {
         className: 'registration-form__input',
+        typeName: '',
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
@@ -101,7 +117,13 @@ const registrationFormNameInput = new Input(
         }
     }
 )
-
+const nameErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'имя введено неверно',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormSecondNameLabel = new Label(
     {
         className: 'registration-form__label',
@@ -113,6 +135,7 @@ const registrationFormSecondNameLabel = new Label(
 const registrationFormSecondNameInput = new Input(
     {
         className: 'registration-form__input',
+        typeName: '',
         fieldName: "second_name",
         text: 'second-name',
         settings: {withInternalID: true},
@@ -127,7 +150,13 @@ const registrationFormSecondNameInput = new Input(
         }
     }
 )
-
+const secondNameErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'фамилия введена неверно',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormPhoneLabel = new Label(
     {
         className: 'registration-form__label',
@@ -139,6 +168,7 @@ const registrationFormPhoneLabel = new Label(
 const registrationFormPhoneInput = new Input(
     {
         className: 'registration-form__input',
+        typeName: '',
         fieldName: "phone",
         text: 'phone',
         settings: {withInternalID: true},
@@ -153,7 +183,13 @@ const registrationFormPhoneInput = new Input(
         }
         }
 )
-
+const phoneErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'телефон введен неверно',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormPasswordLabel = new Label(
     {
         className: 'registration-form__label',
@@ -165,6 +201,7 @@ const registrationFormPasswordLabel = new Label(
 const registrationFormPasswordInput = new Input(
     {
         className: 'registration-form__input',
+        typeName: 'password',
         fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
@@ -179,7 +216,13 @@ const registrationFormPasswordInput = new Input(
         }
     }
 )
-
+const passwordErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'пароль введен неверно',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormRepeatPasswordLabel = new Label(
     {
         className: 'registration-form__label',
@@ -191,6 +234,7 @@ const registrationFormRepeatPasswordLabel = new Label(
 const registrationFormRepeatPasswordInput = new Input(
     {
         fieldName: "repeatPassword",
+        typeName: 'password',
         className: 'registration-form__input',
         text: 'repeat password',
         settings: {withInternalID: true},
@@ -205,7 +249,13 @@ const registrationFormRepeatPasswordInput = new Input(
         }
     }
 )
-
+const repeatPasswordErrorMessage = new ErrorMessage(
+    {
+            className: 'registration-form__error-message',
+            errorMessage: 'пароли не совпадают',
+            settings: {withInternalID: true}
+    }
+)
 const registrationFormButton = new Button(
     {
         className: 'registration-form__button',
@@ -249,18 +299,25 @@ export const registrationForm = new RegistrationForm(
         registrationTitle: registrationTitle,
         registrationFormEmailLabel: registrationFormEmailLabel,
         registrationFormEmailInput: registrationFormEmailInput,
+        emailErrorMessage: emailErrorMessage,
         registrationFormLoginLabel: registrationFormLoginLabel,
         registrationFormLoginInput: registrationFormLoginInput,
+        loginErrorMessage: loginErrorMessage,
         registrationFormNameLabel: registrationFormNameLabel,
         registrationFormNameInput: registrationFormNameInput,
+        nameErrorMessage: nameErrorMessage,
         registrationFormSecondNameLabel: registrationFormSecondNameLabel,
         registrationFormSecondNameInput: registrationFormSecondNameInput,
+        secondNameErrorMessage: secondNameErrorMessage,
         registrationFormPhoneLabel: registrationFormPhoneLabel,
         registrationFormPhoneInput: registrationFormPhoneInput,
+        phoneErrorMessage: phoneErrorMessage,
         registrationFormPasswordLabel: registrationFormPasswordLabel,
         registrationFormPasswordInput: registrationFormPasswordInput,
+        passwordErrorMessage: passwordErrorMessage,
         registrationFormRepeatPasswordLabel: registrationFormRepeatPasswordLabel,
         registrationFormRepeatPasswordInput: registrationFormRepeatPasswordInput,
+        repeatPasswordErrorMessage: repeatPasswordErrorMessage,
         registrationFormButton: registrationFormButton,
         registrationFormLink: registrationFormLoginLink,
     })

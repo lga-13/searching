@@ -68,6 +68,19 @@
     border-bottom: 1px solid black ;
 }
 
+.change-data-form__error-message{
+    display: none;
+    color: #DF6058;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.change-data-form__input + .change-data-form__error-message{
+    display: block;
+}
+
 .change-data-form__input:focus {
     outline: none;
 }

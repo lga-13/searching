@@ -8,6 +8,7 @@ export default class Input extends Block {
     constructor(
         props: {
             className: string,
+            typeName: string,
             fieldName: string,
             text: string,
             settings: {withInternalID: true},

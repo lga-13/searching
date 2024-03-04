@@ -5,8 +5,10 @@ export default `
         {{{ formTitle }}}
         {{{ formLoginLabel }}}
         {{{ formLoginInput }}}
+        {{{ loginErrorMessage}}}
         {{{ formPasswordLabel }}}
         {{{ formPasswordInput }}}
+        {{{ passwordErrorMessage }}}
         {{{ loginFormPasswordLink }}}
         {{{ loginFormButton }}}
         {{{ loginFormLink }}}

@@ -8,14 +8,19 @@ export default `
         </div>
         {{{ changeDataFormLoginLabel }}}
         {{{ changeDataFormLoginInput }}}
+        {{{ loginErrorMessage}}}
         {{{ changeDataFormNameLabel }}}
         {{{ changeDataFormNameInput }}}
+        {{{ nameErrorMessage}}}
         {{{ changeDataFormSecondNameLabel }}}
         {{{ changeDataFormSecondNameInput }}}
+        {{{ secondNameErrorMessage}}}
         {{{ changeDataFormEmailLabel }}}
         {{{ changeDataFormEmailInput }}}
+        {{{ emailErrorMessage}}}
         {{{ changeDataFormPhoneLabel }}}
         {{{ changeDataFormPhoneInput }}}
+        {{{ phoneErrorMessage}}}
         {{{ changeDataFormButton }}}
         {{{ buttonWithImg }}}
     </form>

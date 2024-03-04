@@ -6,16 +6,17 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Button from "../../components/button/button.ts";
 import Form from "../../components/base/base_form.ts";
+import ErrorMessage from "../../components/error-message/error-message.ts";
 
 export default class RegistrationForm extends Form {
     constructor(props: {className: string, settings: {withInternalID: boolean}, registrationTitle: Title, registrationFormEmailLabel: Label,
-                        registrationFormEmailInput: Input, registrationFormLoginLabel: Label,
-                        registrationFormLoginInput: Input, registrationFormNameLabel: Label,
-                        registrationFormNameInput: Input, registrationFormSecondNameLabel: Label,
-                        registrationFormSecondNameInput: Input, registrationFormPhoneLabel: Label,
-                        registrationFormPhoneInput: Input, registrationFormPasswordLabel: Label,
-                        registrationFormPasswordInput: Input, registrationFormRepeatPasswordLabel: Label,
-                        registrationFormRepeatPasswordInput: Input, registrationFormButton: Button,
+                        registrationFormEmailInput: Input, emailErrorMessage: ErrorMessage, registrationFormLoginLabel: Label,
+                        registrationFormLoginInput: Input, loginErrorMessage: ErrorMessage, registrationFormNameLabel: Label,
+                        registrationFormNameInput: Input, nameErrorMessage: ErrorMessage, registrationFormSecondNameLabel: Label,
+                        registrationFormSecondNameInput: Input, secondNameErrorMessage: ErrorMessage, registrationFormPhoneLabel: Label,
+                        registrationFormPhoneInput: Input, phoneErrorMessage: ErrorMessage, registrationFormPasswordLabel: Label,
+                        registrationFormPasswordInput: Input, passwordErrorMessage: ErrorMessage, registrationFormRepeatPasswordLabel: Label,
+                        registrationFormRepeatPasswordInput: Input, repeatPasswordErrorMessage: ErrorMessage, registrationFormButton: Button,
                         registrationFormLink: Link}) {
         super('div', props)
     }

@@ -5,10 +5,13 @@ export default `
         {{{ changePasswordFormImg }}}
         {{{ PasswordLabel }}}
         {{{ PasswordInput }}}
+        {{{ passwordErrorMessage }}}
         {{{ newPasswordLabel }}}
         {{{ newPasswordInput }}}
+        {{{ newPasswordErrorMessage }}}
         {{{ repeatNewPasswordLabel }}}
         {{{ repeatNewPasswordInput }}}
+        {{{ repeatNewPasswordErrorMessage }}}
         {{{ changePasswordFormButton }}}
         {{{ changePasswordButtonWithImg }}}
     </form>

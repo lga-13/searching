@@ -5,6 +5,7 @@ import Label from "../../components/label/label.ts";
 import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import {Validator} from "../../utils/field_validator.ts";
+import ErrorMessage from "../../components/error-message/error-message.ts";
 
 
 
@@ -37,6 +38,7 @@ const loginFormPasswordLabel = new Label(
 const loginFormLoginInput = new Input(
     {
         className: 'login-form__input',
+        typeName: '',
         fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
@@ -51,10 +53,24 @@ const loginFormLoginInput = new Input(
         }
     }
 )
-
+const loginErrorMessage = new ErrorMessage(
+    {
+        className: 'login-form__error-message',
+        errorMessage: 'логин введен неверно',
+        settings: {withInternalID: true}
+    }
+)
+const passwordErrorMessage = new ErrorMessage(
+    {
+        className: 'login-form__error-message',
+        errorMessage: 'пароль введен неверно',
+        settings: {withInternalID: true}
+    }
+)
 const loginFormPasswordInput = new Input(
     {
         className: 'login-form__input',
+        typeName: 'password',
         fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
@@ -116,6 +132,8 @@ export const loginForm = new LoginForm(
         formPasswordLabel: loginFormPasswordLabel,
         formLoginInput: loginFormLoginInput,
         formPasswordInput: loginFormPasswordInput,
+        loginErrorMessage: loginErrorMessage,
+        passwordErrorMessage: passwordErrorMessage,
         loginFormButton: loginFormButton,
         loginFormLink: loginFormRegistrationLink,
         loginFormPasswordLink: loginFormForgotPasswordLink,
