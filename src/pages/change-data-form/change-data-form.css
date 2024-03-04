@@ -1,11 +1,10 @@
 .change-data-form{
     margin-top: 50px;
     width: 1280px;
-    display: flex;
+    height: 720px;
+    display: block;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    margin-left: 425px;
 }
 
 .change-data-form__img{
@@ -14,12 +13,13 @@
     height: 99px;
     margin-top: 24px;
     margin-bottom: 77px;
+    margin-left: 170px;
 }
 
 .change-data-form__label{
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    border: none;
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 11px;
@@ -42,6 +42,7 @@
     display: block;
     margin-top: 60px;
     margin-bottom: 50px;
+    margin-left: 70px;
     width: 280px;
     height: 40px;
     background-color: #1D90D1;
@@ -55,7 +56,7 @@
     position: absolute;
     bottom: 10px;
     left: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 205px;
     width: 28px;
     height: 28px;
     border-radius: 14px;
