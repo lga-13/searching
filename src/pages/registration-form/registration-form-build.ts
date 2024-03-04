@@ -1,5 +1,5 @@
 import Button from "../../components/button/button.ts";
-import FormTitle from "../../components/titles/form-title.ts";
+import Title from "../../components/titles/title.ts";
 import Label from "../../components/label/label.ts";
 import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
@@ -8,11 +8,12 @@ import {Validator} from "../../utils/field_validator.ts";
 
 
 // Заголовок формы регистрации
-const registrationTitle = new FormTitle(
+const registrationTitle = new Title(
     {
         className: 'registration-form__title',
         text: 'Регистрация',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        tag: "h2"
     }
 )
 

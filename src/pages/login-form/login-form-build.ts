@@ -1,5 +1,5 @@
 import Button from "../../components/button/button.ts";
-import FormTitle from "../../components/titles/form-title.ts";
+import Title from "../../components/titles/title.ts";
 import LoginForm from "../../pages/login-form/login-form.ts";
 import Label from "../../components/label/label.ts";
 import Input from "../../components/input/input.ts";
@@ -9,11 +9,12 @@ import {Validator} from "../../utils/field_validator.ts";
 
 
 
-const loginFormTitle = new FormTitle(
+const loginFormTitle = new Title(
     {
         className: 'login-form__title',
         text: 'Войти',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        tag: "h2"
     }
 )
 
