@@ -9,6 +9,7 @@ export default class Input extends Block {
         props: {
             className: string,
             fieldName: string,
+            placeholder: string,
             text: string,
             settings: {withInternalID: true},
             events: {
