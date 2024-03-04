@@ -1,10 +1,12 @@
 // language=hbs
 
+import MessageChain from "../../components/message_chain/message_chain.ts";
+
 export default `
     <div class="chats">
         <div class="chats-tape">
             <div class="chats__account-nav">
-                <a class="chats__account" href="#">Аккаунт</a>
+                {{{ accountLink }}}
             </div>
             <form class="chats__search-box">
                 {{{ chatSearch }}}
@@ -14,8 +16,7 @@ export default `
             </form>
             {{{ chatsList }}}
         </div>
-        <div class="chats-plug">
-            <a class="chats-plug__message" href="#">Выберите чат, чтобы начать общаться.</a>
-        </div>
+        {{{ messageChain }}}
+        {{{ chatPlug }}}
     </div>
 `
