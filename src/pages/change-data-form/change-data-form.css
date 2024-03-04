@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Manuale;
+    src: url("../../public/static/fonts/Manuale/Manuale-Medium.ttf")
+}
+
 .change-data-form{
     margin-top: 50px;
     width: 1280px;
@@ -6,14 +11,44 @@
     flex-direction: column;
     margin-left: 425px;
 }
-
-.change-data-form__img{
-    border-radius: 25%;
+.change-data-form__avatar{
+    position: relative;
     width: 98px;
     height: 99px;
     margin-top: 24px;
     margin-bottom: 77px;
     margin-left: 170px;
+    font-family: "Manuale", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.change-data-form__img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98px;
+    height: 99px;
+
+}
+
+.change-data-form__link-hide{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 98px;
+    height: 99px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #868686;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.2s ease; /* Animation */
+    text-decoration: underline;
+}
+
+.change-data-form__avatar:hover .change-data-form__link-hide{
+    opacity: 1;
 }
 
 .change-data-form__label{

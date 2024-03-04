@@ -2,7 +2,10 @@
 
 export default `
     <form class="{{className}}">
-        {{{ changeDataFormImg }}}
+        <div class="change-data-form__avatar">
+            {{{ changeDataFormImg }}}
+            {{{ changeDataFormLink }}}
+        </div>
         {{{ changeDataFormLoginLabel }}}
         {{{ changeDataFormLoginInput }}}
         {{{ changeDataFormNameLabel }}}

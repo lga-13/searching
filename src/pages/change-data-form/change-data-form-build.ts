@@ -6,6 +6,7 @@ import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
 import ChangeDataForm from "./change-data-form.ts";
+import Link from "../../components/links/link.ts";
 
 // Заголовок формы регистрации
 const  changeDataFormImg = new Img(
@@ -13,6 +14,14 @@ const  changeDataFormImg = new Img(
         className: 'change-data-form__img',
         srcName: avatar,
         altText: 'photo',
+        settings: {withInternalID: true}
+    }
+)
+const changeDataFormLink = new Link(
+    {
+        className: 'change-data-form__link-hide',
+        href: '#',
+        text: 'Сменить аватар',
         settings: {withInternalID: true}
     }
 )
@@ -191,4 +200,5 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormPhoneInput: changeDataFormPhoneInput,
         changeDataFormButton: changeDataFormButton,
         buttonWithImg: buttonWithImg,
+        changeDataFormLink: changeDataFormLink,
     })
