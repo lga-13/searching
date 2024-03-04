@@ -11,7 +11,7 @@ import {changePasswordForm} from "./pages/change-password-form/change-password-f
 
 
 // render("#app", loginForm);
-render("#app", changePasswordForm)
+render("#app", settingsPage)
 
 
 // const client = new APIClient();

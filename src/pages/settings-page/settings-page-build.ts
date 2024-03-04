@@ -109,6 +109,14 @@ const settingsPasswordLink = new Link(
         settings: {withInternalID: true}
     }
 )
+const settingsExitLink = new Link(
+    {
+        className: 'settings__change-exit',
+        href: '#',
+        text: 'Выйти из аккаунта',
+        settings: {withInternalID: true}
+    }
+)
 const buttonWithImg = new Img(
     {
         className: 'settings__btn-back',
@@ -148,4 +156,5 @@ export const settingsPage = new SettingsPage(
         settingsPasswordLink: settingsPasswordLink,
         buttonWithImg: buttonWithImg,
         settingsPlugLink: settingsPlugLink,
+        settingsExitLink: settingsExitLink,
     })
