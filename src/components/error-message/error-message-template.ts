@@ -1,7 +1,7 @@
 // language=hbs
 
 export default `
-<p class="{{ className }}">
-    {{ text }}
-</p>
+<div class="{{ className }}">
+    {{ errorMessage }}
+</div>
 `;

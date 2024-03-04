@@ -1,20 +1,21 @@
-import FormTitle from "../../components/titles/error-title.ts";
+import Title from "../../components/titles/title.ts";
 import Link from "../../components/links/link.ts";
 import Error500 from "./error500.ts";
 import ErrorMessage from "../../components/error-message/error-message.ts";
 
 
-const errorTitle = new FormTitle(
+const errorTitle = new Title(
     {
         className: 'error404__title',
         text: '500',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        tag: "div"
     }
 )
 const errorMessage = new ErrorMessage(
     {
         className: 'error404__message',
-        text: 'уже фиксим',
+        errorMessage: 'уже фиксим',
         settings: {withInternalID: true}
     }
 )
