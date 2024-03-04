@@ -1,13 +1,13 @@
 import Link from "../../components/links/link.ts";
 import Img from "../img/img.ts";
-import avatar from "../../public/static/img/avatar.svg";
+import btnback from "../../public/static/img/btn-back.svg";
 import ButtonWithImg from "./btn-with-img.ts";
 
 
 
 const btnWithImgLink = new Link(
     {
-        className: 'change-data-form__btn-back',
+        className: 'change-data-form__link-img',
         href: '#',
         text: '',
         settings: {withInternalID: true}
@@ -15,9 +15,9 @@ const btnWithImgLink = new Link(
 )
 const  btnImg = new Img(
     {
-        className: 'change-password-form__img',
-        srcName: avatar,
-        altText: 'photo',
+        className: 'change-password-form__btn-back-link',
+        srcName: btnback,
+        altText: 'btn',
         settings: {withInternalID: true}
     }
 )
