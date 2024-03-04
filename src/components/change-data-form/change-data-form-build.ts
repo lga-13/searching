@@ -249,4 +249,5 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormButton: changeDataFormButton,
         buttonWithImg: buttonWithImg,
         changeDataFormLink: changeDataFormLink,
+        events: { blur: () => {changeDataForm.hide()}}
     })

@@ -6,6 +6,8 @@ import Link from "../../components/links/link.ts";
 import Plug from "../../components/plug/plug.ts";
 import MessageChain from "../../components/message_chain/message_chain.ts";
 import {Validator} from "../../utils/field_validator.ts";
+import Button from "../../components/button/button.ts";
+import Title from "../../components/titles/title.ts";
 
 export const chatList = new ChatList({
     chats: [
@@ -38,6 +40,7 @@ export const chatList = new ChatList({
 export const chatSearch = new Input({
     className: "chats__search-input",
     fieldName: "chat_search",
+    typeName: "text",
     text: "text",
     settings: {withInternalID: true},
     placeholder: "Поиск",
@@ -72,6 +75,7 @@ export const chatPlug = new Plug({
 
 export const messageInput = new Input({
     className: "chats__search-input",
+    typeName: "text",
     fieldName: "message",
     placeholder: "Введите сообщение",
     events: {
@@ -82,6 +86,42 @@ export const messageInput = new Input({
     text: "Введите сообщение",
     validator: Validator.validateMessage
 })
+
+
+export const sendButton = new Button(
+    {
+        className: "button",
+        typeName: "button",
+        text: "->",
+        settings: {withInternalID: true},
+        events: {click: ()=>{}}}
+)
+
+
+export const attachmentsButton = new Button(
+    {
+        className: "button",
+        typeName: "button",
+        text: "+",
+        settings: {withInternalID: true},
+        events: {click: ()=>{}}}
+)
+
+
+export const senderName = new Title(
+    {className: "verkhniy-brat", text: "Брат", settings: {withInternalID: true}, tag: "h1"}
+)
+
+
+export const settingsButton = new Button(
+    {
+        className: "button",
+        typeName: "button",
+        text: "->",
+        settings: {withInternalID: true},
+        events: {click: ()=>{}}}
+)
+
 
 
 export const chatMessageChain = new MessageChain({
@@ -108,6 +148,10 @@ export const chatMessageChain = new MessageChain({
         events: {
             blur: ()=> {chatPage.hideMessageChain()}
         },
+        sendButton: sendButton,
+        attachmentsButton: attachmentsButton,
+        senderName: senderName,
+        settingsButton: settingsButton
     }
 
 )
@@ -119,5 +163,6 @@ export const chatPage = new ChatPage({
     chatPlug: chatPlug,
     messageChain: chatMessageChain,
     settings: {withInternalID: true},
-    events: {},
+    events: {
+        blur: () => {}}
 });

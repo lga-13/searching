@@ -5,6 +5,9 @@ import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import SettingsPage from "./settings-page.ts";
 import btnback from "../../public/static/img/btn-back.svg";
+import Plug from "../../components/plug/plug.ts";
+import {changeDataForm} from "../../components/change-data-form/change-data-form-build.ts";
+import {changePasswordForm} from "../../components/change-password-form/change-password-form-build.ts";
 
 
 const  settingsImg = new Img(
@@ -98,7 +101,12 @@ const settingsDataLink = new Link(
         className: 'settings__change-data',
         href: '#',
         text: 'Изменить личные данные',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        events: {
+            click: () => {
+                settingsPage.showChangeDataForm()
+            }
+        }
     }
 )
 const settingsPasswordLink = new Link(
@@ -106,7 +114,12 @@ const settingsPasswordLink = new Link(
         className: 'settings__change-password',
         href: '#',
         text: 'Сменить пароль',
-        settings: {withInternalID: true}
+        settings: {withInternalID: true},
+        events: {
+            click: () => {
+                settingsPage.showChangePasswordForm()
+            }
+        }
     }
 )
 const settingsExitLink = new Link(
@@ -137,6 +150,12 @@ const settingsPlugLink = new Link(
     }
 )
 
+
+const settingsPlug = new Plug(
+    {className: "plug", plugLink: settingsPlugLink, settings: {withInternalID: true}}
+)
+
+
 export const settingsPage = new SettingsPage(
     {
         className: "settings-page",
@@ -155,6 +174,8 @@ export const settingsPage = new SettingsPage(
         settingsDataLink: settingsDataLink,
         settingsPasswordLink: settingsPasswordLink,
         buttonWithImg: buttonWithImg,
-        settingsPlugLink: settingsPlugLink,
+        settingsPlug: settingsPlug,
         settingsExitLink: settingsExitLink,
+        settingsChangeDataForm: changeDataForm,
+        settingsChangePasswordForm: changePasswordForm,
     })

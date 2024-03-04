@@ -1,6 +1,9 @@
 // language=hbs
 
+
 export default `
+    {{{ senderName }}}
+    {{{ settingsButton }}}
     {{#each messages}}
         
         {{#if me}}
@@ -15,5 +18,7 @@ export default `
         {{/if}}
         <p>
     {{/each}}
+    {{{ attachmentsButton }}}
     {{{ messageInput }}}
+    {{{ sendButton }}}
 `;
