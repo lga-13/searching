@@ -10,6 +10,7 @@ export default class Input extends Block {
             className: string,
             typeName: string,
             fieldName: string,
+            placeholder: string,
             text: string,
             settings: {withInternalID: true},
             events: {
