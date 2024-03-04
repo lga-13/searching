@@ -7,6 +7,7 @@ import Form from "../../components/base/base_form.ts";
 import Img from "../../components/img/img.ts";
 import Link from "../../components/links/link.ts";
 import ErrorMessage from "../../components/error-message/error-message.ts";
+import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
 
 export default class ChangeDataForm extends Form {
     constructor(props: {className: string, settings: {withInternalID: boolean},
@@ -15,7 +16,7 @@ export default class ChangeDataForm extends Form {
         changeDataFormNameInput: Input, nameErrorMessage: ErrorMessage, changeDataFormSecondNameLabel: Label,
         changeDataFormSecondNameInput: Input, secondNameErrorMessage: ErrorMessage, changeDataFormEmailLabel: Label,
         changeDataFormEmailInput: Input, emailErrorMessage: ErrorMessage, changeDataFormPhoneLabel: Label,
-        changeDataFormPhoneInput: Input, phoneErrorMessage: ErrorMessage, changeDataFormButton: Button, buttonWithImg: Img,
+        changeDataFormPhoneInput: Input, phoneErrorMessage: ErrorMessage, changeDataFormButton: Button, buttonWithImg: ButtonWithImg,
         changeDataFormLink: Link}) {
         super('div', props)
     }

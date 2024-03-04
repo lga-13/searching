@@ -90,6 +90,7 @@ const loginFormPasswordInput = new Input(
 const loginFormButton = new Button(
     {
         className: 'login-form__button',
+        typeName: 'submit',
         text: 'Авторизация',
         settings: {withInternalID: true},
         events: {

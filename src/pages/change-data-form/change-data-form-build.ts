@@ -8,6 +8,7 @@ import btnback from "../../public/static/img/btn-back.svg";
 import ChangeDataForm from "./change-data-form.ts";
 import Link from "../../components/links/link.ts";
 import ErrorMessage from "../../components/error-message/error-message.ts";
+import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
 
 // Заголовок формы регистрации
 const  changeDataFormImg = new Img(
@@ -190,6 +191,7 @@ const phoneErrorMessage = new ErrorMessage(
 const changeDataFormButton = new Button(
     {
         className: 'change-data-form__button',
+        typeName: 'submit',
         text: 'Сохранить',
         settings: {withInternalID: true},
         events: {
@@ -212,7 +214,7 @@ const changeDataFormButton = new Button(
             },
         }
     })
-const buttonWithImg = new Img(
+const buttonWithImg = new ButtonWithImg(
     {
         className: 'change-data-form__btn-back',
         typeName: 'button',

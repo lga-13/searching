@@ -116,6 +116,7 @@ const repeatNewPasswordErrorMessage = new ErrorMessage(
 const changePasswordFormButton = new Button(
     {
         className: 'change-password-form__button',
+        typeName: 'submit',
         text: 'Сохранить',
         settings: {withInternalID: true},
         events: {

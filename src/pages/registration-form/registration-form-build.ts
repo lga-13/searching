@@ -259,6 +259,7 @@ const repeatPasswordErrorMessage = new ErrorMessage(
 const registrationFormButton = new Button(
     {
         className: 'registration-form__button',
+        typeName: 'submit',
         text: 'Зарегистрироваться',
         settings: {withInternalID: true},
         events: {
