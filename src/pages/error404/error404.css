@@ -1,11 +1,11 @@
 @font-face {
     font-family: Manuale;
-    src: url("../../public/fonts/Manuale/Manuale-Medium.ttf")
+    src: url("../../public/static/fonts/Manuale/Manuale-Medium.ttf")
 }
 
 @font-face {
     font-family: Montserrate;
-    src: url("../../public/fonts/Montserrate/MontserratAlternates-Medium.ttf");
+    src: url("../../public/static/fonts/Montserrate/MontserratAlternates-Medium.ttf");
 }
 
 .error404 {

@@ -6,6 +6,9 @@ import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
 import ChangeDataForm from "./change-data-form.ts";
+import Link from "../../components/links/link.ts";
+import ErrorMessage from "../../components/error-message/error-message.ts";
+import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
 
 // Заголовок формы регистрации
 const  changeDataFormImg = new Img(
@@ -13,6 +16,14 @@ const  changeDataFormImg = new Img(
         className: 'change-data-form__img',
         srcName: avatar,
         altText: 'photo',
+        settings: {withInternalID: true}
+    }
+)
+const changeDataFormLink = new Link(
+    {
+        className: 'change-data-form__link-hide',
+        href: '#',
+        text: 'Сменить аватар',
         settings: {withInternalID: true}
     }
 )
@@ -26,6 +37,7 @@ const changeDataFormLoginLabel = new Label(
 const changeDataFormLoginInput = new Input(
     {
         className: 'change-data-form__input',
+        typeName: '',
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
@@ -38,6 +50,13 @@ const changeDataFormLoginInput = new Input(
                 changeDataFormNameInput.focus()
             }
         }
+    }
+)
+const loginErrorMessage = new ErrorMessage(
+    {
+        className: 'change-data-form__error-message',
+        errorMessage: 'логин введен неверно',
+        settings: {withInternalID: true}
     }
 )
 const changeDataFormNameLabel = new Label(
@@ -50,6 +69,7 @@ const changeDataFormNameLabel = new Label(
 const changeDataFormNameInput = new Input(
     {
         className: 'change-data-form__input',
+        typeName: '',
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
@@ -64,6 +84,13 @@ const changeDataFormNameInput = new Input(
         }
     }
 )
+const nameErrorMessage = new ErrorMessage(
+    {
+        className: 'change-data-form__error-message',
+        errorMessage: 'имя введено неверно',
+        settings: {withInternalID: true}
+    }
+)
 const changeDataFormSecondNameLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -74,6 +101,7 @@ const changeDataFormSecondNameLabel = new Label(
 const changeDataFormSecondNameInput = new Input(
     {
         className: 'change-data-form__input',
+        typeName: '',
         fieldName: "second_name",
         text: 'second-name',
         settings: {withInternalID: true},
@@ -88,6 +116,13 @@ const changeDataFormSecondNameInput = new Input(
         }
     }
 )
+const secondNameErrorMessage = new ErrorMessage(
+    {
+        className: 'change-data-form__error-message',
+        errorMessage: 'фамилия введена неверно',
+        settings: {withInternalID: true}
+    }
+)
 const changeDataFormEmailLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -98,6 +133,7 @@ const changeDataFormEmailLabel = new Label(
 const changeDataFormEmailInput = new Input(
     {
         className: 'change-data-form__input',
+        typeName: '',
         fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
@@ -113,6 +149,13 @@ const changeDataFormEmailInput = new Input(
         }
     }
 )
+const emailErrorMessage = new ErrorMessage(
+    {
+        className: 'change-data-form__error-message',
+        errorMessage: 'почта введена неверно',
+        settings: {withInternalID: true}
+    }
+)
 const changeDataFormPhoneLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -123,6 +166,7 @@ const changeDataFormPhoneLabel = new Label(
 const changeDataFormPhoneInput = new Input(
     {
         className: 'change-data-form__input',
+        typeName: '',
         fieldName: "phone",
         text: 'phone',
         settings: {withInternalID: true},
@@ -137,9 +181,17 @@ const changeDataFormPhoneInput = new Input(
         }
     }
 )
+const phoneErrorMessage = new ErrorMessage(
+    {
+        className: 'change-data-form__error-message',
+        errorMessage: 'телефон введен неверно',
+        settings: {withInternalID: true}
+    }
+)
 const changeDataFormButton = new Button(
     {
         className: 'change-data-form__button',
+        typeName: 'submit',
         text: 'Сохранить',
         settings: {withInternalID: true},
         events: {
@@ -162,7 +214,7 @@ const changeDataFormButton = new Button(
             },
         }
     })
-const buttonWithImg = new Img(
+const buttonWithImg = new ButtonWithImg(
     {
         className: 'change-data-form__btn-back',
         typeName: 'button',
@@ -181,14 +233,20 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormImg: changeDataFormImg,
         changeDataFormLoginLabel: changeDataFormLoginLabel,
         changeDataFormLoginInput: changeDataFormLoginInput,
+        loginErrorMessage: loginErrorMessage,
         changeDataFormNameLabel: changeDataFormNameLabel,
         changeDataFormNameInput: changeDataFormNameInput,
+        nameErrorMessage: nameErrorMessage,
         changeDataFormSecondNameLabel: changeDataFormSecondNameLabel,
         changeDataFormSecondNameInput: changeDataFormSecondNameInput,
+        secondNameErrorMessage: secondNameErrorMessage,
         changeDataFormEmailLabel: changeDataFormEmailLabel,
         changeDataFormEmailInput: changeDataFormEmailInput,
+        emailErrorMessage: emailErrorMessage,
         changeDataFormPhoneLabel: changeDataFormPhoneLabel,
         changeDataFormPhoneInput: changeDataFormPhoneInput,
+        phoneErrorMessage: phoneErrorMessage,
         changeDataFormButton: changeDataFormButton,
         buttonWithImg: buttonWithImg,
+        changeDataFormLink: changeDataFormLink,
     })

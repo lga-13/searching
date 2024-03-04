@@ -69,6 +69,15 @@
     margin-bottom: 30px;
 }
 
+.settings__change-exit{
+    display: flex;
+    justify-content: start;
+    font-size: 14px;
+    margin-top: 20px;
+    color: #DF6058;
+    margin-bottom: 30px;
+}
+
 .settings-window {
     width: 850px;
     height: 720px;

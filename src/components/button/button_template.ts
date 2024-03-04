@@ -1,7 +1,7 @@
 // language=hbs
 
 export default `
-<button class="{{ className }}">
+<button class="{{ className }}" type="{{ typeName }}">
     {{{ text }}}
 </button>
 `;

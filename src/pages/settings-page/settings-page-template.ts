@@ -21,6 +21,7 @@ export default `
             <hr>
             {{{ settingsDataLink }}}
             {{{ settingsPasswordLink }}}
+            {{{ settingsExitLink }}}
             {{{ buttonWithImg }}}    
         </form>
         <div class="settings-window">

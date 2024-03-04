@@ -7,6 +7,7 @@ import APIClient from "./clients/base/fetch.ts";
 import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
 import {chatList, chatMessageChain, chatPage} from "./pages/chat-page/chat-page-build.ts";
 import {changeDataForm} from "./pages/change-data-form/change-data-form-build.ts";
+import {changePasswordForm} from "./pages/change-password-form/change-password-form-build.ts";
 
 
 // render("#app", loginForm);
