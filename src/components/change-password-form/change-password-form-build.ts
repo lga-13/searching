@@ -163,4 +163,6 @@ export const changePasswordForm = new ChangePasswordForm(
         repeatNewPasswordErrorMessage: repeatNewPasswordErrorMessage,
         changePasswordFormButton: changePasswordFormButton,
         changePasswordButtonWithImg: changePasswordButtonWithImg,
+        events: {
+            blur: () => {changePasswordForm.hide()}}
     })

@@ -17,6 +17,7 @@ export default class ChangePasswordForm extends Form {
         super('div', props)
     }
     render() {
+        this.hide()
         return this.compile(greetings, this.props);
     }
 }

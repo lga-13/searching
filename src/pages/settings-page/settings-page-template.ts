@@ -25,7 +25,9 @@ export default `
             {{{ buttonWithImg }}}    
         </form>
         <div class="settings-window">
-            {{{ settingsPlugLink }}}
+            {{{ settingsPlug }}}
+            {{{ settingsChangeDataForm }}}
+            {{{ settingsChangePasswordForm }}}
         </div>
     </div>
 `;
