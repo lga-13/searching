@@ -22,7 +22,7 @@ export default `
             {{{ settingsDataLink }}}
             {{{ settingsPasswordLink }}}
             {{{ settingsExitLink }}}
-            {{{ buttonWithImg }}}    
+            {{{ buttonBlueBack }}}    
         </form>
         <div class="settings-window">
             {{{ settingsPlug }}}
