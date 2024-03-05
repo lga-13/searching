@@ -6,12 +6,16 @@ import "./login-form.css";
 export const loginForm = new Form(
     {
         className: "login-form",
-        titleClassName: 'login-form__title',
-        titleText: 'Войти',
-        titleTag: 'h2',
-        buttonClassName: 'login-form__button',
-        buttonTypeName: 'submit',
-        buttonText: 'Авторизация',
+        title: {
+            className: 'login-form__title',
+            text: 'Войти',
+            tag: 'h2',
+        },
+        button: {
+            className: 'login-form__button',
+            typeName: 'submit',
+            text: 'Войти'
+        },
         labelFieldClassName: 'login-form__label',
         inputFieldClassName: 'login-form__input',
         link: {
@@ -40,7 +44,6 @@ export const loginForm = new Form(
                 }
             }
         ],
-
     })
 
 

@@ -1,10 +1,10 @@
 import Block from "../base/block.ts";
-import Input from "../input/input.ts";
+import Input from "./field/input/input.ts";
 import Title from "../titles/title.ts";
 import Button from "../button/button.ts";
-import Label from "../label/label.ts";
-import Field from "../field/field.ts";
-import ErrorMessage from "../error-message/error-message.ts";
+import Label from "./field/label/label.ts";
+import Field from "./field/field.ts";
+import ErrorMessage from "./error-message/error-message.ts";
 import greetings from "./form-template.ts";
 import Link from "../links/link.ts";
 
@@ -23,14 +23,16 @@ export default class Form extends Block{
         inputFieldClassName: string,
         fields: {}
     }) {
-        props.formTitle = new Title(
-            {
-                className: props.titleClassName,
-                text: props.titleText,
-                settings: {withInternalID: true},
-                tag: props.titleTag
-            }
-        )
+        if (props.title) {
+            props.formTitle = new Title(
+                {
+                    className: props.title.className,
+                    text: props.title.text,
+                    settings: {withInternalID: true},
+                    tag: props.title.tag
+                }
+            )
+        }
         const currentErrorMessage = new ErrorMessage(
             {
                 className: 'login-form__error-message',
@@ -38,12 +40,13 @@ export default class Form extends Block{
                 settings: {withInternalID: true}
             }
         )
-        props.formButton = new Button(
+        if (props.button){
+            props.formButton = new Button(
             {
-                className: props.buttonClassName,
-                typeName: props.buttonTypeName,
+                className: props.button.className,
+                typeName: props.button.typeName,
                 settings: {withInternalID: true},
-                text: props.buttonText,
+                text: props.button.text,
                 events: {
                     click: () => {
                         // Проверка допустимой длины логина и пароля
@@ -53,7 +56,7 @@ export default class Form extends Block{
                         }
                 }
             }}
-        )
+        )}
         const formFields = []
         Object.values(props.fields).forEach(field => {
             const currentLabel = new Label({

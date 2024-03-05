@@ -1,14 +1,15 @@
 import Button from "../../components/button/button.ts";
-import Label from "../../components/label/label.ts";
-import Input from "../../components/input/input.ts";
+import Label from "../../components/form/field/label/label.ts";
+import Input from "../../components/form/field/input/input.ts";
 import {Validator} from "../../utils/field_validator.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
 import ChangeDataForm from "./change-data-form.ts";
 import Link from "../../components/links/link.ts";
-import ErrorMessage from "../../components/error-message/error-message.ts";
+import ErrorMessage from "../../components/form/error-message/error-message.ts";
 import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
+import Form from "../../components/form/form.ts";
 
 // Заголовок формы регистрации
 const  changeDataFormImg = new Img(
@@ -197,11 +198,13 @@ const changeDataFormButton = new Button(
         }
     })
 
-const buttonBlueBack = new Img(
+const buttonWithImg = new ButtonWithImg(
     {
         className: 'change-data-form__btn-back',
+        typeName: 'button',
+        href: '',
         srcName: btnback,
-        altText: 'btn',
+        alt: 'btn',
         settings: {withInternalID: true},
         events: {},
     }
@@ -228,7 +231,7 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormPhoneInput: changeDataFormPhoneInput,
         phoneErrorMessage: phoneErrorMessage,
         changeDataFormButton: changeDataFormButton,
-        buttonBlueBack: buttonBlueBack,
+        buttonWithImg: buttonWithImg,
         changeDataFormLink: changeDataFormLink,
         events: {}
     })

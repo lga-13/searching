@@ -1,7 +1,5 @@
 // language=hbs
 
-import MessageChain from "../../components/message_chain/message_chain.ts";
-
 export default `
     <div class="chats">
         <div class="chats-tape">

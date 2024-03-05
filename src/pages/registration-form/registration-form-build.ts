@@ -5,12 +5,16 @@ import "./registration-form.css";
 export const registrationForm = new Form(
     {
         className: "registration-form",
-        titleClassName: 'registration-form__title',
-        titleText: 'Регистрация',
-        titleTag: 'h2',
-        buttonClassName: 'registration-form__button',
-        buttonTypeName: 'submit',
-        buttonText: 'Зарегистрироваться',
+        title: {
+            className: 'registration-form__title',
+            text: 'Регистрация',
+            tag: 'h2'
+        },
+        button: {
+            className: 'registration-form__button',
+            typeName: 'submit',
+            text: 'Зарегистрироваться'
+        },
         labelFieldClassName: 'registration-form__label',
         inputFieldClassName: 'registration-form__input',
         link: {
@@ -69,5 +73,4 @@ export const registrationForm = new Form(
                 validator: Validator.validatePassword,
             }
         ],
-
     })

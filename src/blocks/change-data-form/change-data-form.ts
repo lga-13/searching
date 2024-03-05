@@ -1,12 +1,12 @@
 import "./change-data-form.css";
 import greetings from "./change-data-form-template.ts";
-import Label from "../../components/label/label.ts";
-import Input from "../../components/input/input.ts";
+import Label from "../../components/form/field/label/label.ts";
+import Input from "../../components/form/field/input/input.ts";
 import Button from "../../components/button/button.ts";
-import Form from "../form/form.ts";
+import Form from "../../components/form/form.ts";
 import Img from "../../components/img/img.ts";
 import Link from "../../components/links/link.ts";
-import ErrorMessage from "../../components/error-message/error-message.ts";
+import ErrorMessage from "../../components/form/error-message/error-message.ts";
 
 
 export default class ChangeDataForm extends Form {

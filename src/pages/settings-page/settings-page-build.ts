@@ -1,13 +1,13 @@
-import Label from "../../components/label/label.ts";
-import Input from "../../components/input/input.ts";
+import Label from "../../components/form/field/label/label.ts";
+import Input from "../../components/form/field/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import SettingsPage from "./settings-page.ts";
 import btnback from "../../public/static/img/btn-back.svg";
 import Plug from "../../components/plug/plug.ts";
-import {changeDataForm} from "../../components/change-data-form/change-data-form-build.ts";
-import {changePasswordForm} from "../../components/change-password-form/change-password-form-build.ts";
+import {changeDataForm} from "../../blocks/change-data-form/change-data-form-build.ts";
+import {changePasswordForm} from "../../blocks/change-password-form/change-password-form-build.ts";
 
 
 const  settingsImg = new Img(

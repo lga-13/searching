@@ -1,12 +1,12 @@
 import Button from "../../components/button/button.ts";
-import Label from "../../components/label/label.ts";
-import Input from "../../components/input/input.ts";
+import Label from "../../components/form/field/label/label.ts";
+import Input from "../../components/form/field/input/input.ts";
 import {Validator} from "../../utils/field_validator.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
 import ChangePasswordForm from "./change-password-form.ts";
-import ErrorMessage from "../../components/error-message/error-message.ts";
+import ErrorMessage from "../../components/form/error-message/error-message.ts";
 
 // Заголовок формы регистрации
 const  changePasswordFormImg = new Img(
