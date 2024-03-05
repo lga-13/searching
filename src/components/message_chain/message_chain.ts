@@ -4,10 +4,15 @@ import Input from "../input/input.ts";
 import Button from "../button/button.ts";
 import {attachmentsButton} from "../../pages/chat-page/chat-page-build.ts";
 import Title from "../titles/title.ts";
+import Img from "../img/img.ts";
 
 export default class MessageChain extends Block {
     constructor(
         props: {
+            srcName: string,
+            senderName: Title,
+            moreButton: Img,
+            dataTitle: Title,
             messages: {
                 text: string,
                 me: boolean,
@@ -20,8 +25,6 @@ export default class MessageChain extends Block {
             },
             sendButton: Button,
             attachmentsButton: Button,
-            senderName: Title,
-            settingsButton: Button
         }
     ) {
         super("div", props);

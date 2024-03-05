@@ -1,6 +1,6 @@
 @font-face {
     font-family: Manuale;
-    src: url("./../../public/fonts/Manuale/Manuale-Medium.ttf")
+    src: url("../../public/static/fonts/Manuale/Manuale-Medium.ttf")
 }
 
 .chats {
@@ -8,8 +8,6 @@
     flex-direction: row;
     width: 1280px;
     height: 720px;
-    margin-top: 250px;
-    margin-bottom: 250px;
 }
 
 .chats-tape {
@@ -20,6 +18,7 @@
 
 .chats__account-nav {
     display: flex;
+    justify-self: flex-end;
 }
 
 .chats__account {
@@ -28,8 +27,9 @@
     font-size: 12px;
     color: #757575;
     margin-top: 8px;
-    margin-left: auto;
+    margin-right: 0;
     padding-right: 10px;
+    margin-left: auto;
 }
 
 .chats__search-box {
@@ -68,13 +68,16 @@
     margin-top: 3px;
 }
 
-.chats-hr {
+hr {
     margin-top: 48px;
     width: 310px;
     color: #757575;
     margin-bottom: 0;
 }
 
+hr:first-of-type{
+    margin: 0;
+}
 .chats__message {
     display: flex;
     font-family: "Manuale", sans-serif;
@@ -182,3 +185,109 @@
     font-weight: 500;
     font-size: 14px;
 }
+
+/*стили для ленты переписки*/
+
+.message-chain{
+    width: 970px;
+    height: 720px;
+    border: none;
+    border-left: 1px solid #999999;
+}
+
+.message-chain__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 970px;
+    height: 72px;
+    margin-left: 10px;
+}
+
+.message-chain__data-sender{
+    display: flex;
+    align-items: center;
+}
+
+.message-chain__img{
+    width: 47px;
+    height: 47px;
+    margin-right: 10px;
+}
+
+.message-chain__header-title{
+    font-family: "Manuale", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.message-chain__more-button{
+    margin: 24px 20px 24px auto;
+}
+
+.message-chain__hr{
+    width: 970px;
+    margin-top: 72px;
+}
+
+.message-chain__message-chain{
+    width: 970px;
+    height: 597px;
+    background-color: rgba(116, 146, 102, 0.42);
+}
+
+.message-chain__data-title{
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    font-family: "Manuale", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #757575;
+}
+
+.message-chain__sender-message{
+    font-family: "Manuale", sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #575757;
+    text-align: left;
+    border: 1px solid #EBEBEB;
+    background-color: #EBEBEB;
+    border-radius: 10%;
+    padding: 10px;
+    display: inline-block;
+    max-width: 300px;
+    overflow-wrap: break-word;
+    margin-left: 15px;
+    float: left;
+    clear: both;
+}
+
+.message-chain__recipient-message{
+    font-family: "Manuale", sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #575757;
+    text-align: right;
+    border: 1px solid #EBEBEB;
+    background-color: #EBEBEB;
+    border-radius: 10%;
+    padding: 10px;
+    display: inline-block;
+    max-width: 300px;
+    overflow-wrap: break-word;
+    margin-right: 15px;
+    margin-top: 50px;
+    float: right;
+    clear: both;
+}
+
+.message-chain__time-message{
+    font-family: "Manuale", sans-serif;
+    font-weight: 500;
+    font-size: 9px;
+    color: #999999;
+    text-align: right;
+}
+

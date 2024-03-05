@@ -40,6 +40,7 @@ export default class Block {
         // Производим отсеивание пропсов и детей
         const {children, props} = this._getChildren(propsAndChildren);
         this.children = children;
+        console.log(children)
         // Запись в свойства
         this._meta = {
             tagName,
