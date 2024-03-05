@@ -2,7 +2,6 @@ import Block from "../base/block.ts";
 import Input from "../input/input.ts";
 import Title from "../titles/title.ts";
 import Button from "../button/button.ts";
-import {loginForm} from "../../pages/login-form/login-form-build.ts";
 import Label from "../label/label.ts";
 import Field from "../field/field.ts";
 import ErrorMessage from "../error-message/error-message.ts";
@@ -50,7 +49,7 @@ export default class Form extends Block{
                         // Проверка допустимой длины логина и пароля
                         if (this.validate()) {
                             console.log(this.get_data());
-                            loginForm.clear();
+                            this.clear();
                         }
                 }
             }}
