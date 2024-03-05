@@ -47,7 +47,6 @@ const changeDataFormLoginInput = new Input(
         validator: Validator.validateLogin,
     }
 )
-
 const loginErrorMessage = new ErrorMessage(
     {
         className: 'change-data-form__error-message',
@@ -72,6 +71,14 @@ const changeDataFormNameInput = new Input(
         text: 'first-name',
         settings: {withInternalID: true},
         validator: Validator.validateName,
+        events: {
+            blur: () => {
+                changeDataFormNameInput.validate()
+            },
+            focus: () => {
+                changeDataFormNameInput.focus()
+            }
+        }
     }
 )
 
@@ -99,6 +106,14 @@ const changeDataFormSecondNameInput = new Input(
         text: 'second-name',
         settings: {withInternalID: true},
         validator: Validator.validateName,
+        events: {
+            blur: () => {
+                changeDataFormSecondNameInput.validate()
+            },
+            focus: () => {
+                changeDataFormSecondNameInput.focus()
+            }
+        }
     }
 )
 
@@ -172,6 +187,7 @@ const changeDataFormButton = new Button(
         settings: {withInternalID: true},
         events: {
             click: () => {
+
                 // Проверка допустимой длины логина и пароля
                 if (changeDataForm.validate()) {
                     console.log(changeDataForm.get_data());
