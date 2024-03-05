@@ -246,7 +246,6 @@ export default class Block {
                 const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
                 console.log(child)
                 stub.replaceWith(child.getContent());
-                console.log("Ошибки не случилось")
             } else if (child instanceof Array) {
                 Object.values(child).forEach(child_object => {
                     const stub = fragment.content.querySelector(`[data_id="${child_object._id}"]`);

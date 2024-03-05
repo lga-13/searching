@@ -5,5 +5,6 @@ export default `
     {{{ label }}}
     {{{ input }}}
     {{{ errorMessage }}}
+    {{{ link }}}
 </div>
 `;

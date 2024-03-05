@@ -5,7 +5,7 @@ import Label from "../../components/label/label.ts";
 import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Button from "../../components/button/button.ts";
-import Form from "../../components/base/base_form.ts";
+import Form from "../../components/form/form.ts";
 import ErrorMessage from "../../components/error-message/error-message.ts";
 
 export default class RegistrationForm extends Form {

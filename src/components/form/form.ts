@@ -1,17 +1,18 @@
-import Block from "./block.ts";
+import Block from "../base/block.ts";
 import Input from "../input/input.ts";
 import Title from "../titles/title.ts";
 import Button from "../button/button.ts";
 import {loginForm} from "../../pages/login-form/login-form-build.ts";
 import Label from "../label/label.ts";
-import {Validator} from "../../utils/field_validator.ts";
 import Field from "../field/field.ts";
 import ErrorMessage from "../error-message/error-message.ts";
+import greetings from "./form-template.ts";
+import Link from "../links/link.ts";
 
 
 export default class Form extends Block{
 
-    constructor(tagName: string, props: {
+    constructor(props: {
         className: string,
         titleClassName: string,
         titleText: string,
@@ -69,10 +70,19 @@ export default class Form extends Block{
                     settings: {withInternalID: true}
                 }
             )
-
+            let currentLink = null
+            if (field.link) {
+                currentLink = new Link({
+                    className: field.link.className,
+                    href: field.link.href,
+                    text: field.link.text,
+                    settings: {withInternalID: true}
+                })
+            }
             const currentField = new Field({
                 label: currentLabel,
                 input: currentInput,
+                link: currentLink,
                 errorMessage: currentErrorMessage,
                 settings: {withInternalID: true}
             })
@@ -80,7 +90,7 @@ export default class Form extends Block{
         })
         props.settings = {withInternalID: true}
         props.formFields = formFields
-        super(tagName, props);
+        super("div", props);
     }
 
     clear() {
@@ -93,10 +103,12 @@ export default class Form extends Block{
 
     validate(): boolean {
         Object.values(this.children).forEach(child => {
-            if (child instanceof Input) {
-                if (!child.submit_validate()) {
-                    return false
-                }
+            if (child instanceof Array && child.every((item) => item instanceof Field)) {
+                Object.values(child).forEach(field => {
+                    if (!field.validate()) {
+                        return false
+                    }
+                })
             }
             return true
         });
@@ -113,5 +125,7 @@ export default class Form extends Block{
         })
         return current_condition
     }
-
+    render() {
+        return this.compile(greetings, this.props);
+    }
 }

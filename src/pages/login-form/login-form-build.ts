@@ -1,8 +1,9 @@
-import LoginForm from "../../pages/login-form/login-form.ts";
 import {Validator} from "../../utils/field_validator.ts";
+import Form from "../../components/form/form.ts";
+import "./login-form.css";
 
 
-export const loginForm = new LoginForm(
+export const loginForm = new Form(
     {
         className: "login-form",
         titleClassName: 'login-form__title',
@@ -19,14 +20,25 @@ export const loginForm = new LoginForm(
                 inputName: 'login',
                 inputType: 'text',
                 inputPlaceholder: "Укажите ваш логин",
-                validator: Validator.validateLogin
+                validator: Validator.validateLogin,
+                link: {
+                    className: 'login-form__forgot-password',
+                    href: '#',
+                    text: 'Забыли пароль?',
+                }
             },
             {
                 labelText: 'Пароль',
                 inputName: 'password',
                 inputType: 'text',
                 inputPlaceholder: "Укажите ваш пароль",
-                validator: Validator.validatePassword
+                validator: Validator.validatePassword,
+                link: {
+                    className: 'login-form__forgot-password',
+                    href: '#',
+                    text: 'Забыли пароль?',
+                }
             }
         ],
+
     })
