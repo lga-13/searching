@@ -22,6 +22,6 @@ export default `
         {{{ changeDataFormPhoneInput }}}
         {{{ phoneErrorMessage}}}
         {{{ changeDataFormButton }}}
-        {{{ buttonWithImg }}}
+        {{{ buttonBlueBack }}}
     </form>
 `;

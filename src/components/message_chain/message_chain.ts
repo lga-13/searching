@@ -23,8 +23,8 @@ export default class MessageChain extends Block {
             events: {
                 blur: ()=> void
             },
-            sendButton: Button,
-            attachmentsButton: Button,
+            sendButton: Img,
+            attachmentsButton: Img,
         }
     ) {
         super("div", props);

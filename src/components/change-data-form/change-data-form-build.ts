@@ -197,13 +197,11 @@ const changeDataFormButton = new Button(
         }
     })
 
-const buttonWithImg = new ButtonWithImg(
+const buttonBlueBack = new Img(
     {
         className: 'change-data-form__btn-back',
-        typeName: 'button',
-        href: '',
         srcName: btnback,
-        alt: 'btn',
+        altText: 'btn',
         settings: {withInternalID: true},
         events: {},
     }
@@ -230,7 +228,7 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormPhoneInput: changeDataFormPhoneInput,
         phoneErrorMessage: phoneErrorMessage,
         changeDataFormButton: changeDataFormButton,
-        buttonWithImg: buttonWithImg,
+        buttonBlueBack: buttonBlueBack,
         changeDataFormLink: changeDataFormLink,
         events: {}
     })
