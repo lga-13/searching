@@ -10,7 +10,6 @@ export default `
             </div>
             {{{ moreButton }}}
         </div>
-        <hr class="message-chain__hr">
         <div class="message-chain__message-chain">
             {{{ dataTitle }}}
             {{#each messages}}
@@ -33,10 +32,11 @@ export default `
                 {{/if}}
                 <br>
             {{/each}}
-            <hr class="message-chain__hr-bottom">
         </div>
-        {{{ attachmentsButton }}}
-        {{{ messageInput }}}
-        {{{ sendButton }}}
+        <div class="message-chain__message-field">
+            {{{ attachmentsButton }}}
+            {{{ messageInput }}}
+            {{{ sendButton }}}
+        </div>
     </div>
 `;

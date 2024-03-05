@@ -9,7 +9,7 @@ import {chatList, chatMessageChain, chatPage} from "./pages/chat-page/chat-page-
 
 
 // render("#app", loginForm);
-    render("#app", registrationForm)
+    render("#app", chatPage)
 
 
 // const client = new APIClient();
