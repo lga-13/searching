@@ -3,7 +3,27 @@ import greetings from "./plug-template.ts";
 import Link from "../links/link.ts";
 
 export default class Plug extends Block {
-    constructor(props: {className: string, plugLink: Link, settings: {withInternalID: boolean}}) {
+    constructor(
+        props: {
+            className: string,
+            plugLink: {
+                className:string,
+                href: string,
+                text: string,
+                settings: {withInternalID: boolean}
+            }}
+            )
+    {
+
+        const plugLink = new Link({
+            className: props.plugLink.className,
+            href: props.plugLink.href,
+            settings: {withInternalID: true},
+            text: props.plugLink.text
+
+        })
+        props.plugLink = plugLink
+        props.settings = {withInternalID: true}
         super("div", props);
     }
     render() {

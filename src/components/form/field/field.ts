@@ -1,8 +1,8 @@
-import Block from "../base/block.ts";
+import Block from "../../base/block.ts";
 import greetings from "./field_template.ts"
-import Label from "../label/label.ts";
-import Input from "../input/input.ts";
-import Link from "../links/link.ts";
+import Label from "./label/label.ts";
+import Input from "./input/input.ts";
+import Link from "../../links/link.ts";
 
 
 export default class Field extends Block {

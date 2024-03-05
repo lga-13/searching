@@ -1,10 +1,10 @@
 import Block from "../base/block.ts";
-import Input from "../input/input.ts";
+import Input from "./field/input/input.ts";
 import Title from "../titles/title.ts";
 import Button from "../button/button.ts";
-import Label from "../label/label.ts";
-import Field from "../field/field.ts";
-import ErrorMessage from "../error-message/error-message.ts";
+import Label from "./field/label/label.ts";
+import Field from "./field/field.ts";
+import ErrorMessage from "./error-message/error-message.ts";
 import greetings from "./form-template.ts";
 import Link from "../links/link.ts";
 

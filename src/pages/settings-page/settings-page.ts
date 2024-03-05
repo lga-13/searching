@@ -1,12 +1,12 @@
 import "./settings-page.css";
 import Block from "../../components/base/block.ts";
 import Img from "../../components/img/img.ts";
-import Label from "../../components/label/label.ts";
-import Input from "../../components/input/input.ts";
+import Label from "../../components/form/field/label/label.ts";
+import Input from "../../components/form/field/input/input.ts";
 import Link from "../../components/links/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
-import ChangeDataForm from "../../components/change-data-form/change-data-form.ts";
+import ChangeDataForm from "../../blocks/change-data-form/change-data-form.ts";
 
 
 export default class SettingsPage extends Block {

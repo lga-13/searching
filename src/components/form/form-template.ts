@@ -7,6 +7,6 @@ export default `
             {{{ this }}}
         {{/each}}
         {{{ formButton }}}
-        {{{ formLink }}}
+            {{{ formLink }}}
     </div>
 `;

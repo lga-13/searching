@@ -73,5 +73,4 @@ export const registrationForm = new Form(
                 validator: Validator.validatePassword,
             }
         ],
-
     })

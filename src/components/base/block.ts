@@ -248,10 +248,14 @@ export default class Block {
                 console.log(child)
                 stub.replaceWith(child.getContent());
             } else if (child instanceof Array) {
+                console.log("ЗАШЛИИИИИИИ")
+                console.log(fragment.innerHTML)
                 Object.values(child).forEach(child_object => {
                     const stub = fragment.content.querySelector(`[data_id="${child_object._id}"]`);
                     stub.replaceWith(child_object.getContent());
                 })
+                console.log("ЗАШЛИИИИИИИ")
+                console.log(fragment)
             }
         });
 
