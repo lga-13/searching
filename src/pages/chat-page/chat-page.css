@@ -251,7 +251,8 @@ hr:first-of-type{
     text-align: left;
     border: 1px solid #EBEBEB;
     background-color: #EBEBEB;
-    border-radius: 20px;
+    border-radius: 15px;
+    min-width: 25px;
     padding: 10px;
     display: inline-block;
     max-width: 300px;
@@ -269,9 +270,10 @@ hr:first-of-type{
     text-align: right;
     border: 1px solid #EBEBEB;
     background-color: #EBEBEB;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 10px;
     display: inline-block;
+    min-width: 25px;
     max-width: 300px;
     overflow-wrap: break-word;
     margin-right: 15px;
