@@ -13,6 +13,8 @@ import chat2 from "../../public/static/img/chat2.svg";
 import Img from "../../components/img/img.ts";
 import btnback from "../../public/static/img/btn-back.svg";
 import morebtn from "../../public/static/img/more-btn.svg";
+import attachbtn from "../../public/static/img/attachment.svg";
+import sendbtn from "../../public/static/img/sendbtn.svg";
 
 
 export const chatList = new ChatList({
@@ -80,36 +82,38 @@ export const chatPlug = new Plug({
 
 
 export const messageInput = new Input({
-    className: "chats__search-input",
+    className: "message-chain__message_input",
     fieldName: "message",
-    placeholder: "Введите сообщение",
+    inputPlaceholder: "Cообщение",
     events: {
         blur: ()=> {},
         focus: () => {}
     },
     settings: {withInternalID: true},
-    text: "Введите сообщение",
+    text: "Cообщение",
     validator: Validator.validateMessage
 })
 
 
-export const sendButton = new Button(
+export const sendButton = new Img(
     {
-        className: "button",
-        typeName: "button",
-        text: "->",
-        settings: {withInternalID: true},
-        events: {click: ()=>{}}}
+        className: 'message-chain__send-button',
+        srcName: sendbtn,
+        altText: 'btn',
+        events: {click: ()=>{}},
+        settings: {withInternalID: true}
+    }
 )
 
 
-export const attachmentsButton = new Button(
+export const attachmentsButton = new Img(
     {
-        className: "button",
-        typeName: "button",
-        text: "+",
+        className: 'message-chain__attachment-button',
+        srcName: attachbtn,
+        altText: 'btn',
         settings: {withInternalID: true},
-        events: {click: ()=>{}}}
+        events: {click: ()=>{}}
+    }
 )
 
 
@@ -126,7 +130,7 @@ const moreButton = new Img(
         srcName: morebtn,
         altText: 'btn',
         settings: {withInternalID: true},
-        events: {},
+        events: {click: ()=>{}}
     }
 )
 
@@ -162,13 +166,12 @@ export const chatMessageChain = new MessageChain({
 
         ],
         settings: {withInternalID: true},
-        messageInput: messageInput,
         events: {
             blur: ()=> {chatPage.hideMessageChain()}
         },
-
-        sendButton: sendButton,
         attachmentsButton: attachmentsButton,
+        messageInput: messageInput,
+        sendButton: sendButton,
     }
 
 )

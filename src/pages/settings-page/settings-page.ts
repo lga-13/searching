@@ -29,7 +29,7 @@ export default class SettingsPage extends Block {
             settingsDataLink: Link,
             settingsPasswordLink: Link,
             settingsExitLink: Link,
-            buttonWithImg: Img,
+            buttonBlueBack: Img,
             settingsPlug: Plug,
             settingsChangeDataForm: ChangeDataForm,
             settingsChangePasswordForm: ChangeDataForm

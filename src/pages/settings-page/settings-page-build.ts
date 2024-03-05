@@ -130,13 +130,11 @@ const settingsExitLink = new Link(
         settings: {withInternalID: true}
     }
 )
-const buttonWithImg = new Img(
+const buttonBlueBack = new Img(
     {
         className: 'settings__btn-back',
-        typeName: 'button',
-        href: '',
         srcName: btnback,
-        alt: 'btn',
+        altText: 'btn',
         settings: {withInternalID: true},
         events: {},
     }
@@ -173,7 +171,7 @@ export const settingsPage = new SettingsPage(
         settingsPhoneInput: settingsPhoneInput,
         settingsDataLink: settingsDataLink,
         settingsPasswordLink: settingsPasswordLink,
-        buttonWithImg: buttonWithImg,
+        buttonBlueBack: buttonBlueBack,
         settingsPlug: settingsPlug,
         settingsExitLink: settingsExitLink,
         settingsChangeDataForm: changeDataForm,

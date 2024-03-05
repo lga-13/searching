@@ -13,6 +13,6 @@ export default `
         {{{ repeatNewPasswordInput }}}
         {{{ repeatNewPasswordErrorMessage }}}
         {{{ changePasswordFormButton }}}
-        {{{ changePasswordButtonWithImg }}}
+        {{{ buttonBlueBack }}}
     </form>
 `;

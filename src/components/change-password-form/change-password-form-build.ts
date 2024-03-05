@@ -135,7 +135,7 @@ const changePasswordFormButton = new Button(
             },
         }
     })
-const changePasswordButtonWithImg = new Img(
+const buttonBlueBack = new Img(
     {
         className: 'change-password-form__btn-back',
         typeName: 'button',
@@ -162,7 +162,7 @@ export const changePasswordForm = new ChangePasswordForm(
         repeatNewPasswordInput: repeatNewPasswordInput,
         repeatNewPasswordErrorMessage: repeatNewPasswordErrorMessage,
         changePasswordFormButton: changePasswordFormButton,
-        changePasswordButtonWithImg: changePasswordButtonWithImg,
+        buttonBlueBack: buttonBlueBack,
         events: {
             blur: () => {changePasswordForm.hide()}}
     })
