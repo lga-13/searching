@@ -34,18 +34,7 @@ const registrationFormEmailInput = new Input(
         fieldName: "email",
         text: 'email',
         settings: {withInternalID: true},
-        validator: Validator.validateEmail,
-        events: {
-                blur: () => {
-                        if (!registrationFormEmailInput.already_check && !Validator.validateEmail(registrationFormEmailInput.getInputValue())) {
-                                registrationFormEmailInput.already_check = true
-                                return;
-                        }
-                },
-                focus: () => {
-                        registrationFormEmailInput.already_check = false
-                }
-        }
+        validator: Validator.validateEmail
     }
 )
 const emailErrorMessage = new ErrorMessage(
@@ -70,18 +59,7 @@ const registrationFormLoginInput = new Input(
         fieldName: "login",
         text: 'login',
         settings: {withInternalID: true},
-        validator: Validator.validateLogin,
-        events: {
-                blur: () => {
-                        if (!registrationFormLoginInput.already_check && !Validator.validateLogin(registrationFormLoginInput.getInputValue())) {
-                                registrationFormLoginInput.already_check = true
-                                return;
-                        }
-                },
-                focus: () => {
-                        registrationFormLoginInput.already_check = false
-                }
-        }
+        validator: Validator.validateLogin
     }
 )
 const loginErrorMessage = new ErrorMessage(
@@ -106,15 +84,7 @@ const registrationFormNameInput = new Input(
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
-        validator: Validator.validateName,
-        events: {
-                blur: () => {
-                        registrationFormNameInput.validate()
-                },
-                focus: () => {
-                        registrationFormNameInput.focus()
-                }
-        }
+        validator: Validator.validateName
     }
 )
 const nameErrorMessage = new ErrorMessage(
@@ -139,15 +109,7 @@ const registrationFormSecondNameInput = new Input(
         fieldName: "second_name",
         text: 'second-name',
         settings: {withInternalID: true},
-        validator: Validator.validateName,
-        events: {
-                blur: () => {
-                        registrationFormSecondNameInput.validate()
-                },
-                focus: () => {
-                        registrationFormSecondNameInput.focus()
-                }
-        }
+        validator: Validator.validateName
     }
 )
 const secondNameErrorMessage = new ErrorMessage(
@@ -172,15 +134,7 @@ const registrationFormPhoneInput = new Input(
         fieldName: "phone",
         text: 'phone',
         settings: {withInternalID: true},
-        validator: Validator.validatePhone,
-        events: {
-                blur: () => {
-                        registrationFormPhoneInput.validate()
-                },
-                focus: () => {
-                        registrationFormPhoneInput.focus()
-                }
-        }
+        validator: Validator.validatePhone
         }
 )
 const phoneErrorMessage = new ErrorMessage(
@@ -205,15 +159,7 @@ const registrationFormPasswordInput = new Input(
         fieldName: "password",
         text: 'password',
         settings: {withInternalID: true},
-        validator: Validator.validatePassword,
-        events: {
-                blur: () => {
-                        registrationFormPasswordInput.validate()
-                },
-                focus: () => {
-                        registrationFormPasswordInput.focus()
-                }
-        }
+        validator: Validator.validatePassword
     }
 )
 const passwordErrorMessage = new ErrorMessage(
@@ -238,15 +184,7 @@ const registrationFormRepeatPasswordInput = new Input(
         className: 'registration-form__input',
         text: 'repeat password',
         settings: {withInternalID: true},
-        validator: Validator.validatePassword,
-        events: {
-                blur: () => {
-                        registrationFormRepeatPasswordInput.validate()
-                },
-                focus: () => {
-                        registrationFormRepeatPasswordInput.focus()
-                }
-        }
+        validator: Validator.validatePassword
     }
 )
 const repeatPasswordErrorMessage = new ErrorMessage(
@@ -296,7 +234,6 @@ const registrationFormLoginLink = new Link(
 export const registrationForm = new RegistrationForm(
     {
         className: "registration-form",
-        settings: {withInternalID: true},
         registrationTitle: registrationTitle,
         registrationFormEmailLabel: registrationFormEmailLabel,
         registrationFormEmailInput: registrationFormEmailInput,

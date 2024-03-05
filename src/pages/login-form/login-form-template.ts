@@ -3,14 +3,11 @@
 export default `
     <div class="{{className}}">
         {{{ formTitle }}}
-        {{{ formLoginLabel }}}
-        {{{ formLoginInput }}}
-        {{{ loginErrorMessage}}}
-        {{{ formPasswordLabel }}}
-        {{{ formPasswordInput }}}
-        {{{ passwordErrorMessage }}}
+        {{#each formFields}}
+            {{{ this }}}
+        {{/each}}
         {{{ loginFormPasswordLink }}}
-        {{{ loginFormButton }}}
+        {{{ formButton }}}
         {{{ loginFormLink }}}
     </div>
 `;

@@ -66,7 +66,9 @@ export default class Block {
         const props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
-            if (value instanceof Block )  {
+            if (value instanceof Block)  {
+                children[key] = value;
+            } else if (value instanceof Array && value.every((item) => item instanceof Block)) {
                 children[key] = value;
             } else {
                 props[key] = value;
@@ -218,10 +220,20 @@ export default class Block {
 
 
     compile(template, props) {
+
+        // Копия пропсов
         const propsAndStubs = { ...props };
 
         Object.entries(this.children).forEach(([key, child]) => {
-            propsAndStubs[key] = `<div data_id="${child._id}"></div>`
+            if (child instanceof Block) {
+                propsAndStubs[key] = `<div data_id="${child._id}"></div>`
+            } else if (child instanceof Array) {
+                const result: Block[] = []
+                Object.values(child).forEach(child_object => {
+                    result.push(`<div data_id="${child_object._id}"></div>`)
+                })
+                propsAndStubs[key] = result
+            }
         });
 
         const fragment = this._createDocumentElement('template')
@@ -229,10 +241,18 @@ export default class Block {
         const currentTemplate = Handlebars.compile(template)
 
         fragment.innerHTML = currentTemplate(propsAndStubs);
-        console.log(this.children)
         Object.values(this.children).forEach(child => {
-            const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
-            stub.replaceWith(child.getContent());
+            if (child instanceof Block) {
+                const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
+                console.log(child)
+                stub.replaceWith(child.getContent());
+                console.log("Ошибки не случилось")
+            } else if (child instanceof Array) {
+                Object.values(child).forEach(child_object => {
+                    const stub = fragment.content.querySelector(`[data_id="${child_object._id}"]`);
+                    stub.replaceWith(child_object.getContent());
+                })
+            }
         });
 
         return fragment.content;

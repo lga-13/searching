@@ -10,8 +10,17 @@ import ErrorMessage from "../../components/error-message/error-message.ts";
 
 export default class LoginForm extends Form {
 
-    constructor(props: {className: string, settings: {withInternalID: true}, formTitle: Title, formLoginLabel: Label, formPasswordLabel: Label,
-        formLoginInput: Input, formPasswordInput: Input, loginFormButton: Button, loginFormLink: Link, loginFormPasswordLink: Link, passwordErrorMessage: ErrorMessage, loginErrorMessage: ErrorMessage}) {
+    constructor(
+        props: {
+            className: string,
+            titleClassName: string,
+            titleText: string,
+            titleTag: string,
+            buttonClassName: string,
+            buttonTypeName: string,
+            buttonText: string,
+        }
+    ) {
         // Создаём враппер DOM-элемент button
         super("div", props);
     }
