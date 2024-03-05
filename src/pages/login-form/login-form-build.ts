@@ -40,7 +40,6 @@ export const loginForm = new Form(
                 }
             }
         ],
-
     })
 
 

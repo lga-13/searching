@@ -9,6 +9,7 @@ import ChangeDataForm from "./change-data-form.ts";
 import Link from "../../components/links/link.ts";
 import ErrorMessage from "../../components/error-message/error-message.ts";
 import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
+import Form from "../form/form.ts";
 
 // Заголовок формы регистрации
 const  changeDataFormImg = new Img(
@@ -209,28 +210,67 @@ const buttonWithImg = new ButtonWithImg(
     }
 )
 
-export const changeDataForm = new ChangeDataForm(
+
+export const change_data_form = new Form(
     {
-        className: "change-data-form",
-        settings: {withInternalID: true},
-        changeDataFormImg: changeDataFormImg,
-        changeDataFormLoginLabel: changeDataFormLoginLabel,
-        changeDataFormLoginInput: changeDataFormLoginInput,
-        loginErrorMessage: loginErrorMessage,
-        changeDataFormNameLabel: changeDataFormNameLabel,
-        changeDataFormNameInput: changeDataFormNameInput,
-        nameErrorMessage: nameErrorMessage,
-        changeDataFormSecondNameLabel: changeDataFormSecondNameLabel,
-        changeDataFormSecondNameInput: changeDataFormSecondNameInput,
-        secondNameErrorMessage: secondNameErrorMessage,
-        changeDataFormEmailLabel: changeDataFormEmailLabel,
-        changeDataFormEmailInput: changeDataFormEmailInput,
-        emailErrorMessage: emailErrorMessage,
-        changeDataFormPhoneLabel: changeDataFormPhoneLabel,
-        changeDataFormPhoneInput: changeDataFormPhoneInput,
-        phoneErrorMessage: phoneErrorMessage,
-        changeDataFormButton: changeDataFormButton,
-        buttonWithImg: buttonWithImg,
-        changeDataFormLink: changeDataFormLink,
-        events: {}
+        className: "login-form",
+        titleClassName: 'login-form__title',
+        titleText: 'Войти',
+        titleTag: 'h2',
+        buttonClassName: 'change-data-form__btn-back',
+        buttonTypeName: 'submit',
+        buttonText: 'Авторизация',
+        labelFieldClassName: 'login-form__label',
+        inputFieldClassName: 'login-form__input',
+        link: {
+            className: 'login-form__registration',
+            href: '#',
+            text: 'Еще не зарегестрированы?',
+        },
+        fields: [
+            {
+                labelText: 'Логин',
+                inputName: 'login',
+                inputType: 'text',
+                inputPlaceholder: "Укажите ваш логин",
+                validator: Validator.validateLogin,
+            },
+            {
+                labelText: 'Пароль',
+                inputName: 'password',
+                inputType: 'text',
+                inputPlaceholder: "Укажите ваш пароль",
+                validator: Validator.validatePassword,
+                link: {
+                    className: 'login-form__forgot-password',
+                    href: '#',
+                    text: 'Забыли пароль?',
+                }
+            }
+        ],
     })
+// export const changeDataForm = new ChangeDataForm(
+//     {
+//         className: "change-data-form",
+//         settings: {withInternalID: true},
+//         changeDataFormImg: changeDataFormImg,
+//         changeDataFormLoginLabel: changeDataFormLoginLabel,
+//         changeDataFormLoginInput: changeDataFormLoginInput,
+//         loginErrorMessage: loginErrorMessage,
+//         changeDataFormNameLabel: changeDataFormNameLabel,
+//         changeDataFormNameInput: changeDataFormNameInput,
+//         nameErrorMessage: nameErrorMessage,
+//         changeDataFormSecondNameLabel: changeDataFormSecondNameLabel,
+//         changeDataFormSecondNameInput: changeDataFormSecondNameInput,
+//         secondNameErrorMessage: secondNameErrorMessage,
+//         changeDataFormEmailLabel: changeDataFormEmailLabel,
+//         changeDataFormEmailInput: changeDataFormEmailInput,
+//         emailErrorMessage: emailErrorMessage,
+//         changeDataFormPhoneLabel: changeDataFormPhoneLabel,
+//         changeDataFormPhoneInput: changeDataFormPhoneInput,
+//         phoneErrorMessage: phoneErrorMessage,
+//         changeDataFormButton: changeDataFormButton,
+//         buttonWithImg: buttonWithImg,
+//         changeDataFormLink: changeDataFormLink,
+//         events: {}
+//     })
