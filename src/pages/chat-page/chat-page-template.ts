@@ -14,9 +14,12 @@ export default `
                     <img src="/src/public/static/img/search.svg" alt="search">
                 </button>
             </form>
+            {{{ chatAvatarImg }}}
             {{{ chatsList }}}
         </div>
-        {{{ messageChain }}}
+        <div class="message-chain">
+            {{{ messageChain }}}
+        </div>
         {{{ chatPlug }}}
     </div>
 `

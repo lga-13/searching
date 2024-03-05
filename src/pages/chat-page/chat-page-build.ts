@@ -8,10 +8,17 @@ import MessageChain from "../../components/message_chain/message_chain.ts";
 import {Validator} from "../../utils/field_validator.ts";
 import Button from "../../components/button/button.ts";
 import Title from "../../components/titles/title.ts";
+import chat1 from "../../public/static/img/chat1.svg";
+import chat2 from "../../public/static/img/chat2.svg";
+import Img from "../../components/img/img.ts";
+import btnback from "../../public/static/img/btn-back.svg";
+import morebtn from "../../public/static/img/more-btn.svg";
+
 
 export const chatList = new ChatList({
     chats: [
         {
+            srcName: chat2,
             index: 1,
             sender: "Мама",
             your: "Вы",
@@ -20,6 +27,7 @@ export const chatList = new ChatList({
             count: 1
         },
         {
+            srcName: chat2,
             index: 2,
             sender: "Папа",
             your: "Вы",
@@ -39,7 +47,6 @@ export const chatList = new ChatList({
 export const chatSearch = new Input({
     className: "chats__search-input",
     fieldName: "chat_search",
-    typeName: "text",
     text: "text",
     settings: {withInternalID: true},
     placeholder: "Поиск",
@@ -74,7 +81,6 @@ export const chatPlug = new Plug({
 
 export const messageInput = new Input({
     className: "chats__search-input",
-    typeName: "text",
     fieldName: "message",
     placeholder: "Введите сообщение",
     events: {
@@ -108,22 +114,35 @@ export const attachmentsButton = new Button(
 
 
 export const senderName = new Title(
-    {className: "verkhniy-brat", text: "Брат", settings: {withInternalID: true}, tag: "h1"}
+    {className: "message-chain__header-title",
+            text: "Брат",
+            settings: {withInternalID: true},
+            tag: "h3"}
 )
 
-
-export const settingsButton = new Button(
+const moreButton = new Img(
     {
-        className: "button",
-        typeName: "button",
-        text: "->",
+        className: 'message-chain__more-button',
+        srcName: morebtn,
+        altText: 'btn',
         settings: {withInternalID: true},
-        events: {click: ()=>{}}}
+        events: {},
+    }
 )
 
-
+const dataTitle = new Title(
+    {
+        className: 'message-chain__data-title',
+        text: '5 марта',
+        settings: {withInternalID: true},
+        tag: 'p',
+})
 
 export const chatMessageChain = new MessageChain({
+        srcName: chat2,
+        senderName: senderName,
+        moreButton: moreButton,
+        dataTitle: dataTitle,
         messages: [
             {
                 me: false,
@@ -147,10 +166,9 @@ export const chatMessageChain = new MessageChain({
         events: {
             blur: ()=> {chatPage.hideMessageChain()}
         },
+
         sendButton: sendButton,
         attachmentsButton: attachmentsButton,
-        senderName: senderName,
-        settingsButton: settingsButton
     }
 
 )

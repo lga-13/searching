@@ -5,11 +5,13 @@ import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Plug from "../../components/plug/plug.ts";
 import MessageChain from "../../components/message_chain/message_chain.ts";
+import Img from "../../components/img/img.ts";
 
 
 export default class ChatPage extends Block {
     constructor(
         props: {
+            chatAvatarImg: Img,
             chatsList: ChatList,
             chatPlug: Plug
             accountLink: Link,

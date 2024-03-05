@@ -5,7 +5,7 @@ export default `
         {{#each chats}}
             <hr>
             <div class="chats__message">
-                <img class="chats__img" src="/public/static/img/chat{{index}}.svg" alt="photo">
+                <img class="chats__img" src="{{srcName}}" alt="btn"/>
                 <div class="chats__text">
                     <span class="chats__message-sender">{{sender}}</span>
                     <div class="chats__message-answer">
