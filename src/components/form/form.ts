@@ -32,6 +32,13 @@ export default class Form extends Block{
                 tag: props.titleTag
             }
         )
+        const currentErrorMessage = new ErrorMessage(
+            {
+                className: 'login-form__error-message',
+                errorMessage: 'логин введен неверно',
+                settings: {withInternalID: true}
+            }
+        )
         props.formButton = new Button(
             {
                 className: props.buttonClassName,
@@ -63,13 +70,7 @@ export default class Form extends Block{
                 settings: {withInternalID: true},
                 validator: field.validator,
             })
-            const currentErrorMessage = new ErrorMessage(
-                {
-                    className: 'login-form__error-message',
-                    errorMessage: 'логин введен неверно',
-                    settings: {withInternalID: true}
-                }
-            )
+
             let currentLink = null
             if (field.link) {
                 currentLink = new Link({
@@ -88,6 +89,17 @@ export default class Form extends Block{
             })
             formFields.push(currentField)
         })
+
+        if (props.link) {
+            props.formLink = new Link(
+            {
+                className: props.link.className,
+                href: props.link.href,
+                text: props.link.text,
+                settings: {withInternalID: true}
+            }
+        )}
+
         props.settings = {withInternalID: true}
         props.formFields = formFields
         super("div", props);

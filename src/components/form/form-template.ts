@@ -6,8 +6,7 @@ export default `
         {{#each formFields}}
             {{{ this }}}
         {{/each}}
-        {{{ loginFormPasswordLink }}}
         {{{ formButton }}}
-        {{{ loginFormLink }}}
+        {{{ formLink }}}
     </div>
 `;

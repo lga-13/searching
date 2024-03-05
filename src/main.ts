@@ -6,7 +6,7 @@ import {render} from "./utils/render.ts";
 // import APIClient from "./clients/base/fetch.ts";
 // import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
 // import {chatList, chatMessageChain, chatPage} from "./pages/chat-page/chat-page-build.ts";
-import {loginForm} from "./pages/login-form/login-form-build.ts";
+import {currentErrorMessage, loginForm} from "./pages/login-form/login-form-build.ts";
 
 
 // render("#app", loginForm);
