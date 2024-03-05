@@ -91,8 +91,8 @@ const repeatNewPasswordLabel = new Label(
 const repeatNewPasswordInput = new Input(
     {
         className: 'change-password-form__input',
-        typeName: 'password',
         fieldName: "repeat_new_password",
+        placeholder: '',
         text: 'repeat_new_password',
         settings: {withInternalID: true},
         validator: Validator.validateName,

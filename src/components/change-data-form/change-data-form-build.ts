@@ -19,6 +19,7 @@ const  changeDataFormImg = new Img(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormLink = new Link(
     {
         className: 'change-data-form__link-hide',
@@ -27,6 +28,7 @@ const changeDataFormLink = new Link(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormLoginLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -34,22 +36,15 @@ const changeDataFormLoginLabel = new Label(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormLoginInput = new Input(
     {
         className: 'change-data-form__input',
-        typeName: '',
+        placeholder: "login",
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
-        validator: Validator.validateName,
-        events: {
-            blur: () => {
-                changeDataFormNameInput.validate()
-            },
-            focus: () => {
-                changeDataFormNameInput.focus()
-            }
-        }
+        validator: Validator.validateLogin,
     }
 )
 const loginErrorMessage = new ErrorMessage(
@@ -59,6 +54,7 @@ const loginErrorMessage = new ErrorMessage(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormNameLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -66,10 +62,11 @@ const changeDataFormNameLabel = new Label(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormNameInput = new Input(
     {
         className: 'change-data-form__input',
-        typeName: '',
+        placeholder: "name",
         fieldName: "first_name",
         text: 'first-name',
         settings: {withInternalID: true},
@@ -84,6 +81,7 @@ const changeDataFormNameInput = new Input(
         }
     }
 )
+
 const nameErrorMessage = new ErrorMessage(
     {
         className: 'change-data-form__error-message',
@@ -91,6 +89,7 @@ const nameErrorMessage = new ErrorMessage(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormSecondNameLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -98,10 +97,11 @@ const changeDataFormSecondNameLabel = new Label(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormSecondNameInput = new Input(
     {
         className: 'change-data-form__input',
-        typeName: '',
+        placeholder: "second_name",
         fieldName: "second_name",
         text: 'second-name',
         settings: {withInternalID: true},
@@ -116,6 +116,7 @@ const changeDataFormSecondNameInput = new Input(
         }
     }
 )
+
 const secondNameErrorMessage = new ErrorMessage(
     {
         className: 'change-data-form__error-message',
@@ -123,6 +124,7 @@ const secondNameErrorMessage = new ErrorMessage(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormEmailLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -130,25 +132,18 @@ const changeDataFormEmailLabel = new Label(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormEmailInput = new Input(
     {
         className: 'change-data-form__input',
-        typeName: '',
         fieldName: "password",
         text: 'password',
+        placeholder: "email",
         settings: {withInternalID: true},
-        validator: Validator.validatePassword,
-        events: {
-            blur: () => {
-                changeDataFormEmailInput.validate()
-            },
-            focus: () => {
-                // код, который будет выполняться при получении фокуса
-                changeDataFormEmailInput.focus()
-            }
-        }
+        validator: Validator.validateEmail,
     }
 )
+
 const emailErrorMessage = new ErrorMessage(
     {
         className: 'change-data-form__error-message',
@@ -156,6 +151,7 @@ const emailErrorMessage = new ErrorMessage(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormPhoneLabel = new Label(
     {
         className: 'change-data-form__label',
@@ -163,24 +159,18 @@ const changeDataFormPhoneLabel = new Label(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormPhoneInput = new Input(
     {
         className: 'change-data-form__input',
-        typeName: '',
+        typeName: 'text',
         fieldName: "phone",
         text: 'phone',
         settings: {withInternalID: true},
         validator: Validator.validatePhone,
-        events: {
-            blur: () => {
-                changeDataFormPhoneInput.validate()
-            },
-            focus: () => {
-                changeDataFormPhoneInput.focus()
-            }
-        }
     }
 )
+
 const phoneErrorMessage = new ErrorMessage(
     {
         className: 'change-data-form__error-message',
@@ -188,32 +178,25 @@ const phoneErrorMessage = new ErrorMessage(
         settings: {withInternalID: true}
     }
 )
+
 const changeDataFormButton = new Button(
     {
         className: 'change-data-form__button',
-        typeName: 'submit',
+        typeName: 'button',
         text: 'Сохранить',
         settings: {withInternalID: true},
         events: {
             click: () => {
 
                 // Проверка допустимой длины логина и пароля
-                if (!Validator.validateEmail(changeDataFormEmailInput.getInputValue()) ||
-                    !Validator.validateLogin(changeDataFormLoginInput.getInputValue()) ||
-                    !Validator.validatePhone(changeDataFormPhoneInput.getInputValue()) ||
-                    !Validator.validateName(changeDataFormNameInput.getInputValue()) ||
-                    !Validator.validateName(changeDataFormSecondNameInput.getInputValue())
-
-                ) {
-                    return;
-                }
-                else {
+                if (changeDataForm.validate()) {
                     console.log(changeDataForm.get_data());
                     changeDataForm.clear()
                 }
             },
         }
     })
+
 const buttonWithImg = new ButtonWithImg(
     {
         className: 'change-data-form__btn-back',
@@ -249,5 +232,5 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormButton: changeDataFormButton,
         buttonWithImg: buttonWithImg,
         changeDataFormLink: changeDataFormLink,
-        events: { blur: () => {changeDataForm.hide()}}
+        events: {}
     })

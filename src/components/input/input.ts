@@ -1,5 +1,6 @@
 import Block from "../base/block.ts"
 import greetings from "./input-template.ts";
+import {loginForm} from "../../pages/login-form/login-form-build.ts";
 
 export default class Input extends Block {
 
@@ -12,14 +13,20 @@ export default class Input extends Block {
             placeholder: string,
             text: string,
             settings: {withInternalID: true},
-            events: {
-                blur: ()=>void
-                focus: () => void
-            },
-            validator: {}
+            validator: {},
         }
         ) {
+        props.events = {
+            blur: () => {
+                this.validate()
+            },
+            focus: () => {
+                // код, который будет выполняться при получении фокуса
+                this.focus()
+            }
+        }
         super("div", props);
+
         this._already_check = false;
     }
 
@@ -50,6 +57,7 @@ export default class Input extends Block {
 
 
     validate(): boolean {
+        console.log("Вызыван метод validate у input");
         if (!this.already_check) {
             const result = this.props.validator(this.getInputValue())
             this.already_check = true

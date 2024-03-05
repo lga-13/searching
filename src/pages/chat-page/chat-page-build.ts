@@ -38,8 +38,7 @@ export const chatList = new ChatList({
     ],
     settings: {withInternalID: true},
     events: {
-        click: (event) => {
-            console.log(event)
+        click: () => {
             chatPage.showMessageChain()
         }
     }

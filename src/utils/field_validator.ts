@@ -11,7 +11,8 @@ export const Validator = {
     },
 
     validateLogin: function(login: string): boolean {
-        const re: RegExp = /^[a-zA-Z][a-zA-Z0-9_-]{1,18}$/;
+        console.log("Валидатор login", login)
+        const re: RegExp = /^[a-zA-Z][a-zA-Z0-9_-]{2,18}$/;
         const result: boolean = re.test(login);
         if (!result) {
             console.log("- Логин должен начаться с алфавитного символа\n" +
