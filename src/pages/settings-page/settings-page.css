@@ -96,11 +96,12 @@
 }
 
 .settings__btn-back{
-    margin-top: 35px;
     width: 28px;
     height: 28px;
+    background-color: #1D90D1;
+    color: white;
+    font-size: 20px;
     border-radius: 14px;
     border: none;
-    background: none;
     padding: 0;
 }

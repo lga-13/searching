@@ -73,10 +73,10 @@ export const changeDataForm = new Form(
                     errorMessage: 'телефон введен некорректно',
                 },
             ],
-            events: {
-                blur: () => {changeDataForm.hide()}}
         })
 
+
+changeDataForm.hide()
 
 
 

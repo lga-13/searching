@@ -6,9 +6,9 @@ import avatar from "../../public/static/img/avatar.svg";
 import SettingsPage from "./settings-page.ts";
 import btnback from "../../public/static/img/btn-back.svg";
 import Plug from "../../components/plug/plug.ts";
-import {changeDataForm} from "../../blocks/change-data-form/change-data-form-build.ts";
-import {changePasswordForm} from "../../blocks/change-password-form/change-password-form-build.ts";
 import Button from "../../components/button/button.ts";
+
+
 
 
 const  settingsImg = new Img(
@@ -135,7 +135,7 @@ const buttonBlueBack = new Button(
     {
         className: 'settings__btn-back',
         typeName: 'button',
-        srcName: btnback,
+        text: '⬅',
         settings: {withInternalID: true},
         events: {},
     }
@@ -175,6 +175,4 @@ export const settingsPage = new SettingsPage(
         buttonBlueBack: buttonBlueBack,
         settingsPlug: settingsPlug,
         settingsExitLink: settingsExitLink,
-        settingsChangeDataForm: changeDataForm,
-        settingsChangePasswordForm: changePasswordForm,
     })

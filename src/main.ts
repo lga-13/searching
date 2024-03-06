@@ -7,11 +7,13 @@ import {render} from "./utils/render.ts";
 // import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
 // import {chatList, chatMessageChain, chatPage} from "./pages/chat-page/chat-page-build.ts";
 import {changeDataForm} from "./blocks/change-data-form/change-data-form-build.ts";
+import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
+import {changePasswordForm} from "./blocks/change-password-form/change-password-form-build.ts";
 // import {changePasswordForm} from "./blocks/change-password-form/change-password-form-build.ts";
 
 
 // render("#app", loginForm);
-    render("#app", changeDataForm)
+    render("#app", settingsPage )
 
 
 // const client = new APIClient();

@@ -8,6 +8,8 @@ import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
 import ChangeDataForm from "../../blocks/change-data-form/change-data-form.ts";
 import Button from "../../components/button/button.ts";
+import {changeDataForm} from "../../blocks/change-data-form/change-data-form-build.ts";
+import {changePasswordForm} from "../../blocks/change-password-form/change-password-form-build.ts";
 
 
 export default class SettingsPage extends Block {
@@ -32,27 +34,29 @@ export default class SettingsPage extends Block {
             settingsExitLink: Link,
             buttonBlueBack: Button,
             settingsPlug: Plug,
-            settingsChangeDataForm: ChangeDataForm,
-            settingsChangePasswordForm: ChangeDataForm
         }) {
+        props.changeDataForm = changeDataForm
+        props.changePasswordForm = changePasswordForm
         super('div', props);
     }
 
+
+
     showChangeDataForm() {
-        this.children.settingsChangeDataForm.show()
-        this.children.settingsChangePasswordForm.hide()
+        this.children.changeDataForm.hide()
+        this.children.changeDataForm.show()
         this.children.settingsPlug.hide()
         }
 
     showChangePasswordForm() {
-        this.children.settingsChangeDataForm.hide()
-        this.children.settingsChangePasswordForm.show()
+        this.children.changePasswordForm.hide()
+        this.children.changePasswordForm.show()
         this.children.settingsPlug.hide()
     }
 
     hideSettings() {
-        this.childrens.settingsChangeDataForm.hide()
-        this.children.settingsChangePasswordForm.hide()
+        this.childrens.changeDataForm.hide()
+        this.children.changePasswordForm.hide()
         this.children.settingsPlug.show()
     }
 

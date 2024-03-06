@@ -26,8 +26,8 @@ export default `
         </form>
         <div class="settings-window">
             {{{ settingsPlug }}}
-            {{{ settingsChangeDataForm }}}
-            {{{ settingsChangePasswordForm }}}
+            {{{ changeDataForm }}}
+            {{{ changePasswordForm }}}
         </div>
     </div>
 `;

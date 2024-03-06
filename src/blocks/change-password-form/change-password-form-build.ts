@@ -3,6 +3,7 @@ import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
 import Form from "../../components/form/form.ts";
 import "./change-password-form.css"
+import {changeDataForm} from "../change-data-form/change-data-form-build.ts";
 
 export const changePasswordForm = new Form(
     {
@@ -56,10 +57,9 @@ export const changePasswordForm = new Form(
                     errorMessage: 'пароли не совпадают',
                 }
             ],
-            events: {
-                blur: () => {changePasswordForm.hide()}}
+
 
     })
-
+changePasswordForm.hide()
 
 
