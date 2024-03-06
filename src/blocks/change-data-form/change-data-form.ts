@@ -16,7 +16,7 @@ export default class ChangeDataForm extends Form {
         changeDataFormNameInput: Input, nameErrorMessage: ErrorMessage, changeDataFormSecondNameLabel: Label,
         changeDataFormSecondNameInput: Input, secondNameErrorMessage: ErrorMessage, changeDataFormEmailLabel: Label,
         changeDataFormEmailInput: Input, emailErrorMessage: ErrorMessage, changeDataFormPhoneLabel: Label,
-        changeDataFormPhoneInput: Input, phoneErrorMessage: ErrorMessage, changeDataFormButton: Button, buttonBlueBack: Img,
+        changeDataFormPhoneInput: Input, phoneErrorMessage: ErrorMessage, changeDataFormButton: Button, buttonBlueBack: Button,
         changeDataFormLink: Link}) {
         super('div', props)
     }

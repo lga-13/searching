@@ -17,14 +17,13 @@
     margin-bottom : 62px;
     font-family: "Manuale", sans-serif;
     font-weight: 500;
-    font-size: 24px;
 }
 
 .login-form__label {
     border: none;
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    font-size: 11px;
+    font-size: 13px;
     color: #999999;
     display: block;
     margin-bottom: 0;
@@ -67,7 +66,7 @@
     display: block;
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    font-size: 11px;
+    font-size: 12px;
     margin-bottom: 93px;
     color: #1D90D1;
 }
@@ -82,7 +81,7 @@
     border: 1px solid #1D90D1;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .login-form__registration {
@@ -90,7 +89,7 @@
     justify-content: center;
     font-family: "Inter", sans-serif;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 14px;
     color: black;
     margin-top: 10px;
 }

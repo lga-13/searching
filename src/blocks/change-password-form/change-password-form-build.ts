@@ -135,13 +135,12 @@ const changePasswordFormButton = new Button(
             },
         }
     })
-const buttonBlueBack = new Img(
+const buttonBlueBack = new Button(
     {
         className: 'change-password-form__btn-back',
         typeName: 'button',
-        href: '',
         srcName: btnback,
-        alt: 'btn',
+        text: '',
         settings: {withInternalID: true},
         events: {},
     }

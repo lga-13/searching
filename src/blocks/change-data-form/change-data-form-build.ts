@@ -8,7 +8,6 @@ import btnback from "../../public/static/img/btn-back.svg";
 import ChangeDataForm from "./change-data-form.ts";
 import Link from "../../components/links/link.ts";
 import ErrorMessage from "../../components/form/error-message/error-message.ts";
-import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
 import Form from "../../components/form/form.ts";
 
 // Заголовок формы регистрации
@@ -198,13 +197,12 @@ const changeDataFormButton = new Button(
         }
     })
 
-const buttonWithImg = new ButtonWithImg(
+const buttonBlueBack = new Button(
     {
         className: 'change-data-form__btn-back',
         typeName: 'button',
-        href: '',
         srcName: btnback,
-        alt: 'btn',
+        text: '',
         settings: {withInternalID: true},
         events: {},
     }
@@ -231,7 +229,7 @@ export const changeDataForm = new ChangeDataForm(
         changeDataFormPhoneInput: changeDataFormPhoneInput,
         phoneErrorMessage: phoneErrorMessage,
         changeDataFormButton: changeDataFormButton,
-        buttonWithImg: buttonWithImg,
+        buttonBlueBack: buttonBlueBack,
         changeDataFormLink: changeDataFormLink,
         events: {}
     })
