@@ -6,6 +6,8 @@ import Plug from "../../components/plug/plug.ts";
 import MessageChain from "../../blocks/message_chain/message_chain.ts";
 import chat2 from "../../public/static/img/chat2.svg";
 import ChatList from "../../blocks/chats_list/chats_list.ts";
+import Form from "../../components/form/form.ts";
+import {Validator} from "../../utils/field_validator.ts";
 
 
 
@@ -14,8 +16,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            your: "Вы",
-            content: "Привет! Как дела?",
             time: "10:30",
             count: 1,
             message_chain: [
@@ -25,12 +25,12 @@ export const MOCK_MESSAGE_DATA = [
                     time: "10:30",
                 },
                 {
-                    me: false,
+                    me: true,
                     text: "Крупные?",
                     time: "10:31",
                 },
                 {
-                    me: true,
+                    me: false,
                     text: "Крупные",
                     time: "10:32",
                 }]
@@ -39,8 +39,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 2,
             sender: "Папа",
-            your: "Вы",
-            content: "Пойдет! А ты?",
             time: "10:32",
             count: 2,
             message_chain:[
@@ -100,7 +98,16 @@ export function get_message_chain() {
 
 export default class ChatPage extends Block {
     constructor(
-        props: {}
+        props: {
+            plug: {
+                className: string,
+                plugLink: {
+                    className: string,
+                    href: string,
+                    text: string
+                }
+            }
+        }
     ) {
 
         // Генерация списка чатов
@@ -111,39 +118,51 @@ export default class ChatPage extends Block {
 
         // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
         const messageChain = new MessageChain({
-                srcName: chat2
+                srcName: chat2,
+                chatListHook: () => {chatList.newMessage()},
             }
         )
         messageChain.hide()
         const chatPlug = new Plug({
-            className: "chats-plug",
+            className: props.plug.className,
             plugLink: {
-                className: "chats-plug__message",
-                href: "#",
-                text: "Выберите чат, чтобы начать общаться.",
+                className: props.plug.plugLink.className,
+                href: props.plug.plugLink.href,
+                text: props.plug.plugLink.text,
             }
         })
 
 
         const accountLink = new Link({
-            className: "chats__account", href: "#", text: "Аккаунт", settings: {withInternalID: true}
+            className: "chats__account",
+            href: "#",
+            text: "Аккаунт",
+            settings: {withInternalID: true}
         })
 
 
-        const chatSearch = new Input({
-            className: "chats__search-input",
-            fieldName: "chat_search",
-            text: "text",
-            placeholder: "Поиск",
-            events: {
-                blur: ()=> {},
-                focus: () => {}
-            },
-            validator: {}
-        })
 
+        const searchForm = new Form(
+            {
+                className: 'chats__search-box',
+                button: {
+                    className: 'chats__search-btn',
+                    typeName: 'button',
+                    text: '🔍'
+                },
+                inputFieldClassName: 'chats__search-input',
+                errorMessageClassName: 'chats__message-error',
+                fields: [{
+                    inputName: 'search',
+                    inputType: 'text',
+                    inputPlaceholder: 'Поиск',
+                    validator: Validator.validateSearch,
+                    errorMessage: '',
+                }],
 
-        props.chatSearch = chatSearch
+            }
+        )
+        props.searchForm = searchForm
         props.accountLink = accountLink
         props.chatPlug = chatPlug
         props.messageChain = messageChain

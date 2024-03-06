@@ -8,29 +8,40 @@ export default class ChatList extends Block {
 
 
     constructor(props: {showMessageChain: (user_id: number) => void}){
+
+
+        // Созадние чат листа
+
+        // Создаём враппер DOM-элемент button
+        super("div", props);
+        this.newMessage()
+    }
+
+    newMessage() {
         const chatList = []
         Object.values(get_chats_list(MOCK_MESSAGE_DATA)).forEach(chat => {
             const currentChatMiniature = new ChatMiniature({
                 srcName: chat.srcName,
                 index:  chat.index,
                 sender: chat.sender,
-                your: chat.your,
-                content: chat.content,
-                time: chat.time,
+                your: chat.message_chain[chat.message_chain.length - 1].me,
+                content: chat.message_chain[chat.message_chain.length - 1].text,
+                time: chat.message_chain[chat.message_chain.length - 1].time,
                 count: chat.count,
                 settings: {withInternalID: true},
                 events: {
                     click: () => {
-                        props.showMessageChain(chat.index)
+                        this.props.showMessageChain(chat.index)
                     }
                 }
             })
             chatList.push(currentChatMiniature)
 
         })
-        props.chatList = chatList
-        // Создаём враппер DOM-элемент button
-        super("div", props);
+        console.log(this.children)
+        console.log(chatList)
+        this.children.chatList = chatList
+        this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
     }
 
     render() {

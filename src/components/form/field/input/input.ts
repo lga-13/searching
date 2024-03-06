@@ -9,19 +9,13 @@ export default class Input extends Block {
     constructor(
         props: {
             className: string,
-            typeName: string,
-            fieldName: string,
-            placeholder: string,
-            text: string,
-            settings: {withInternalID: true},
-            events: {
-                blur: ()=>void
-                focus: () => void
-            },
+            inputName: string,
+            inputPlaceholder: string,
+            inputType: string
             validator: {}
         }
     ) {
-        super("input", props);
+        super("div", props);
         this._already_check = false;
     }
 

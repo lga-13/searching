@@ -153,6 +153,7 @@ export default class MessageChain extends Block {
         this.children.messages = messages
         this.children.senderName.setText(getSender(MOCK_MESSAGE_DATA, this.props.user_id))
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+        this.props.chatListHook()
     }
 
 

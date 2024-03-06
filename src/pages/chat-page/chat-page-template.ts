@@ -7,10 +7,7 @@ export default `
                 {{{ accountLink }}}
             </div>
             <form class="chats__search-box">
-                {{{ chatSearch }}}
-                <button class="chats__search-btn" type="submit" value="Search">
-                    <img src="/src/public/static/img/search.svg" alt="search">
-                </button>
+                {{{ searchForm }}}
             </form>
             {{{ chatAvatarImg }}}
             {{{ chatsList }}}

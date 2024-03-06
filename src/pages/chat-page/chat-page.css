@@ -33,6 +33,7 @@
 }
 
 .chats__search-box {
+    position: relative;
     width: 300px;
     height: 32px;
     margin-top: 37px;
@@ -48,7 +49,9 @@
     justify-content: space-between;
 }
 
+
 .chats__search-input {
+    position: relative;
     flex-grow: 1;
     border: none;
     background-color: transparent;
@@ -56,6 +59,14 @@
     outline: none;
     margin: 0;
 }
+
+.chats__message-error{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 0;
+}
+
 
 .chats__search-btn {
     display: flex;
@@ -258,7 +269,7 @@ hr:first-of-type{
     max-width: 300px;
     overflow-wrap: break-word;
     margin-left: 15px;
-    float: left;
+    float: right;
     clear: both;
 }
 
@@ -278,7 +289,7 @@ hr:first-of-type{
     overflow-wrap: break-word;
     margin-right: 15px;
     margin-top: 50px;
-    float: right;
+    float: left;
     clear: both;
 }
 

@@ -7,7 +7,7 @@ export default `
         <div class="chats__text">
             <span class="chats__message-sender">{{sender}}</span>
             <div class="chats__message-answer">
-                <span class="chats__your-message">{{your}}</span>
+                {{#if your}}<span class="chats__your-message">Вы:</span></span>{{/if}}
                 <span class="chats__message-content">{{content}}</span>
             </div>
         </div>

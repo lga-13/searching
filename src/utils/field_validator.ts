@@ -60,5 +60,9 @@ export const Validator = {
             console.log("- Сообщение не должно быть пустым или состоять только из пробелов");
         }
         return result
+    },
+
+    validateSearch: function(search: string): boolean{
+        return search.trim().length > 0
     }
 }

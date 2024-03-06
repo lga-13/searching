@@ -13,18 +13,41 @@ export default class Form extends Block{
 
     constructor(props: {
         className: string,
-        srcName?: string,
-        titleClassName?: string,
-        titleText?: string,
-        titleTag?: string,
-        buttonClassName: string,
-        buttonTypeName: string,
-        buttonText: string,
-        labelFieldClassName: string,
+        title: {
+            className: string,
+            text: string,
+            tag: string,
+        } | null,
+        button: {
+            className: string,
+            typeName: string,
+            text: string
+        },
+        labelFieldClassName: string | null,
         inputFieldClassName: string,
-        fields: {}
+        errorMessageClassName: string,
+        link: {
+            className: string,
+            href: string,
+            text: string,
+        },
+        fields: {
+            labelText: string,
+            inputName: string,
+            inputType: string,
+            inputPlaceholder: string,
+            validator: () => boolean,
+            errorMessage: string,
+            link: {
+                className: string,
+                href: string,
+                text: string,
+            } | null,
+        }[],
+
     }) {
-        props.formTitle = new Title(
+        if (props.title) {
+            props.formTitle = new Title(
                 {
                     className: props.title.className,
                     text: props.title.text,
@@ -32,6 +55,8 @@ export default class Form extends Block{
                     tag: props.title.tag
                 }
             )
+        }
+
         props.formButton = new Button(
             {
                 className: props.button.className,
@@ -50,13 +75,7 @@ export default class Form extends Block{
                 }}
         )
 
-        const currentErrorMessage = new ErrorMessage(
-            {
-                className: 'login-form__error-message',
-                errorMessage: 'логин введен неверно',
-                settings: {withInternalID: true}
-            }
-        )
+
 
         const formFields = []
         Object.values(props.fields).forEach(field => {
@@ -73,6 +92,13 @@ export default class Form extends Block{
                 settings: {withInternalID: true},
                 validator: field.validator,
             })
+            const currentErrorMessage = new ErrorMessage(
+                {
+                    className: props.errorMessageClassName,
+                    errorMessage: field.errorMessage,
+                    settings: {withInternalID: true}
+                }
+            )
 
             // Прикручиваем к полю ссылку если она передана.
             let currentLink = null
