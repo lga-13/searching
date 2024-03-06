@@ -13,9 +13,10 @@ export default class Form extends Block{
 
     constructor(props: {
         className: string,
-        titleClassName: string,
-        titleText: string,
-        titleTag: string,
+        srcName?: string,
+        titleClassName?: string,
+        titleText?: string,
+        titleTag?: string,
         buttonClassName: string,
         buttonTypeName: string,
         buttonText: string,

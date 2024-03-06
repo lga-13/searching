@@ -1,8 +1,6 @@
 import {Validator} from "../../utils/field_validator.ts";
 import Form from "../../components/form/form.ts";
 import "./login-form.css";
-import ErrorMessage from "../../components/form/error-message/error-message.ts";
-
 
 export const loginForm = new Form(
     {
@@ -32,7 +30,7 @@ export const loginForm = new Form(
                 inputType: 'text',
                 inputPlaceholder: "",
                 validator: Validator.validateLogin,
-                errorMessage: 'логин введен неверно'
+                errorMessage: 'логин введен некорректно'
             },
             {
                 labelText: 'Пароль',
@@ -40,7 +38,7 @@ export const loginForm = new Form(
                 inputType: 'text',
                 inputPlaceholder: "",
                 validator: Validator.validatePassword,
-                errorMessage: 'пароль введен неверно',
+                errorMessage: 'пароль введен некорректно',
                 link: {
                     className: 'login-form__forgot-password',
                     href: '#',

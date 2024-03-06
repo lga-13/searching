@@ -135,7 +135,6 @@ const buttonBlueBack = new Button(
     {
         className: 'settings__btn-back',
         typeName: 'button',
-        text: '',
         srcName: btnback,
         settings: {withInternalID: true},
         events: {},

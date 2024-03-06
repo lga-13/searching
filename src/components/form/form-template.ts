@@ -1,12 +1,22 @@
 // language=hbs
 
 export default `
-    <div class="{{className}}">
-        {{{ formTitle }}}
+    <form class="{{className}}">
+        {{#if title}}
+            {{{ formTitle }}}
+        {{/if}}
+        {{#if img}}
+            <img class="{{ imgClass }}" src="{{ srcNameAvatar }}" alt="photo"/>
+        {{/if}}
         {{#each formFields}}
             {{{ this }}}
         {{/each}}
         {{{ formButton }}}
+        {{#if link}}
             {{{ formLink }}}
-    </div>
+        {{/if}}
+        {{#if buttonBlueBack}}
+            {{{ buttonBlueBack }}}
+        {{/if}}
+    </form>
 `;

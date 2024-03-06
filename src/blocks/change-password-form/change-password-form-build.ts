@@ -1,167 +1,65 @@
-import Button from "../../components/button/button.ts";
-import Label from "../../components/form/field/label/label.ts";
-import Input from "../../components/form/field/input/input.ts";
 import {Validator} from "../../utils/field_validator.ts";
-import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import btnback from "../../public/static/img/btn-back.svg";
-import ChangePasswordForm from "./change-password-form.ts";
-import ErrorMessage from "../../components/form/error-message/error-message.ts";
+import Form from "../../components/form/form.ts";
+import "./change-password-form.css"
 
-// Заголовок формы регистрации
-const  changePasswordFormImg = new Img(
+export const changePasswordForm = new Form(
     {
-        className: 'change-password-form__img',
-        srcName: avatar,
-        altText: 'photo',
-        settings: {withInternalID: true}
-    }
-)
-const PasswordLabel = new Label(
-    {
-        className: 'change-password-form__label',
-        text: 'Старый пароль',
-        settings: {withInternalID: true}
-    }
-)
-const PasswordInput = new Input(
-    {
-        className: 'change-password-form__input',
-        typeName: '',
-        fieldName: "old-password",
-        text: 'old_password',
-        settings: {withInternalID: true},
-        validator: Validator.validateName,
-        events: {
-            blur: () => {
-                PasswordInput.validate()
+            className: 'change-password-form',
+            imgClass: 'change-password-form__img',
+            srcNameAvatar: avatar,
+            buttons: [
+                {
+                className: 'change-password-form__button',
+                typeName: 'submit',
+                text: 'Сохранить'
             },
-            focus: () => {
-                PasswordInput.focus()
-            }
-        }
-    }
-)
-const passwordErrorMessage = new ErrorMessage(
-    {
-        className: 'change-password-form__error-message',
-        errorMessage: 'старый пароль введен неверно',
-        settings: {withInternalID: true}
-    }
-)
-const newPasswordLabel = new Label(
-    {
-        className: 'change-password-form__label',
-        text: 'Новый пароль',
-        settings: {withInternalID: true}
-    }
-)
-const newPasswordInput = new Input(
-    {
-        className: 'change-password-form__input',
-        typeName: '',
-        fieldName: "new_password",
-        text: 'new_password',
-        settings: {withInternalID: true},
-        validator: Validator.validateName,
-        events: {
-            blur: () => {
-                newPasswordInput.validate()
-            },
-            focus: () => {
-                newPasswordInput.focus()
-            }
-        }
-    }
-)
-const newPasswordErrorMessage = new ErrorMessage(
-    {
-        className: 'change-password-form__error-message',
-        errorMessage: 'новый пароль введен неверно',
-        settings: {withInternalID: true}
-    }
-)
-const repeatNewPasswordLabel = new Label(
-    {
-        className: 'change-password-form__label',
-        text: 'Повторите новый пароль',
-        settings: {withInternalID: true}
-    }
-)
-const repeatNewPasswordInput = new Input(
-    {
-        className: 'change-password-form__input',
-        fieldName: "repeat_new_password",
-        placeholder: '',
-        text: 'repeat_new_password',
-        settings: {withInternalID: true},
-        validator: Validator.validateName,
-        events: {
-            blur: () => {
-                repeatNewPasswordInput.validate()
-            },
-            focus: () => {
-                repeatNewPasswordInput.focus()
-            }
-        }
-    }
-)
-const repeatNewPasswordErrorMessage = new ErrorMessage(
-    {
-        className: 'change-password-form__error-message',
-        errorMessage: 'пароли не совпадают',
-        settings: {withInternalID: true}
-    }
-)
-const changePasswordFormButton = new Button(
-    {
-        className: 'change-password-form__button',
-        typeName: 'submit',
-        text: 'Сохранить',
-        settings: {withInternalID: true},
-        events: {
-            click: () => {
-
-                // Проверка допустимой длины логина и пароля
-                if (!Validator.validatePassword(PasswordInput.getInputValue())
-
-                ) {
-                    return;
+                {
+                className: 'change-password-form__btn-back',
+                srcNameImg: btnback,
+                typeName: '',
+                text: ''
                 }
-                else {
-                    console.log(changePasswordForm.get_data());
-                    changePasswordForm.clear()
-                }
+            ],
+            labelFieldClassName: 'change-password-form__label',
+            inputFieldClassName: 'change-password-form__input',
+            errorMessageClassName: 'change-password-form__error-message',
+            link: {
+                className: '',
+                href: '',
+                text: '',
             },
-        }
-    })
-const buttonBlueBack = new Button(
-    {
-        className: 'change-password-form__btn-back',
-        typeName: 'button',
-        srcName: btnback,
-        text: '',
-        settings: {withInternalID: true},
-        events: {},
-    }
-)
+            fields: [
+                {
+                    labelText: 'Старый пароль',
+                    inputName: 'password',
+                    inputType: 'text',
+                    inputPlaceholder: "",
+                    validator: Validator.validateLogin,
+                    errorMessage: 'старый пароль введен некорректно'
+                },
+                {
+                    labelText: 'Новый пароль',
+                    inputName: 'password',
+                    inputType: 'text',
+                    inputPlaceholder: "",
+                    validator: Validator.validatePassword,
+                    errorMessage: 'новый пароль введен некорректно',
+                },
+                {
+                    labelText: 'Повторите новый пароль',
+                    inputName: 'password',
+                    inputType: 'text',
+                    inputPlaceholder: "",
+                    validator: Validator.validatePassword,
+                    errorMessage: 'пароли не совпадают',
+                }
+            ],
+            events: {
+                blur: () => {changePasswordForm.hide()}}
 
-export const changePasswordForm = new ChangePasswordForm(
-    {
-        className: "change-password-form",
-        settings: {withInternalID: true},
-        changePasswordFormImg: changePasswordFormImg,
-        PasswordLabel: PasswordLabel,
-        PasswordInput: PasswordInput,
-        passwordErrorMessage: passwordErrorMessage,
-        newPasswordLabel: newPasswordLabel,
-        newPasswordInput: newPasswordInput,
-        newPasswordErrorMessage: newPasswordErrorMessage,
-        repeatNewPasswordLabel: repeatNewPasswordLabel,
-        repeatNewPasswordInput: repeatNewPasswordInput,
-        repeatNewPasswordErrorMessage: repeatNewPasswordErrorMessage,
-        changePasswordFormButton: changePasswordFormButton,
-        buttonBlueBack: buttonBlueBack,
-        events: {
-            blur: () => {changePasswordForm.hide()}}
     })
+
+
+
