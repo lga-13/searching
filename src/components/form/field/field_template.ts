@@ -3,8 +3,10 @@
 export default `
 <div>
     {{{ label }}}
-    {{{ input }}}
-    {{{ errorMessage }}}
+    <div class="form__input-message-error">
+        {{{ input }}}
+        {{{ errorMessage }}}
+    </div>
     {{{ link }}}
 </div>
 `;

@@ -33,13 +33,7 @@ export default class Form extends Block{
                 }
             )
         }
-        const currentErrorMessage = new ErrorMessage(
-            {
-                className: 'login-form__error-message',
-                errorMessage: 'логин введен неверно',
-                settings: {withInternalID: true}
-            }
-        )
+
         if (props.button){
             props.formButton = new Button(
             {
@@ -82,6 +76,14 @@ export default class Form extends Block{
                     settings: {withInternalID: true}
                 })
             }
+            const currentErrorMessage = new ErrorMessage(
+                {
+                    className: props.errorMessageClassName,
+                    errorMessage: field.errorMessage,
+                    settings: {withInternalID: true}
+                }
+            )
+
             const currentField = new Field({
                 label: currentLabel,
                 input: currentInput,

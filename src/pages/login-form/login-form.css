@@ -30,22 +30,29 @@
     margin-bottom: 0;
 }
 
+.form__input-message-error{
+    position: relative;
+}
+
 .login-form__input {
-    all: unset;
+    position: relative;
     width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 0;
+    margin-bottom: 32px;
     border: none;
     border-bottom: 1px solid black ;
 }
 
 .login-form__error-message{
-    display: none;
+    position: absolute;
+    left: 0;
+    margin: -25px 0 0 0;
+    display: block;
     color: #DF6058;
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 11px;
-    margin-bottom: 10px;
+    padding: 0;
 }
 
 .login-form__input + .login-form__error-message{
@@ -61,7 +68,7 @@
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 11px;
-    margin-bottom: 133px;
+    margin-bottom: 93px;
     color: #1D90D1;
 }
 

@@ -1,6 +1,7 @@
 import {Validator} from "../../utils/field_validator.ts";
 import Form from "../../components/form/form.ts";
 import "./login-form.css";
+import ErrorMessage from "../../components/form/error-message/error-message.ts";
 
 
 export const loginForm = new Form(
@@ -18,6 +19,7 @@ export const loginForm = new Form(
         },
         labelFieldClassName: 'login-form__label',
         inputFieldClassName: 'login-form__input',
+        errorMessageClassName: 'login-form__error-message',
         link: {
             className: 'login-form__registration',
             href: '#',
@@ -28,20 +30,22 @@ export const loginForm = new Form(
                 labelText: 'Логин',
                 inputName: 'login',
                 inputType: 'text',
-                inputPlaceholder: "Укажите ваш логин",
+                inputPlaceholder: "",
                 validator: Validator.validateLogin,
+                errorMessage: 'логин введен неверно'
             },
             {
                 labelText: 'Пароль',
                 inputName: 'password',
                 inputType: 'text',
-                inputPlaceholder: "Укажите ваш пароль",
+                inputPlaceholder: "",
                 validator: Validator.validatePassword,
+                errorMessage: 'пароль введен неверно',
                 link: {
                     className: 'login-form__forgot-password',
                     href: '#',
                     text: 'Забыли пароль?',
-                }
+                },
             }
         ],
     })

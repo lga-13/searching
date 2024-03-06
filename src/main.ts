@@ -11,7 +11,7 @@ import {changePasswordForm} from "./components/change-password-form/change-passw
 
 
 // render("#app", loginForm);
-    render("#app", chatPage)
+    render("#app", loginForm)
 
 
 // const client = new APIClient();
