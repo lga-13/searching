@@ -40,7 +40,6 @@ export default class Block {
         // Производим отсеивание пропсов и детей
         const {children, props} = this._getChildren(propsAndChildren);
         this.children = children;
-        console.log(children)
         // Запись в свойства
         this._meta = {
             tagName,
@@ -188,7 +187,7 @@ export default class Block {
 
     get element() {
         // Геттер элемента
-        return this._element;
+        return this._element
     }
 
     getContent() {
@@ -245,17 +244,12 @@ export default class Block {
         Object.values(this.children).forEach(child => {
             if (child instanceof Block) {
                 const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
-                console.log(child)
                 stub.replaceWith(child.getContent());
             } else if (child instanceof Array) {
-                console.log("ЗАШЛИИИИИИИ")
-                console.log(fragment.innerHTML)
                 Object.values(child).forEach(child_object => {
                     const stub = fragment.content.querySelector(`[data_id="${child_object._id}"]`);
                     stub.replaceWith(child_object.getContent());
                 })
-                console.log("ЗАШЛИИИИИИИ")
-                console.log(fragment)
             }
         });
 
