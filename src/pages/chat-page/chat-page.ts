@@ -1,25 +1,17 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chat-page-template.ts";
-import ChatList from "../../blocks/chats_list/chats_list.ts";
 import Input from "../../components/form/field/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Plug from "../../components/plug/plug.ts";
 import MessageChain from "../../blocks/message_chain/message_chain.ts";
-import Img from "../../components/img/img.ts";
 import chat2 from "../../public/static/img/chat2.svg";
-import {attachmentsButton, chatPage, messageInput, sendButton, senderName} from "./chat-page-build.ts";
-import {Validator} from "../../utils/field_validator.ts";
-import Title from "../../components/titles/title.ts";
-import Button from "../../components/button/button.ts";
+import {chatPage} from "./chat-page-build.ts";
+import ChatList from "../../blocks/chats_list/chats_list.ts";
 
 
 export default class ChatPage extends Block {
     constructor(
-        props: {
-            events: {
-                blur: ()=> void
-            }
-        }
+        props: {}
     ) {
         // Создаём враппер DOM-элемент button
         const chatList = new ChatList({})

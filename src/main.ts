@@ -5,7 +5,7 @@ import {error404} from "./pages/error404/error404-build.ts";
 import {error500} from "./pages/error500/error500-build.ts";
 import APIClient from "./clients/base/fetch.ts";
 import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
-import {chatList, chatMessageChain, chatPage} from "./pages/chat-page/chat-page-build.ts";
+import {chatPage} from "./pages/chat-page/chat-page-build.ts";
 import {changeDataForm} from "./components/change-data-form/change-data-form-build.ts";
 import {changePasswordForm} from "./components/change-password-form/change-password-form-build.ts";
 

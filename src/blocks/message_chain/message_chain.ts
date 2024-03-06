@@ -1,12 +1,12 @@
-import Block from "../base/block.ts";
+
 import greetings from "./message_chain-template.ts";
 import Input from "../../components/form/field/input/input.ts";
 import Button from "../../components/button/button.ts";
 import Title from "../../components/titles/title.ts";
 import Img from "../../components/img/img.ts";
-import chat2 from "../../public/static/img/chat2.svg";
 import morebtn from "../../public/static/img/more-btn.svg";
 import {Validator} from "../../utils/field_validator.ts";
+import Block from "../../components/base/block.ts";
 
 
 const fetch_messages = {

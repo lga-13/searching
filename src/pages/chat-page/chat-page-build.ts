@@ -1,20 +1,17 @@
 import "./chat-page.css"
-import ChatList from "../../components/chats_list/chats_list.ts";
 import ChatPage from "./chat-page.ts";
-import Input from "../../components/input/input.ts";
 import Link from "../../components/links/link.ts";
 import Plug from "../../components/plug/plug.ts";
-import MessageChain from "../../components/message_chain/message_chain.ts";
 import {Validator} from "../../utils/field_validator.ts";
-import Button from "../../components/button/button.ts";
 import Title from "../../components/titles/title.ts";
-import chat1 from "../../public/static/img/chat1.svg";
 import chat2 from "../../public/static/img/chat2.svg";
 import Img from "../../components/img/img.ts";
-import btnback from "../../public/static/img/btn-back.svg";
 import morebtn from "../../public/static/img/more-btn.svg";
 import attachbtn from "../../public/static/img/attachment.svg";
 import sendbtn from "../../public/static/img/sendbtn.svg";
+import MessageChain from "../../blocks/message_chain/message_chain.ts";
+import Input from "../../components/form/field/input/input.ts";
+import ChatList from "../../blocks/chats_list/chats_list.ts";
 
 
 export const chatList = new ChatList({
@@ -176,13 +173,4 @@ export const chatMessageChain = new MessageChain({
 
 )
 
-export const chatPage = new ChatPage({
-    chatsList: chatList,
-    chatSearch: chatSearch,
-    accountLink: accountLink,
-    chatPlug: chatPlug,
-    messageChain: chatMessageChain,
-    settings: {withInternalID: true},
-    events: {
-        blur: () => {}}
-});
+export const chatPage = new ChatPage({});

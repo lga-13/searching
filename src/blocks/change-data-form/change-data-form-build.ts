@@ -8,8 +8,6 @@ import btnback from "../../public/static/img/btn-back.svg";
 import ChangeDataForm from "./change-data-form.ts";
 import Link from "../../components/links/link.ts";
 import ErrorMessage from "../../components/form/error-message/error-message.ts";
-import ButtonWithImg from "../../components/btn-with-img/btn-with-img.ts";
-import Form from "../../components/form/form.ts";
 
 // Заголовок формы регистрации
 const  changeDataFormImg = new Img(
