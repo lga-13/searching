@@ -7,6 +7,7 @@ import Link from "../../components/links/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
 import ChangeDataForm from "../../blocks/change-data-form/change-data-form.ts";
+import Button from "../../components/button/button.ts";
 
 
 export default class SettingsPage extends Block {
@@ -29,7 +30,7 @@ export default class SettingsPage extends Block {
             settingsDataLink: Link,
             settingsPasswordLink: Link,
             settingsExitLink: Link,
-            buttonBlueBack: Img,
+            buttonBlueBack: Button,
             settingsPlug: Plug,
             settingsChangeDataForm: ChangeDataForm,
             settingsChangePasswordForm: ChangeDataForm

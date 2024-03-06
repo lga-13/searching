@@ -1,6 +1,6 @@
-
+import Block from "../../../base/block.ts"
 import greetings from "./input-template.ts";
-import Block from "../../../base/block.ts";
+import {loginForm} from "../../../../pages/login-form/login-form-build.ts";
 
 export default class Input extends Block {
 

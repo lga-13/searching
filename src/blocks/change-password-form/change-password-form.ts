@@ -13,7 +13,7 @@ export default class ChangePasswordForm extends Form {
         changePasswordFormImg: Img, PasswordLabel: Label,
         PasswordInput: Input, passwordErrorMessage: ErrorMessage, newPasswordLabel: Label,
         newPasswordInput: Input, newPasswordErrorMessage: ErrorMessage, repeatNewPasswordLabel: Label,
-        repeatNewPasswordInput: Input, repeatNewPasswordErrorMessage: ErrorMessage, changePasswordFormButton: Button, buttonBlueBack: Img}) {
+        repeatNewPasswordInput: Input, repeatNewPasswordErrorMessage: ErrorMessage, changePasswordFormButton: Button, buttonBlueBack: Button}) {
         super('div', props)
     }
     render() {

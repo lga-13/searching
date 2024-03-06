@@ -8,6 +8,7 @@ export default class ErrorMessage extends Block {
     }
 
     render() {
+        // this.hide()
         return this.compile(greetings, this.props);
     }
 }
