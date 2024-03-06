@@ -23,8 +23,7 @@ export default class Form extends Block{
         inputFieldClassName: string,
         fields: {}
     }) {
-        if (props.title) {
-            props.formTitle = new Title(
+        props.formTitle = new Title(
                 {
                     className: props.title.className,
                     text: props.title.text,
@@ -32,16 +31,7 @@ export default class Form extends Block{
                     tag: props.title.tag
                 }
             )
-        }
-        const currentErrorMessage = new ErrorMessage(
-            {
-                className: 'login-form__error-message',
-                errorMessage: 'логин введен неверно',
-                settings: {withInternalID: true}
-            }
-        )
-        if (props.button){
-            props.formButton = new Button(
+        props.formButton = new Button(
             {
                 className: props.button.className,
                 typeName: props.button.typeName,
@@ -49,14 +39,24 @@ export default class Form extends Block{
                 text: props.button.text,
                 events: {
                     click: () => {
-                        // Проверка допустимой длины логина и пароля
+                        console.log("Вызвана валидация по кнопке")
                         if (this.validate()) {
+                            console.log("Все поля валидны")
                             console.log(this.get_data());
                             this.clear();
                         }
-                }
-            }}
-        )}
+                    }
+                }}
+        )
+
+        const currentErrorMessage = new ErrorMessage(
+            {
+                className: 'login-form__error-message',
+                errorMessage: 'логин введен неверно',
+                settings: {withInternalID: true}
+            }
+        )
+
         const formFields = []
         Object.values(props.fields).forEach(field => {
             const currentLabel = new Label({
@@ -73,6 +73,7 @@ export default class Form extends Block{
                 validator: field.validator,
             })
 
+            // Прикручиваем к полю ссылку если она передана.
             let currentLink = null
             if (field.link) {
                 currentLink = new Link({
@@ -107,33 +108,42 @@ export default class Form extends Block{
         super("div", props);
     }
 
-    clear() {
-        Object.values(this.children).forEach(child => {
-            if (child instanceof Input) {
-                child.clear()
-            }
-        });
-    }
-
-    validate(): boolean {
+    clear(): boolean {
         Object.values(this.children).forEach(child => {
             if (child instanceof Array && child.every((item) => item instanceof Field)) {
                 Object.values(child).forEach(field => {
-                    if (!field.validate()) {
-                        return false
-                    }
+                    field.clear()
                 })
             }
             return true
         });
     }
 
+    validate(): boolean {
+        console.log("Вызван метод валадации формы")
+        Object.values(this.children).forEach(child => {
+            if (child instanceof Array && child.every((item) => item instanceof Field)) {
+                Object.values(child).forEach(field => {
+                    if (!field.validate()) {
+                        console.log("Найдено невалидное поле")
+                        return false
+                    }
+                    console.log("НЕ Найдено невалидное поле")
+                })
+            }
+        console.log("Все нормально")
+        return true
+        });
+    }
+
+
+    // Метод возвращает даныне всех полей
     get_data(): {string: string} {
 
         const current_condition = {}
 
         Object.values(this.children).forEach(child => {
-            if (child instanceof Input) {
+            if (child instanceof Array && child.every((item) => item instanceof Field)) {
                 current_condition[child.getName()] = child.getInputValue();
             }
         })

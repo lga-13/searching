@@ -9,8 +9,7 @@ export default class Plug extends Block {
             plugLink: {
                 className:string,
                 href: string,
-                text: string,
-                settings: {withInternalID: boolean}
+                text: string
             }}
             )
     {
@@ -23,6 +22,7 @@ export default class Plug extends Block {
 
         })
         props.plugLink = plugLink
+
         props.settings = {withInternalID: true}
         super("div", props);
     }

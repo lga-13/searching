@@ -79,13 +79,13 @@ export function getSender(data, index: number) {
 }
 
 
-export function addMessageChain(data, index, message) {
+export function addMessageChain(data, index, message, time) {
     const item = data.find(item => item.index === index);
     if(item) {
         item.message_chain.push({
             me: true,
             text: message,
-            time: "10:33",
+            time: time,
         });
     } else {
         console.log(`Нет элемента с индексом ${index}`);
@@ -102,17 +102,28 @@ export default class ChatPage extends Block {
     constructor(
         props: {}
     ) {
-        // Создаём враппер DOM-элемент button
+
+        // Генерация списка чатов
+        // Передаем функцию которая будет вызываться по клику миниатюры в чат листе.
         const chatList = new ChatList({
             showMessageChain: (user_id: number) => {this.showMessageChain(user_id)}
         })
 
+        // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
         const messageChain = new MessageChain({
-                srcName: chat2,
-                settings: {withInternalID: true}
+                srcName: chat2
             }
         )
         messageChain.hide()
+        const chatPlug = new Plug({
+            className: "chats-plug",
+            plugLink: {
+                className: "chats-plug__message",
+                href: "#",
+                text: "Выберите чат, чтобы начать общаться.",
+            }
+        })
+
 
         const accountLink = new Link({
             className: "chats__account", href: "#", text: "Аккаунт", settings: {withInternalID: true}
@@ -132,31 +143,23 @@ export default class ChatPage extends Block {
         })
 
 
-        const chatPlug = new Plug({
-            className: "chats-plug",
-            plugLink: {
-                className: "chats-plug__message",
-                href: "#",
-                text: "Выберите чат, чтобы начать общаться.",
-            }
-        })
-
-
         props.chatSearch = chatSearch
         props.accountLink = accountLink
         props.chatPlug = chatPlug
         props.messageChain = messageChain
+
+
         props.chatsList = chatList
         props.settings = {withInternalID: true}
         super("div", props);
     }
 
     showMessageChain(user_id: number) {
-            this.children.messageChain.setCurrrentMessage(user_id)
-            this.children.messageChain.show()
-            this.children.chatPlug.hide()
-            console.log("Тронули", user_id)
-            return true
+        this.children.messageChain.show()
+        this.children.chatPlug.hide()
+        this.children.messageChain.setCurrentMessage(user_id)
+        console.log("Тронули", user_id)
+        return true
     }
 
     hideMessageChain() {

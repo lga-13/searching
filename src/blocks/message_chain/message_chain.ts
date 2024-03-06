@@ -52,13 +52,6 @@ export default class MessageChain extends Block {
     constructor(
         props: {
             srcName: string,
-            settings: {withInternalID: boolean},
-            messageInput: Input,
-            events: {
-                blur: ()=> void
-            },
-            sendButton: Img,
-            attachmentsButton: Img,
         }
     ) {
 
@@ -83,26 +76,25 @@ export default class MessageChain extends Block {
         props.dataTitle = dataTitle
 
 
-        const messageInput = new Input({
-            className: "chats__search-input",
-            fieldName: "message",
-            placeholder: "Введите сообщение",
-            events: {
-                blur: ()=> {},
-                focus: () => {}
-            },
-            settings: {withInternalID: true},
-            text: "Введите сообщение",
-            validator: Validator.validateMessage
-        })
+        const messageInput = new Input(
+            {
+                className: "chats__search-input",
+                inputName: "message",
+                inputPlaceholder: "Введите сообщение",
+                inputType: "text",
+                settings: {withInternalID: true},
+                validator: Validator.validateMessage
+            })
         props.messageInput = messageInput
 
 
         const senderName = new Title(
-            {className: "message-chain__header-title",
+            {
+                className: "message-chain__header-title",
                 text: "",
                 settings: {withInternalID: true},
-                tag: "h3"}
+                tag: "h3"
+            }
         )
         props.senderName = senderName
 
@@ -113,10 +105,10 @@ export default class MessageChain extends Block {
                 text: "->",
                 settings: {withInternalID: true},
                 events: {click: ()=>{
-                        console.log(messageInput)
-                        addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, "Новое сообщение")
+                        addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
                         console.log(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id))
-                        this.setCurrrentMessage(this.props.user_id)
+                        this.setCurrentMessage(this.props.user_id)
+                        messageInput.clear()
 
                     }
                 }
@@ -136,25 +128,31 @@ export default class MessageChain extends Block {
 
         props.user_id = null
 
+        props.settings = {withInternalID: true}
         super("div", props);
     }
 
-    setCurrrentMessage(user_id: number){
+    // Функция которая обновляет содержимое мессадж чейна.
+    setCurrentMessage(user_id: number){
         console.log("Вызвано получение сообщений ")
         const messages = []
         this.props.user_id = user_id
         Object.values(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id)).forEach(message => {
+
+            // Создание ссобщения.
             const currentMessage = new Message({
                 me: message.me,
-                text:  message.text,
+                text: message.text,
                 time: message.time,
                 settings: {withInternalID: true},
             })
             messages.push(currentMessage)
         })
+
+        // Присваивание this.children.messages
         this.children.messages = messages
         this.children.senderName.setText(getSender(MOCK_MESSAGE_DATA, this.props.user_id))
-        this.eventBus().emit(Block.EVENTS.FLOW_CDU)
+        this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
     }
 
 

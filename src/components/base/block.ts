@@ -187,7 +187,7 @@ export default class Block {
 
     get element() {
         // Геттер элемента
-        return this._element;
+        return this._element
     }
 
     getContent() {

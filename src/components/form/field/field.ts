@@ -15,14 +15,20 @@ export default class Field extends Block {
     }
 
     validate(): boolean {
-        Object.values(this.children).forEach(child => {
-            if (child instanceof Input) {
-                if (!child.submit_validate()) {
-                    return false
-                }
-            }
-            return true
-        });
+        console.log("Вызван метод валадации Филда")
+        return this.children.input.validate()
+    }
+
+    clear() {
+        this.children.input.clear()
+    }
+
+    getInputValue() {
+        return this.child.input.getInputValue()
+    }
+
+    getName() {
+        return this.child.input.getName()
     }
 
     render() {
