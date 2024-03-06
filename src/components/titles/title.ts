@@ -10,6 +10,11 @@ export default class Title extends Block {
         super("div", props);
     }
 
+    setText(text: string) {
+        this.props.text = text
+        this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+    }
+
     render() {
         return this.compile(greetings, this.props);
     }
