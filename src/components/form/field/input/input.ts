@@ -15,7 +15,7 @@ export default class Input extends Block {
             validator: {}
         }
     ) {
-        super("div", props);
+        super("input", props);
         this._already_check = false;
     }
 

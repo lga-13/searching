@@ -2,10 +2,10 @@
 
 export default `
 <div>
-    {{{ label }}}
+    {{#if label}}{{{ label }}}{{/if}}
     <div class="form__input-message-error">
         {{{ input }}}
-        {{{ errorMessage }}}
+        {{#if errorMessage}}{{{ errorMessage }}}{{/if}}
     </div>
     {{{ link }}}
 </div>

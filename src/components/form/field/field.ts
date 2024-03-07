@@ -3,19 +3,30 @@ import greetings from "./field_template.ts"
 import Label from "./label/label.ts";
 import Input from "./input/input.ts";
 import Link from "../../links/link.ts";
+import ErrorMessage from "../error-message/error-message.ts";
+
+
+
+interface FieldProps {
+    label: Label;
+    input: Input;
+    link: Link | null;
+    errorMessage: ErrorMessage | null;
+    settings?: { withInternalID: boolean };
+}
 
 
 export default class Field extends Block {
 
     // Кнопка
 
-    constructor(props: {label: Label, input: Input, link: Link | null, settings: {withInternalID: boolean}}) {
+    constructor(props: FieldProps) {
         // Создаём враппер DOM-элемент button
+        props.settings = {withInternalID: true}
         super("div", props);
     }
 
     validate(): boolean {
-        console.log("Вызван метод валадации Филда")
         return this.children.input.validate()
     }
 

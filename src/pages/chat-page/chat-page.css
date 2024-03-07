@@ -33,7 +33,6 @@
 }
 
 .chats__search-box {
-    position: relative;
     width: 300px;
     height: 32px;
     margin-top: 37px;
@@ -49,6 +48,9 @@
     justify-content: space-between;
 }
 
+.form__input-message-error{
+    position: relative;
+}
 
 .chats__search-input {
     position: relative;
@@ -64,7 +66,6 @@
     position: absolute;
     padding: 0;
     margin: 0;
-    width: 0;
 }
 
 
@@ -264,11 +265,12 @@ hr:first-of-type{
     background-color: #EBEBEB;
     border-radius: 15px;
     min-width: 25px;
-    padding: 10px;
+    padding: 5px;
     display: inline-block;
     max-width: 300px;
     overflow-wrap: break-word;
-    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 25px;
     float: right;
     clear: both;
 }
@@ -282,13 +284,14 @@ hr:first-of-type{
     border: 1px solid #EBEBEB;
     background-color: #EBEBEB;
     border-radius: 15px;
-    padding: 10px;
+    padding: 5px;
     display: inline-block;
+    min-height: 25px;
     min-width: 25px;
     max-width: 300px;
     overflow-wrap: break-word;
-    margin-right: 15px;
-    margin-top: 50px;
+    margin-left: 15px;
+    margin-top: 25px;
     float: left;
     clear: both;
 }
@@ -326,8 +329,24 @@ hr:first-of-type{
 
 .message-chain__attachment-button{
     margin: 12px 10px 10px 12px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    color: #999999;
+    font-size: 20px;
+    border-radius: 14px;
+    border: none;
+    padding: 0;
 }
 
 .message-chain__send-button{
     margin: 12px 10px 10px 12px;
+    width: 28px;
+    height: 28px;
+    background-color: #1D90D1;
+    color: white;
+    font-size: 20px;
+    border-radius: 14px;
+    border: none;
+    padding: 0;
 }

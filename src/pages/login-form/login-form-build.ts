@@ -5,24 +5,29 @@ import "./login-form.css";
 export const loginForm = new Form(
     {
         className: "login-form",
+
         title: {
             className: 'login-form__title',
             text: 'Войти',
             tag: 'h2',
         },
+
         button: {
             className: 'login-form__button',
             typeName: 'submit',
             text: 'Войти'
         },
-        labelFieldClassName: 'login-form__label',
-        inputFieldClassName: 'login-form__input',
-        errorMessageClassName: 'login-form__error-message',
+
         link: {
             className: 'login-form__registration',
             href: '#',
             text: 'Еще не зарегестрированы?',
         },
+
+        labelFieldClassName: 'login-form__label',
+        inputFieldClassName: 'login-form__input',
+        errorMessageClassName: 'login-form__error-message',
+
         fields: [
             {
                 labelText: 'Логин',

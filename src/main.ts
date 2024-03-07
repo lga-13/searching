@@ -5,6 +5,8 @@ import {registrationForm} from "./pages/registration-form/registration-form-buil
 import {error404} from "./pages/error404/error404-build.ts";
 import {error500} from "./pages/error500/error500-build.ts";
 import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
+import {changeDataForm} from "./blocks/change-data-form/change-data-form-build.ts";
+import {changePasswordForm} from "./blocks/change-password-form/change-password-form-build.ts";
 // import {error404} from "./pages/error404/error404-build.ts";
 // import {error500} from "./pages/error500/error500-build.ts";
 // import APIClient from "./clients/base/fetch.ts";
@@ -15,7 +17,7 @@ import {settingsPage} from "./pages/settings-page/settings-page-build.ts";
 
 
 // render("#app", loginForm);
-    render("#app", chatPage)
+    render("#app", settingsPage)
 
 
 // const client = new APIClient();

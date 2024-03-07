@@ -24,4 +24,4 @@
 //         this.hide()
 //         return this.compile(greetings, this.props);
 //     }
-}
+// }

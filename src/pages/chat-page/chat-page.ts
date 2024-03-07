@@ -157,7 +157,7 @@ export default class ChatPage extends Block {
                     inputType: 'text',
                     inputPlaceholder: 'Поиск',
                     validator: Validator.validateSearch,
-                    errorMessage: '',
+                    errorMessage: 'ошибка',
                 }],
 
             }

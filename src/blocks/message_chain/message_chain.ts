@@ -78,9 +78,9 @@ export default class MessageChain extends Block {
 
         const messageInput = new Input(
             {
-                className: "chats__search-input",
+                className: "message-chain__message_input",
                 inputName: "message",
-                inputPlaceholder: "Введите сообщение",
+                inputPlaceholder: "Cообщение",
                 inputType: "text",
                 settings: {withInternalID: true},
                 validator: Validator.validateMessage
@@ -100,9 +100,9 @@ export default class MessageChain extends Block {
 
         const sendButton = new Button(
             {
-                className: "button",
+                className: "message-chain__send-button",
                 typeName: "button",
-                text: "->",
+                text: "➡️",
                 settings: {withInternalID: true},
                 events: {click: ()=>{
                         addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
@@ -118,9 +118,9 @@ export default class MessageChain extends Block {
 
         const attachmentsButton = new Button(
             {
-                className: "button",
+                className: "message-chain__attachment-button",
                 typeName: "button",
-                text: "+",
+                text: "🗂️",
                 settings: {withInternalID: true},
                 events: {click: ()=>{}}}
         )

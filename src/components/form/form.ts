@@ -7,36 +7,42 @@ import Field from "./field/field.ts";
 import ErrorMessage from "./error-message/error-message.ts";
 import greetings from "./form-template.ts";
 import Link from "../links/link.ts";
+import {Validator} from "../../utils/field_validator.ts";
 
 
 export default class Form extends Block{
 
     constructor(props: {
         className: string,
-        title: {
-            className: string,
-            text: string,
-            tag: string,
-        } | null,
+
         button: {
             className: string,
             typeName: string,
             text: string
         },
-        labelFieldClassName: string | null,
-        inputFieldClassName: string,
-        errorMessageClassName: string,
+
+        title: {
+            className: string,
+            text: string,
+            tag: string,
+        } | null,
+
         link: {
             className: string,
             href: string,
             text: string,
-        },
+        } | null,
+
+        labelFieldClassName: string | null,
+        inputFieldClassName: string,
+        errorMessageClassName: string,
+
         fields: {
             labelText: string,
             inputName: string,
             inputType: string,
             inputPlaceholder: string,
-            validator: () => boolean,
+            validator: typeof Validator[keyof typeof Validator],
             errorMessage: string,
             link: {
                 className: string,
@@ -46,13 +52,24 @@ export default class Form extends Block{
         }[],
 
     }) {
+
+        if (props.link) {
+            props.formLink = new Link(
+                {
+                    className: props.link.className,
+                    href: props.link.href,
+                    text: props.link.text,
+                    settings: {withInternalID: true}
+                }
+            )}
+
         if (props.title) {
             props.formTitle = new Title(
                 {
                     className: props.title.className,
                     text: props.title.text,
+                    tag: props.title.tag,
                     settings: {withInternalID: true},
-                    tag: props.title.tag
                 }
             )
         }
@@ -102,6 +119,7 @@ export default class Form extends Block{
 
             // Прикручиваем к полю ссылку если она передана.
             let currentLink = null
+
             if (field.link) {
                 currentLink = new Link({
                     className: field.link.className,
@@ -115,20 +133,9 @@ export default class Form extends Block{
                 input: currentInput,
                 link: currentLink,
                 errorMessage: currentErrorMessage,
-                settings: {withInternalID: true}
             })
             formFields.push(currentField)
         })
-
-        if (props.link) {
-            props.formLink = new Link(
-            {
-                className: props.link.className,
-                href: props.link.href,
-                text: props.link.text,
-                settings: {withInternalID: true}
-            }
-        )}
 
         props.settings = {withInternalID: true}
         props.formFields = formFields
