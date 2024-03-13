@@ -43,13 +43,13 @@ export default class SettingsPage extends Block {
 
 
     showChangeDataForm() {
-        this.children.changeDataForm.hide()
+        this.children.changePasswordForm.hide()
         this.children.changeDataForm.show()
         this.children.settingsPlug.hide()
         }
 
     showChangePasswordForm() {
-        this.children.changePasswordForm.hide()
+        this.children.changeDataForm.hide()
         this.children.changePasswordForm.show()
         this.children.settingsPlug.hide()
     }
