@@ -19,6 +19,7 @@ export default class SettingsPage extends Block {
             settings: {
                 withInternalID: boolean},
             settingsImg: Img,
+            settingsLinkImg: Link,
             settingsLoginLabel: Label,
             settingsLoginInput: Input,
             settingsNameLabel: Label,

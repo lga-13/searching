@@ -19,6 +19,15 @@ const  settingsImg = new Img(
         altText: 'photo',
     }
 )
+const settingsLinkImg = new Link(
+    {
+        className: 'settings__change-img',
+        href: '#',
+        text: 'Сменить аватар',
+        settings: {withInternalID: true},
+        events: {}
+    }
+)
 const settingsLoginLabel = new Label(
     {
             className: 'settings__label',
@@ -160,6 +169,7 @@ export const settingsPage = new SettingsPage(
         className: "settings-page",
         settings: {withInternalID: true},
         settingsImg: settingsImg,
+        settingsLinkImg: settingsLinkImg,
         settingsLoginLabel: settingsLoginLabel,
         settingsLoginInput: settingsLoginInput,
         settingsNameLabel: settingsNameLabel,

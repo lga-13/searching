@@ -3,7 +3,10 @@
 export default `
     <div class="{{className}}">
         <form class="settings-data">
-            {{{ settingsImg }}}
+            <div class="settings-page__img">
+                {{{ settingsImg }}}
+                {{{ settingsLinkImg }}}
+            </div>
             {{{ settingsLoginLabel }}}
             {{{ settingsLoginInput }}}
             <hr>

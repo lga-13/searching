@@ -17,13 +17,43 @@
     flex: 4;
 }
 
-.settings__img {
-    border-radius: 25%;
-    margin-top: 23px;
-    margin-bottom: 15px;
-    margin-left: 156px;
+.settings-page__img{
+    position: relative;
     width: 98px;
     height: 99px;
+    margin-top: 24px;
+    margin-bottom: 77px;
+    margin-left: 170px;
+    font-family: "Manuale", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.settings__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98px;
+    height: 99px;
+}
+
+.settings__change-img{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 98px;
+    height: 99px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #868686;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-decoration: underline;
+}
+
+.settings-page__img:hover .settings__change-img{
+    opacity: 1;
 }
 
 .settings__label {
