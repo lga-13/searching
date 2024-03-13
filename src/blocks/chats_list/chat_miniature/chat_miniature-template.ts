@@ -1,7 +1,6 @@
 // language=hbs
 
 export default `
-    <hr>
     <div class="chats__message">
         <img class="chats__img" src="{{srcName}}" alt="btn"/>
         <div class="chats__text">

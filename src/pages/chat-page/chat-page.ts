@@ -148,7 +148,7 @@ export default class ChatPage extends Block {
                 button: {
                     className: 'chats__search-btn',
                     typeName: 'button',
-                    text: '🔍'
+                    text: ''
                 },
                 inputFieldClassName: 'chats__search-input',
                 errorMessageClassName: 'chats__message-error',

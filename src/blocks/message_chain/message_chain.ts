@@ -4,7 +4,7 @@ import Input from "../../components/form/field/input/input.ts";
 import Button from "../../components/button/button.ts";
 import Title from "../../components/titles/title.ts";
 import Img from "../../components/img/img.ts";
-import morebtn from "../../public/static/img/more-btn.svg";
+import morebtn from "../../public/static/img/morebtn.svg";
 import {Validator} from "../../utils/field_validator.ts";
 import Block from "../../components/base/block.ts";
 import Message from "./message/message.ts";
@@ -55,13 +55,20 @@ export default class MessageChain extends Block {
         }
     ) {
 
-        const moreButton = new Img(
+        const moreButton = new Button(
             {
-                className: 'message-chain__more-button',
-                srcName: morebtn,
-                altText: 'btn',
+                className: "message-chain__more-button",
+                typeName: "button",
+                text: "",
                 settings: {withInternalID: true},
-                events: {},
+                events: {click: ()=>{
+                        addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
+                        console.log(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id))
+                        this.setCurrentMessage(this.props.user_id)
+                        messageInput.clear()
+
+                    }
+                }
             }
         )
         props.moreButton = moreButton
@@ -102,7 +109,7 @@ export default class MessageChain extends Block {
             {
                 className: "message-chain__send-button",
                 typeName: "button",
-                text: "➡️",
+                text: "",
                 settings: {withInternalID: true},
                 events: {click: ()=>{
                         addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
@@ -120,7 +127,7 @@ export default class MessageChain extends Block {
             {
                 className: "message-chain__attachment-button",
                 typeName: "button",
-                text: "🗂️",
+                text: "",
                 settings: {withInternalID: true},
                 events: {click: ()=>{}}}
         )

@@ -40,7 +40,7 @@ export const loginForm = new Form(
             {
                 labelText: 'Пароль',
                 inputName: 'password',
-                inputType: 'text',
+                inputType: 'password',
                 inputPlaceholder: "",
                 validator: Validator.validatePassword,
                 errorMessage: 'пароль введен некорректно',

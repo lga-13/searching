@@ -8,7 +8,7 @@ export default `
                 {{ time }}
             </div>
         </div>
-        <script src="message_chain-dynamic-box.ts"></script>
+        <script src="../message_chain-dynamic-box.ts"></script>
     {{else}}
         <div class="message-chain__recipient-message">
             {{ text }}
@@ -16,7 +16,7 @@ export default `
                 {{ time }}
             </div>
         </div>
-        <script src="message_chain-dynamic-box.ts"></script>
+        <script src="../message_chain-dynamic-box.ts"></script>
     {{/if}}
     <br>
 `
