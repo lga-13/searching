@@ -106,62 +106,8 @@ const settingsPhoneInput = new Input(
         events: {}
     }
 )
-const settingsDataLink = new Link(
-    {
-        className: 'settings__change-data',
-        href: '#',
-        text: 'Изменить личные данные',
-        settings: {withInternalID: true},
-        events: {
-            click: () => {
-                settingsPage.showChangeDataForm()
-            }
-        }
-    }
-)
-const settingsPasswordLink = new Link(
-    {
-        className: 'settings__change-password',
-        href: '#',
-        text: 'Сменить пароль',
-        settings: {withInternalID: true},
-        events: {
-            click: () => {
-                settingsPage.showChangePasswordForm()
-            }
-        }
-    }
-)
-const settingsExitLink = new Link(
-    {
-        className: 'settings__change-exit',
-        href: '#',
-        text: 'Выйти из аккаунта',
-        settings: {withInternalID: true}
-    }
-)
-const buttonBlueBack = new Button(
-    {
-        className: 'settings__btn-back',
-        typeName: 'button',
-        text: '',
-        settings: {withInternalID: true},
-        events: {},
-    }
-)
-const settingsPlugLink = new Link(
-    {
-        className: 'settings-window__link',
-        href: '#',
-        text: 'Выберите, какие изменения хотите внести.',
-        settings: {withInternalID: true}
-    }
-)
 
 
-const settingsPlug = new Plug(
-    {className: "plug", plugLink: settingsPlugLink, settings: {withInternalID: true}}
-)
 
 
 export const settingsPage = new SettingsPage(
@@ -180,9 +126,4 @@ export const settingsPage = new SettingsPage(
         settingsEmailInput: settingsEmailInput,
         settingsPhoneLabel: settingsPhoneLabel,
         settingsPhoneInput: settingsPhoneInput,
-        settingsDataLink: settingsDataLink,
-        settingsPasswordLink: settingsPasswordLink,
-        buttonBlueBack: buttonBlueBack,
-        settingsPlug: settingsPlug,
-        settingsExitLink: settingsExitLink,
     })
