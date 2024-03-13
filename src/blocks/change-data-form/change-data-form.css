@@ -22,24 +22,35 @@
     padding-left: 0;
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    font-size: 11px;
+    font-size: 13px;
     color: #999999;
+}
+
+.form__input-message-error{
+    position: relative;
 }
 
 .change-data-form__input{
     width: 430px;
-    padding: 5px;
+    padding: 0;
     margin-bottom: 47px;
     border: none;
     border-bottom: 1px solid black ;
 }
 
+.change-data-form__input:focus {
+    outline: none;
+}
+
 .change-data-form__error-message{
+    position: absolute;
+    left: 0;
+    margin: -35px 0 0 0;
     color: #DF6058;
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 11px;
-    margin-bottom: 10px;
+    padding: 0;
 }
 
 .change-data-form__input + .change-data-form__error-message{
