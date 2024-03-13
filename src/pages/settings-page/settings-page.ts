@@ -119,7 +119,7 @@ export default class SettingsPage extends Block {
     }
 
     hideSettings() {
-        this.childrens.changeDataForm.hide()
+        this.children.changeDataForm.hide()
         this.children.changePasswordForm.hide()
         this.children.settingsPlug.show()
     }
