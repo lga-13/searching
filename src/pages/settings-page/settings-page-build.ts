@@ -99,19 +99,6 @@ const settingsPhoneInput = new Input(
 )
 
 
-const settingsPlugLink = new Link(
-    {
-        className: 'settings-window__link',
-        href: '#',
-        text: 'Выберите, какие изменения хотите внести.',
-        settings: {withInternalID: true}
-    }
-)
-
-
-const settingsPlug = new Plug(
-    {className: "plug", plugLink: settingsPlugLink, settings: {withInternalID: true}}
-)
 
 
 export const settingsPage = new SettingsPage(
@@ -129,5 +116,4 @@ export const settingsPage = new SettingsPage(
         settingsEmailInput: settingsEmailInput,
         settingsPhoneLabel: settingsPhoneLabel,
         settingsPhoneInput: settingsPhoneInput,
-        settingsPlug: settingsPlug,
     })

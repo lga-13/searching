@@ -29,10 +29,24 @@ export default class SettingsPage extends Block {
             settingsEmailInput: Input,
             settingsPhoneLabel: Label,
             settingsPhoneInput:Input,
-            settingsPlug: Plug,
         }) {
         props.changeDataForm = changeDataForm
         props.changePasswordForm = changePasswordForm
+
+
+        const settingsPlug = new Plug(
+            {
+                className: "plug",
+                plugLink: {
+                    className: 'settings-window__link',
+                    href: '#',
+                    text: 'Выберите, какие изменения хотите внести.',
+                }
+            }
+        )
+
+        props.settingsPlug = settingsPlug
+
 
         const settingsDataLink = new Link(
             {
