@@ -5,7 +5,7 @@
 
 .registration-form {
     width: 340px;
-    height: 640px;
+    height: 690px;
     margin: 118px auto;
     padding: 20px;
     border: 1px solid #1D90D1;
@@ -38,6 +38,7 @@
     width: 100%;
     padding: 0;
     margin-bottom: 32px;
+    margin-top: 10px;
     border: none;
     border-bottom: 1px solid black ;
 }

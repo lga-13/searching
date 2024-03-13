@@ -33,6 +33,7 @@
 .change-data-form__input{
     width: 430px;
     padding: 0;
+    margin-top: 10px;
     margin-bottom: 47px;
     border: none;
     border-bottom: 1px solid black ;

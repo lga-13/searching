@@ -3,12 +3,14 @@
 export default `
     <div class="chats">
         <div class="chats-tape">
-            <div class="chats__account-nav">
-                {{{ accountLink }}}
+            <div class="chats__container-nav">
+                <div class="chats__account-nav">
+                    {{{ accountLink }}}
+                </div>
+                <form class="chats__search-box">
+                    {{{ searchForm }}}
+                </form>
             </div>
-            <form class="chats__search-box">
-                {{{ searchForm }}}
-            </form>
             {{{ chatAvatarImg }}}
             {{{ chatsList }}}
         </div>
