@@ -32,11 +32,13 @@ export default class Input extends Block {
     }
 
     clear() {
-        this.element.value = '';
+        const input = this.element.querySelector('input');
+        input.value = ''
     }
 
     getInputValue():  string {
-        return this.element.value;
+        const input = this.element.querySelector('input');
+        return input.value;
     }
 
     focus() {
