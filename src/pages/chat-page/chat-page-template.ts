@@ -11,8 +11,10 @@ export default `
                     {{{ searchForm }}}
                 </form>
             </div>
-            {{{ chatAvatarImg }}}
-            {{{ chatsList }}}
+            <div class="chat-list">
+                {{{ chatAvatarImg }}}
+                {{{ chatsList }}}
+            </div>
         </div>
         <div class="message-chain">
             {{{ messageChain }}}

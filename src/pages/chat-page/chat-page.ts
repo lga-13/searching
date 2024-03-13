@@ -55,7 +55,183 @@ export const MOCK_MESSAGE_DATA = [
                     text: "Пойдет! А ты?",
                     time: "10:32:34",
                 }]
-        }
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
+        {
+            srcName: chat2,
+            index: 1,
+            sender: "Мама",
+            count: 1,
+            message_chain: [
+                {
+                    me: true,
+                    text: "В лесу растут шишки!",
+                    time: "10:30:34",
+                },
+                {
+                    me: true,
+                    text: "Крупные?",
+                    time: "10:31:53",
+                },
+                {
+                    me: false,
+                    text: "Крупные",
+                    time: "10:32:45",
+                }]
+        },
 ]
 
 

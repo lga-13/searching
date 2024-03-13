@@ -85,10 +85,11 @@
 }
 
 hr {
-    margin-top: 48px;
+    margin-top: 0;
     width: 310px;
     color: #757575;
     margin-bottom: 0;
+    padding: 0;
 }
 
 hr:first-of-type{
@@ -100,9 +101,10 @@ hr:first-of-type{
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 10px;
-    margin: 10px 0;
+    height: 71px;
+    margin: 0;
     gap: 8px;
+    padding-top: 10px;
 }
 
 .chats__img {
@@ -117,6 +119,7 @@ hr:first-of-type{
     justify-content: flex-start;
     align-items: flex-start;
     gap: 4px;
+    padding: 0;
 }
 
 .chats__message-sender {
@@ -126,12 +129,14 @@ hr:first-of-type{
     font-weight: 700;
     margin-bottom: 3px;
     margin-top: 4px;
+    padding: 0;
 }
 
 .chats__message-answer {
     display: flex;
     flex-direction: row;
     gap: 4px;
+    padding: 0;
 }
 
 .chats__message-content {
@@ -141,6 +146,7 @@ hr:first-of-type{
     font-size: 12px;
     font-weight: 500;
     color: #757575;
+    padding: 0;
 }
 
 .chats__your-message {
@@ -148,6 +154,7 @@ hr:first-of-type{
     font-size: 12px;
     font-weight: 500;
     color: black;
+    padding: 0;
 }
 
 .chats__time-and-count {
@@ -255,20 +262,17 @@ hr:first-of-type{
     border-top: 1px solid #757575;
 }
 
-/* Стилевое оформление всего скроллбара */
 ::-webkit-scrollbar {
-    width: 5px; /* ширина для вертикального скроллбара */
+    width: 5px;
 }
 
-/* Стилевое оформление ползунка скроллбара */
 ::-webkit-scrollbar-thumb {
-    background: #757575; /* цвет ползунка */
-    border-radius: 8px; /* скругление углов ползунка */
+    background: #757575;
+    border-radius: 8px;
 }
 
-/* Стилевое оформление полосы, по которой двигается ползунок */
 ::-webkit-scrollbar-track {
-    background: #EBEBEB; /* цвет полосы */
+    background: #EBEBEB;
 }
 
 .message-chain__data-title{
