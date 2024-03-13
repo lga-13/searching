@@ -243,9 +243,27 @@ hr:first-of-type{
 .message-chain__message-chain{
     width: 970px;
     height: 597px;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: rgba(116, 146, 102, 0.42);
     border-bottom: 1px solid #757575;
     border-top: 1px solid #757575;
+}
+
+/* Стилевое оформление всего скроллбара */
+::-webkit-scrollbar {
+    width: 5px; /* ширина для вертикального скроллбара */
+}
+
+/* Стилевое оформление ползунка скроллбара */
+::-webkit-scrollbar-thumb {
+    background: #757575; /* цвет ползунка */
+    border-radius: 8px; /* скругление углов ползунка */
+}
+
+/* Стилевое оформление полосы, по которой двигается ползунок */
+::-webkit-scrollbar-track {
+    background: #EBEBEB; /* цвет полосы */
 }
 
 .message-chain__data-title{

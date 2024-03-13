@@ -11,43 +11,6 @@ import Message from "./message/message.ts";
 import {addMessageChain, getMessageChain, getSender, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
 
 
-const fetch_messages = {
-    1: [
-        {
-            me: true,
-            text: "В лесу растут шишки!",
-            time: "10:30",
-        },
-        {
-            me: false,
-            text: "Крупные?",
-            time: "10:31",
-        },
-        {
-            me: true,
-            text: "Крупные",
-            time: "10:32",
-        }
-    ],
-    2: [
-    {
-        me: true,
-        text: "Привет!",
-        time: "10:30",
-    },
-    {
-        me: false,
-        text: "Привет! Как ты",
-        time: "10:31",
-    },
-    {
-        me: true,
-        text: "Пойдет! А ты?",
-        time: "10:32",
-    }
-
-]}
-
 export default class MessageChain extends Block {
     constructor(
         props: {
@@ -145,12 +108,16 @@ export default class MessageChain extends Block {
         const messages = []
         this.props.user_id = user_id
         Object.values(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id)).forEach(message => {
+            console.log(`${message.text} - ${message.time}`)
 
+            const parts = message.time.split(':');
+            parts.pop();
+            const newTime = parts.join(':')
             // Создание ссобщения.
             const currentMessage = new Message({
                 me: message.me,
                 text: message.text,
-                time: message.time,
+                time: newTime,
                 settings: {withInternalID: true},
             })
             messages.push(currentMessage)

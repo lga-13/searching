@@ -93,7 +93,7 @@ export default class SettingsPage extends Block {
             {
                 className: 'settings__btn-back',
                 typeName: 'button',
-                text: '⬅',
+                text: '',
                 settings: {withInternalID: true},
                 events: {click: () => {
                         this.hideSettings()

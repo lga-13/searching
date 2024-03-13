@@ -16,46 +16,44 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            time: "10:30",
             count: 1,
             message_chain: [
                 {
                     me: true,
                     text: "В лесу растут шишки!",
-                    time: "10:30",
+                    time: "10:30:34",
                 },
                 {
                     me: true,
                     text: "Крупные?",
-                    time: "10:31",
+                    time: "10:31:53",
                 },
                 {
                     me: false,
                     text: "Крупные",
-                    time: "10:32",
+                    time: "10:32:45",
                 }]
         },
         {
             srcName: chat2,
             index: 2,
             sender: "Папа",
-            time: "10:32",
             count: 2,
             message_chain:[
                 {
                     me: true,
                     text: "Привет!",
-                    time: "10:30",
+                    time: "10:30:34",
                 },
                 {
                     me: false,
                     text: "Привет! Как ты",
-                    time: "10:31",
+                    time: "10:31:28",
                 },
                 {
                     me: true,
                     text: "Пойдет! А ты?",
-                    time: "10:32",
+                    time: "10:32:34",
                 }]
         }
 ]

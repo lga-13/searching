@@ -20,13 +20,16 @@ export default class ChatList extends Block {
     newMessage() {
         const chatList = []
         Object.values(get_chats_list(MOCK_MESSAGE_DATA)).forEach(chat => {
+            const parts = chat.message_chain[chat.message_chain.length - 1].time.split(':');
+            parts.pop();
+            let newTime = parts.join(':');
             const currentChatMiniature = new ChatMiniature({
                 srcName: chat.srcName,
                 index:  chat.index,
                 sender: chat.sender,
                 your: chat.message_chain[chat.message_chain.length - 1].me,
                 content: chat.message_chain[chat.message_chain.length - 1].text,
-                time: chat.message_chain[chat.message_chain.length - 1].time,
+                time: newTime,
                 count: chat.count,
                 settings: {withInternalID: true},
                 events: {
