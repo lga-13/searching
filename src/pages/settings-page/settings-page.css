@@ -98,10 +98,7 @@
 .settings__btn-back{
     width: 28px;
     height: 28px;
-    background-color: #1D90D1;
-    color: white;
-    font-size: 20px;
-    border-radius: 14px;
+    background: url("../../public/static/img/btn-back.svg");
     border: none;
     padding: 0;
 }
