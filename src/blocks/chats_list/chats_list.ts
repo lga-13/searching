@@ -23,12 +23,17 @@ export default class ChatList extends Block {
             const parts = chat.message_chain[chat.message_chain.length - 1].time.split(':');
             parts.pop();
             let newTime = parts.join(':');
+
+            var formatedText = chat.message_chain[chat.message_chain.length - 1].text
+            if (formatedText.length > 25){
+                formatedText = `${formatedText.substring(0, 25)} ...`;
+            }
             const currentChatMiniature = new ChatMiniature({
                 srcName: chat.srcName,
                 index:  chat.index,
                 sender: chat.sender,
                 your: chat.message_chain[chat.message_chain.length - 1].me,
-                content: chat.message_chain[chat.message_chain.length - 1].text,
+                content: formatedText,
                 time: newTime,
                 count: chat.count,
                 settings: {withInternalID: true},

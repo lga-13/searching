@@ -113,6 +113,8 @@ export default class MessageChain extends Block {
             const parts = message.time.split(':');
             parts.pop();
             const newTime = parts.join(':')
+
+
             // Создание ссобщения.
             const currentMessage = new Message({
                 me: message.me,
