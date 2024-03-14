@@ -7,20 +7,15 @@ export default `
                 {{{ settingsImg }}}
                 {{{ settingsLinkImg }}}
             </div>
-            {{{ settingsLoginLabel }}}
-            {{{ settingsLoginInput }}}
+            {{{ settingsLoginTitle }}}
             <hr>
-            {{{ settingsNameLabel }}}
-            {{{ settingsNameInput }}}
+            {{{ settingsNameTitle }}}
             <hr>
-            {{{ settingsSecondNameLabel }}}
-            {{{ settingsSecondNameInput }}}
+            {{{ settingsSecondNameTitle }}}
             <hr>
-            {{{ settingsEmailLabel }}}
-            {{{ settingsEmailInput }}}
+            {{{ settingsEmailTitle }}}
             <hr>
-            {{{ settingsPhoneLabel }}}
-            {{{ settingsPhoneInput }}}
+            {{{ settingsPhoneTitle }}}
             <hr>
             {{{ settingsDataLink }}}
             {{{ settingsPasswordLink }}}

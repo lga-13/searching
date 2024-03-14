@@ -62,19 +62,8 @@
     font-weight: 700;
     font-size: 13px;
     color: #999999;
-    margin-bottom: 12px;
+    margin-bottom: 43px;
     margin-left: 0;
-}
-
-.settings__input {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-weight: 500;
-    font-size: 13px;
-    border: none;
-    color: #1E1E1E;
-    outline: none;
 }
 
 .settings-hr {

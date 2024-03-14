@@ -7,6 +7,7 @@ import SettingsPage from "./settings-page.ts";
 import btnback from "../../public/static/img/btn-back.svg";
 import Plug from "../../components/plug/plug.ts";
 import Button from "../../components/button/button.ts";
+import Title from "../../components/titles/title.ts";
 
 
 
@@ -28,86 +29,50 @@ const settingsLinkImg = new Link(
         events: {}
     }
 )
-const settingsLoginLabel = new Label(
+const settingsLoginTitle = new Title(
     {
             className: 'settings__label',
             text: 'Логин',
-            settings: {withInternalID: true}
+            settings: {withInternalID: true},
+            tag: 'p'
     }
 )
 
-const settingsLoginInput = new Input(
-    {
-            className: 'settings__input',
-            text: 'login',
-            settings: {withInternalID: true},
-            events: {}
-    }
-)
-const settingsNameLabel = new Label(
+const settingsNameTitle = new Title(
     {
             className: 'settings__label',
             text: 'Имя',
-            settings: {withInternalID: true}
+            settings: {withInternalID: true},
+            tag: 'p'
     }
 )
 
-const settingsNameInput = new Input(
-    {
-            className: 'settings__input',
-            text: 'first-name',
-            settings: {withInternalID: true},
-            events: {}
-    }
-)
-const settingsSecondNameLabel = new Label(
+const settingsSecondNameTitle = new Title(
     {
             className: 'settings__label',
             text: 'Фамилия',
-            settings: {withInternalID: true}
+            settings: {withInternalID: true},
+            tag: 'p'
     }
 )
 
-const settingsSecondNameInput = new Input(
-    {
-            className: 'settings__input',
-            text: 'second-name',
-            settings: {withInternalID: true},
-            events: {}
-    }
-)
-const settingsEmailLabel = new Label(
+const settingsEmailTitle = new Title(
     {
             className: 'settings__label',
             text: 'Почта',
-            settings: {withInternalID: true}
+            settings: {withInternalID: true},
+            tag: 'p'
     }
 )
-const settingsEmailInput = new Input(
-    {
-        className: 'settings__input',
-        text: 'email',
-        settings: {withInternalID: true},
-        events: {}
-    }
-)
-const settingsPhoneLabel = new Label(
+
+const settingsPhoneTitle = new Title(
     {
         className: 'settings__label',
         text: 'Телефон',
-        settings: {withInternalID: true}
-    }
-)
-const settingsPhoneInput = new Input(
-    {
-        className: 'settings__input',
-        text: 'phone',
         settings: {withInternalID: true},
-        events: {}
+        tag: 'p'
     }
 )
-
-
 
 
 export const settingsPage = new SettingsPage(
@@ -116,14 +81,9 @@ export const settingsPage = new SettingsPage(
         settings: {withInternalID: true},
         settingsImg: settingsImg,
         settingsLinkImg: settingsLinkImg,
-        settingsLoginLabel: settingsLoginLabel,
-        settingsLoginInput: settingsLoginInput,
-        settingsNameLabel: settingsNameLabel,
-        settingsNameInput: settingsNameInput,
-        settingsSecondNameLabel: settingsSecondNameLabel,
-        settingsSecondNameInput: settingsSecondNameInput,
-        settingsEmailLabel: settingsEmailLabel,
-        settingsEmailInput: settingsEmailInput,
-        settingsPhoneLabel: settingsPhoneLabel,
-        settingsPhoneInput: settingsPhoneInput,
+        settingsLoginTitle: settingsLoginTitle,
+        settingsNameTitle: settingsNameTitle,
+        settingsSecondNameTitle: settingsSecondNameTitle,
+        settingsEmailTitle: settingsEmailTitle,
+        settingsPhoneTitle: settingsPhoneTitle,
     })

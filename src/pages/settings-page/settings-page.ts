@@ -10,6 +10,7 @@ import Button from "../../components/button/button.ts";
 import {changeDataForm} from "../../blocks/change-data-form/change-data-form-build.ts";
 import {changePasswordForm} from "../../blocks/change-password-form/change-password-form-build.ts";
 import {settingsPage} from "./settings-page-build.ts";
+import Title from "../../components/titles/title.ts";
 
 
 export default class SettingsPage extends Block {
@@ -20,16 +21,11 @@ export default class SettingsPage extends Block {
                 withInternalID: boolean},
             settingsImg: Img,
             settingsLinkImg: Link,
-            settingsLoginLabel: Label,
-            settingsLoginInput: Input,
-            settingsNameLabel: Label,
-            settingsNameInput: Input,
-            settingsSecondNameLabel: Label,
-            settingsSecondNameInput: Input,
-            settingsEmailLabel: Label,
-            settingsEmailInput: Input,
-            settingsPhoneLabel: Label,
-            settingsPhoneInput:Input,
+            settingsLoginTitle: Title,
+            settingsNameTitle: Title,
+            settingsSecondNameTitle: Title,
+            settingsEmailTitle: Title,
+            settingsPhoneTitle: Title,
         }) {
         props.changeDataForm = changeDataForm
         props.changePasswordForm = changePasswordForm
