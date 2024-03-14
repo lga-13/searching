@@ -95,13 +95,21 @@ hr {
 hr:first-of-type{
     margin: 0;
 }
+
+.chat-list{
+    width: 310px;
+    height: 617px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .chats__message {
     display: flex;
     font-family: "Manuale", sans-serif;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 71px;
+    height: 60px;
     margin: 0;
     gap: 8px;
     padding-top: 10px;
