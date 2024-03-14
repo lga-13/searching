@@ -114,12 +114,13 @@ export default class MessageChain extends Block {
             parts.pop();
             const newTime = parts.join(':')
 
-
+            console.log(message.read)
             // Создание ссобщения.
             const currentMessage = new Message({
                 me: message.me,
                 text: message.text,
                 time: newTime,
+                read: message.read,
                 settings: {withInternalID: true},
             })
             messages.push(currentMessage)

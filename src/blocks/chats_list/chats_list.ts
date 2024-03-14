@@ -1,7 +1,8 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chats_list-template.ts"
 import ChatMiniature from "./chat_miniature/chat_miniature.ts";
-import {get_chats_list, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
+import {get_chats_list, getMessageChain, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
+import Message from "../message_chain/message/message.ts";
 
 
 export default class ChatList extends Block {
@@ -24,6 +25,13 @@ export default class ChatList extends Block {
             parts.pop();
             let newTime = parts.join(':');
 
+            var counter = 0;
+            Object.values(chat.message_chain).forEach(message => {
+                if (!message.read){
+                    counter += 1
+                }
+            })
+
             var formatedText = chat.message_chain[chat.message_chain.length - 1].text
             if (formatedText.length > 25){
                 formatedText = `${formatedText.substring(0, 25)} ...`;
@@ -35,11 +43,12 @@ export default class ChatList extends Block {
                 your: chat.message_chain[chat.message_chain.length - 1].me,
                 content: formatedText,
                 time: newTime,
-                count: chat.count,
+                count: counter,
                 settings: {withInternalID: true},
                 events: {
                     click: () => {
                         this.props.showMessageChain(chat.index)
+
                     }
                 }
             })

@@ -16,7 +16,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -38,29 +37,42 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 2,
             sender: "Папа",
-            count: 2,
             message_chain:[
                 {
-                    me: true,
+                    me: false,
                     text: "Привет!",
                     time: "10:30:34",
+                    read: true,
                 },
                 {
-                    me: false,
+                    me: true,
                     text: "Привет! Как ты",
                     time: "10:31:28",
+                    read: true,
                 },
                 {
-                    me: true,
+                    me: false,
                     text: "Пойдет! А ты?",
                     time: "10:32:34",
-                }]
+                    read: false,
+                },
+                {
+                    me: false,
+                    text: "Ау",
+                    time: "10:41:28",
+                    read: false,
+                },
+                {
+                    me: false,
+                    text: "Ты тут?",
+                    time: "11:31:28",
+                    read: false,
+                },]
         },
         {
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -82,7 +94,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -104,7 +115,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -126,7 +136,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -148,7 +157,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -170,7 +178,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -192,7 +199,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
@@ -214,7 +220,6 @@ export const MOCK_MESSAGE_DATA = [
             srcName: chat2,
             index: 1,
             sender: "Мама",
-            count: 1,
             message_chain: [
                 {
                     me: true,
