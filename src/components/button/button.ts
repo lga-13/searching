@@ -10,16 +10,23 @@ export default class Button extends Block {
                         events: {click: (event)=>void, keydown: (event)=>void}}) {
         // Создаём враппер DOM-элемент button
         super("div", props);
-
-        this.element.tabIndex = 0;
-        const button = this;
-
-
-        this.element.addEventListener('keydown', function(event){
-            if (event.code === "Enter") {
-                props.events.click.call(button, event);
+        const button = this.element.querySelector('button');
+        button.addEventListener('keydown',(event: KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                this.props.event.click(event);
             }
         });
+        this.eventBus().emit(Block.EVENTS.FLOW_CDM, button);
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                button.click();
+            }
+        });
+    }
+
+    componentDidMount() {
+        this.element.querySelector('button').focus();
     }
 
     render() {

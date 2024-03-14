@@ -29,8 +29,8 @@ export default class MessageChain extends Block {
                         console.log(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id))
                         this.setCurrentMessage(this.props.user_id)
                         messageInput.clear()
-
-                    }
+                },
+                        keydown: (event) => {}
                 }
             }
         )
@@ -79,8 +79,8 @@ export default class MessageChain extends Block {
                         console.log(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id))
                         this.setCurrentMessage(this.props.user_id)
                         messageInput.clear()
-
-                    }
+                },
+                        keydown: (event) => {}
                 }
             }
         )

@@ -88,7 +88,8 @@ export default class Form extends Block{
                             console.log(this.get_data());
                             this.clear();
                         }
-                    }
+                    },
+                    keydown: (event) => {}
                 }}
         )
 
