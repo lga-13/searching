@@ -4,6 +4,7 @@
 }
 
 .login-form {
+    position: relative;
     width: 340px;
     height: 450px;
     margin: 118px auto;
@@ -95,4 +96,14 @@
     margin-top: 10px;
 }
 
-
+.form-toggle{
+    position: absolute;
+    top: 237px;
+    bottom: 233px;
+    right: 46px;
+    left: 310px;
+    border: none;
+    background: none;
+    padding: 0;
+    height: 14px;
+}

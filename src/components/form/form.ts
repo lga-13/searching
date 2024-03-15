@@ -21,6 +21,18 @@ export default class Form extends Block{
             text: string
         },
 
+        img: {
+            className: string,
+            srcName: string,
+            altText: string,
+        },
+
+        toggleButton: {
+            className: string,
+            typeName: string,
+            text: string
+        },
+
         title: {
             className: string,
             text: string,
@@ -40,7 +52,7 @@ export default class Form extends Block{
         fields: {
             labelText: string,
             inputName: string,
-            inputType: string,
+            inputType: 'text' | 'password',
             inputPlaceholder: string,
             validator: typeof Validator[keyof typeof Validator],
             errorMessage: string,
@@ -94,6 +106,17 @@ export default class Form extends Block{
         )
 
 
+        props.toggleButton = new Button({
+            className: props.toggleButton.className,
+            typeName: props.toggleButton.typeName,
+            text: props.toggleButton.text,
+            settings: {withInternalID: true},
+            events: {
+                click: () => {
+                    this.togglePasswordVisibility();
+                }
+            }
+        });
 
         const formFields = []
         Object.values(props.fields).forEach(field => {
@@ -171,6 +194,14 @@ export default class Form extends Block{
         });
     }
 
+    togglePasswordVisibility() {
+        const passwordInput = this.element.querySelector('input[type="password"]');
+        if (passwordInput) {
+            const currentType = passwordInput.getAttribute('type');
+            const newType = currentType === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', newType);
+        }
+    }
 
     // Метод возвращает даныне всех полей
     get_data(): {string: string} {

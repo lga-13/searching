@@ -11,6 +11,9 @@ export default `
         {{#each formFields}}
             {{{ this }}}
         {{/each}}
+        {{#if toggleButton}}
+            {{{ toggleButton }}}
+        {{/if}}
         {{{ formButton }}}
         {{#if link}}
             {{{ formLink }}}

@@ -18,6 +18,12 @@ export const loginForm = new Form(
             text: 'Войти'
         },
 
+        toggleButton: {
+            className: 'form-toggle',
+            typeName: 'button',
+            text: '👁'
+        },
+
         link: {
             className: 'login-form__registration',
             href: '#',
