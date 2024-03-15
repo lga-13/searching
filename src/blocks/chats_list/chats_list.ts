@@ -1,8 +1,7 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chats_list-template.ts"
 import ChatMiniature from "./chat_miniature/chat_miniature.ts";
-import {get_chats_list, getMessageChain, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
-import Message from "../message_chain/message/message.ts";
+import {get_chats_list, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
 
 
 export default class ChatList extends Block {
@@ -15,48 +14,49 @@ export default class ChatList extends Block {
 
         // Создаём враппер DOM-элемент button
         super("div", props);
-        this.newMessage()
+        this.rebuildChatList()
     }
 
-    newMessage() {
+    rebuildChatList() {
         const chatList = []
-        Object.values(get_chats_list(MOCK_MESSAGE_DATA)).forEach(chat => {
+        Object.values(get_chats_list()).forEach(chat => {
+
+            // Сборка времени миниатюры чата
             const parts = chat.message_chain[chat.message_chain.length - 1].time.split(':');
             parts.pop();
             let newTime = parts.join(':');
 
-            var counter = 0;
+            // Подсчет сообщений
+            let counter = 0;
             Object.values(chat.message_chain).forEach(message => {
-                if (!message.read){
+                if (!message.read && !message.me){
                     counter += 1
                 }
             })
 
-            var formatedText = chat.message_chain[chat.message_chain.length - 1].text
-            if (formatedText.length > 25){
-                formatedText = `${formatedText.substring(0, 25)} ...`;
+            var formattedText = chat.message_chain[chat.message_chain.length - 1].text
+            if (formattedText.length > 25){
+                formattedText = `${formattedText.substring(0, 25)} ...`;
             }
             const currentChatMiniature = new ChatMiniature({
                 srcName: chat.srcName,
                 index:  chat.index,
                 sender: chat.sender,
                 your: chat.message_chain[chat.message_chain.length - 1].me,
-                content: formatedText,
+                content: formattedText,
                 time: newTime,
                 count: counter,
                 settings: {withInternalID: true},
                 events: {
                     click: () => {
+                        this.props.readAllMessages(chat.index)
                         this.props.showMessageChain(chat.index)
-
                     }
                 }
             })
             chatList.push(currentChatMiniature)
 
         })
-        console.log(this.children)
-        console.log(chatList)
         this.children.chatList = chatList
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
     }

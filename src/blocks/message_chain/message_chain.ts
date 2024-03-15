@@ -25,8 +25,6 @@ export default class MessageChain extends Block {
                 text: "",
                 settings: {withInternalID: true},
                 events: {click: ()=>{
-                        addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
-                        console.log(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id))
                         this.setCurrentMessage(this.props.user_id)
                         messageInput.clear()
                 },
@@ -75,8 +73,7 @@ export default class MessageChain extends Block {
                 text: "",
                 settings: {withInternalID: true},
                 events: {click: ()=>{
-                        addMessageChain(MOCK_MESSAGE_DATA, this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
-                        console.log(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id))
+                        addMessageChain(this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
                         this.setCurrentMessage(this.props.user_id)
                         messageInput.clear()
                 },
@@ -107,7 +104,7 @@ export default class MessageChain extends Block {
         console.log("Вызвано получение сообщений ")
         const messages = []
         this.props.user_id = user_id
-        Object.values(getMessageChain(MOCK_MESSAGE_DATA, this.props.user_id)).forEach(message => {
+        Object.values(getMessageChain(this.props.user_id)).forEach(message => {
             console.log(`${message.text} - ${message.time}`)
 
             const parts = message.time.split(':');
@@ -128,7 +125,7 @@ export default class MessageChain extends Block {
 
         // Присваивание this.children.messages
         this.children.messages = messages
-        this.children.senderName.setText(getSender(MOCK_MESSAGE_DATA, this.props.user_id))
+        this.children.senderName.setText(getSender(this.props.user_id))
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
         this.props.chatListHook()
     }

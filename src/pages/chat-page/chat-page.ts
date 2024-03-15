@@ -8,34 +8,38 @@ import chat2 from "../../public/static/img/chat2.svg";
 import ChatList from "../../blocks/chats_list/chats_list.ts";
 import Form from "../../components/form/form.ts";
 import {Validator} from "../../utils/field_validator.ts";
+import {read} from "node:fs";
 
 
 
 export const MOCK_MESSAGE_DATA = [
         {
             srcName: chat2,
-            index: 1,
+            index: 14658764747,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
                     text: "В лесу растут шишки!",
+                    read: true,
                     time: "10:30:34",
                 },
                 {
                     me: true,
                     text: "Крупные?",
                     time: "10:31:53",
+                    read: true,
                 },
                 {
                     me: false,
                     text: "Крупные",
                     time: "10:32:45",
+                    read: false,
                 }]
         },
         {
             srcName: chat2,
-            index: 2,
+            index: 2343265678,
             sender: "Папа",
             message_chain:[
                 {
@@ -71,198 +75,134 @@ export const MOCK_MESSAGE_DATA = [
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 16565464623,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 15655,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 13,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 123,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 1233213123131,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 132323,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 1000,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
         {
             srcName: chat2,
-            index: 1,
+            index: 121211,
             sender: "Мама",
             message_chain: [
                 {
                     me: true,
-                    text: "В лесу растут шишки!",
+                    text: "Привет",
                     time: "10:30:34",
+                    read: true
                 },
-                {
-                    me: true,
-                    text: "Крупные?",
-                    time: "10:31:53",
-                },
-                {
-                    me: false,
-                    text: "Крупные",
-                    time: "10:32:45",
-                }]
+            ]
         },
 ]
 
 
-export function get_chats_list(data) {
-    return data
+export function get_chats_list() {
+    return MOCK_MESSAGE_DATA
 }
 
 
-export function getMessageChain(data, index: number) {
-    console.log("Получена дата", data)
-    return data.find(item => item.index === index)?.message_chain;
+export function getMessageChain(index: number) {
+    return MOCK_MESSAGE_DATA.find(item => item.index === index)?.message_chain;
 }
 
 
-export function getSender(data, index: number) {
-    return data.find(item => item.index === index)?.sender;
+export function getSender(index: number) {
+    return MOCK_MESSAGE_DATA.find(item => item.index === index)?.sender;
 }
 
 
-export function addMessageChain(data, index, message, time) {
-    const item = data.find(item => item.index === index);
+export function addMessageChain(index, message, time) {
+    const item = MOCK_MESSAGE_DATA.find(item => item.index === index);
     if(item) {
         item.message_chain.push({
             me: true,
             text: message,
             time: time,
+            read: false
         });
     } else {
         console.log(`Нет элемента с индексом ${index}`);
@@ -270,44 +210,42 @@ export function addMessageChain(data, index, message, time) {
 }
 
 
-
-export function get_message_chain() {
-    return MOCK_MESSAGE_DATA
+export function readMessageChain(index) {
+    const item = MOCK_MESSAGE_DATA.find(item => item.index === index);
+    if(item) {
+        Object.values(item.message_chain).forEach(message => {
+            message.read = true
+        })
+    } else {
+        console.log(`Нет элемента с индексом ${index}`);
+    }
 }
 
+
+
 export default class ChatPage extends Block {
-    constructor(
-        props: {
-            plug: {
-                className: string,
-                plugLink: {
-                    className: string,
-                    href: string,
-                    text: string
-                }
-            }
-        }
-    ) {
+    constructor(props: {}) {
 
         // Генерация списка чатов
         // Передаем функцию которая будет вызываться по клику миниатюры в чат листе.
         const chatList = new ChatList({
-            showMessageChain: (user_id: number) => {this.showMessageChain(user_id)}
+            showMessageChain: (user_id: number) => {this.showMessageChain(user_id)},
+            readAllMessages: (user_id: number) => {readMessageChain(user_id)}
         })
 
         // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
         const messageChain = new MessageChain({
                 srcName: chat2,
-                chatListHook: () => {chatList.newMessage()},
+                chatListHook: () => {chatList.rebuildChatList()},
             }
         )
         messageChain.hide()
         const chatPlug = new Plug({
-            className: props.plug.className,
+            className: "chats-plug",
             plugLink: {
-                className: props.plug.plugLink.className,
-                href: props.plug.plugLink.href,
-                text: props.plug.plugLink.text,
+                className: "chats-plug__message",
+                href: "#",
+                text: "Выберите чат, чтобы начать общаться.",
             }
         })
 
@@ -356,8 +294,11 @@ export default class ChatPage extends Block {
         this.children.messageChain.show()
         this.children.chatPlug.hide()
         this.children.messageChain.setCurrentMessage(user_id)
-        console.log("Тронули", user_id)
         return true
+    }
+
+    readAllMessage(user_id: number) {
+
     }
 
     hideMessageChain() {
