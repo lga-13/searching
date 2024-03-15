@@ -27,11 +27,11 @@ export default class Form extends Block{
             altText: string,
         },
 
-        toggleButton: {
+        toggleButtons: {
             className: string,
             typeName: string,
             text: string
-        },
+        }[],
 
         title: {
             className: string,
@@ -105,18 +105,23 @@ export default class Form extends Block{
                 }}
         )
 
-
-        props.toggleButton = new Button({
-            className: props.toggleButton.className,
-            typeName: props.toggleButton.typeName,
-            text: props.toggleButton.text,
-            settings: {withInternalID: true},
-            events: {
-                click: () => {
-                    this.togglePasswordVisibility();
-                }
-            }
-        });
+        const formToggleButtons = [];
+        if (props.toggleButtons) {
+            Object.values(props.toggleButtons).forEach(toggleButton => {
+                const currentToggleButton = new Button({
+                    className: toggleButton.className,
+                    typeName: toggleButton.typeName,
+                    text: toggleButton.text,
+                    settings: {withInternalID: true},
+                    events: {
+                        click: () => {
+                            this.togglePasswordVisibility();
+                        }
+                    }
+                });
+                formToggleButtons.push(currentToggleButton);
+            });
+        }
 
         const formFields = []
         Object.values(props.fields).forEach(field => {
@@ -161,6 +166,7 @@ export default class Form extends Block{
             formFields.push(currentField)
         })
 
+        props.formToggleButtons = formToggleButtons
         props.settings = {withInternalID: true}
         props.formFields = formFields
         super("div", props);

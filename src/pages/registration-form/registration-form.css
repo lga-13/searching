@@ -5,7 +5,7 @@
 
 .registration-form {
     width: 340px;
-    height: 690px;
+    height: 700px;
     margin: 118px auto;
     padding: 20px;
     border: 1px solid #1D90D1;
@@ -85,4 +85,28 @@
     font-size: 14px;
     color: black;
     margin-top: 10px;
+}
+
+.form-toggle{
+    position: absolute;
+    top: 624px;
+    bottom: 233px;
+    right: 46px;
+    left: 310px;
+    border: none;
+    background: none;
+    padding: 0;
+    height: 9px;
+}
+
+.form-toggle-two{
+    position: absolute;
+    top: 698px;
+    bottom: 233px;
+    right: 46px;
+    left: 310px;
+    border: none;
+    background: none;
+    padding: 0;
+    height: 9px;
 }

@@ -16,6 +16,18 @@ export const registrationForm = new Form(
             typeName: 'submit',
             text: 'Зарегистрироваться'
         },
+        toggleButtons: [
+            {
+                className: 'form-toggle',
+                typeName: 'button',
+                text: '👁'
+            },
+            {
+                className: 'form-toggle-two',
+                typeName: 'button',
+                text: '👁'
+            }
+        ],
         labelFieldClassName: 'registration-form__label',
         inputFieldClassName: 'registration-form__input',
         errorMessageClassName: 'registration-form__error-message',
@@ -69,7 +81,7 @@ export const registrationForm = new Form(
             {
                 labelText: 'Пароль',
                 inputName: 'login',
-                inputType: 'text',
+                inputType: 'password',
                 inputPlaceholder: '',
                 validator: Validator.validateLogin,
                 errorMessage: 'пароль введен некорректно',
@@ -77,7 +89,7 @@ export const registrationForm = new Form(
             {
                 labelText: 'Повторите пароль',
                 inputName: "repeatPassword",
-                inputType: 'text',
+                inputType: 'password',
                 inputPlaceholder: '',
                 validator: Validator.validatePassword,
                 errorMessage: 'пароли не совпадают',
