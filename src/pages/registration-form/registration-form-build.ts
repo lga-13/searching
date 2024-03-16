@@ -1,98 +1,197 @@
 import {Validator} from "../../utils/field_validator.ts";
-import Form from "../../components/form/form.ts";
 import "./registration-form.css";
+import Form from "../../blocks/form/form.ts";
 
 export const registrationForm = new Form(
     {
+
         className: 'registration-form',
-        srcName: '',
+
         title: {
             className: 'registration-form__title',
             text: 'Регистрация',
-            tag: 'h2'
+            tag: 'h2',
+            settings: {withInternalID: true}
         },
+
         button: {
             className: 'registration-form__button',
             typeName: 'submit',
-            text: 'Зарегистрироваться'
+            text: 'Зарегистрироваться',
+            settings: {withInternalID: true},
+            events: {
+                click: () => {
+                    if (registrationForm.validate()) {
+                        const data = registrationForm.get_data()
+                        console.log(data)
+                        registrationForm.clear()
+                    }
+                }
+            }
         },
         toggleButtons: [
             {
                 className: 'form-toggle',
                 typeName: 'button',
-                text: '👁'
+                text: '👁',
+                settings: {withInternalID: true},
+                events: {}
             },
             {
                 className: 'form-toggle-two',
                 typeName: 'button',
-                text: '👁'
+                text: '👁',
+                settings: {withInternalID: true},
+                events: {}
             }
         ],
-        labelFieldClassName: 'registration-form__label',
-        inputFieldClassName: 'registration-form__input',
-        errorMessageClassName: 'registration-form__error-message',
         link: {
             className: 'registration-form__login',
             href: '#',
             text: 'Войти',
+            settings: {withInternalID: true},
         },
         fields: [
             {
-                labelText: 'Почта',
-                inputName: 'email',
-                inputType: 'text',
-                inputPlaceholder: '',
-                validator: Validator.validateEmail,
-                errorMessage: 'почта введена некорректно',
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Почта',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: 'email',
+                    placeholder: "",
+                    inputType: 'text',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'почта введена некорректно',
+                    settings: {withInternalID: true}
+                },
+                validator: Validator.validateEmail
             },
             {
-                labelText: 'Логин',
-                inputName: 'login',
-                inputType: 'text',
-                inputPlaceholder: '',
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Логин',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: 'login',
+                    placeholder: "",
+                    inputType: 'text',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'логин введен некорректно',
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validateLogin,
-                errorMessage: 'логин введен некорректно',
 
             },
             {
-                labelText: 'Имя',
-                inputName: 'first_name',
-                inputType: 'text',
-                inputPlaceholder: '',
-                validator: Validator.validateName,
-                errorMessage: 'имя введено некорректно',
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Имя',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: 'first_name',
+                    placeholder: "",
+                    inputType: 'text',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'имя введено некорректно',
+                    settings: {withInternalID: true}
+                },
+                validator: Validator.validateName
             },
             {
-                labelText: 'Фамилия',
-                inputName: 'second_name',
-                inputType: 'text',
-                inputPlaceholder: '',
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Фамилия',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: 'second_name',
+                    placeholder: "",
+                    inputType: 'text',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'фамилия введена некорректно',
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validateName,
-                errorMessage: 'фамилия введена некорректно',
             },
             {
-                labelText: 'Телефон',
-                inputName: 'phone',
-                inputType: 'phone',
-                inputPlaceholder: '',
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Телефон',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: 'phone',
+                    placeholder: "",
+                    inputType: 'phone',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'телефон введен некорректно',
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validatePhone,
-                errorMessage: 'телефон введен некорректно',
             },
             {
-                labelText: 'Пароль',
-                inputName: 'login',
-                inputType: 'password',
-                inputPlaceholder: '',
-                validator: Validator.validateLogin,
-                errorMessage: 'пароль введен некорректно',
-            },
-            {
-                labelText: 'Повторите пароль',
-                inputName: "repeatPassword",
-                inputType: 'password',
-                inputPlaceholder: '',
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Пароль',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: 'password',
+                    placeholder: "",
+                    inputType: 'password',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'пароль введен некорректно',
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validatePassword,
-                errorMessage: 'пароли не совпадают',
+            },
+            {
+                label: {
+                    className: 'registration-form__label',
+                    text: 'Повторите пароль',
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'registration-form__input',
+                    name: "repeatPassword",
+                    placeholder: "",
+                    inputType: 'password',
+                    settings: {withInternalID: true}
+                },
+                errorMessage: {
+                    className: 'login-form__error-message',
+                    text: 'пароли не совпадают',
+                    settings: {withInternalID: true}
+                },
+                validator: Validator.validatePassword,
             }
         ],
     })
