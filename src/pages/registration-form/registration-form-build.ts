@@ -66,7 +66,7 @@ export const registrationForm = new Form(
                     settings: {withInternalID: true}
                 },
                 errorMessage: {
-                    className: 'login-form__error-message',
+                    className: 'registration-form__error-message',
                     text: ErrorMessages.validateEmail,
                     settings: {withInternalID: true}
                 },
@@ -85,11 +85,11 @@ export const registrationForm = new Form(
                     inputType: 'text',
                     settings: {withInternalID: true}
                 },
-                // errorMessage: {
-                //     className: 'login-form__error-message',
-                //     text: ErrorMessages.validateLogin,
-                //     settings: {withInternalID: true}
-                // },
+                errorMessage: {
+                    className: 'registration-form__error-message',
+                    text: ErrorMessages.validateLogin,
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validateLogin,
 
             },
@@ -107,7 +107,7 @@ export const registrationForm = new Form(
                     settings: {withInternalID: true}
                 },
                 errorMessage: {
-                    className: 'login-form__error-message',
+                    className: 'registration-form__error-message',
                     text: ErrorMessages.validateName,
                     settings: {withInternalID: true}
                 },
@@ -127,7 +127,7 @@ export const registrationForm = new Form(
                     settings: {withInternalID: true}
                 },
                 errorMessage: {
-                    className: 'login-form__error-message',
+                    className: 'registration-form__error-message',
                     text: ErrorMessages.validateName,
                     settings: {withInternalID: true}
                 },
@@ -147,7 +147,7 @@ export const registrationForm = new Form(
                     settings: {withInternalID: true}
                 },
                 errorMessage: {
-                    className: 'login-form__error-message',
+                    className: 'registration-form__error-message',
                     text: ErrorMessages.validatePhone,
                     settings: {withInternalID: true}
                 },
@@ -167,7 +167,7 @@ export const registrationForm = new Form(
                     settings: {withInternalID: true}
                 },
                 errorMessage: {
-                    className: 'login-form__error-message',
+                    className: 'registration-form__error-message',
                     text: ErrorMessages.validatePassword,
                     settings: {withInternalID: true}
                 },
@@ -187,7 +187,7 @@ export const registrationForm = new Form(
                     settings: {withInternalID: true}
                 },
                 errorMessage: {
-                    className: 'login-form__error-message',
+                    className: 'registration-form__error-message',
                     text: 'пароли не совпадают',
                     settings: {withInternalID: true}
                 },

@@ -44,7 +44,8 @@ export default class Field extends Block {
                 if (fieldErrorMessage) {
                     fieldErrorMessage.hide()
                 }
-            }
+            },
+            blur: () => {if (!this.validate()){fieldErrorMessage.show()}}
         }
         props.fieldInput = new Input(props.input)
 

@@ -26,6 +26,20 @@ export default class Input extends Block {
         return this.compile(greetings, this.props);
     }
 
+    _addEvents() {
+        const {events = {}} = this.props;
+        Object.keys(events).forEach(eventName => {
+            if (eventName === "blur") {
+                this._element.querySelector('input').addEventListener(eventName, events[eventName]);
+            } else {
+                this._element.addEventListener(eventName, events[eventName]);
+            }
+        });
+
+        this._currentEvents = events;
+    }
+
+
     clear() {
         const input = this.element.querySelector('input');
         input.value = ''
