@@ -2,10 +2,17 @@ import Block from "../base/block.ts";
 import greetings from "./title-template.ts";
 
 
-// Базовый заголовок формы
+export interface TitleBlockType {
+    className: string,
+    text: string,
+    tag: string,
+    settings?: {withInternalID: boolean},
+}
+
+
 export default class Title extends Block {
 
-    constructor(props: {className: string, text: string, settings: {withInternalID: true}, tag: string}) {
+    constructor(props: TitleBlockType) {
         // Создаём враппер DOM-элемент button
         super("div", props);
     }

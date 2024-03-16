@@ -2,7 +2,7 @@
 
 export default `
     <form class="{{className}}">
-        {{#if title}}
+        {{#if formTitle }}
             {{{ formTitle }}}
         {{/if}}
         {{#if img}}
@@ -17,7 +17,7 @@ export default `
             {{/each}}
         {{/if}}
         {{{ formButton }}}
-        {{#if link}}
+        {{#if formLink }}
             {{{ formLink }}}
         {{/if}}
         {{#if buttonBlueBack}}

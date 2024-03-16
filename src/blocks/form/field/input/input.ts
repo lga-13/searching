@@ -1,20 +1,21 @@
-import Block from "../../../base/block.ts"
 import greetings from "./input-template.ts";
-import {loginForm} from "../../../../pages/login-form/login-form-build.ts";
+import Block from "../../../../components/base/block.ts";
+
+
+export interface inputBlockType {
+    className: string,
+    name: string,
+    placeholder: string,
+    inputType: string,
+    settings?: {withInternalID: boolean},
+}
+
 
 export default class Input extends Block {
 
     _already_check: boolean
 
-    constructor(
-        props: {
-            className: string,
-            inputName: string,
-            inputPlaceholder: string,
-            inputType: string
-            validator: {}
-        }
-    ) {
+    constructor(props: inputBlockType) {
         super("div", props);
         this._already_check = false;
     }
@@ -39,26 +40,6 @@ export default class Input extends Block {
     getInputValue():  string {
         const input = this.element.querySelector('input');
         return input.value;
-    }
-
-    focus() {
-        this.already_check = false
-    }
-
-
-
-    validate(): boolean {
-        return this.props.validator(this.getInputValue())
-    }
-
-
-    submit_validate(): boolean {
-        return this.props.validator(this.getInputValue())
-    }
-
-
-    getName(): string {
-        return this.props.fieldName
     }
 
 }

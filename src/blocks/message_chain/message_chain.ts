@@ -2,13 +2,14 @@
 import greetings from "./message_chain-template.ts";
 import Input from "../../components/form/field/input/input.ts";
 import Button from "../../components/button/button.ts";
-import Title from "../../components/titles/title.ts";
-import Img from "../../components/img/img.ts";
-import morebtn from "../../public/static/img/morebtn.svg";
+import Title from "../../components/title/title.ts";
 import {Validator} from "../../utils/field_validator.ts";
 import Block from "../../components/base/block.ts";
 import Message from "./message/message.ts";
-import {addMessageChain, getMessageChain, getSender, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
+import {addMessageChain, getMessageChain, getSender } from "../../pages/chat-page/chat-page.ts";
+
+
+
 
 
 export default class MessageChain extends Block {

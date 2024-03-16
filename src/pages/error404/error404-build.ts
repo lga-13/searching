@@ -1,5 +1,5 @@
-import Title from "../../components/titles/title.ts";
-import Link from "../../components/links/link.ts";
+import Title from "../../components/title/title.ts";
+import Link from "../../components/link/link.ts";
 import "./error404.css";
 import Error404 from "./error404.ts";
 import ErrorMessage from "../../components/form/error-message/error-message.ts";

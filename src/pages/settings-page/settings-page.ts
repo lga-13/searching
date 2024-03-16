@@ -3,14 +3,14 @@ import Block from "../../components/base/block.ts";
 import Img from "../../components/img/img.ts";
 import Label from "../../components/form/field/label/label.ts";
 import Input from "../../components/form/field/input/input.ts";
-import Link from "../../components/links/link.ts";
+import Link from "../../components/link/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
 import Button from "../../components/button/button.ts";
 import {changeDataForm} from "../../blocks/change-data-form/change-data-form-build.ts";
 import {changePasswordForm} from "../../blocks/change-password-form/change-password-form-build.ts";
 import {settingsPage} from "./settings-page-build.ts";
-import Title from "../../components/titles/title.ts";
+import Title from "../../components/title/title.ts";
 
 
 export default class SettingsPage extends Block {

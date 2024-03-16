@@ -1,13 +1,13 @@
 import Label from "../../components/form/field/label/label.ts";
 import Input from "../../components/form/field/input/input.ts";
-import Link from "../../components/links/link.ts";
+import Link from "../../components/link/link.ts";
 import Img from "../../components/img/img.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import SettingsPage from "./settings-page.ts";
 import btnback from "../../public/static/img/btn-back.svg";
 import Plug from "../../components/plug/plug.ts";
 import Button from "../../components/button/button.ts";
-import Title from "../../components/titles/title.ts";
+import Title from "../../components/title/title.ts";
 
 
 

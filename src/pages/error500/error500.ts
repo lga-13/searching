@@ -1,7 +1,7 @@
 import "../../pages/error404/error404.css";
 import Block from "../../components/base/block.ts";
-import ErrorTitle from "../../components/titles/title.ts";
-import Link from "../../components/links/link.ts";
+import ErrorTitle from "../../components/title/title.ts";
+import Link from "../../components/link/link.ts";
 import ErrorMessage from "../../components/form/error-message/error-message.ts";
 import greetings from "../../pages/error404/error404-template.ts";
 

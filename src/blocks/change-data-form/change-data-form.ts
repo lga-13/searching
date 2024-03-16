@@ -5,7 +5,7 @@
 // import Button from "../../components/button/button.ts";
 // import Form from "../../components/form/form.ts";
 // import Img from "../../components/img/img.ts";
-// import Link from "../../components/links/link.ts";
+// import Link from "../../components/link/link.ts";
 // import ErrorMessage from "../../components/form/error-message/error-message.ts";
 //
 //

@@ -1,8 +1,8 @@
 export const Validator = {
 
-    validateName: function(name: string): boolean {
+    validateName: function(value: string): boolean {
         const re: RegExp = /^[А-ЯA-Z][А-Яа-яA-Za-z\-]*$/;
-        const result: boolean= re.test(name);
+        const result: boolean= re.test(value);
         if (!result) {
             console.log("- Имя должно начинаться с заглавной буквы\n" +
                         "- Имя может содержать только буквы и дефисы");
@@ -10,10 +10,10 @@ export const Validator = {
         return result
     },
 
-    validateLogin: function(login: string): boolean {
-        console.log("Валидатор login", login)
+    validateLogin: function(value: string): boolean {
+        console.log("Валидатор login", value)
         const re: RegExp = /^[a-zA-Z][a-zA-Z0-9_-]{2,18}$/;
-        const result: boolean = re.test(login);
+        const result: boolean = re.test(value);
         if (!result) {
             console.log("- Логин должен начаться с алфавитного символа\n" +
                         "- Логин должен содержать от 2 до 19 символов\n" +
@@ -22,9 +22,9 @@ export const Validator = {
         return result
     },
 
-    validateEmail: function(email: string): boolean {
+    validateEmail: function(value: string): boolean {
         const re: RegExp = /^[a-zA-Z0-9_-]+@[a-zA-Z]+\.[a-zA-Z]+$/;
-        const result: boolean = re.test(email)
+        const result: boolean = re.test(value)
         if (!result) {
             console.log("- Электронная почта должна быть формата text@text.text\n" +
                         "- Могут использоваться только алфавитные символы, цифры, подчеркивания и дефисы в адресе электронной почты");
@@ -32,9 +32,9 @@ export const Validator = {
         return result
     },
 
-    validatePassword: function(password: string): boolean {
+    validatePassword: function(value: string): boolean {
         const re: RegExp = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/;
-        const result: boolean =  re.test(password);
+        const result: boolean =  re.test(value);
         if (!result) {
             console.log("- Длина пароля должна быть от 8 до 40 символов\n" +
                         "- Пароль должен содержать хотя бы одну цифру\n" +
@@ -44,9 +44,9 @@ export const Validator = {
         return result
     },
 
-    validatePhone: function(phone: string): boolean {
+    validatePhone: function(value: string): boolean {
         const re: RegExp = /^\+?\d{10,15}$/;
-        const result: boolean = re.test(phone);
+        const result: boolean = re.test(value);
         if (!result) {
             console.log("- Номер телефона должен содержать от 10 до 15 цифр\n" +
                         "- Номер телефона может начинаться с ведущего '+', но это не обязательно");
@@ -54,8 +54,8 @@ export const Validator = {
         return result
     },
 
-    validateMessage: function(message: string): boolean {
-        const result: boolean = message.trim().length > 0;
+    validateMessage: function(value: string): boolean {
+        const result: boolean = value.trim().length > 0;
         if (!result) {
             console.log("- Сообщение не должно быть пустым или состоять только из пробелов");
         }
