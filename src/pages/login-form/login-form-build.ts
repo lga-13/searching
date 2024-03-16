@@ -15,10 +15,18 @@ export const loginForm = new Form(
 
         button: {
             className: 'login-form__button',
-            typeName: 'submit',
+            typeName: 'button',
             text: 'Войти',
             settings: {withInternalID: true},
-            events: {}
+            events: {
+                click: () => {
+                    if (loginForm.validate()) {
+                        const data = loginForm.get_data()
+                        console.log(data)
+                        loginForm.clear()
+                    }
+                }
+            }
         },
 
         toggleButtons: [{

@@ -42,4 +42,8 @@ export default class Input extends Block {
         return input.value;
     }
 
+    getName(): string {
+        return this.props.name
+    }
+
 }

@@ -11,7 +11,6 @@ export const Validator = {
     },
 
     validateLogin: function(value: string): boolean {
-        console.log("Валидатор login", value)
         const re: RegExp = /^[a-zA-Z][a-zA-Z0-9_-]{2,18}$/;
         const result: boolean = re.test(value);
         if (!result) {

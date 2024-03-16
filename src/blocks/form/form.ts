@@ -83,8 +83,7 @@ export default class Form extends Block{
     }
 
     // Очистка полей формы
-    clear(): boolean {
-
+    clear(): void {
         // Ищем поля формы
         Object.values(this.children).forEach(child => {
             // Проверяем на поля
@@ -93,24 +92,23 @@ export default class Form extends Block{
                     field.clear()
                 })
             }
-            return true
         });
     }
 
     // Валидация полей формы
     validate(): boolean {
+        let verdict = true
         Object.values(this.children).forEach(child => {
             if (child instanceof Array && child.every((item) => item instanceof Field)) {
                 Object.values(child).forEach(field => {
                     if (!field.validate()) {
-                        console.log("Найдено невалидное поле")
-                        return false
+                        console.log("Форма невалидна")
+                        verdict = false
                     }
-                    console.log("НЕ Найдено невалидное поле")
                 })
             }
-        return true
         });
+        return verdict
     }
 
     // Смена пароля
@@ -130,7 +128,9 @@ export default class Form extends Block{
 
         Object.values(this.children).forEach(child => {
             if (child instanceof Array && child.every((item) => item instanceof Field)) {
-                current_condition[child.getName()] = child.getInputValue();
+                Object.values(child).forEach(field => {
+                    current_condition[field.getName()] = field.getInputValue()
+                })
             }
         })
         return current_condition

@@ -70,15 +70,15 @@ export default class Field extends Block {
     }
 
     clear() {
-        this.children.input.clear()
+        this.children.fieldInput.clear()
     }
 
     getInputValue() {
-        return this.child.input.getInputValue()
+        return this.children.fieldInput.getInputValue()
     }
 
     getName() {
-        return this._inputValue()
+        return this.children.fieldInput.getName()
     }
 
     render() {
