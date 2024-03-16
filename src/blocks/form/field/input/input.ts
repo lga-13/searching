@@ -8,6 +8,9 @@ export interface inputBlockType {
     placeholder: string,
     inputType: string,
     settings?: {withInternalID: boolean},
+    events?: {
+        click: () => void
+    }
 }
 
 
@@ -17,15 +20,6 @@ export default class Input extends Block {
 
     constructor(props: inputBlockType) {
         super("div", props);
-        this._already_check = false;
-    }
-
-    get already_check() {
-        return this._already_check;
-    }
-
-    set already_check(value) {
-        this._already_check = Boolean(value)
     }
 
     render() {

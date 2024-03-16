@@ -1,4 +1,4 @@
-import {Validator} from "../../utils/field_validator.ts";
+import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
 import "./registration-form.css";
 import Form from "../../blocks/form/form.ts";
 
@@ -67,7 +67,7 @@ export const registrationForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'почта введена некорректно',
+                    text: ErrorMessages.validateEmail,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validateEmail
@@ -85,11 +85,11 @@ export const registrationForm = new Form(
                     inputType: 'text',
                     settings: {withInternalID: true}
                 },
-                errorMessage: {
-                    className: 'login-form__error-message',
-                    text: 'логин введен некорректно',
-                    settings: {withInternalID: true}
-                },
+                // errorMessage: {
+                //     className: 'login-form__error-message',
+                //     text: ErrorMessages.validateLogin,
+                //     settings: {withInternalID: true}
+                // },
                 validator: Validator.validateLogin,
 
             },
@@ -108,7 +108,7 @@ export const registrationForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'имя введено некорректно',
+                    text: ErrorMessages.validateName,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validateName
@@ -128,7 +128,7 @@ export const registrationForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'фамилия введена некорректно',
+                    text: ErrorMessages.validateName,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validateName,
@@ -148,7 +148,7 @@ export const registrationForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'телефон введен некорректно',
+                    text: ErrorMessages.validatePhone,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validatePhone,
@@ -168,7 +168,7 @@ export const registrationForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'пароль введен некорректно',
+                    text: ErrorMessages.validatePassword,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validatePassword,

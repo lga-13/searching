@@ -1,11 +1,39 @@
+
+
+export const ErrorMessages = {
+
+    validateName: "- Имя и фамилия должны начинаться с заглавной буквы\n" +
+                  "- и могут содержать только буквы и дефисы",
+
+    validateLogin: "- Логин должен начаться с алфавитного символа\n" +
+                   "- Логин должен содержать от 2 до 19 символов\n" +
+                   "- Логин может содержать только алфавитные символы, цифры, подчеркивания и дефисы",
+
+    validateEmail: "- Электронная почта должна быть формата text@text.text\n" +
+                   "- Могут использоваться только алфавитные символы, цифры, подчеркивания" +
+                   "и дефисы в адресе электронной почты",
+
+    validatePassword: "- Длина пароля должна быть от 8 до 40 символов\n" +
+                      "- Пароль должен содержать хотя бы одну цифру\n" +
+                      "- Пароль должен содержать хотя бы одну заглавную букву\n" +
+                      "- Пароль может содержать только латинские буквы и цифры " +
+                      "(никаких специальных символов или пробелов)",
+
+    validatePhone: "- Номер телефона должен содержать от 10 до 15 цифр\n" +
+                   "- Номер телефона может начинаться с ведущего '+', но это не обязательно",
+
+    validateMessage: "- Сообщение не должно быть пустым или состоять только из пробелов"
+}
+
+
+
 export const Validator = {
 
     validateName: function(value: string): boolean {
         const re: RegExp = /^[А-ЯA-Z][А-Яа-яA-Za-z\-]*$/;
         const result: boolean= re.test(value);
         if (!result) {
-            console.log("- Имя должно начинаться с заглавной буквы\n" +
-                        "- Имя может содержать только буквы и дефисы");
+            console.log(ErrorMessages.validateName);
         }
         return result
     },
@@ -14,9 +42,7 @@ export const Validator = {
         const re: RegExp = /^[a-zA-Z][a-zA-Z0-9_-]{2,18}$/;
         const result: boolean = re.test(value);
         if (!result) {
-            console.log("- Логин должен начаться с алфавитного символа\n" +
-                        "- Логин должен содержать от 2 до 19 символов\n" +
-                        "- Логин может содержать только алфавитные символы, цифры, подчеркивания и дефисы");
+            console.log(ErrorMessages.validateLogin);
         }
         return result
     },
@@ -25,8 +51,7 @@ export const Validator = {
         const re: RegExp = /^[a-zA-Z0-9_-]+@[a-zA-Z]+\.[a-zA-Z]+$/;
         const result: boolean = re.test(value)
         if (!result) {
-            console.log("- Электронная почта должна быть формата text@text.text\n" +
-                        "- Могут использоваться только алфавитные символы, цифры, подчеркивания и дефисы в адресе электронной почты");
+            console.log(ErrorMessages.validateEmail);
         }
         return result
     },
@@ -35,10 +60,7 @@ export const Validator = {
         const re: RegExp = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/;
         const result: boolean =  re.test(value);
         if (!result) {
-            console.log("- Длина пароля должна быть от 8 до 40 символов\n" +
-                        "- Пароль должен содержать хотя бы одну цифру\n" +
-                        "- Пароль должен содержать хотя бы одну заглавную букву\n" +
-                        "- Пароль может содержать только латинские буквы и цифры (никаких специальных символов или пробелов)");
+            console.log(ErrorMessages.validatePassword);
         }
         return result
     },
@@ -47,8 +69,7 @@ export const Validator = {
         const re: RegExp = /^\+?\d{10,15}$/;
         const result: boolean = re.test(value);
         if (!result) {
-            console.log("- Номер телефона должен содержать от 10 до 15 цифр\n" +
-                        "- Номер телефона может начинаться с ведущего '+', но это не обязательно");
+            console.log(ErrorMessages.validatePhone);
         }
         return result
     },
@@ -56,7 +77,7 @@ export const Validator = {
     validateMessage: function(value: string): boolean {
         const result: boolean = value.trim().length > 0;
         if (!result) {
-            console.log("- Сообщение не должно быть пустым или состоять только из пробелов");
+            console.log(ErrorMessages.validateMessage);
         }
         return result
     },

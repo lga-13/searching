@@ -1,4 +1,4 @@
-import {Validator} from "../../utils/field_validator.ts";
+import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
 import "./login-form.css";
 import Form from "../../blocks/form/form.ts";
 
@@ -59,7 +59,7 @@ export const loginForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'логин введен некорректно',
+                    text: ErrorMessages.validateLogin,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validateLogin,
@@ -79,7 +79,7 @@ export const loginForm = new Form(
                 },
                 errorMessage: {
                     className: 'login-form__error-message',
-                    text: 'пароль введен некорректно',
+                    text: ErrorMessages.validatePassword,
                     settings: {withInternalID: true}
                 },
                 validator: Validator.validatePassword,

@@ -16,7 +16,6 @@ export interface fieldBlockType {
     link?: LinkBlockType
     validator: (value: string) => boolean
 
-
     // ЭЛЕМЕНТЫ
     fieldLabel?: Label | null;
     fieldInput?: Input;
@@ -40,6 +39,13 @@ export default class Field extends Block {
         props.fieldLabel = fieldLabel
 
         // Инпут
+        props.input.events = {
+            click: () => {
+                if (fieldErrorMessage) {
+                    fieldErrorMessage.hide()
+                }
+            }
+        }
         props.fieldInput = new Input(props.input)
 
         // Сообщение ошибки
@@ -64,6 +70,14 @@ export default class Field extends Block {
     _inputValue() {
         return this.children.fieldInput.getInputValue()
     }
+
+
+    showErrorMessage () {
+        if (this.children.fieldErrorMessage) {
+            return this.children.fieldErrorMessage.show()
+        }
+    }
+
 
     validate(): boolean {
         return this.props.validator(this._inputValue())

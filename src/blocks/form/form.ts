@@ -102,7 +102,7 @@ export default class Form extends Block{
             if (child instanceof Array && child.every((item) => item instanceof Field)) {
                 Object.values(child).forEach(field => {
                     if (!field.validate()) {
-                        console.log("Форма невалидна")
+                        field.showErrorMessage()
                         verdict = false
                     }
                 })
