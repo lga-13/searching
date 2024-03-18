@@ -8,7 +8,7 @@ import Title, {TitleBlockType} from "../../components/title/title.ts";
 import Block from "../../components/base/block.ts";
 
 
-interface FormProps {
+export interface FormProps {
     className: string,
 
     // ДАНЫНЕ ЭЛЕМЕНТОВ
@@ -17,7 +17,6 @@ interface FormProps {
 
     // Обязательная кнопка
     button: buttonBlockType,
-    toggleButtons: buttonBlockType[],
 
     // Необязательная ссылка под кнопкой
     link?: LinkBlockType
@@ -29,7 +28,6 @@ interface FormProps {
     formFields?: Field[]
     formButton?: Button,
     formLink?: Link | null,
-    formToggleButtons?: Button[] | null
 
     settings?: {withInternalID: boolean}
 
@@ -67,16 +65,6 @@ export default class Form extends Block{
             formLink = new Link(props.link)}
         props.formLink = formLink
 
-        let formToggleButtons = [];
-        if (props.toggleButtons) {
-            Object.values(props.toggleButtons).forEach(toggleButton => {
-                const currentToggleButton = new Button(toggleButton);
-                formToggleButtons.push(currentToggleButton);
-            });
-        }
-        props.formToggleButtons = formToggleButtons
-
-
         props.settings = {withInternalID: true}
 
         super("div", props);
@@ -111,15 +99,6 @@ export default class Form extends Block{
         return verdict
     }
 
-    // Смена пароля
-    togglePasswordVisibility() {
-        const passwordInput = this.element.querySelector('input[type="password"]');
-        if (passwordInput) {
-            const currentType = passwordInput.getAttribute('type');
-            const newType = currentType === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', newType);
-        }
-    }
 
     // Метод возвращает даныне всех полей
     get_data(): {string: string} {

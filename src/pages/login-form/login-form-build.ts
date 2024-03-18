@@ -29,14 +29,6 @@ export const loginForm = new Form(
             }
         },
 
-        toggleButtons: [{
-            className: 'form-toggle',
-            typeName: 'button',
-            text: '👁',
-            settings: {withInternalID: true},
-            events: {}
-        }],
-
         link: {
             className: 'login-form__registration',
             href: '#',

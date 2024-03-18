@@ -69,7 +69,7 @@
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 12px;
-    margin-bottom: 93px;
+    margin-bottom: 73px;
     color: #1D90D1;
 }
 
@@ -97,13 +97,10 @@
 }
 
 .form-toggle{
-    position: absolute;
-    top: 237px;
-    bottom: 233px;
-    right: 46px;
-    left: 310px;
-    border: none;
+    position: relative;
     background: none;
-    padding: 0;
-    height: 14px;
+    border: none;
+    margin-left: 290px;
+    bottom: 61px;
+    height: 0;
 }

@@ -1,16 +1,36 @@
-import "../../pages/error404/error404.css";
+
+
 import Block from "../../components/base/block.ts";
-import ErrorTitle from "../../components/title/title.ts";
-import Link from "../../components/link/link.ts";
-import ErrorMessage from "../../components/form/error-message/error-message.ts";
-import greetings from "../../pages/error404/error404-template.ts";
+import greetings from "./error500-template.ts";
+import ErrorCard from "../../blocks/error-card/error-card.ts";
+import  "./error500.css"
 
 
-
-export default class Error500 extends Block {
-    constructor(props: {
-        className: string, errorTitle: ErrorTitle, errorMessage: ErrorMessage, errorLink: Link, settings: {withInternalID: boolean}}) {
-        // Создаём враппер DOM-элемент button
+export default class Error500Page extends Block {
+    constructor(props: {}) {
+        props.errorCard = new ErrorCard(
+            {
+                className: "h1",
+                title: {
+                    className: 'error500__title',
+                    text: '500',
+                    tag: "div",
+                    settings: {withInternalID: true},
+                },
+                message: {
+                    className: 'error500__message',
+                    text: 'уже фиксим',
+                    settings: {withInternalID: true},
+                    tag: "h1"
+                },
+                link: {
+                    className: 'error500__back-chats',
+                    href: '#',
+                    text: 'вернуться к чатам',
+                    settings: {withInternalID: true}
+                },
+                settings: {withInternalID: true},
+            })
         super("div", props);
     }
 
@@ -18,3 +38,4 @@ export default class Error500 extends Block {
         return this.compile(greetings, this.props);
     }
 }
+export const error500Page = new Error500Page({})

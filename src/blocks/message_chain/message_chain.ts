@@ -1,123 +1,77 @@
 
 import greetings from "./message_chain-template.ts";
-import Input from "../../components/form/field/input/input.ts";
-import Button from "../../components/button/button.ts";
-import Title from "../../components/title/title.ts";
-import {Validator} from "../../utils/field_validator.ts";
+import Button, {buttonBlockType} from "../../components/button/button.ts";
+import Title, {TitleBlockType} from "../../components/title/title.ts";
 import Block from "../../components/base/block.ts";
 import Message from "./message/message.ts";
-import {addMessageChain, getMessageChain, getSender } from "../../pages/chat-page/chat-page.ts";
+import {getMessageChain, getSender } from "../../pages/chat-page/chat-page.ts";
+import Form, {FormProps} from "../form/form.ts";
+
+
+export interface MessageChainBlockType {
+
+    srcName: {}
+    sender_name: TitleBlockType,
+    messageForm: FormProps,
+    attachmentButton: buttonBlockType,
+    moreButton: buttonBlockType
+    user_id?: number | null
+    settings?: {withInternalID: boolean}
 
 
 
+    // ЭЛЕМЕНТЫ
+    messageChainMoreButton?: Button,
+    chainMessages? : Message[],
+    messageChainAttachmentsButton? : Button,
+    messageChainForm? : Form,
+    messageSenderName?: Title
+}
 
 
 export default class MessageChain extends Block {
-    constructor(
-        props: {
-            srcName: string,
-        }
-    ) {
+    constructor(props: MessageChainBlockType) {
 
-        const moreButton = new Button(
-            {
-                className: "message-chain__more-button",
-                typeName: "button",
-                text: "",
-                settings: {withInternalID: true},
-                events: {click: ()=>{
-                        this.setCurrentMessage(this.props.user_id)
-                        messageInput.clear()
-                },
-                        keydown: (event) => {}
-                }
-            }
-        )
-        props.moreButton = moreButton
-
-        const dataTitle = new Title(
-            {
-                className: 'message-chain__data-title',
-                text: '5 марта',
-                settings: {withInternalID: true},
-                tag: 'p',
-            })
-        props.dataTitle = dataTitle
-
-
-        const messageInput = new Input(
-            {
-                className: "message-chain__message_input",
-                inputName: "message",
-                inputPlaceholder: "Cообщение",
-                inputType: "text",
-                settings: {withInternalID: true},
-                validator: Validator.validateMessage
-            })
-        props.messageInput = messageInput
-
-
-        const senderName = new Title(
-            {
-                className: "message-chain__header-title",
-                text: "",
-                settings: {withInternalID: true},
-                tag: "h3"
-            }
-        )
-        props.senderName = senderName
-
-        const sendButton = new Button(
-            {
-                className: "message-chain__send-button",
-                typeName: "button",
-                text: "",
-                settings: {withInternalID: true},
-                events: {click: ()=>{
-                        addMessageChain(this.props.user_id, messageInput.getInputValue(), new Date().toLocaleTimeString())
-                        this.setCurrentMessage(this.props.user_id)
-                        messageInput.clear()
-                },
-                        keydown: (event) => {}
-                }
-            }
-        )
-        props.sendButton = sendButton
-
-        const attachmentsButton = new Button(
-            {
-                className: "message-chain__attachment-button",
-                typeName: "button",
-                text: "",
-                settings: {withInternalID: true},
-                events: {click: ()=>{}}}
-        )
-        props.attachmentsButton = attachmentsButton
-
+        props.messageChainMoreButton = new Button(props.moreButton)
+        props.messageSenderName = new Title(props.sender_name)
+        props.messageChainAttachmentsButton  = new Button(props.attachmentButton)
+        props.messageChainForm = new Form(props.messageForm)
         props.user_id = null
-
         props.settings = {withInternalID: true}
         super("div", props);
     }
 
+
+    // Обработка времени сообщеняи
+    cutTimeString(timeString: string){
+        const parts = timeString.split(':');
+        parts.pop();
+        return parts.join(':')
+    }
+
+
     // Функция которая обновляет содержимое мессадж чейна.
     setCurrentMessage(user_id: number){
-        console.log("Вызвано получение сообщений ")
-        const messages = []
+
+        // Уставнавливается id для текущего чейна
         this.props.user_id = user_id
-        Object.values(getMessageChain(this.props.user_id)).forEach(message => {
-            console.log(`${message.text} - ${message.time}`)
 
-            const parts = message.time.split(':');
-            parts.pop();
-            const newTime = parts.join(':')
+        // Делаем запрос пользователя
+        const sender = getSender(this.props.user_id)
 
-            console.log(message.read)
+        // Задаем новый заголовок чейна
+        this.children.messageSenderName.setText(sender)
+
+        // Делаем запрос сообщений
+        let messages_list = getMessageChain(this.props.user_id)
+
+        const messages = []
+        Object.values(messages_list).forEach(message => {
             // Создание ссобщения.
             const currentMessage = new Message({
                 me: message.me,
                 text: message.text,
-                time: newTime,
+                time: this.cutTimeString(message.time),
                 read: message.read,
                 settings: {withInternalID: true},
             })
@@ -125,8 +79,8 @@ export default class MessageChain extends Block {
         })
 
         // Присваивание this.children.messages
-        this.children.messages = messages
-        this.children.senderName.setText(getSender(this.props.user_id))
+        this.children.chainMessages = messages
+
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
         this.props.chatListHook()
     }

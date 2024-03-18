@@ -6,20 +6,18 @@ export default `
         <div class="message-chain__header">
             <div class="message-chain__data-sender">
                 <img class="message-chain__img" src="{{srcName}}" alt="photo"/>
-                {{{ senderName }}}
+                {{{ messageSenderName }}}
             </div>
-            {{{ moreButton }}}
+            {{{ messageChainMoreButton }}}
         </div>
         <div class="message-chain__message-chain">
-            {{{ dataTitle }}}
-            {{#each messages}}
+            {{#each chainMessages}}
                 {{{ this }}}
             {{/each}}
         </div>
         <div class="message-chain__message-field">
-            {{{ attachmentsButton }}}
-            {{{ messageInput }}}
-            {{{ sendButton }}}
+            {{{ messageChainAttachmentsButton }}}
+            {{{ messageChainForm }}}
         </div>
     </div>
 `;

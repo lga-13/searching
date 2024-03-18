@@ -1,13 +1,21 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chats_list-template.ts"
 import ChatMiniature from "./chat_miniature/chat_miniature.ts";
-import {get_chats_list, MOCK_MESSAGE_DATA} from "../../pages/chat-page/chat-page.ts";
+import {get_chats_list, MOCK_MESSAGE_DATA, readMessageChain} from "../../pages/chat-page/chat-page.ts";
+
+
+
+export interface ChatListBlockType
+    {
+        showMessageChain: (user_id: number) => void,
+        readAllMessages: (user_id: number) => void
+    }
 
 
 export default class ChatList extends Block {
 
 
-    constructor(props: {showMessageChain: (user_id: number) => void}){
+    constructor(props: ChatListBlockType){
 
 
         // Созадние чат листа

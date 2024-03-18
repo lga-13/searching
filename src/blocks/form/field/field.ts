@@ -5,6 +5,8 @@ import Input, {inputBlockType} from "./input/input.ts";
 import ErrorMessage, {errorMessageBlockType} from "./error-message/error-message.ts";
 import Block from "../../../components/base/block.ts";
 import Link, {LinkBlockType} from "../../../components/link/link.ts";
+import Button from "../../../components/button/button.ts";
+import EventBus from "../../../components/base/event-bus.ts";
 
 
 export interface fieldBlockType {
@@ -30,7 +32,6 @@ export default class Field extends Block {
 
     constructor(props: fieldBlockType) {
 
-
         // Label
         let fieldLabel = null
         if (props.label) {
@@ -38,6 +39,7 @@ export default class Field extends Block {
         }
         props.fieldLabel = fieldLabel
 
+        console.log(props)
         // Инпут
         props.input.events = {
             click: () => {
@@ -45,7 +47,12 @@ export default class Field extends Block {
                     fieldErrorMessage.hide()
                 }
             },
-            blur: () => {if (!this.validate()){fieldErrorMessage.show()}}
+            blur: (event) => {
+                if (!this.validate()){
+                    fieldErrorMessage.show()
+                }
+                console.log(event)
+            }
         }
         props.fieldInput = new Input(props.input)
 
@@ -62,6 +69,18 @@ export default class Field extends Block {
             fieldLink = new Link(props.link)
         }
         props.fieldLink = fieldLink
+
+        if(props.input.inputType === "password"){
+            props.fieldToggleButton = new Button({
+                className: 'form-toggle',
+                typeName: 'button',
+                text: '👁',
+                settings: {withInternalID: true},
+                events: {
+                    click: () => {this.togglePasswordVisibility()}
+                }
+            })
+        }
 
         props.settings = {withInternalID: true}
 
@@ -94,6 +113,16 @@ export default class Field extends Block {
 
     getName() {
         return this.children.fieldInput.getName()
+    }
+
+    // Смена пароля
+    togglePasswordVisibility() {
+        const passwordInput = this.element.querySelector('input');
+        if (passwordInput) {
+            const currentType = passwordInput.getAttribute('type');
+            const newType = currentType === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', newType);
+        }
     }
 
     render() {

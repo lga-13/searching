@@ -4,7 +4,7 @@ import greetings from "./chat_miniature-template.ts";
 
 
 interface ChatMiniatureProps {
-    srcName: string,
+    srcName: {},
     index: number,
     sender: string,
     your: boolean,
@@ -15,7 +15,6 @@ interface ChatMiniatureProps {
     events: {
         click: () => void
     }
-
 }
 
 

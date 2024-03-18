@@ -1,14 +1,19 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chat-page-template.ts";
-import Input from "../../components/form/field/input/input.ts";
-import Link from "../../components/link/link.ts";
+import Link, {LinkBlockType} from "../../components/link/link.ts";
 import Plug from "../../components/plug/plug.ts";
 import MessageChain from "../../blocks/message_chain/message_chain.ts";
 import chat2 from "../../public/static/img/chat2.svg";
 import ChatList from "../../blocks/chats_list/chats_list.ts";
-import Form from "../../components/form/form.ts";
 import {Validator} from "../../utils/field_validator.ts";
 import {read} from "node:fs";
+import {TitleBlockType} from "../../components/title/title.ts";
+import {buttonBlockType} from "../../components/button/button.ts";
+import {fieldBlockType} from "../../blocks/form/field/field.ts";
+import Label, {labelBlockType} from "../../blocks/form/field/label/label.ts";
+import Input, {inputBlockType} from "../../blocks/form/field/input/input.ts";
+import ErrorMessage, {errorMessageBlockType} from "../../blocks/form/field/error-message/error-message.ts";
+import Form from "../../blocks/form/form.ts";
 
 
 
@@ -226,8 +231,11 @@ export function readMessageChain(index) {
 export default class ChatPage extends Block {
     constructor(props: {}) {
 
+
         // Генерация списка чатов
-        // Передаем функцию которая будет вызываться по клику миниатюры в чат листе.
+        // Передаем функцию которая будет вызываться по клику миниатюры в чат листе для открытия чатов.
+        // Передаем функцию которая будет прочитывать все чаты при клике на миниматюру.
+
         const chatList = new ChatList({
             showMessageChain: (user_id: number) => {this.showMessageChain(user_id)},
             readAllMessages: (user_id: number) => {readMessageChain(user_id)}
@@ -235,10 +243,58 @@ export default class ChatPage extends Block {
 
         // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
         const messageChain = new MessageChain({
-                srcName: chat2,
-                chatListHook: () => {chatList.rebuildChatList()},
+            srcName: chat2,
+            sender_name: {
+                className: "message-chain__header-title",
+                text: '',
+                tag: 'h3',
+                settings: {withInternalID: true},
+            },
+            messageForm: {
+                className: "message-chain__send-button",
+                button: {
+                    className: "message-chain__send-button",
+                    typeName: "button",
+                    text: "",
+                    settings: {withInternalID: true},
+                },
+                fields: [
+                    {
+                        input: {
+                            className: "message-chain__message_input",
+                            name: "message",
+                            placeholder: "Cообщение",
+                            inputType: "text",
+                            settings: {withInternalID: true},
+                            events: {
+                                click: () => {}
+                            },
+                        validator: Validator.validateMessage
+                        }
+                    }
+                ]
+            },
+            attachmentButton: {
+                className: "message-chain__attachment-button",
+                typeName: "button",
+                text: "",
+                settings: {withInternalID: true},
+                events: {click: ()=>{}}
+            },
+            moreButton: {
+                className: "message-chain__more-button",
+                typeName: "button",
+                text: "",
+                settings: {withInternalID: true},
+                events: {
+                    click: ()=>{},
+                    keydown: (event) => {}
+                }
+            },
+            chatListHook: () => {chatList.rebuildChatList()},
             }
         )
+
         messageChain.hide()
         const chatPlug = new Plug({
             className: "chats-plug",
@@ -258,23 +314,29 @@ export default class ChatPage extends Block {
         })
 
 
-
         const searchForm = new Form(
             {
                 className: 'chats__search-box',
                 button: {
                     className: 'chats__search-btn',
                     typeName: 'button',
-                    text: ''
+                    text: '',
+                    settings: {withInternalID: true}
                 },
                 inputFieldClassName: 'chats__search-input',
                 errorMessageClassName: 'chats__message-error',
                 fields: [{
-                    inputName: 'search',
-                    inputType: 'text',
-                    inputPlaceholder: 'Поиск',
+                    input: {
+                        className: 'chats__search-input',
+                        name: "chat_search",
+                        placeholder: "",
+                        inputType: "text",
+                        settings: {withInternalID: true},
+                        events: {
+                            click: () => {}
+                        }
+                    },
                     validator: Validator.validateSearch,
-                    errorMessage: 'ошибка',
                 }],
 
             }
@@ -319,3 +381,5 @@ export default class ChatPage extends Block {
         return this.compile(greetings, this.props);
     }
 }
+
+export const chatPage = new ChatPage({});

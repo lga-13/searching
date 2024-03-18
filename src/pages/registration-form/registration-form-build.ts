@@ -16,7 +16,7 @@ export const registrationForm = new Form(
 
         button: {
             className: 'registration-form__button',
-            typeName: 'submit',
+            typeName: 'button',
             text: 'Зарегистрироваться',
             settings: {withInternalID: true},
             events: {
@@ -29,22 +29,6 @@ export const registrationForm = new Form(
                 }
             }
         },
-        toggleButtons: [
-            {
-                className: 'form-toggle',
-                typeName: 'button',
-                text: '👁',
-                settings: {withInternalID: true},
-                events: {}
-            },
-            {
-                className: 'form-toggle-two',
-                typeName: 'button',
-                text: '👁',
-                settings: {withInternalID: true},
-                events: {}
-            }
-        ],
         link: {
             className: 'registration-form__login',
             href: '#',
