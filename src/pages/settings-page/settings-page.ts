@@ -1,15 +1,17 @@
 import "./settings-page.css";
+import "./change-data-form.css"
+import "./change-password-form.css"
 import Block from "../../components/base/block.ts";
 import Img from "../../components/img/img.ts";
 import Link from "../../components/link/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
 import Button from "../../components/button/button.ts";
-import {changePasswordForm} from "../../blocks/change-password-form/change-password-form-build.ts";
 import {settingsPage} from "./settings-page-build.ts";
 import Title from "../../components/title/title.ts";
 import Form from "../../blocks/form/form.ts";
 import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
+import avatar from "../../public/static/img/avatar.svg";
 
 
 export default class SettingsPage extends Block {
@@ -18,21 +20,92 @@ export default class SettingsPage extends Block {
             className: string,
             settings: {
                 withInternalID: boolean},
-            settingsImg: Img,
-            settingsLinkImg: Link,
-            settingsLoginTitle: Title,
-            settingsNameTitle: Title,
-            settingsSecondNameTitle: Title,
-            settingsEmailTitle: Title,
-            settingsPhoneTitle: Title,
+            settingsImg?: Img,
+            settingsLinkImg?: Link,
+            settingsLoginTitle?: Title,
+            settingsNameTitle?: Title,
+            settingsSecondNameTitle?: Title,
+            settingsEmailTitle?: Title,
+            settingsPhoneTitle?: Title,
+            changeDataForm?: Form,
+            changePasswordForm: Form,
+            settingsPlug: Plug,
+            settingsDataLink: Link
         }) {
+        props.settingsImg = new Img(
+            {
+                className: 'settings__img',
+                settings: {withInternalID: true},
+                srcName: avatar,
+                altText: 'photo',
+            }
+        )
+        props.settingsLinkImg = new Link(
+            {
+                className: 'settings__change-img',
+                href: '#',
+                text: 'Сменить аватар',
+                settings: {withInternalID: true},
+                events: {}
+            }
+        )
+        props.settingsLoginTitle = new Title(
+            {
+                className: 'settings__label',
+                text: 'Логин',
+                settings: {withInternalID: true},
+                tag: 'p'
+            }
+        )
+        props.settingsNameTitle = new Title(
+            {
+                className: 'settings__label',
+                text: 'Имя',
+                settings: {withInternalID: true},
+                tag: 'p'
+            }
+        )
+        props.settingsSecondNameTitle = new Title(
+            {
+                className: 'settings__label',
+                text: 'Фамилия',
+                settings: {withInternalID: true},
+                tag: 'p'
+            }
+        )
+        props.settingsEmailTitle = new Title(
+            {
+                className: 'settings__label',
+                text: 'Почта',
+                settings: {withInternalID: true},
+                tag: 'p'
+            }
+        )
+        props.settingsPhoneTitle = new Title(
+            {
+                className: 'settings__label',
+                text: 'Телефон',
+                settings: {withInternalID: true},
+                tag: 'p'
+            }
+        )
         props.changeDataForm = new Form(
             {
                 className: 'change-data-form',
                 button: {
                     className: 'change-data-form__button',
-                    typeName: 'submit',
-                    text: 'Сохранить'
+                    typeName: 'button',
+                    text: 'Сохранить',
+                    settings: {withInternalID: true},
+                    events: {
+                        click: () => {
+                            if (props.changeDataForm.validate()) {
+                                const data = props.changeDataForm.get_data()
+                                console.log(data)
+                                props.changeDataForm.clear()
+                            }
+                        }
+                    }
                 },
                 fields: [
                     {
@@ -160,8 +233,18 @@ export default class SettingsPage extends Block {
 
                 button: {
                     className: 'change-password-form__button',
-                    typeName: 'submit',
-                    text: 'Сохранить'
+                    typeName: 'button',
+                    text: 'Сохранить',
+                    settings: {withInternalID: true},
+                    events: {
+                        click: () => {
+                            if (props.changePasswordForm.validate()) {
+                                const data = props.changePasswordForm.get_data()
+                                console.log(data)
+                                props.changePasswordForm.clear()
+                            }
+                        }
+                    }
                 },
 
                 fields: [
@@ -240,7 +323,7 @@ export default class SettingsPage extends Block {
         props.changePasswordForm.hide()
 
 
-        const settingsPlug = new Plug(
+        props.settingsPlug = new Plug(
             {
                 className: "plug",
                 plugLink: {
@@ -251,10 +334,7 @@ export default class SettingsPage extends Block {
             }
         )
 
-        props.settingsPlug = settingsPlug
-
-
-        const settingsDataLink = new Link(
+        props.settingsDataLink = new Link(
             {
                 className: 'settings__change-data',
                 href: '#',
@@ -267,9 +347,8 @@ export default class SettingsPage extends Block {
                 }
             }
         )
-        props.settingsDataLink = settingsDataLink
 
-        const settingsPasswordLink = new Link(
+        props.settingsPasswordLink = new Link(
             {
                 className: 'settings__change-password',
                 href: '#',
@@ -282,9 +361,8 @@ export default class SettingsPage extends Block {
                 }
             }
         )
-        props.settingsPasswordLink = settingsPasswordLink
 
-        const settingsExitLink = new Link(
+        props.settingsExitLink = new Link(
             {
                 className: 'settings__change-exit',
                 href: '#',
@@ -292,9 +370,8 @@ export default class SettingsPage extends Block {
                 settings: {withInternalID: true}
             }
         )
-        props.settingsExitLink = settingsExitLink
 
-        const buttonBlueBack = new Button(
+        props.buttonBlueBack = new Button(
             {
                 className: 'settings__btn-back',
                 typeName: 'button',
@@ -305,7 +382,6 @@ export default class SettingsPage extends Block {
                     }},
             }
         )
-        props.buttonBlueBack = buttonBlueBack
 
         super('div', props);
     }
@@ -334,3 +410,10 @@ export default class SettingsPage extends Block {
         return this.compile(greetings, this.props);
     }
 }
+
+
+export const settingsPage = new SettingsPage(
+    {
+        className: "settings-page",
+        settings: {withInternalID: true},
+    })

@@ -16,7 +16,6 @@ export interface inputBlockType {
 
 export default class Input extends Block {
 
-    _already_check: boolean
 
     constructor(props: inputBlockType) {
         super("div", props);

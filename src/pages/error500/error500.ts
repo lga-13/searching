@@ -1,12 +1,10 @@
-
-
 import Block from "../../components/base/block.ts";
 import greetings from "./error500-template.ts";
 import ErrorCard from "../../blocks/error-card/error-card.ts";
-import  "./error500.css"
+import "./error500.css"
 
 
-export default class Error500Page extends Block {
+class Error500Page extends Block {
     constructor(props: {}) {
         props.errorCard = new ErrorCard(
             {

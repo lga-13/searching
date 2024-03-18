@@ -3,7 +3,8 @@ import ErrorCard from "../../blocks/error-card/error-card.ts";
 import greetings from "./error404-template.ts";
 import "./error404.css";
 
-export default class Error404Page extends Block {
+
+class Error404Page extends Block {
     constructor(props: {}) {
         props.errorCard = new ErrorCard(
             {
