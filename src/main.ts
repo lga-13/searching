@@ -18,7 +18,7 @@ import {chatPage} from "./pages/chat-page/chat-page.ts";
 
 
 // render("#app", loginForm);
-    render("#app", changeDataForm)
+    render("#app", settingsPage)
 
 
 // const client = new APIClient();

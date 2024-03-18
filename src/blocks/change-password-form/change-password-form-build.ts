@@ -1,7 +1,6 @@
-import {Validator} from "../../utils/field_validator.ts";
-import avatar from "../../public/static/img/avatar.svg";
-import Form from "../../components/form/form.ts";
+import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
 import "./change-password-form.css"
+import Form from "../form/form.ts";
 
 export const changePasswordForm = new Form(
     {
@@ -14,38 +13,79 @@ export const changePasswordForm = new Form(
             text: 'Сохранить'
         },
 
-        labelFieldClassName: 'change-password-form__label',
-        inputFieldClassName: 'change-password-form__input',
-        errorMessageClassName: 'change-password-form__error-message',
-
         fields: [
             {
-                labelText: 'Старый пароль',
-                inputName: 'password',
-                inputType: 'text',
-                inputPlaceholder: "",
-                validator: () => {return Validator.validateLogin},
-                errorMessage: 'старый пароль введен некорректно'
+                label: {
+                    className: 'change-password-form__label',
+                    text: "Старый пароль",
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'change-password-form__input',
+                    name: 'password',
+                    placeholder: '',
+                    inputType: "password",
+                    settings: {withInternalID: true},
+                    events: {
+                        click: () => {}
+                    }
+                },
+                errorMessage: {
+                    className: 'change-password-form__error-message',
+                    text: ErrorMessages.validatePassword,
+                    settings: {withInternalID: true}
+                },
+                validator: Validator.validatePassword,
             },
             {
-                labelText: 'Новый пароль',
-                inputName: 'password',
-                inputType: 'text',
-                inputPlaceholder: "",
+                label: {
+                    className: 'change-password-form__label',
+                    text: "Новый пароль",
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'change-password-form__input',
+                    name: 'new_password',
+                    placeholder: '',
+                    inputType: "password",
+                    settings: {withInternalID: true},
+                    events: {
+                        click: () => {}
+                    }
+                },
+                errorMessage: {
+                    className: 'change-password-form__error-message',
+                    text: ErrorMessages.validatePassword,
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validatePassword,
-                errorMessage: 'новый пароль введен некорректно',
             },
             {
-                labelText: 'Повторите новый пароль',
-                inputName: 'password',
-                inputType: 'text',
-                inputPlaceholder: "",
+                label: {
+                    className: 'change-password-form__label',
+                    text: "Повторите новый пароль",
+                    settings: {withInternalID: true}
+                },
+                input: {
+                    className: 'change-password-form__input',
+                    name: 'repeat_password',
+                    placeholder: '',
+                    inputType: "password",
+                    settings: {withInternalID: true},
+                    events: {
+                        click: () => {}
+                    }
+                },
+                errorMessage: {
+                    className: 'change-password-form__error-message',
+                    text: ErrorMessages.validatePassword,
+                    settings: {withInternalID: true}
+                },
                 validator: Validator.validatePassword,
-                errorMessage: 'пароли не совпадают',
-            }
+            },
         ],
     }
 )
-changePasswordForm.hide()
+// changePasswordForm.hide()
 
 
