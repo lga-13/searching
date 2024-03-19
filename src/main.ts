@@ -6,5 +6,4 @@ import {error500Page} from "./pages/error500/error500.ts";
 import {chatPage} from "./pages/chat-page/chat-page.ts";
 import {settingsPage} from "./pages/settings-page/settings-page.ts";
 
-
 render("#app", settingsPage)

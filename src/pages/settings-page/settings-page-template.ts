@@ -7,16 +7,7 @@ export default `
                 {{{ settingsImg }}}
                 {{{ settingsLinkImg }}}
             </div>
-            {{{ settingsLoginTitle }}}
-            <hr>
-            {{{ settingsNameTitle }}}
-            <hr>
-            {{{ settingsSecondNameTitle }}}
-            <hr>
-            {{{ settingsEmailTitle }}}
-            <hr>
-            {{{ settingsPhoneTitle }}}
-            <hr>
+            {{{ userInfoCard }}}
             {{{ settingsDataLink }}}
             {{{ settingsPasswordLink }}}
             {{{ settingsExitLink }}}

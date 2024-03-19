@@ -7,11 +7,11 @@ import Link from "../../components/link/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
 import Button from "../../components/button/button.ts";
-import {settingsPage} from "./settings-page-build.ts";
 import Title from "../../components/title/title.ts";
 import Form from "../../blocks/form/form.ts";
 import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
 import avatar from "../../public/static/img/avatar.svg";
+import {UserInfoCard} from "../../blocks/user_info_card/user_info_card.ts";
 
 
 export default class SettingsPage extends Block {
@@ -22,11 +22,7 @@ export default class SettingsPage extends Block {
                 withInternalID: boolean},
             settingsImg?: Img,
             settingsLinkImg?: Link,
-            settingsLoginTitle?: Title,
-            settingsNameTitle?: Title,
-            settingsSecondNameTitle?: Title,
-            settingsEmailTitle?: Title,
-            settingsPhoneTitle?: Title,
+            userInfoCard: UserInfoCard
             changeDataForm?: Form,
             changePasswordForm: Form,
             settingsPlug: Plug,
@@ -49,44 +45,39 @@ export default class SettingsPage extends Block {
                 events: {}
             }
         )
-        props.settingsLoginTitle = new Title(
-            {
-                className: 'settings__label',
-                text: 'Логин',
-                settings: {withInternalID: true},
-                tag: 'p'
-            }
-        )
-        props.settingsNameTitle = new Title(
-            {
-                className: 'settings__label',
-                text: 'Имя',
-                settings: {withInternalID: true},
-                tag: 'p'
-            }
-        )
-        props.settingsSecondNameTitle = new Title(
-            {
-                className: 'settings__label',
-                text: 'Фамилия',
-                settings: {withInternalID: true},
-                tag: 'p'
-            }
-        )
-        props.settingsEmailTitle = new Title(
-            {
-                className: 'settings__label',
-                text: 'Почта',
-                settings: {withInternalID: true},
-                tag: 'p'
-            }
-        )
-        props.settingsPhoneTitle = new Title(
-            {
-                className: 'settings__label',
-                text: 'Телефон',
-                settings: {withInternalID: true},
-                tag: 'p'
+        props.userInfoCard = new UserInfoCard({
+                titles: [
+                    {
+                        className: 'settings__label',
+                        text: 'Логин',
+                        settings: {withInternalID: true},
+                        tag: 'p'
+                    },
+                    {
+                        className: 'settings__label',
+                        text: 'Имя',
+                        settings: {withInternalID: true},
+                        tag: 'p'
+                    },
+                    {
+                        className: 'settings__label',
+                        text: 'Фамилия',
+                        settings: {withInternalID: true},
+                        tag: 'p'
+                    },
+                    {
+                        className: 'settings__label',
+                        text: 'Почта',
+                        settings: {withInternalID: true},
+                        tag: 'p'
+                    },
+                    {
+                        className: 'settings__label',
+                        text: 'Телефон',
+                        settings: {withInternalID: true},
+                        tag: 'p'
+                    }
+                ]
             }
         )
         props.changeDataForm = new Form(
