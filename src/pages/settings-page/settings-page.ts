@@ -7,11 +7,21 @@ import Link from "../../components/link/link.ts";
 import greetings from "../settings-page/settings-page-template.ts";
 import Plug from "../../components/plug/plug.ts";
 import Button from "../../components/button/button.ts";
-import Title from "../../components/title/title.ts";
 import Form from "../../blocks/form/form.ts";
 import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import {UserInfoCard} from "../../blocks/user_info_card/user_info_card.ts";
+
+
+
+let MOCK_USER_DATA = {
+    login: "admin",
+    first_name: "Глеб",
+    second_name: "Лазарев",
+    email: "admin@admin.ru",
+    phone: "+7(999)-999-99-99"
+}
+
 
 
 export default class SettingsPage extends Block {
@@ -49,31 +59,31 @@ export default class SettingsPage extends Block {
                 titles: [
                     {
                         className: 'settings__label',
-                        text: 'Логин',
+                        text: MOCK_USER_DATA.login,
                         settings: {withInternalID: true},
                         tag: 'p'
                     },
                     {
                         className: 'settings__label',
-                        text: 'Имя',
+                        text: MOCK_USER_DATA.first_name,
                         settings: {withInternalID: true},
                         tag: 'p'
                     },
                     {
                         className: 'settings__label',
-                        text: 'Фамилия',
+                        text: MOCK_USER_DATA.second_name,
                         settings: {withInternalID: true},
                         tag: 'p'
                     },
                     {
                         className: 'settings__label',
-                        text: 'Почта',
+                        text: MOCK_USER_DATA.email,
                         settings: {withInternalID: true},
                         tag: 'p'
                     },
                     {
                         className: 'settings__label',
-                        text: 'Телефон',
+                        text: MOCK_USER_DATA.phone,
                         settings: {withInternalID: true},
                         tag: 'p'
                     }
@@ -93,6 +103,7 @@ export default class SettingsPage extends Block {
                             if (props.changeDataForm.validate()) {
                                 const data = props.changeDataForm.get_data()
                                 console.log(data)
+                                MOCK_USER_DATA = data
                                 props.changeDataForm.clear()
                             }
                         }
@@ -108,7 +119,7 @@ export default class SettingsPage extends Block {
                         input: {
                             className: 'change-data-form__input',
                             name: 'login',
-                            placeholder: '',
+                            placeholder: MOCK_USER_DATA.login,
                             inputType: "text",
                             settings: {withInternalID: true},
                             events: {
@@ -131,7 +142,7 @@ export default class SettingsPage extends Block {
                         input: {
                             className: 'change-data-form__input',
                             name: 'first_name',
-                            placeholder: '',
+                            placeholder: MOCK_USER_DATA.first_name,
                             inputType: "text",
                             settings: {withInternalID: true},
                             events: {
@@ -154,7 +165,7 @@ export default class SettingsPage extends Block {
                         input: {
                             className: 'change-data-form__input',
                             name: 'second_name',
-                            placeholder: '',
+                            placeholder: MOCK_USER_DATA.second_name,
                             inputType: "text",
                             settings: {withInternalID: true},
                             events: {
@@ -177,7 +188,7 @@ export default class SettingsPage extends Block {
                         input: {
                             className: 'change-data-form__input',
                             name: 'email',
-                            placeholder: '',
+                            placeholder: MOCK_USER_DATA.email,
                             inputType: "email",
                             settings: {withInternalID: true},
                             events: {
@@ -200,8 +211,8 @@ export default class SettingsPage extends Block {
                         input: {
                             className: 'change-data-form__input',
                             name: 'phone',
-                            placeholder: '',
-                            inputType: "email",
+                            placeholder: MOCK_USER_DATA.phone,
+                            inputType: "phone",
                             settings: {withInternalID: true},
                             events: {
                                 click: () => {}
