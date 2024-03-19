@@ -25,19 +25,17 @@ let MOCK_USER_DATA = {
 
 export interface SettingPageBlockType {
     className: string,
-    settings: {withInternalID: boolean},
+    settings?: {withInternalID: boolean},
     settingsImg?: Img,
     settingsLinkImg?: Link,
-    userInfoCard: UserInfoCard
+    userInfoCard?: UserInfoCard
     changeDataForm?: Form,
-    changePasswordForm: Form,
-    settingsPlug: Plug,
-    settingsDataLink: Link,
-    settingsPasswordLink: Link,
-    settingsExitLink: Link,
-    buttonBlueBack: Button
-
-
+    changePasswordForm?: Form,
+    settingsPlug?: Plug,
+    settingsDataLink?: Link,
+    settingsPasswordLink?: Link,
+    settingsExitLink?: Link,
+    buttonBlueBack?: Button
 }
 
 
@@ -45,7 +43,7 @@ export default class SettingsPage extends Block {
     constructor(
         props: SettingPageBlockType) {
 
-        // Avater
+        // Avatar
         props.settingsImg = new Img(
             {
                 className: 'settings__img',
@@ -55,7 +53,7 @@ export default class SettingsPage extends Block {
             }
         )
 
-        // Cылка на смену аватара
+        // Ccылка на смену аватара
         props.settingsLinkImg = new Link(
             {
                 className: 'settings__change-img',
@@ -240,7 +238,6 @@ export default class SettingsPage extends Block {
                     },
                 ],
             })
-
         // По умолчанию форма скрыта
         props.changeDataForm.hide()
 
@@ -343,6 +340,7 @@ export default class SettingsPage extends Block {
         props.changePasswordForm.hide()
 
 
+        // Заглушка
         props.settingsPlug = new Plug(
             {
                 className: "plug",
@@ -354,6 +352,7 @@ export default class SettingsPage extends Block {
             }
         )
 
+        // Ссылка на изменение данных пользователя
         props.settingsDataLink = new Link(
             {
                 className: 'settings__change-data',
