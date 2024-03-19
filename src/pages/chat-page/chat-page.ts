@@ -1,20 +1,13 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chat-page-template.ts";
-import Link, {LinkBlockType} from "../../components/link/link.ts";
+import Link from "../../components/link/link.ts";
 import Plug from "../../components/plug/plug.ts";
 import MessageChain from "../../blocks/message_chain/message_chain.ts";
 import chat2 from "../../public/static/img/chat2.svg";
 import ChatList from "../../blocks/chats_list/chats_list.ts";
 import {Validator} from "../../utils/field_validator.ts";
-import {read} from "node:fs";
-import {TitleBlockType} from "../../components/title/title.ts";
-import {buttonBlockType} from "../../components/button/button.ts";
-import {fieldBlockType} from "../../blocks/form/field/field.ts";
-import Label, {labelBlockType} from "../../blocks/form/field/label/label.ts";
-import Input, {inputBlockType} from "../../blocks/form/field/input/input.ts";
-import ErrorMessage, {errorMessageBlockType} from "../../blocks/form/field/error-message/error-message.ts";
 import Form from "../../blocks/form/form.ts";
-
+import "./chat-page.css"
 
 
 export const MOCK_MESSAGE_DATA = [

@@ -7,4 +7,4 @@ import {chatPage} from "./pages/chat-page/chat-page.ts";
 import {settingsPage} from "./pages/settings-page/settings-page.ts";
 
 
-render("#app", error404Page)
+render("#app", settingsPage)
