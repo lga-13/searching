@@ -23,21 +23,29 @@ let MOCK_USER_DATA = {
 }
 
 
+export interface SettingPageBlockType {
+    className: string,
+    settings: {withInternalID: boolean},
+    settingsImg?: Img,
+    settingsLinkImg?: Link,
+    userInfoCard: UserInfoCard
+    changeDataForm?: Form,
+    changePasswordForm: Form,
+    settingsPlug: Plug,
+    settingsDataLink: Link,
+    settingsPasswordLink: Link,
+    settingsExitLink: Link,
+    buttonBlueBack: Button
+
+
+}
+
 
 export default class SettingsPage extends Block {
     constructor(
-        props: {
-            className: string,
-            settings: {
-                withInternalID: boolean},
-            settingsImg?: Img,
-            settingsLinkImg?: Link,
-            userInfoCard: UserInfoCard
-            changeDataForm?: Form,
-            changePasswordForm: Form,
-            settingsPlug: Plug,
-            settingsDataLink: Link
-        }) {
+        props: SettingPageBlockType) {
+
+        // Avater
         props.settingsImg = new Img(
             {
                 className: 'settings__img',
@@ -46,15 +54,18 @@ export default class SettingsPage extends Block {
                 altText: 'photo',
             }
         )
+
+        // Cылка на смену аватара
         props.settingsLinkImg = new Link(
             {
                 className: 'settings__change-img',
                 href: '#',
                 text: 'Сменить аватар',
-                settings: {withInternalID: true},
-                events: {}
+                settings: {withInternalID: true}
             }
         )
+
+        // Карточка данных пользователя
         props.userInfoCard = new UserInfoCard({
                 titles: [
                     {
@@ -90,6 +101,8 @@ export default class SettingsPage extends Block {
                 ]
             }
         )
+
+        // Форма смены данных пользователя
         props.changeDataForm = new Form(
             {
                 className: 'change-data-form',
@@ -223,11 +236,15 @@ export default class SettingsPage extends Block {
                             text: ErrorMessages.validateEmail,
                             settings: {withInternalID: true}
                         },
-                        validator: Validator.validateEmail,
+                        validator: Validator.validatePhone,
                     },
                 ],
             })
+
+        // По умолчанию форма скрыта
         props.changeDataForm.hide()
+
+        // Форма смены пароля
         props.changePasswordForm = new Form(
             {
 
@@ -322,6 +339,7 @@ export default class SettingsPage extends Block {
                 ],
             }
         )
+        // По умолчанию скрыта
         props.changePasswordForm.hide()
 
 
