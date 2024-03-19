@@ -220,10 +220,10 @@ export default class Block {
 
 
     compile(template, props) {
-        console.log(this.children)
         // Копия пропсов
         const propsAndStubs = { ...props };
 
+        console.log(this.children)
         Object.entries(this.children).forEach(([key, child]) => {
             if (child instanceof Block) {
                 propsAndStubs[key] = `<div data_id="${child._id}"></div>`

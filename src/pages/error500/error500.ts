@@ -4,8 +4,12 @@ import ErrorCard from "../../blocks/error-card/error-card.ts";
 import "./error500.css"
 
 
+export interface Error500BlockType {
+    errorCard?: ErrorCard
+}
+
 class Error500Page extends Block {
-    constructor(props: {}) {
+    constructor(props: Error500BlockType) {
         props.errorCard = new ErrorCard(
             {
                 className: "h1",
@@ -13,21 +17,17 @@ class Error500Page extends Block {
                     className: 'error500__title',
                     text: '500',
                     tag: "div",
-                    settings: {withInternalID: true},
                 },
                 message: {
                     className: 'error500__message',
                     text: 'уже фиксим',
-                    settings: {withInternalID: true},
                     tag: "h1"
                 },
                 link: {
                     className: 'error500__back-chats',
                     href: '#',
                     text: 'вернуться к чатам',
-                    settings: {withInternalID: true}
                 },
-                settings: {withInternalID: true},
             })
         super("div", props);
     }
