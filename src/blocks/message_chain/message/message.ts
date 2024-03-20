@@ -2,14 +2,18 @@ import Block from "../../../components/base/block.ts";
 import greetings from "./message-template.ts";
 
 
+export interface MessageBlockType{
+    me: boolean,
+    text: string,
+    time: string,
+    read: boolean,
+    settings: {withInternalID: boolean}
+}
+
+
 export default class Message extends Block {
 
-    constructor(props: {
-        me: boolean,
-        text: string,
-        time: string
-        settings: {withInternalID: boolean}
-    }) {
+    constructor(props: MessageBlockType) {
         super("div", props);
     }
 

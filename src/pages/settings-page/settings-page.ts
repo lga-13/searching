@@ -66,41 +66,7 @@ export default class SettingsPage extends Block {
         )
 
         // Карточка данных пользователя
-        props.userInfoCard = new UserInfoCard({
-                titles: [
-                    {
-                        className: 'settings__label',
-                        text: MOCK_USER_DATA.login,
-                        settings: {withInternalID: true},
-                        tag: 'p'
-                    },
-                    {
-                        className: 'settings__label',
-                        text: MOCK_USER_DATA.first_name,
-                        settings: {withInternalID: true},
-                        tag: 'p'
-                    },
-                    {
-                        className: 'settings__label',
-                        text: MOCK_USER_DATA.second_name,
-                        settings: {withInternalID: true},
-                        tag: 'p'
-                    },
-                    {
-                        className: 'settings__label',
-                        text: MOCK_USER_DATA.email,
-                        settings: {withInternalID: true},
-                        tag: 'p'
-                    },
-                    {
-                        className: 'settings__label',
-                        text: MOCK_USER_DATA.phone,
-                        settings: {withInternalID: true},
-                        tag: 'p'
-                    }
-                ]
-            }
-        )
+        props.userInfoCard = new UserInfoCard({})
 
         // Форма смены данных пользователя
         props.changeDataForm = new Form(
@@ -117,6 +83,7 @@ export default class SettingsPage extends Block {
                                 const data = props.changeDataForm.get_data()
                                 console.log(data)
                                 MOCK_USER_DATA = data
+                                props.userInfoCard.refreshUserData()
                                 props.changeDataForm.clear()
                             }
                         }
