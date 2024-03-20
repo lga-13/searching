@@ -16,9 +16,11 @@ export default class Block {
 
 
     _id: UUID | null = null;
-    _element: HTMLElement | null = null
-    _meta: {tagName: string, props: object} | null
+    _element: HTMLElement
+    _meta: {tagName: string, props: object}
     props: object
+    children: {string: Block | Block[]}
+
 
     eventBus: () => EventBus
 
@@ -58,11 +60,11 @@ export default class Block {
         eventBus.emit(Block.EVENTS.INIT);
     }
 
-    _getChildren(propsAndChildren: {}) {
+    _getChildren(propsAndChildren: {}): {children: {string, Block}, props: {} } {
 
         // Метод отсеивания компоментов и обычных пропсов.
 
-        const children = {};
+        const children: {string, Block} = {};
         const props = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
@@ -178,7 +180,9 @@ export default class Block {
     _componentDidMount() {
         this.componentDidMount();
         Object.values(this.children).forEach(child => {
-            child.dispatchComponentDidMount();
+            if (child instanceof Block) {
+                child.dispatchComponentDidMount();
+            }
         });
     }
 
@@ -223,12 +227,11 @@ export default class Block {
         // Копия пропсов
         const propsAndStubs = { ...props };
 
-        console.log(this.children)
         Object.entries(this.children).forEach(([key, child]) => {
             if (child instanceof Block) {
                 propsAndStubs[key] = `<div data_id="${child._id}"></div>`
-            } else if (child instanceof Array) {
-                const result: Block[] = []
+            } else {
+                const result: string[] = []
                 Object.values(child).forEach(child_object => {
                     result.push(`<div data_id="${child_object._id}"></div>`)
                 })
