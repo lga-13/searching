@@ -368,6 +368,11 @@ hr:first-of-type{
     height: 50px;
 }
 
+.message-chain__send-field{
+    display: flex;
+    flex-direction: row;
+}
+
 .message-chain__message_input{
     width: 862px;
     height: 32px;

@@ -31,7 +31,6 @@ export interface MessageChainBlockType {
 
 export default class MessageChain extends Block {
     constructor(props: MessageChainBlockType) {
-
         props.messageChainMoreButton = new Button(props.moreButton)
         props.messageSenderName = new Title(props.sender_name)
         props.messageChainAttachmentsButton  = new Button(props.attachmentButton)

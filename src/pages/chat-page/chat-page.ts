@@ -244,7 +244,7 @@ export default class ChatPage extends Block {
                 settings: {withInternalID: true},
             },
             messageForm: {
-                className: "message-chain__send-button",
+                className: "message-chain__send-field",
                 button: {
                     className: "message-chain__send-button",
                     typeName: "button",
