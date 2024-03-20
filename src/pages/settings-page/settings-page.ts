@@ -11,10 +11,12 @@ import Form from "../../blocks/form/form.ts";
 import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
 import avatar from "../../public/static/img/avatar.svg";
 import {UserInfoCard} from "../../blocks/user_info_card/user_info_card.ts";
+import {getMessageChain, getSender} from "../chat-page/chat-page.ts";
+import Message from "../../blocks/message_chain/message/message.ts";
 
 
 
-let MOCK_USER_DATA = {
+export let MOCK_USER_DATA = {
     login: "admin",
     first_name: "Глеб",
     second_name: "Лазарев",
@@ -404,8 +406,6 @@ export default class SettingsPage extends Block {
 
         super('div', props);
     }
-
-
 
     showChangeDataForm() {
         this.children.changePasswordForm.hide()

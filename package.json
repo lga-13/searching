@@ -9,22 +9,11 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "stylelint": "^16.2.1",
-    "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.2.2",
-    "vite": "^5.1.6"
+    "vite": "^5.2.0"
   },
   "dependencies": {
-    "@types/handlebars": "^4.1.0",
     "handlebars": "^4.7.8",
-    "rollup-plugin-handlebars-plus": "^0.4.2",
-    "uuid": "^9.0.1",
-    "vite-plugin-handlebars": "^2.0.0",
-    "xhr2": "^0.2.1",
-    "xmlhttprequest": "^1.8.0"
+    "uuid": "^9.0.1"
   }
 }
