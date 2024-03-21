@@ -3,11 +3,16 @@
     src: url("../../public/static/fonts/Manuale/Manuale-Medium.ttf")
 }
 
+body {
+    margin: 0;
+}
+
 .chats {
     display: flex;
     flex-direction: row;
     width: 1280px;
     height: 720px;
+    left: 0;
 }
 
 .chats-tape {
@@ -19,6 +24,7 @@
 .chats__container-nav{
     width: 310px;
     height: 103px;
+    margin-left: 5px;
 }
 
 .chats__account-nav {
@@ -32,7 +38,6 @@
     font-size: 12px;
     color: #757575;
     margin-top: 8px;
-    margin-right: 0;
     padding-right: 10px;
     margin-left: auto;
 }
@@ -113,6 +118,7 @@ hr:first-of-type{
     margin: 0;
     gap: 8px;
     padding-top: 10px;
+    padding-left: 5px;
 }
 
 .chats__message:active{
