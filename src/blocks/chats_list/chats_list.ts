@@ -1,8 +1,7 @@
 import Block from "../../components/base/block.ts";
 import greetings from "./chats_list-template.ts"
 import ChatMiniature from "./chat_miniature/chat_miniature.ts";
-import {get_chats_list, MOCK_MESSAGE_DATA, readMessageChain} from "../../pages/chat-page/chat-page.ts";
-
+import {get_chats_list} from "../../pages/chat-page/chat-page.ts";
 
 
 export interface ChatListBlockType
@@ -13,7 +12,6 @@ export interface ChatListBlockType
 
 
 export default class ChatList extends Block {
-
 
     constructor(props: ChatListBlockType){
 

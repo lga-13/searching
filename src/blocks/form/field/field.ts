@@ -2,7 +2,7 @@
 import greetings from "./field_template.ts"
 import Label, {labelBlockType} from "./label/label.ts";
 import Input, {inputBlockType} from "./input/input.ts";
-import ErrorMessage, {errorMessageBlockType} from "./error-message/error-message.ts";
+import ErrorMessage, {ErrorMessageBlockType} from "./error-message/error-message.ts";
 import Block from "../../../components/base/block.ts";
 import Link, {LinkBlockType} from "../../../components/link/link.ts";
 import Button from "../../../components/button/button.ts";
@@ -14,7 +14,7 @@ export interface fieldBlockType {
     // ДАНЫНЕ ЭЛЕМЕНТОВ
     label?: labelBlockType
     input: inputBlockType
-    errorMessage?: errorMessageBlockType
+    errorMessage?: ErrorMessageBlockType
     link?: LinkBlockType
     validator: (value: string) => boolean
 

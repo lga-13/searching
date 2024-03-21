@@ -279,10 +279,6 @@ export default class ChatPage extends Block {
                 typeName: "button",
                 text: "",
                 settings: {withInternalID: true},
-                events: {
-                    click: ()=>{},
-                    keydown: (event) => {}
-                }
             },
             chatListHook: () => {chatList.rebuildChatList()},
             }
@@ -353,19 +349,6 @@ export default class ChatPage extends Block {
     }
 
     readAllMessage(user_id: number) {
-
-    }
-
-    hideMessageChain() {
-        Object.values(this.children).forEach(child => {
-            if (child instanceof MessageChain) {
-                child.hide()
-            }
-            if (child instanceof Plug) {
-                child.show()
-            }
-        });
-        return
 
     }
 

@@ -1,10 +1,10 @@
 import Title, {TitleBlockType} from "../../components/title/title.ts";
-import ErrorMessage, {errorMessageBlockType} from "../form/field/error-message/error-message.ts";
+import ErrorMessage from "../form/field/error-message/error-message.ts";
 import Link, {LinkBlockType} from "../../components/link/link.ts";
 import Block from "../../components/base/block.ts";
 import greetings from "./error-card-template.ts";
 
-export interface Error500PageType {
+export interface Error500BlockType {
     className: string,
     title: TitleBlockType
     message: TitleBlockType
@@ -18,7 +18,7 @@ export interface Error500PageType {
 
 
 export default class ErrorCard extends Block {
-    constructor(props: Error500PageType) {
+    constructor(props: Error500BlockType) {
 
         props.errorTitle = new Title(props.title)
         props.errorMessage = new Title(props.message)

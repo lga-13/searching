@@ -16,6 +16,9 @@ export interface inputBlockType {
 
 export default class Input extends Block {
 
+    _currentEvents:  {
+        click: () => void
+    }
 
     constructor(props: inputBlockType) {
         super("div", props);

@@ -25,7 +25,8 @@ export interface MessageChainBlockType {
     chainMessages? : Message[],
     messageChainAttachmentsButton? : Button,
     messageChainForm? : Form,
-    messageSenderName?: Title
+    messageSenderName?: Title,
+    chatListHook: () => void
 }
 
 

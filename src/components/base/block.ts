@@ -18,6 +18,7 @@ export default class Block {
     _id: UUID | null = null;
     _element: HTMLElement
     _meta: {tagName: string, props: object}
+    _currentEvents: {}
     props: object
     children: {string: Block | Block[]}
 

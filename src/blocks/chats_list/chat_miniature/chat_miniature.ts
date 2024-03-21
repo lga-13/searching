@@ -2,8 +2,7 @@ import Block from "../../../components/base/block.ts";
 import greetings from "./chat_miniature-template.ts";
 
 
-
-interface ChatMiniatureProps {
+interface ChatMiniatureBlockType {
     srcName: {},
     index: number,
     sender: string,
@@ -18,10 +17,9 @@ interface ChatMiniatureProps {
 }
 
 
-
 export default class ChatMiniature extends Block {
 
-    constructor(props: ChatMiniatureProps) {
+    constructor(props: ChatMiniatureBlockType) {
         // Создаём враппер DOM-элемент button
         super("div", props);
     }

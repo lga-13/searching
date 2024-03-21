@@ -2,8 +2,7 @@ import greetings from "./error-message-template.ts";
 import Block from "../../../../components/base/block.ts";
 
 
-
-export interface errorMessageBlockType {
+export interface ErrorMessageBlockType {
     className: string,
     text: string,
     settings?: {withInternalID: boolean}
@@ -11,7 +10,7 @@ export interface errorMessageBlockType {
 
 
 export default class ErrorMessage extends Block {
-    constructor(props: errorMessageBlockType)
+    constructor(props: ErrorMessageBlockType)
     {
         super("div", props);
     }
