@@ -290,7 +290,7 @@ export default class ChatPage extends Block {
         text: '',
         settings: { withInternalID: true },
       },
-      chatListHook: () => { chatList.rebuildChatList()},
+      chatListHook: () => { chatList.rebuildChatList(props.messageChain.props.user_id)},
     });
     props.messageChain.hide();
 
