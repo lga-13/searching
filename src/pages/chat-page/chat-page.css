@@ -115,6 +115,10 @@ hr:first-of-type{
     padding-top: 10px;
 }
 
+.chats__message:active{
+    background-color: rgba(84, 158, 245, 0.3);
+}
+
 .chats__img {
     display: block;
     margin-top: 1px;
