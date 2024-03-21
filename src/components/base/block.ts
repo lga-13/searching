@@ -22,7 +22,7 @@ export default class Block {
 
   props: object;
 
-  children: {string: Block | Block[]};
+  children: any
 
   eventBus: () => EventBus;
 
@@ -235,12 +235,10 @@ export default class Block {
     Object.values(this.children).forEach((child) => {
       if (child instanceof Block) {
         const stub = fragment.content.querySelector(`[data_id="${child._id}"]`);
-        console.log(child.getContent(), stub);
         stub.replaceWith(child.getContent());
       } else if (child instanceof Array) {
         Object.values(child).forEach((child_object) => {
           const stub = fragment.content.querySelector(`[data_id="${child_object._id}"]`);
-          console.log(child_object.getContent(), stub);
           stub.replaceWith(child_object.getContent());
         });
       }

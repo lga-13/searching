@@ -102,6 +102,7 @@ export default class Form extends Block {
         });
       }
     });
+
     return current_condition;
   }
 

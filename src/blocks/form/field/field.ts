@@ -43,8 +43,11 @@ export default class Field extends Block {
         }
       },
       blur: (event) => {
+        console.log("Вызван блюр ")
         if (!this.validate()) {
-          fieldErrorMessage.show();
+          if (this.props.fieldErrorMessage) {
+            this.props.fieldErrorMessage.show();
+          }
         }
         console.log(event);
       },
@@ -101,7 +104,7 @@ export default class Field extends Block {
   }
 
   getInputValue() {
-    return this.children.fieldInput.getInputValue();
+    return this._inputValue();
   }
 
   getName() {

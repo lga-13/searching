@@ -2,6 +2,7 @@ import Block from '../../../components/base/block.ts';
 import greetings from './chat_miniature-template.ts';
 
 interface ChatMiniatureBlockType {
+    active: boolean,
     srcName: {},
     index: number,
     sender: string,

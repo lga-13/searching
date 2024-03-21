@@ -18,7 +18,7 @@ export default class ChatList extends Block {
     this.rebuildChatList();
   }
 
-  rebuildChatList() {
+  rebuildChatList(active_chat = null) {
     const chatList = [];
     Object.values(get_chats_list()).forEach((chat) => {
       // Сборка времени миниатюры чата
@@ -38,7 +38,15 @@ export default class ChatList extends Block {
       if (formattedText.length > 25) {
         formattedText = `${formattedText.substring(0, 25)} ...`;
       }
+
+      let active_flag = false
+
+      if (active_chat && active_chat == chat.index) {
+        active_flag = true
+      }
+
       const currentChatMiniature = new ChatMiniature({
+        active: active_flag,
         srcName: chat.srcName,
         index: chat.index,
         sender: chat.sender,
@@ -51,6 +59,7 @@ export default class ChatList extends Block {
           click: () => {
             this.props.readAllMessages(chat.index);
             this.props.showMessageChain(chat.index);
+            this.rebuildChatList(chat.index)
           },
         },
       });

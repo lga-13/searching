@@ -214,7 +214,14 @@ export function readMessageChain(index) {
 }
 
 export default class ChatPage extends Block {
-  constructor(props: {}) {
+
+  constructor(props: {
+    searchForm?: Form,
+    accountLink?: Link,
+    chatPlug?: Plug,
+    messageChain?: MessageChain,
+    chatsList?: ChatList,
+  }) {
     // Генерация списка чатов
     // Передаем функцию которая будет вызываться по клику миниатюры в чат листе для открытия чатов.
     // Передаем функцию которая будет прочитывать все чаты при клике на миниматюру.
@@ -225,13 +232,12 @@ export default class ChatPage extends Block {
     });
 
     // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
-    const messageChain = new MessageChain({
+    props.messageChain = new MessageChain({
       srcName: chat2,
       sender_name: {
         className: 'message-chain__header-title',
         text: '',
         tag: 'h3',
-        settings: { withInternalID: true },
       },
       messageForm: {
         className: 'message-chain__send-field',
@@ -240,6 +246,19 @@ export default class ChatPage extends Block {
           typeName: 'button',
           text: '',
           settings: { withInternalID: true },
+          events: {
+            click: ()=> {
+              if (props.messageChain.children.messageChainForm.validate()) {
+                const message = props.messageChain.children.messageChainForm.get_data()
+                addMessageChain(props.messageChain.props.user_id, message.message, new Date().toLocaleTimeString())
+                props.messageChain.setCurrentMessage(props.messageChain.props.user_id)
+                props.messageChain.children.messageChainForm.clear()
+              }
+            },
+            keydown: (event) => {
+              console.log(event)
+            }
+          }
         },
         fields: [
           {
@@ -248,12 +267,13 @@ export default class ChatPage extends Block {
               name: 'message',
               placeholder: 'Cообщение',
               inputType: 'text',
-              settings: { withInternalID: true },
+              settings: {withInternalID: true},
               events: {
-                click: () => {},
+                click: () => {
+                },
               },
-              validator: Validator.validateMessage,
             },
+            validator: Validator.validateMessage,
           },
         ],
       },
@@ -270,11 +290,11 @@ export default class ChatPage extends Block {
         text: '',
         settings: { withInternalID: true },
       },
-      chatListHook: () => { chatList.rebuildChatList(); },
+      chatListHook: () => { chatList.rebuildChatList()},
     });
+    props.messageChain.hide();
 
-    messageChain.hide();
-    const chatPlug = new Plug({
+    props.chatPlug = new Plug({
       className: 'chats-plug',
       plugLink: {
         className: 'chats-plug__message',
@@ -283,14 +303,14 @@ export default class ChatPage extends Block {
       },
     });
 
-    const accountLink = new Link({
+    props.accountLink = new Link({
       className: 'chats__account',
       href: '#',
       text: 'Аккаунт',
       settings: { withInternalID: true },
     });
 
-    const searchForm = new Form(
+    props.searchForm = new Form(
       {
         className: 'chats__search-box',
         button: {
@@ -299,8 +319,6 @@ export default class ChatPage extends Block {
           text: '',
           settings: { withInternalID: true },
         },
-        inputFieldClassName: 'chats__search-input',
-        errorMessageClassName: 'chats__message-error',
         fields: [{
           input: {
             className: 'chats__search-input',
@@ -317,13 +335,7 @@ export default class ChatPage extends Block {
 
       },
     );
-    props.searchForm = searchForm;
-    props.accountLink = accountLink;
-    props.chatPlug = chatPlug;
-    props.messageChain = messageChain;
-
     props.chatsList = chatList;
-    props.settings = { withInternalID: true };
     super('div', props);
   }
 
@@ -332,10 +344,6 @@ export default class ChatPage extends Block {
     this.children.chatPlug.hide();
     this.children.messageChain.setCurrentMessage(user_id);
     return true;
-  }
-
-  readAllMessage(user_id: number) {
-
   }
 
   render() {

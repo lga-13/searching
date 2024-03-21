@@ -121,7 +121,17 @@ hr:first-of-type{
     padding-left: 5px;
 }
 
-.chats__message:active{
+.chats__message-active{
+    display: flex;
+    font-family: "Manuale", sans-serif;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 60px;
+    margin: 0;
+    gap: 8px;
+    padding-top: 10px;
+    padding-left: 5px;
     background-color: rgba(84, 158, 245, 0.3);
 }
 
