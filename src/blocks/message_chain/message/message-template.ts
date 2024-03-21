@@ -20,4 +20,4 @@ export default `
         </div>
         <script src="../message_chain-dynamic-box.ts"></script>
     <br>
-`
+`;

@@ -1,6 +1,5 @@
-import greetings from "./error-message-template.ts";
-import Block from "../../../../components/base/block.ts";
-
+import greetings from './error-message-template.ts';
+import Block from '../../../../components/base/block.ts';
 
 export interface ErrorMessageBlockType {
     className: string,
@@ -8,15 +7,13 @@ export interface ErrorMessageBlockType {
     settings?: {withInternalID: boolean}
 }
 
-
 export default class ErrorMessage extends Block {
-    constructor(props: ErrorMessageBlockType)
-    {
-        super("div", props);
-    }
+  constructor(props: ErrorMessageBlockType) {
+    super('div', props);
+  }
 
-    render() {
-        this.hide()
-        return this.compile(greetings, this.props);
-    }
+  render() {
+    this.hide();
+    return this.compile(greetings, this.props);
+  }
 }

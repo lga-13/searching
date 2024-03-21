@@ -1,6 +1,5 @@
-import Block from "../../../components/base/block.ts";
-import greetings from "./message-template.ts";
-
+import Block from '../../../components/base/block.ts';
+import greetings from './message-template.ts';
 
 export interface MessageBlockType{
     me: boolean,
@@ -10,14 +9,12 @@ export interface MessageBlockType{
     settings: {withInternalID: boolean}
 }
 
-
 export default class Message extends Block {
+  constructor(props: MessageBlockType) {
+    super('div', props);
+  }
 
-    constructor(props: MessageBlockType) {
-        super("div", props);
-    }
-
-    render() {
-        return this.compile(greetings, this.props);
-    }
+  render() {
+    return this.compile(greetings, this.props);
+  }
 }

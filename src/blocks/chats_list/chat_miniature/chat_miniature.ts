@@ -1,6 +1,5 @@
-import Block from "../../../components/base/block.ts";
-import greetings from "./chat_miniature-template.ts";
-
+import Block from '../../../components/base/block.ts';
+import greetings from './chat_miniature-template.ts';
 
 interface ChatMiniatureBlockType {
     srcName: {},
@@ -16,15 +15,13 @@ interface ChatMiniatureBlockType {
     }
 }
 
-
 export default class ChatMiniature extends Block {
+  constructor(props: ChatMiniatureBlockType) {
+    // Создаём враппер DOM-элемент button
+    super('div', props);
+  }
 
-    constructor(props: ChatMiniatureBlockType) {
-        // Создаём враппер DOM-элемент button
-        super("div", props);
-    }
-
-    render() {
-        return this.compile(greetings, this.props);
-    }
+  render() {
+    return this.compile(greetings, this.props);
+  }
 }

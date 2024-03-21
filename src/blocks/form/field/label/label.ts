@@ -1,7 +1,5 @@
-
-import greetings from "./label-template.ts";
-import Block from "../../../../components/base/block.ts";
-
+import greetings from './label-template.ts';
+import Block from '../../../../components/base/block.ts';
 
 export interface labelBlockType {
     className: string,
@@ -9,14 +7,12 @@ export interface labelBlockType {
     settings?: {withInternalID: boolean}
 }
 
-
 export default class Label extends Block {
-    constructor(props: labelBlockType) {
-        super("div", props);
-    }
+  constructor(props: labelBlockType) {
+    super('div', props);
+  }
 
-    render() {
-        return this.compile(greetings, this.props);
-    }
+  render() {
+    return this.compile(greetings, this.props);
+  }
 }
-

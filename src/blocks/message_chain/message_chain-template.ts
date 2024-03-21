@@ -1,6 +1,5 @@
 // language=hbs
 
-
 export default `
     <div class="message-chain">
         <div class="message-chain__header">

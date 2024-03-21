@@ -1,181 +1,186 @@
-import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
-import "./registration-form.css";
-import Form from "../../blocks/form/form.ts";
+/* eslint-disable no-console */
 
-export const registrationForm = new Form(
-    {
+import { ErrorMessages, Validator } from '../../utils/field_validator.ts';
+import './registration-form.css';
+import Form from '../../blocks/form/form.ts';
 
-        className: 'registration-form',
+const registrationForm = new Form(
+  {
 
-        title: {
-            className: 'registration-form__title',
-            text: 'Регистрация',
-            tag: 'h2',
-            settings: {withInternalID: true}
+    className: 'registration-form',
+
+    title: {
+      className: 'registration-form__title',
+      text: 'Регистрация',
+      tag: 'h2',
+      settings: { withInternalID: true },
+    },
+
+    button: {
+      className: 'registration-form__button',
+      typeName: 'button',
+      text: 'Зарегистрироваться',
+      settings: { withInternalID: true },
+      events: {
+        click: () => {
+          if (registrationForm.validate()) {
+            const data = registrationForm.get_data();
+            console.log(data);
+            registrationForm.clear();
+          }
         },
-
-        button: {
-            className: 'registration-form__button',
-            typeName: 'button',
-            text: 'Зарегистрироваться',
-            settings: {withInternalID: true},
-            events: {
-                click: () => {
-                    if (registrationForm.validate()) {
-                        const data = registrationForm.get_data()
-                        console.log(data)
-                        registrationForm.clear()
-                    }
-                }
-            }
+      },
+    },
+    link: {
+      className: 'registration-form__login',
+      href: '#',
+      text: 'Войти',
+      settings: { withInternalID: true },
+    },
+    fields: [
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Почта',
+          settings: { withInternalID: true },
         },
-        link: {
-            className: 'registration-form__login',
-            href: '#',
-            text: 'Войти',
-            settings: {withInternalID: true},
+        input: {
+          className: 'registration-form__input',
+          name: 'email',
+          placeholder: '',
+          inputType: 'text',
+          settings: { withInternalID: true },
         },
-        fields: [
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Почта',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: 'email',
-                    placeholder: "",
-                    inputType: 'text',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: ErrorMessages.validateEmail,
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validateEmail
-            },
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Логин',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: 'login',
-                    placeholder: "",
-                    inputType: 'text',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: ErrorMessages.validateLogin,
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validateLogin,
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: ErrorMessages.validateEmail,
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validateEmail,
+      },
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Логин',
+          settings: { withInternalID: true },
+        },
+        input: {
+          className: 'registration-form__input',
+          name: 'login',
+          placeholder: '',
+          inputType: 'text',
+          settings: { withInternalID: true },
+        },
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: ErrorMessages.validateLogin,
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validateLogin,
 
-            },
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Имя',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: 'first_name',
-                    placeholder: "",
-                    inputType: 'text',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: ErrorMessages.validateName,
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validateName
-            },
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Фамилия',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: 'second_name',
-                    placeholder: "",
-                    inputType: 'text',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: ErrorMessages.validateName,
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validateName,
-            },
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Телефон',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: 'phone',
-                    placeholder: "",
-                    inputType: 'phone',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: ErrorMessages.validatePhone,
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validatePhone,
-            },
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Пароль',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: 'password',
-                    placeholder: "",
-                    inputType: 'password',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: ErrorMessages.validatePassword,
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validatePassword,
-            },
-            {
-                label: {
-                    className: 'registration-form__label',
-                    text: 'Повторите пароль',
-                    settings: {withInternalID: true}
-                },
-                input: {
-                    className: 'registration-form__input',
-                    name: "repeatPassword",
-                    placeholder: "",
-                    inputType: 'password',
-                    settings: {withInternalID: true}
-                },
-                errorMessage: {
-                    className: 'registration-form__error-message',
-                    text: 'пароли не совпадают',
-                    settings: {withInternalID: true}
-                },
-                validator: Validator.validatePassword,
-            }
-        ],
-    })
+      },
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Имя',
+          settings: { withInternalID: true },
+        },
+        input: {
+          className: 'registration-form__input',
+          name: 'first_name',
+          placeholder: '',
+          inputType: 'text',
+          settings: { withInternalID: true },
+        },
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: ErrorMessages.validateName,
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validateName,
+      },
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Фамилия',
+          settings: { withInternalID: true },
+        },
+        input: {
+          className: 'registration-form__input',
+          name: 'second_name',
+          placeholder: '',
+          inputType: 'text',
+          settings: { withInternalID: true },
+        },
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: ErrorMessages.validateName,
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validateName,
+      },
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Телефон',
+          settings: { withInternalID: true },
+        },
+        input: {
+          className: 'registration-form__input',
+          name: 'phone',
+          placeholder: '',
+          inputType: 'phone',
+          settings: { withInternalID: true },
+        },
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: ErrorMessages.validatePhone,
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validatePhone,
+      },
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Пароль',
+          settings: { withInternalID: true },
+        },
+        input: {
+          className: 'registration-form__input',
+          name: 'password',
+          placeholder: '',
+          inputType: 'password',
+          settings: { withInternalID: true },
+        },
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: ErrorMessages.validatePassword,
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validatePassword,
+      },
+      {
+        label: {
+          className: 'registration-form__label',
+          text: 'Повторите пароль',
+          settings: { withInternalID: true },
+        },
+        input: {
+          className: 'registration-form__input',
+          name: 'repeatPassword',
+          placeholder: '',
+          inputType: 'password',
+          settings: { withInternalID: true },
+        },
+        errorMessage: {
+          className: 'registration-form__error-message',
+          text: 'пароли не совпадают',
+          settings: { withInternalID: true },
+        },
+        validator: Validator.validatePassword,
+      },
+    ],
+  },
+);
+
+export default registrationForm;

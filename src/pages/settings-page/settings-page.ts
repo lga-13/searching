@@ -1,29 +1,34 @@
-import "./settings-page.css";
-import "./change-data-form.css"
-import "./change-password-form.css"
-import Block from "../../components/base/block.ts";
-import Img from "../../components/img/img.ts";
-import Link from "../../components/link/link.ts";
-import greetings from "../settings-page/settings-page-template.ts";
-import Plug from "../../components/plug/plug.ts";
-import Button from "../../components/button/button.ts";
-import Form from "../../blocks/form/form.ts";
-import {ErrorMessages, Validator} from "../../utils/field_validator.ts";
-import avatar from "../../public/static/img/avatar.svg";
-import {UserInfoCard} from "../../blocks/user_info_card/user_info_card.ts";
-import {getMessageChain, getSender} from "../chat-page/chat-page.ts";
-import Message from "../../blocks/message_chain/message/message.ts";
+/* eslint-disable no-console */
 
+import './settings-page.css';
+import './change-data-form.css';
+import './change-password-form.css';
+import Block from '../../components/base/block.ts';
+import Img from '../../components/img/img.ts';
+import Link from '../../components/link/link.ts';
+import greetings from './settings-page-template.ts';
+import Plug from '../../components/plug/plug.ts';
+import Button from '../../components/button/button.ts';
+import Form from '../../blocks/form/form.ts';
+import { ErrorMessages, Validator } from '../../utils/field_validator.ts';
+import avatar from '../../public/static/img/avatar.svg';
+import { UserInfoCard } from '../../blocks/user_info_card/user_info_card.ts';
 
+let MOCK_USER_DATA = {
+  login: 'admin',
+  first_name: 'Глеб',
+  second_name: 'Лазарев',
+  email: 'admin@admin.ru',
+  phone: '+7(999)-999-99-99',
+};
 
-export let MOCK_USER_DATA = {
-    login: "admin",
-    first_name: "Глеб",
-    second_name: "Лазарев",
-    email: "admin@admin.ru",
-    phone: "+7(999)-999-99-99"
+export function getUserData() {
+  return MOCK_USER_DATA;
 }
 
+function setNewUserData(newData) {
+  MOCK_USER_DATA = newData;
+}
 
 export interface SettingPageBlockType {
     className: string,
@@ -40,366 +45,367 @@ export interface SettingPageBlockType {
     buttonBlueBack?: Button
 }
 
-
 export default class SettingsPage extends Block {
-    constructor(
-        props: SettingPageBlockType) {
+  constructor(
+    props: SettingPageBlockType,
+  ) {
+    // Avatar
+    props.settingsImg = new Img(
+      {
+        className: 'settings__img',
+        settings: { withInternalID: true },
+        srcName: avatar,
+        altText: 'photo',
+      },
+    );
 
-        // Avatar
-        props.settingsImg = new Img(
-            {
-                className: 'settings__img',
-                settings: {withInternalID: true},
-                srcName: avatar,
-                altText: 'photo',
-            }
-        )
+    // Ccылка на смену аватара
+    props.settingsLinkImg = new Link(
+      {
+        className: 'settings__change-img',
+        href: '#',
+        text: 'Сменить аватар',
+        settings: { withInternalID: true },
+      },
+    );
 
-        // Ccылка на смену аватара
-        props.settingsLinkImg = new Link(
-            {
-                className: 'settings__change-img',
-                href: '#',
-                text: 'Сменить аватар',
-                settings: {withInternalID: true}
-            }
-        )
+    // Карточка данных пользователя
+    props.userInfoCard = new UserInfoCard({});
 
-        // Карточка данных пользователя
-        props.userInfoCard = new UserInfoCard({})
+    // Форма смены данных пользователя
+    props.changeDataForm = new Form(
+      {
+        className: 'change-data-form',
+        button: {
+          className: 'change-data-form__button',
+          typeName: 'button',
+          text: 'Сохранить',
+          settings: { withInternalID: true },
+          events: {
+            click: () => {
+              if (props.changeDataForm.validate()) {
+                const data = props.changeDataForm.get_data();
+                console.log(data);
+                setNewUserData(data);
+                props.userInfoCard.refreshUserData();
+                props.changeDataForm.clear();
+              }
+            },
+          },
+        },
+        fields: [
+          {
+            label: {
+              className: 'change-data-form__label',
+              text: 'Логин',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-data-form__input',
+              name: 'login',
+              placeholder: getUserData().login,
+              inputType: 'text',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-data-form__error-message',
+              text: ErrorMessages.validateLogin,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validateLogin,
+          },
+          {
+            label: {
+              className: 'change-data-form__label',
+              text: 'Имя',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-data-form__input',
+              name: 'first_name',
+              placeholder: getUserData().first_name,
+              inputType: 'text',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-data-form__error-message',
+              text: ErrorMessages.validateName,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validateName,
+          },
+          {
+            label: {
+              className: 'change-data-form__label',
+              text: 'Фамилия',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-data-form__input',
+              name: 'second_name',
+              placeholder: getUserData().second_name,
+              inputType: 'text',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-data-form__error-message',
+              text: ErrorMessages.validateName,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validateName,
+          },
+          {
+            label: {
+              className: 'change-data-form__label',
+              text: 'Почта',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-data-form__input',
+              name: 'email',
+              placeholder: getUserData().email,
+              inputType: 'email',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-data-form__error-message',
+              text: ErrorMessages.validateEmail,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validateEmail,
+          },
+          {
+            label: {
+              className: 'change-data-form__label',
+              text: 'Телефон',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-data-form__input',
+              name: 'phone',
+              placeholder: getUserData().phone,
+              inputType: 'phone',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-data-form__error-message',
+              text: ErrorMessages.validateEmail,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validatePhone,
+          },
+        ],
+      },
+    );
+    // По умолчанию форма скрыта
+    props.changeDataForm.hide();
 
-        // Форма смены данных пользователя
-        props.changeDataForm = new Form(
-            {
-                className: 'change-data-form',
-                button: {
-                    className: 'change-data-form__button',
-                    typeName: 'button',
-                    text: 'Сохранить',
-                    settings: {withInternalID: true},
-                    events: {
-                        click: () => {
-                            if (props.changeDataForm.validate()) {
-                                const data = props.changeDataForm.get_data()
-                                console.log(data)
-                                MOCK_USER_DATA = data
-                                props.userInfoCard.refreshUserData()
-                                props.changeDataForm.clear()
-                            }
-                        }
-                    }
-                },
-                fields: [
-                    {
-                        label: {
-                            className: 'change-data-form__label',
-                            text: "Логин",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-data-form__input',
-                            name: 'login',
-                            placeholder: MOCK_USER_DATA.login,
-                            inputType: "text",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-data-form__error-message',
-                            text: ErrorMessages.validateLogin,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validateLogin,
-                    },
-                    {
-                        label: {
-                            className: 'change-data-form__label',
-                            text: "Имя",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-data-form__input',
-                            name: 'first_name',
-                            placeholder: MOCK_USER_DATA.first_name,
-                            inputType: "text",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-data-form__error-message',
-                            text: ErrorMessages.validateName,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validateName,
-                    },
-                    {
-                        label: {
-                            className: 'change-data-form__label',
-                            text: "Фамилия",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-data-form__input',
-                            name: 'second_name',
-                            placeholder: MOCK_USER_DATA.second_name,
-                            inputType: "text",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-data-form__error-message',
-                            text: ErrorMessages.validateName,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validateName,
-                    },
-                    {
-                        label: {
-                            className: 'change-data-form__label',
-                            text: "Почта",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-data-form__input',
-                            name: 'email',
-                            placeholder: MOCK_USER_DATA.email,
-                            inputType: "email",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-data-form__error-message',
-                            text: ErrorMessages.validateEmail,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validateEmail,
-                    },
-                    {
-                        label: {
-                            className: 'change-data-form__label',
-                            text: "Телефон",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-data-form__input',
-                            name: 'phone',
-                            placeholder: MOCK_USER_DATA.phone,
-                            inputType: "phone",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-data-form__error-message',
-                            text: ErrorMessages.validateEmail,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validatePhone,
-                    },
-                ],
-            })
-        // По умолчанию форма скрыта
-        props.changeDataForm.hide()
+    // Форма смены пароля
+    props.changePasswordForm = new Form(
+      {
 
-        // Форма смены пароля
-        props.changePasswordForm = new Form(
-            {
+        className: 'change-password-form',
 
-                className: 'change-password-form',
+        button: {
+          className: 'change-password-form__button',
+          typeName: 'button',
+          text: 'Сохранить',
+          settings: { withInternalID: true },
+          events: {
+            click: () => {
+              if (props.changePasswordForm.validate()) {
+                const data = props.changePasswordForm.get_data();
+                console.log(data);
+                props.changePasswordForm.clear();
+              }
+            },
+          },
+        },
 
-                button: {
-                    className: 'change-password-form__button',
-                    typeName: 'button',
-                    text: 'Сохранить',
-                    settings: {withInternalID: true},
-                    events: {
-                        click: () => {
-                            if (props.changePasswordForm.validate()) {
-                                const data = props.changePasswordForm.get_data()
-                                console.log(data)
-                                props.changePasswordForm.clear()
-                            }
-                        }
-                    }
-                },
+        fields: [
+          {
+            label: {
+              className: 'change-password-form__label',
+              text: 'Старый пароль',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-password-form__input',
+              name: 'password',
+              placeholder: '',
+              inputType: 'password',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-password-form__error-message',
+              text: ErrorMessages.validatePassword,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validatePassword,
+          },
+          {
+            label: {
+              className: 'change-password-form__label',
+              text: 'Новый пароль',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-password-form__input',
+              name: 'new_password',
+              placeholder: '',
+              inputType: 'password',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-password-form__error-message',
+              text: ErrorMessages.validatePassword,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validatePassword,
+          },
+          {
+            label: {
+              className: 'change-password-form__label',
+              text: 'Повторите новый пароль',
+              settings: { withInternalID: true },
+            },
+            input: {
+              className: 'change-password-form__input',
+              name: 'repeat_password',
+              placeholder: '',
+              inputType: 'password',
+              settings: { withInternalID: true },
+              events: {
+                click: () => {},
+              },
+            },
+            errorMessage: {
+              className: 'change-password-form__error-message',
+              text: ErrorMessages.validatePassword,
+              settings: { withInternalID: true },
+            },
+            validator: Validator.validatePassword,
+          },
+        ],
+      },
+    );
+    // По умолчанию скрыта
+    props.changePasswordForm.hide();
 
-                fields: [
-                    {
-                        label: {
-                            className: 'change-password-form__label',
-                            text: "Старый пароль",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-password-form__input',
-                            name: 'password',
-                            placeholder: '',
-                            inputType: "password",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-password-form__error-message',
-                            text: ErrorMessages.validatePassword,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validatePassword,
-                    },
-                    {
-                        label: {
-                            className: 'change-password-form__label',
-                            text: "Новый пароль",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-password-form__input',
-                            name: 'new_password',
-                            placeholder: '',
-                            inputType: "password",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-password-form__error-message',
-                            text: ErrorMessages.validatePassword,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validatePassword,
-                    },
-                    {
-                        label: {
-                            className: 'change-password-form__label',
-                            text: "Повторите новый пароль",
-                            settings: {withInternalID: true}
-                        },
-                        input: {
-                            className: 'change-password-form__input',
-                            name: 'repeat_password',
-                            placeholder: '',
-                            inputType: "password",
-                            settings: {withInternalID: true},
-                            events: {
-                                click: () => {}
-                            }
-                        },
-                        errorMessage: {
-                            className: 'change-password-form__error-message',
-                            text: ErrorMessages.validatePassword,
-                            settings: {withInternalID: true}
-                        },
-                        validator: Validator.validatePassword,
-                    },
-                ],
-            }
-        )
-        // По умолчанию скрыта
-        props.changePasswordForm.hide()
+    // Заглушка
+    props.settingsPlug = new Plug(
+      {
+        className: 'plug',
+        plugLink: {
+          className: 'settings-window__link',
+          href: '#',
+          text: 'Выберите, какие изменения хотите внести.',
+        },
+      },
+    );
 
+    // Ссылка на изменение данных пользователя
+    props.settingsDataLink = new Link(
+      {
+        className: 'settings__change-data',
+        href: '#',
+        text: 'Изменить личные данные',
+        settings: { withInternalID: true },
+        events: {
+          click: () => {
+            this.showChangeDataForm();
+          },
+        },
+      },
+    );
 
-        // Заглушка
-        props.settingsPlug = new Plug(
-            {
-                className: "plug",
-                plugLink: {
-                    className: 'settings-window__link',
-                    href: '#',
-                    text: 'Выберите, какие изменения хотите внести.',
-                }
-            }
-        )
+    props.settingsPasswordLink = new Link(
+      {
+        className: 'settings__change-password',
+        href: '#',
+        text: 'Сменить пароль',
+        settings: { withInternalID: true },
+        events: {
+          click: () => {
+            this.showChangePasswordForm();
+          },
+        },
+      },
+    );
 
-        // Ссылка на изменение данных пользователя
-        props.settingsDataLink = new Link(
-            {
-                className: 'settings__change-data',
-                href: '#',
-                text: 'Изменить личные данные',
-                settings: {withInternalID: true},
-                events: {
-                    click: () => {
-                        settingsPage.showChangeDataForm()
-                    }
-                }
-            }
-        )
+    props.settingsExitLink = new Link(
+      {
+        className: 'settings__change-exit',
+        href: '#',
+        text: 'Выйти из аккаунта',
+        settings: { withInternalID: true },
+      },
+    );
 
-        props.settingsPasswordLink = new Link(
-            {
-                className: 'settings__change-password',
-                href: '#',
-                text: 'Сменить пароль',
-                settings: {withInternalID: true},
-                events: {
-                    click: () => {
-                        settingsPage.showChangePasswordForm()
-                    }
-                }
-            }
-        )
+    props.buttonBlueBack = new Button(
+      {
+        className: 'settings__btn-back',
+        typeName: 'button',
+        text: '',
+        settings: { withInternalID: true },
+        events: {
+          click: () => {
+            this.hideSettings();
+          },
+        },
+      },
+    );
 
-        props.settingsExitLink = new Link(
-            {
-                className: 'settings__change-exit',
-                href: '#',
-                text: 'Выйти из аккаунта',
-                settings: {withInternalID: true}
-            }
-        )
+    super('div', props);
+  }
 
-        props.buttonBlueBack = new Button(
-            {
-                className: 'settings__btn-back',
-                typeName: 'button',
-                text: '',
-                settings: {withInternalID: true},
-                events: {click: () => {
-                        this.hideSettings()
-                    }},
-            }
-        )
+  showChangeDataForm() {
+    this.children.changePasswordForm.hide();
+    this.children.changeDataForm.show();
+    this.children.settingsPlug.hide();
+  }
 
-        super('div', props);
-    }
+  showChangePasswordForm() {
+    this.children.changeDataForm.hide();
+    this.children.changePasswordForm.show();
+    this.children.settingsPlug.hide();
+  }
 
-    showChangeDataForm() {
-        this.children.changePasswordForm.hide()
-        this.children.changeDataForm.show()
-        this.children.settingsPlug.hide()
-        }
+  hideSettings() {
+    this.children.changeDataForm.hide();
+    this.children.changePasswordForm.hide();
+    this.children.settingsPlug.show();
+  }
 
-    showChangePasswordForm() {
-        this.children.changeDataForm.hide()
-        this.children.changePasswordForm.show()
-        this.children.settingsPlug.hide()
-    }
-
-    hideSettings() {
-        this.children.changeDataForm.hide()
-        this.children.changePasswordForm.hide()
-        this.children.settingsPlug.show()
-    }
-
-    render() {
-        return this.compile(greetings, this.props);
-    }
+  render() {
+    return this.compile(greetings, this.props);
+  }
 }
 
-
 export const settingsPage = new SettingsPage(
-    {
-        className: "settings-page",
-        settings: {withInternalID: true},
-    })
+  {
+    className: 'settings-page',
+    settings: { withInternalID: true },
+  },
+);

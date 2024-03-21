@@ -1,7 +1,6 @@
-import Block from "../base/block.ts";
-import greetings from "./link-template.ts";
-import {settingsPage} from "../../pages/settings-page/settings-page.ts";
-
+import Block from '../base/block.ts';
+import greetings from './link-template.ts';
+import { settingsPage } from '../../pages/settings-page/settings-page.ts';
 
 export interface LinkBlockType {
     className: string,
@@ -13,12 +12,12 @@ export interface LinkBlockType {
     }
 }
 
-
 export default class Link extends Block {
-    constructor(props: LinkBlockType) {
-        super("div", props);
-    }
-    render() {
-        return this.compile(greetings, this.props);
-    }
+  constructor(props: LinkBlockType) {
+    super('div', props);
+  }
+
+  render() {
+    return this.compile(greetings, this.props);
+  }
 }
