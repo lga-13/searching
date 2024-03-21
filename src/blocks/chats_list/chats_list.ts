@@ -39,10 +39,10 @@ export default class ChatList extends Block {
         formattedText = `${formattedText.substring(0, 25)} ...`;
       }
 
-      let active_flag = false
+      let active_flag = false;
 
       if (active_chat && active_chat == chat.index) {
-        active_flag = true
+        active_flag = true;
       }
 
       const currentChatMiniature = new ChatMiniature({
@@ -59,7 +59,7 @@ export default class ChatList extends Block {
           click: () => {
             this.props.readAllMessages(chat.index);
             this.props.showMessageChain(chat.index);
-            this.rebuildChatList(chat.index)
+            this.rebuildChatList(chat.index);
           },
         },
       });

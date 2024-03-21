@@ -214,7 +214,6 @@ export function readMessageChain(index) {
 }
 
 export default class ChatPage extends Block {
-
   constructor(props: {
     searchForm?: Form,
     accountLink?: Link,
@@ -247,18 +246,18 @@ export default class ChatPage extends Block {
           text: '',
           settings: { withInternalID: true },
           events: {
-            click: ()=> {
+            click: () => {
               if (props.messageChain.children.messageChainForm.validate()) {
-                const message = props.messageChain.children.messageChainForm.get_data()
-                addMessageChain(props.messageChain.props.user_id, message.message, new Date().toLocaleTimeString())
-                props.messageChain.setCurrentMessage(props.messageChain.props.user_id)
-                props.messageChain.children.messageChainForm.clear()
+                const message = props.messageChain.children.messageChainForm.get_data();
+                addMessageChain(props.messageChain.props.user_id, message.message, new Date().toLocaleTimeString());
+                props.messageChain.setCurrentMessage(props.messageChain.props.user_id);
+                props.messageChain.children.messageChainForm.clear();
               }
             },
             keydown: (event) => {
-              console.log(event)
-            }
-          }
+              console.log(event);
+            },
+          },
         },
         fields: [
           {
@@ -267,7 +266,7 @@ export default class ChatPage extends Block {
               name: 'message',
               placeholder: 'Cообщение',
               inputType: 'text',
-              settings: {withInternalID: true},
+              settings: { withInternalID: true },
               events: {
                 click: () => {
                 },
@@ -290,7 +289,7 @@ export default class ChatPage extends Block {
         text: '',
         settings: { withInternalID: true },
       },
-      chatListHook: () => { chatList.rebuildChatList(props.messageChain.props.user_id)},
+      chatListHook: () => { chatList.rebuildChatList(props.messageChain.props.user_id); },
     });
     props.messageChain.hide();
 

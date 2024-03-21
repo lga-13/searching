@@ -22,7 +22,7 @@ export default class Block {
 
   props: object;
 
-  children: any
+  children: any;
 
   eventBus: () => EventBus;
 

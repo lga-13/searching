@@ -43,7 +43,7 @@ export default class Field extends Block {
         }
       },
       blur: (event) => {
-        console.log("Вызван блюр ")
+        console.log('Вызван блюр ');
         if (!this.validate()) {
           if (this.props.fieldErrorMessage) {
             this.props.fieldErrorMessage.show();

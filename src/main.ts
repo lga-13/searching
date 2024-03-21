@@ -5,4 +5,4 @@ import { chatPage } from './pages/chat-page/chat-page.ts';
 import loginForm from './pages/login-form/login-form.ts';
 import registrationForm from './pages/registration-form/registration-form.ts';
 
-render('#app', chatPage);
+render('#app', settingsPage);
