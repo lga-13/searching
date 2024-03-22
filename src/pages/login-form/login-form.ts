@@ -9,14 +9,14 @@ const loginForm = new Form(
     className: 'login-form',
 
     title: {
-      className: 'login-form__title',
+      className: 'login-form-title',
       text: 'Войти',
       tag: 'h2',
       settings: { withInternalID: true },
     },
 
     button: {
-      className: 'login-form__button',
+      className: 'login-form-button',
       typeName: 'button',
       text: 'Войти',
       settings: { withInternalID: true },
@@ -32,7 +32,7 @@ const loginForm = new Form(
     },
 
     link: {
-      className: 'login-form__registration',
+      className: 'login-form-registration',
       href: '#',
       text: 'Еще не зарегестрированы?',
       settings: { withInternalID: true },
@@ -40,19 +40,19 @@ const loginForm = new Form(
     fields: [
       {
         label: {
-          className: 'login-form__label',
+          className: 'login-form-label',
           text: 'Логин',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'login-form__input',
+          className: 'login-form-input',
           name: 'login',
           placeholder: '',
           inputType: 'text',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'login-form__error-message',
+          className: 'login-form-error-message',
           text: ErrorMessages.validateLogin,
           settings: { withInternalID: true },
         },
@@ -60,25 +60,25 @@ const loginForm = new Form(
       },
       {
         label: {
-          className: 'login-form__label',
+          className: 'login-form-label',
           text: 'Пароль',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'login-form__input',
+          className: 'login-form-input',
           name: 'password',
           placeholder: '',
           inputType: 'password',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'login-form__error-message',
+          className: 'login-form-error-message',
           text: ErrorMessages.validatePassword,
           settings: { withInternalID: true },
         },
         validator: Validator.validatePassword,
         link: {
-          className: 'login-form__forgot-password',
+          className: 'login-form-forgot-password',
           href: '#',
           text: 'Забыли пароль?',
         },

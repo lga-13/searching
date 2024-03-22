@@ -3,7 +3,7 @@
 export default `
     <div class="{{className}}">
         <form class="settings-data">
-            <div class="settings-page__img">
+            <div class="settings-page-img">
                 {{{ settingsImg }}}
                 {{{ settingsLinkImg }}}
             </div>

@@ -12,25 +12,25 @@
     border-radius: 20px;
 }
 
-.registration-form__title {
+.registration-form-title {
     text-align: center;
     margin-bottom : 21px;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     font-weight: 500;
 }
 
-.registration-form__label {
-    font-family: "Inter", sans-serif;
+.registration-form-label {
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 13px;
-    color: #999999;
+    color: #999;
     display: block;
     margin: 0;
     padding: 0;
 }
 
 
-.registration-form__input {
+.registration-form-input {
     width: 390px;
     padding: 0;
     margin-bottom: 30px;
@@ -39,19 +39,19 @@
     border-bottom: 1px solid black ;
 }
 
-.registration-form__error-message{
+.registration-form-error-message{
     left: 0;
-    margin: -28px 0 0 0;
+    margin: -28px 0 0 ;
     display: block;
     color: #DF6058;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 11px;
     padding: 0;
     background-color: white;
 }
 
-.registration-form__button {
+.registration-form-button {
     position: absolute;
     display: block;
     margin: 30px auto 30px 55px;
@@ -66,11 +66,11 @@
     font-size: 17px;
 }
 
-.registration-form__login {
+.registration-form-login {
     position: relative;
     display: flex;
     justify-content: center;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: black;

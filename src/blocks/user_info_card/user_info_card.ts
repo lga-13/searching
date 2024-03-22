@@ -14,7 +14,7 @@ export class UserInfoCard extends Block {
     props.cardTitles = [];
     Object.values(getUserData()).forEach((title) => {
       props.cardTitles.push(new Title({
-        className: 'settings__label',
+        className: 'settings-label',
         text: title,
         settings: { withInternalID: true },
         tag: 'p',
@@ -29,7 +29,7 @@ export class UserInfoCard extends Block {
     // Делаем запрос пользователя
     Object.values(data).forEach((title_text) => {
       titles.push(new Title({
-        className: 'settings__label',
+        className: 'settings-label',
         text: title_text,
         settings: { withInternalID: true },
         tag: 'p',

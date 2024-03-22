@@ -16,21 +16,21 @@
 }
 
 
-.change-data-form__label{
+.change-data-form-label{
     text-align: left;
     margin-left: 0;
     padding-left: 0;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 13px;
-    color: #999999;
+    color: #999;
 }
 
-.form__input-message-error{
+.form-input-message-error{
     position: relative;
 }
 
-.change-data-form__input{
+.change-data-form-input{
     width: 430px;
     padding: 0;
     margin-top: 10px;
@@ -39,30 +39,22 @@
     border-bottom: 1px solid black ;
 }
 
-.change-data-form__input:focus {
+.change-data-form-input:focus {
     outline: none;
 }
 
-.change-data-form__error-message{
+.change-data-form-error-message{
     position: absolute;
-    left: 0;
-    margin: -35px 0 0 0;
+    margin: -45px 0 0;
     color: #DF6058;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 11px;
     padding: 0;
+    width: 430px;
 }
 
-.change-data-form__input + .change-data-form__error-message{
-    display: block;
-}
-
-.change-data-form__input:focus {
-    outline: none;
-}
-
-.change-data-form__button{
+.change-data-form-button{
     display: block;
     margin-top: 51px;
     width: 280px;

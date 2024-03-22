@@ -2,19 +2,19 @@
 
 export default `
     {{#if me}}
-        <div class="message-chain__sender-message">
+        <div class="message-chain-sender-message">
     {{else}}
-        <div class="message-chain__recipient-message">
+        <div class="message-chain-recipient-message">
     {{/if}}
         {{ text }}
-            <div class="message-chain__time-message">
+            <div class="message-chain-time-message">
                 {{ time }}
             </div>
-        <div class="message-chain__read-flag">
+        <div class="message-chain-read-flag">
         {{#if read}}
             <p>✓✓</p>
         {{ else }}
-            <p class="message-chain__unread">✓</p>
+            <p class="message-chain-unread">✓</p>
         {{/if}}
         </div>
         </div>

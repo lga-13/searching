@@ -6,7 +6,7 @@
 .settings-page{
     display: flex;
     flex-direction: row;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     font-weight: 500;
     width: 1280px;
     height: 720px;
@@ -17,19 +17,19 @@
     flex: 4;
 }
 
-.settings-page__img{
+.settings-page-img{
     position: relative;
     width: 98px;
     height: 99px;
     margin-top: 24px;
     margin-bottom: 15px;
     margin-left: 155px;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     font-weight: 500;
     font-size: 14px;
 }
 
-.settings__img {
+.settings-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -37,7 +37,7 @@
     height: 99px;
 }
 
-.settings__change-img{
+.settings-change-img{
     display: flex;
     align-items: center;
     position: absolute;
@@ -52,16 +52,16 @@
     text-decoration: underline;
 }
 
-.settings-page__img:hover .settings__change-img{
+.settings-page-img:hover .settings-change-img{
     opacity: 1;
 }
 
-.settings__label {
+.settings-label {
     display: flex;
     flex-wrap: wrap;
     font-weight: 700;
     font-size: 13px;
-    color: #999999;
+    color: #999;
     margin-bottom: 43px;
     margin-left: 0;
 }
@@ -71,7 +71,7 @@
     margin-bottom: 15px;
 }
 
-.settings__change-data {
+.settings-change-data {
     display: flex;
     justify-content: start;
     margin-top: 30px;
@@ -79,7 +79,7 @@
     color: #1D90D1;
 }
 
-.settings__change-password {
+.settings-change-password {
     display: flex;
     justify-content: start;
     font-size: 14px;
@@ -88,7 +88,7 @@
     margin-bottom: 30px;
 }
 
-.settings__change-exit{
+.settings-change-exit{
     display: flex;
     justify-content: start;
     font-size: 14px;
@@ -102,19 +102,19 @@
     height: 720px;
     flex: 8;
     border: none;
-    border-left: 1px solid #999999;
+    border-left: 1px solid #999;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.settings-window__link {
+.settings-window-link {
     text-align: center;
     color: #1D90D1;
     font-size: 14px;
 }
 
-.settings__btn-back{
+.settings-btn-back{
     width: 28px;
     height: 28px;
     background: url("../../public/static/img/btn-back.svg");

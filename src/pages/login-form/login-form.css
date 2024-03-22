@@ -12,24 +12,24 @@
     border-radius: 20px;
 }
 
-.login-form__title {
+.login-form-title {
     text-align: center;
     margin-bottom : 42px;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     font-weight: 500;
 }
 
-.login-form__label {
+.login-form-label {
     border: none;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 13px;
-    color: #999999;
+    color: #999;
     display: block;
     margin-bottom: 0;
 }
 
-.login-form__input {
+.login-form-input {
     width: 375px;
     padding: 0;
     margin-bottom: 52px;
@@ -38,12 +38,12 @@
     border-bottom: 1px solid black ;
 }
 
-.login-form__error-message{
+.login-form-error-message{
     left: 0;
-    margin: -40px 0 0 0;
+    margin: -40px 0 0 ;
     display: block;
     color: #DF6058;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 11px;
     padding: 0;
@@ -51,16 +51,16 @@
 }
 
 
-.login-form__forgot-password {
+.login-form-forgot-password {
     display: block;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 700;
     font-size: 12px;
     margin-bottom: 73px;
     color: #1D90D1;
 }
 
-.login-form__button {
+.login-form-button {
     display: block;
     margin: auto;
     width: 280px;
@@ -73,10 +73,10 @@
     font-size: 17px;
 }
 
-.login-form__registration {
+.login-form-registration {
     display: flex;
     justify-content: center;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: black;

@@ -234,14 +234,14 @@ export default class ChatPage extends Block {
     props.messageChain = new MessageChain({
       srcName: chat2,
       sender_name: {
-        className: 'message-chain__header-title',
+        className: 'message-chain-header-title',
         text: '',
         tag: 'h3',
       },
       messageForm: {
-        className: 'message-chain__send-field',
+        className: 'message-chain-send-field',
         button: {
-          className: 'message-chain__send-button',
+          className: 'message-chain-send-button',
           typeName: 'button',
           text: '',
           settings: { withInternalID: true },
@@ -262,7 +262,7 @@ export default class ChatPage extends Block {
         fields: [
           {
             input: {
-              className: 'message-chain__message_input',
+              className: 'message-chain-message-input',
               name: 'message',
               placeholder: 'Cообщение',
               inputType: 'text',
@@ -277,14 +277,14 @@ export default class ChatPage extends Block {
         ],
       },
       attachmentButton: {
-        className: 'message-chain__attachment-button',
+        className: 'message-chain-attachment-button',
         typeName: 'button',
         text: '',
         settings: { withInternalID: true },
         events: { click: () => {} },
       },
       moreButton: {
-        className: 'message-chain__more-button',
+        className: 'message-chain-more-button',
         typeName: 'button',
         text: '',
         settings: { withInternalID: true },
@@ -296,14 +296,14 @@ export default class ChatPage extends Block {
     props.chatPlug = new Plug({
       className: 'chats-plug',
       plugLink: {
-        className: 'chats-plug__message',
+        className: 'chats-plug-message',
         href: '#',
         text: 'Выберите чат, чтобы начать общаться.',
       },
     });
 
     props.accountLink = new Link({
-      className: 'chats__account',
+      className: 'chats-account',
       href: '#',
       text: 'Аккаунт',
       settings: { withInternalID: true },
@@ -311,16 +311,16 @@ export default class ChatPage extends Block {
 
     props.searchForm = new Form(
       {
-        className: 'chats__search-box',
+        className: 'chats-search-box',
         button: {
-          className: 'chats__search-btn',
+          className: 'chats-search-btn',
           typeName: 'button',
           text: '',
           settings: { withInternalID: true },
         },
         fields: [{
           input: {
-            className: 'chats__search-input',
+            className: 'chats-search-input',
             name: 'chat_search',
             placeholder: '',
             inputType: 'text',

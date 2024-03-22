@@ -3,11 +3,11 @@
 export default `
     <div class="chats">
         <div class="chats-tape">
-            <div class="chats__container-nav">
-                <div class="chats__account-nav">
+            <div class="chats-container-nav">
+                <div class="chats-account-nav">
                     {{{ accountLink }}}
                 </div>
-                <form class="chats__search-box">
+                <form class="chats-search-box">
                     {{{ searchForm }}}
                 </form>
             </div>

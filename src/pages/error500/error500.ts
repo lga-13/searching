@@ -13,17 +13,17 @@ class Error500Page extends Block {
       {
         className: 'h1',
         title: {
-          className: 'error500__title',
+          className: 'error500-title',
           text: '500',
           tag: 'div',
         },
         message: {
-          className: 'error500__message',
+          className: 'error500-message',
           text: 'уже фиксим',
           tag: 'h1',
         },
         link: {
-          className: 'error500__back-chats',
+          className: 'error500-back-chats',
           href: '#',
           text: 'вернуться к чатам',
         },

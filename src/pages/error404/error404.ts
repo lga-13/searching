@@ -13,17 +13,17 @@ class Error404Page extends Block {
       {
         className: 'h1',
         title: {
-          className: 'error404__title',
+          className: 'error404-title',
           text: '404',
           tag: 'div',
         },
         message: {
-          className: 'error404__message',
-          text: 'Не существует',
+          className: 'error404-message',
+          text: 'Еще не создали...',
           tag: 'h1',
         },
         link: {
-          className: 'error404__back-chats',
+          className: 'error404-back-chats',
           href: '#',
           text: 'вернуться к чатам',
         },

@@ -18,22 +18,22 @@ body {
 .chats-tape {
     width: 310px;
     height: 720px;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
 }
 
-.chats__container-nav{
+.chats-container-nav{
     width: 310px;
     height: 103px;
     margin-left: 5px;
 }
 
-.chats__account-nav {
+.chats-account-nav {
     display: flex;
     justify-self: flex-end;
 }
 
-.chats__account {
-    font-family: "Inter", sans-serif;
+.chats-account {
+    font-family: Inter, sans-serif;
     font-weight: 500;
     font-size: 12px;
     color: #757575;
@@ -42,14 +42,14 @@ body {
     margin-left: auto;
 }
 
-.chats__search-box {
+.chats-search-box {
     position: relative;
     width: 300px;
     height: 22px;
     margin-top: 37px;
     margin-bottom: 15px;
     padding: 0;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     font-size: 12px;
     display: flex;
@@ -59,7 +59,7 @@ body {
     justify-content: space-between;
 }
 
-.chats__search-input {
+.chats-search-input {
     position: relative;
     width: 100%;
     flex-grow: 1;
@@ -72,7 +72,7 @@ body {
     padding: 0;
 }
 
-.chats__message-error{
+.chats-message-error{
     position: absolute;
     font-size: 1px;
     padding: 0;
@@ -80,8 +80,8 @@ body {
 }
 
 
-.chats__search-btn {
-    margin: 3px 5px 12px 5px;
+.chats-search-btn {
+    margin: 3px 5px 12px;
     width: 20px;
     height: 20px;
     background: url("../../public/static/img/search.svg") no-repeat;
@@ -104,13 +104,12 @@ hr:first-of-type{
 .chat-list{
     width: 310px;
     height: 617px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
 }
 
-.chats__message {
+.chats-message {
     display: flex;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
@@ -121,9 +120,8 @@ hr:first-of-type{
     padding-left: 5px;
 }
 
-.chats__message-active{
+.chats-message-active{
     display: flex;
-    font-family: "Manuale", sans-serif;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
@@ -132,16 +130,16 @@ hr:first-of-type{
     gap: 8px;
     padding-top: 10px;
     padding-left: 5px;
-    background-color: rgba(84, 158, 245, 0.3);
+    background-color: #549ef54d;
 }
 
-.chats__img {
+.chats-img {
     display: block;
     margin-top: 1px;
     margin-bottom: 12px;
 }
 
-.chats__text {
+.chats-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -150,8 +148,8 @@ hr:first-of-type{
     padding: 0;
 }
 
-.chats__message-sender {
-    font-family: "Inter", sans-serif;
+.chats-message-sender {
+    font-family: Inter, sans-serif;
     color: black;
     font-size: 13px;
     font-weight: 700;
@@ -160,15 +158,15 @@ hr:first-of-type{
     padding: 0;
 }
 
-.chats__message-answer {
+.chats-message-answer {
     display: flex;
     flex-direction: row;
     gap: 4px;
     padding: 0;
 }
 
-.chats__message-content {
-    font-family: "Inter", sans-serif;
+.chats-message-content {
+    font-family: Inter, sans-serif;
     width: 193px;
     height: 30px;
     font-size: 12px;
@@ -177,27 +175,27 @@ hr:first-of-type{
     padding: 0;
 }
 
-.chats__your-message {
-    font-family: "Inter", sans-serif;
+.chats-your-message {
+    font-family: Inter, sans-serif;
     font-size: 12px;
     font-weight: 500;
     color: black;
     padding: 0;
 }
 
-.chats__time-and-count {
+.chats-time-and-count {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     position: relative;
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     color: #757575;
     margin-left: auto;
     padding-right: 5px;
 }
 
-.chats__time {
+.chats-time {
     position: relative;
     right: 10px;
     margin-bottom: 10px;
@@ -205,7 +203,7 @@ hr:first-of-type{
     white-space: nowrap;
 }
 
-.chats__count {
+.chats-count {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,30 +221,29 @@ hr:first-of-type{
     width: 970px;
     height: 720px;
     border: none;
-    border-left: 1px solid #999999;
+    border-left: 1px solid #999;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.chats-plug__message {
+.chats-plug-message {
     text-align: center;
     color: #1D90D1;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     font-weight: 500;
     font-size: 14px;
 }
 
-/*стили для ленты переписки*/
 
 .message-chain{
     width: 970px;
     height: 720px;
     border: none;
-    border-left: 1px solid #999999;
+    border-left: 1px solid #999;
 }
 
-.message-chain__header{
+.message-chain-header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -255,24 +252,24 @@ hr:first-of-type{
     margin-left: 10px;
 }
 
-.message-chain__data-sender{
+.message-chain-data-sender{
     display: flex;
     align-items: center;
 }
 
-.message-chain__img{
+.message-chain-img{
     width: 47px;
     height: 47px;
     margin-right: 10px;
 }
 
-.message-chain__header-title{
-    font-family: "Manuale", sans-serif;
+.message-chain-header-title{
+    font-family: Manuale, sans-serif;
     font-weight: 700;
     font-size: 15px;
 }
 
-.message-chain__more-button{
+.message-chain-more-button{
     background: url("../../public/static/img/morebtn.svg") no-repeat;
     width: 6px;
     height: 25px;
@@ -280,12 +277,11 @@ hr:first-of-type{
     border: none;
 }
 
-.message-chain__message-chain{
+.message-chain-message-chain{
     width: 970px;
     height: 597px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: rgba(116, 146, 102, 0.42);
+    overflow: hidden auto;
+    background-color: #7492666B;
     border-bottom: 1px solid #757575;
     border-top: 1px solid #757575;
 }
@@ -303,18 +299,18 @@ hr:first-of-type{
     background: #EBEBEB;
 }
 
-.message-chain__data-title{
+.message-chain-data-title{
     padding: 15px;
     margin: 0;
     text-align: center;
-    font-family: "Manuale", sans-serif;
+    font-family: Manuale, sans-serif;
     font-weight: 700;
     font-size: 13px;
     color: #757575;
 }
 
-.message-chain__sender-message{
-    font-family: "Manuale", sans-serif;
+.message-chain-sender-message{
+    font-family: Manuale, sans-serif;
     font-weight: 700;
     font-size: 11px;
     color: #575757;
@@ -334,8 +330,8 @@ hr:first-of-type{
     clear: both;
 }
 
-.message-chain__recipient-message{
-    font-family: "Manuale", sans-serif;
+.message-chain-recipient-message{
+    font-family: Manuale, sans-serif;
     font-weight: 700;
     font-size: 11px;
     color: #575757;
@@ -356,17 +352,17 @@ hr:first-of-type{
     clear: both;
 }
 
-.message-chain__time-message{
-    font-family: "Manuale", sans-serif;
+.message-chain-time-message{
+    font-family: Manuale, sans-serif;
     font-weight: 500;
     font-size: 9px;
-    color: #999999;
+    color: #999;
     text-align: right;
     margin-top: 11px;
     height: 14px;
 }
 
-.message-chain__read-flag{
+.message-chain-read-flag{
     letter-spacing: -4px;
     font-size: 11px;
     padding: 0;
@@ -375,12 +371,12 @@ hr:first-of-type{
     color: #1D90D1;
 }
 
-.message-chain__unread{
-    color: #999999;
+.message-chain-unread{
+    color: #999;
 }
 
 
-.message-chain__message-field{
+.message-chain-message-field{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -388,12 +384,12 @@ hr:first-of-type{
     height: 50px;
 }
 
-.message-chain__send-field{
+.message-chain-send-field{
     display: flex;
     flex-direction: row;
 }
 
-.message-chain__message_input{
+.message-chain-message-input{
     width: 862px;
     height: 32px;
     border: none;
@@ -403,11 +399,11 @@ hr:first-of-type{
     margin-top: 9px;
 }
 
-.message-chain__message_input:focus{
+.message-chain-message-input:focus{
     outline: none;
 }
 
-.message-chain__attachment-button{
+.message-chain-attachment-button{
     margin: 12px 10px 10px 12px;
     width: 24px;
     height: 24px;
@@ -416,7 +412,7 @@ hr:first-of-type{
     padding: 0;
 }
 
-.message-chain__send-button{
+.message-chain-send-button{
     margin: 12px 10px 10px 12px;
     width: 28px;
     height: 28px;

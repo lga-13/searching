@@ -52,7 +52,7 @@ export default class SettingsPage extends Block {
     // Avatar
     props.settingsImg = new Img(
       {
-        className: 'settings__img',
+        className: 'settings-img',
         settings: { withInternalID: true },
         srcName: avatar,
         altText: 'photo',
@@ -62,7 +62,7 @@ export default class SettingsPage extends Block {
     // Ccылка на смену аватара
     props.settingsLinkImg = new Link(
       {
-        className: 'settings__change-img',
+        className: 'settings-change-img',
         href: '#',
         text: 'Сменить аватар',
         settings: { withInternalID: true },
@@ -77,7 +77,7 @@ export default class SettingsPage extends Block {
       {
         className: 'change-data-form',
         button: {
-          className: 'change-data-form__button',
+          className: 'change-data-form-button',
           typeName: 'button',
           text: 'Сохранить',
           settings: { withInternalID: true },
@@ -96,12 +96,12 @@ export default class SettingsPage extends Block {
         fields: [
           {
             label: {
-              className: 'change-data-form__label',
+              className: 'change-data-form-label',
               text: 'Логин',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-data-form__input',
+              className: 'change-data-form-input',
               name: 'login',
               placeholder: getUserData().login,
               inputType: 'text',
@@ -111,7 +111,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-data-form__error-message',
+              className: 'change-data-form-error-message',
               text: ErrorMessages.validateLogin,
               settings: { withInternalID: true },
             },
@@ -119,12 +119,12 @@ export default class SettingsPage extends Block {
           },
           {
             label: {
-              className: 'change-data-form__label',
+              className: 'change-data-form-label',
               text: 'Имя',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-data-form__input',
+              className: 'change-data-form-input',
               name: 'first_name',
               placeholder: getUserData().first_name,
               inputType: 'text',
@@ -134,7 +134,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-data-form__error-message',
+              className: 'change-data-form-error-message',
               text: ErrorMessages.validateName,
               settings: { withInternalID: true },
             },
@@ -142,12 +142,12 @@ export default class SettingsPage extends Block {
           },
           {
             label: {
-              className: 'change-data-form__label',
+              className: 'change-data-form-label',
               text: 'Фамилия',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-data-form__input',
+              className: 'change-data-form-input',
               name: 'second_name',
               placeholder: getUserData().second_name,
               inputType: 'text',
@@ -157,7 +157,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-data-form__error-message',
+              className: 'change-data-form-error-message',
               text: ErrorMessages.validateName,
               settings: { withInternalID: true },
             },
@@ -165,12 +165,12 @@ export default class SettingsPage extends Block {
           },
           {
             label: {
-              className: 'change-data-form__label',
+              className: 'change-data-form-label',
               text: 'Почта',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-data-form__input',
+              className: 'change-data-form-input',
               name: 'email',
               placeholder: getUserData().email,
               inputType: 'email',
@@ -180,7 +180,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-data-form__error-message',
+              className: 'change-data-form-error-message',
               text: ErrorMessages.validateEmail,
               settings: { withInternalID: true },
             },
@@ -188,12 +188,12 @@ export default class SettingsPage extends Block {
           },
           {
             label: {
-              className: 'change-data-form__label',
+              className: 'change-data-form-label',
               text: 'Телефон',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-data-form__input',
+              className: 'change-data-form-input',
               name: 'phone',
               placeholder: getUserData().phone,
               inputType: 'phone',
@@ -203,7 +203,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-data-form__error-message',
+              className: 'change-data-form-error-message',
               text: ErrorMessages.validateEmail,
               settings: { withInternalID: true },
             },
@@ -222,7 +222,7 @@ export default class SettingsPage extends Block {
         className: 'change-password-form',
 
         button: {
-          className: 'change-password-form__button',
+          className: 'change-password-form-button',
           typeName: 'button',
           text: 'Сохранить',
           settings: { withInternalID: true },
@@ -240,12 +240,12 @@ export default class SettingsPage extends Block {
         fields: [
           {
             label: {
-              className: 'change-password-form__label',
+              className: 'change-password-form-label',
               text: 'Старый пароль',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-password-form__input',
+              className: 'change-password-form-input',
               name: 'password',
               placeholder: '',
               inputType: 'password',
@@ -255,7 +255,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-password-form__error-message',
+              className: 'change-password-form-error-message',
               text: ErrorMessages.validatePassword,
               settings: { withInternalID: true },
             },
@@ -263,12 +263,12 @@ export default class SettingsPage extends Block {
           },
           {
             label: {
-              className: 'change-password-form__label',
+              className: 'change-password-form-label',
               text: 'Новый пароль',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-password-form__input',
+              className: 'change-password-form-input',
               name: 'new_password',
               placeholder: '',
               inputType: 'password',
@@ -278,7 +278,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-password-form__error-message',
+              className: 'change-password-form-error-message',
               text: ErrorMessages.validatePassword,
               settings: { withInternalID: true },
             },
@@ -286,12 +286,12 @@ export default class SettingsPage extends Block {
           },
           {
             label: {
-              className: 'change-password-form__label',
+              className: 'change-password-form-label',
               text: 'Повторите новый пароль',
               settings: { withInternalID: true },
             },
             input: {
-              className: 'change-password-form__input',
+              className: 'change-password-form-input',
               name: 'repeat_password',
               placeholder: '',
               inputType: 'password',
@@ -301,7 +301,7 @@ export default class SettingsPage extends Block {
               },
             },
             errorMessage: {
-              className: 'change-password-form__error-message',
+              className: 'change-password-form-error-message',
               text: ErrorMessages.validatePassword,
               settings: { withInternalID: true },
             },
@@ -318,7 +318,7 @@ export default class SettingsPage extends Block {
       {
         className: 'plug',
         plugLink: {
-          className: 'settings-window__link',
+          className: 'settings-window-link',
           href: '#',
           text: 'Выберите, какие изменения хотите внести.',
         },
@@ -328,7 +328,7 @@ export default class SettingsPage extends Block {
     // Ссылка на изменение данных пользователя
     props.settingsDataLink = new Link(
       {
-        className: 'settings__change-data',
+        className: 'settings-change-data',
         href: '#',
         text: 'Изменить личные данные',
         settings: { withInternalID: true },
@@ -342,7 +342,7 @@ export default class SettingsPage extends Block {
 
     props.settingsPasswordLink = new Link(
       {
-        className: 'settings__change-password',
+        className: 'settings-change-password',
         href: '#',
         text: 'Сменить пароль',
         settings: { withInternalID: true },
@@ -356,7 +356,7 @@ export default class SettingsPage extends Block {
 
     props.settingsExitLink = new Link(
       {
-        className: 'settings__change-exit',
+        className: 'settings-change-exit',
         href: '#',
         text: 'Выйти из аккаунта',
         settings: { withInternalID: true },
@@ -365,7 +365,7 @@ export default class SettingsPage extends Block {
 
     props.buttonBlueBack = new Button(
       {
-        className: 'settings__btn-back',
+        className: 'settings-btn-back',
         typeName: 'button',
         text: '',
         settings: { withInternalID: true },

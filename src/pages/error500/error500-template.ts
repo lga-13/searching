@@ -1,5 +1,7 @@
 // language=hbs
 
 export default `
-    {{{ errorCard }}}
+    <div class="error">
+        {{{ errorCard }}}
+    </div>
 `;

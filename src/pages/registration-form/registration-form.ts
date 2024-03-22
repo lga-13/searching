@@ -10,14 +10,14 @@ const registrationForm = new Form(
     className: 'registration-form',
 
     title: {
-      className: 'registration-form__title',
+      className: 'registration-form-title',
       text: 'Регистрация',
       tag: 'h2',
       settings: { withInternalID: true },
     },
 
     button: {
-      className: 'registration-form__button',
+      className: 'registration-form-button',
       typeName: 'button',
       text: 'Зарегистрироваться',
       settings: { withInternalID: true },
@@ -32,7 +32,7 @@ const registrationForm = new Form(
       },
     },
     link: {
-      className: 'registration-form__login',
+      className: 'registration-form-login',
       href: '#',
       text: 'Войти',
       settings: { withInternalID: true },
@@ -40,19 +40,19 @@ const registrationForm = new Form(
     fields: [
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Почта',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'email',
           placeholder: '',
           inputType: 'text',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: ErrorMessages.validateEmail,
           settings: { withInternalID: true },
         },
@@ -60,19 +60,19 @@ const registrationForm = new Form(
       },
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Логин',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'login',
           placeholder: '',
           inputType: 'text',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: ErrorMessages.validateLogin,
           settings: { withInternalID: true },
         },
@@ -81,19 +81,19 @@ const registrationForm = new Form(
       },
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Имя',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'first_name',
           placeholder: '',
           inputType: 'text',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: ErrorMessages.validateName,
           settings: { withInternalID: true },
         },
@@ -101,19 +101,19 @@ const registrationForm = new Form(
       },
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Фамилия',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'second_name',
           placeholder: '',
           inputType: 'text',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: ErrorMessages.validateName,
           settings: { withInternalID: true },
         },
@@ -121,19 +121,19 @@ const registrationForm = new Form(
       },
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Телефон',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'phone',
           placeholder: '',
           inputType: 'phone',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: ErrorMessages.validatePhone,
           settings: { withInternalID: true },
         },
@@ -141,19 +141,19 @@ const registrationForm = new Form(
       },
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Пароль',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'password',
           placeholder: '',
           inputType: 'password',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: ErrorMessages.validatePassword,
           settings: { withInternalID: true },
         },
@@ -161,19 +161,19 @@ const registrationForm = new Form(
       },
       {
         label: {
-          className: 'registration-form__label',
+          className: 'registration-form-label',
           text: 'Повторите пароль',
           settings: { withInternalID: true },
         },
         input: {
-          className: 'registration-form__input',
+          className: 'registration-form-input',
           name: 'repeatPassword',
           placeholder: '',
           inputType: 'password',
           settings: { withInternalID: true },
         },
         errorMessage: {
-          className: 'registration-form__error-message',
+          className: 'registration-form-error-message',
           text: 'пароли не совпадают',
           settings: { withInternalID: true },
         },
