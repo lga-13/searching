@@ -18,19 +18,19 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'В лесу растут шишки!',
-        read: true,
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
+        read: true
       },
       {
         me: true,
         text: 'Крупные?',
-        time: '10:31:53',
-        read: true,
+        time: new Date('2022-01-02T10:30:34'),
+        read: true
       },
       {
         me: false,
         text: 'Крупные',
-        time: '10:32:45',
+        time: new Date('2022-01-02T10:30:34'),
         read: false,
       }],
   },
@@ -42,31 +42,31 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: false,
         text: 'Привет!',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
       {
         me: true,
         text: 'Привет! Как ты',
-        time: '10:31:28',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
       {
         me: false,
         text: 'Пойдет! А ты?',
-        time: '10:32:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: false,
       },
       {
         me: false,
         text: 'Ау',
-        time: '10:41:28',
+        time: new Date('2022-01-02T10:30:34'),
         read: false,
       },
       {
         me: false,
         text: 'Ты тут?',
-        time: '11:31:28',
+        time: new Date('2022-01-02T10:30:34'),
         read: false,
       }],
   },
@@ -78,7 +78,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -91,7 +91,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -104,7 +104,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -117,7 +117,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -130,7 +130,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -143,7 +143,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -156,7 +156,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -169,7 +169,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'Привет',
-        time: '10:30:34',
+        time: new Date('2022-01-02T10:30:34'),
         read: true,
       },
     ],
@@ -249,7 +249,7 @@ export default class ChatPage extends Block {
             click: () => {
               if (props.messageChain.children.messageChainForm.validate()) {
                 const message = props.messageChain.children.messageChainForm.get_data();
-                addMessageChain(props.messageChain.props.user_id, message.message, new Date().toLocaleTimeString());
+                addMessageChain(props.messageChain.props.user_id, message.message, new Date());
                 props.messageChain.setCurrentMessage(props.messageChain.props.user_id);
                 props.messageChain.children.messageChainForm.clear();
               }

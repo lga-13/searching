@@ -3,6 +3,19 @@ import greetings from './chats_list-template.ts';
 import ChatMiniature from './chat_miniature/chat_miniature.ts';
 import { get_chats_list } from '../../pages/chat-page/chat-page.ts';
 
+
+
+export function cutTimeString(timeString: Date) {
+  const day = timeString.getDate()
+  const month = timeString.getMonth()
+  const year = timeString.getFullYear()
+  const hours = timeString.getHours();
+  const minutes = timeString.getMinutes();
+  const seconds = timeString.getSeconds();
+  return `${hours}:${minutes}:${seconds} ${day}-${month}-${year}`;
+}
+
+
 export interface ChatListBlockType
     {
         showMessageChain: (user_id: number) => void,
@@ -21,10 +34,10 @@ export default class ChatList extends Block {
   rebuildChatList(active_chat = null) {
     const chatList = [];
     Object.values(get_chats_list()).forEach((chat) => {
+
       // Сборка времени миниатюры чата
-      const parts = chat.message_chain[chat.message_chain.length - 1].time.split(':');
-      parts.pop();
-      const newTime = parts.join(':');
+      const raw_time = chat.message_chain[chat.message_chain.length - 1].time;
+      const newTime = cutTimeString(raw_time)
 
       // Подсчет сообщений
       let counter = 0;

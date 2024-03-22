@@ -5,6 +5,7 @@ import Block from '../../components/base/block.ts';
 import Message from './message/message.ts';
 import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
 import Form, { FormProps } from '../form/form.ts';
+import {cutTimeString} from "../chats_list/chats_list.ts";
 
 export interface MessageChainBlockType {
 
@@ -37,11 +38,7 @@ export default class MessageChain extends Block {
   }
 
   // Обработка времени сообщеняи
-  cutTimeString(timeString: string) {
-    const parts = timeString.split(':');
-    parts.pop();
-    return parts.join(':');
-  }
+
 
   // Функция которая обновляет содержимое мессадж чейна.
   setCurrentMessage(user_id: number) {
@@ -63,7 +60,7 @@ export default class MessageChain extends Block {
       const currentMessage = new Message({
         me: message.me,
         text: message.text,
-        time: this.cutTimeString(message.time),
+        time: cutTimeString(message.time),
         read: message.read,
         settings: { withInternalID: true },
       });
