@@ -12,6 +12,30 @@ export function cutTimeStringMessageChain(messageDate: Date) {
 }
 
 
+const monthDict = {
+  0: "января",
+  1: "февраля",
+  2: "марта",
+  3: "апреля",
+  4: "мая",
+  5: "июня",
+  6: "июля",
+  7: "августа",
+  8: "сентября",
+  9: "октбря",
+  10: "нобря",
+  11: "декабря"
+}
+
+
+export function cutTimeStringTitle(messageDate: Date) {
+
+  const day = messageDate.getDate();
+  const month = messageDate.getMonth();
+  return `${day} ${monthDict[month]}`;
+}
+
+
 
 export function cutTimeStringChatList(messageDate: Date) {
   const day = messageDate.getDate();

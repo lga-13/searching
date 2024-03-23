@@ -5,7 +5,8 @@ import Block from '../../components/base/block.ts';
 import Message from './message/message.ts';
 import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
 import Form, { FormProps } from '../form/form.ts';
-import {cutTimeStringMessageChain} from "../chats_list/chats_list.ts";
+import {cutTimeStringMessageChain, cutTimeStringTitle} from "../chats_list/chats_list.ts";
+import MessageContainer from "./message_container/message_container.ts";
 
 export interface MessageChainBlockType {
 
@@ -55,15 +56,51 @@ export default class MessageChain extends Block {
     const messages_list = getMessageChain(this.props.user_id);
 
     const messages = [];
+
+    let currentData: null | Date = null
+
     Object.values(messages_list).forEach((message) => {
       // Создание ссобщения.
-      const currentMessage = new Message({
-        me: message.me,
-        text: message.text,
-        time: cutTimeStringMessageChain(message.time),
-        read: message.read
-      });
-      messages.push(currentMessage);
+
+
+        let dataTitle = null
+        console.log(dataTitle)
+        if (!(currentData instanceof Date) ||
+            currentData.getFullYear() !== message.time.getFullYear() ||
+            currentData.getMonth() !== message.time.getMonth() ||
+            currentData.getDate() !== message.time.getDate()
+        ) {
+            console.log(!(currentData instanceof Date))
+            if (currentData instanceof Date) {
+                console.log(currentData.getFullYear() !== message.time.getFullYear())
+                console.log(currentData.getMonth() !== message.time.getFullYear())
+                console.log(currentData.getMonth() !== message.time.getFullYear())
+            }
+            currentData = message.time
+            dataTitle = new Title(
+                {
+                    className: "message-chain-header-title",
+                    text: cutTimeStringTitle(message.time),
+                    tag: "h3"
+                }
+
+            )
+
+        }
+
+        console.log(dataTitle)
+        const currentMessage = new MessageContainer({
+          messageData: dataTitle,
+          message: new Message(
+              {
+                  me: message.me,
+                  text: message.text,
+                  time: cutTimeStringMessageChain(message.time),
+                  read: message.read
+              }
+          )
+        })
+        messages.push(currentMessage);
     });
 
     // Присваивание this.children.messages
