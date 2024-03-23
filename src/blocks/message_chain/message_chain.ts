@@ -64,18 +64,11 @@ export default class MessageChain extends Block {
 
 
         let dataTitle = null
-        console.log(dataTitle)
         if (!(currentData instanceof Date) ||
             currentData.getFullYear() !== message.time.getFullYear() ||
             currentData.getMonth() !== message.time.getMonth() ||
             currentData.getDate() !== message.time.getDate()
         ) {
-            console.log(!(currentData instanceof Date))
-            if (currentData instanceof Date) {
-                console.log(currentData.getFullYear() !== message.time.getFullYear())
-                console.log(currentData.getMonth() !== message.time.getFullYear())
-                console.log(currentData.getMonth() !== message.time.getFullYear())
-            }
             currentData = message.time
             dataTitle = new Title(
                 {
@@ -87,8 +80,6 @@ export default class MessageChain extends Block {
             )
 
         }
-
-        console.log(dataTitle)
         const currentMessage = new MessageContainer({
           messageData: dataTitle,
           message: new Message(
