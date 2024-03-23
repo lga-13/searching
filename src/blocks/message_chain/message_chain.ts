@@ -5,7 +5,7 @@ import Block from '../../components/base/block.ts';
 import Message from './message/message.ts';
 import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
 import Form, { FormProps } from '../form/form.ts';
-import {cutTimeString} from "../chats_list/chats_list.ts";
+import {cutTimeStringMessageChain} from "../chats_list/chats_list.ts";
 
 export interface MessageChainBlockType {
 
@@ -60,9 +60,8 @@ export default class MessageChain extends Block {
       const currentMessage = new Message({
         me: message.me,
         text: message.text,
-        time: cutTimeString(message.time),
-        read: message.read,
-        settings: { withInternalID: true },
+        time: cutTimeStringMessageChain(message.time),
+        read: message.read
       });
       messages.push(currentMessage);
     });

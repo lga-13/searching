@@ -5,14 +5,42 @@ import { get_chats_list } from '../../pages/chat-page/chat-page.ts';
 
 
 
-export function cutTimeString(timeString: Date) {
-  const day = timeString.getDate()
-  const month = timeString.getMonth()
-  const year = timeString.getFullYear()
-  const hours = timeString.getHours();
-  const minutes = timeString.getMinutes();
-  const seconds = timeString.getSeconds();
-  return `${hours}:${minutes}:${seconds} ${day}-${month}-${year}`;
+export function cutTimeStringMessageChain(messageDate: Date) {
+  const hours = messageDate.getHours();
+  const minutes = messageDate.getMinutes();
+  return `${hours}:${minutes}`;
+}
+
+
+
+export function cutTimeStringChatList(messageDate: Date) {
+  const day = messageDate.getDate();
+  const month = messageDate.getMonth();
+  const year = messageDate.getFullYear();
+  const hours = messageDate.getHours();
+  const minutes = messageDate.getMinutes();
+  const today = new Date();
+  if (
+      day === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+  ) {
+    return `${hours}:${minutes}`;
+  } else if (
+      year === today.getFullYear()
+  ) {
+    if (month === today.getMonth()) {
+      if (day === today.getDate() - 1) {
+        return `Вчера`;
+      }
+      if (day === today.getDate() - 2) {
+        return `Позавчера`;
+      }
+    }
+    return `${month}.${day}`;
+  } else {
+    return `${month}.${day}.${year}`;
+  }
 }
 
 
@@ -37,7 +65,7 @@ export default class ChatList extends Block {
 
       // Сборка времени миниатюры чата
       const raw_time = chat.message_chain[chat.message_chain.length - 1].time;
-      const newTime = cutTimeString(raw_time)
+      const newTime = cutTimeStringChatList(raw_time)
 
       // Подсчет сообщений
       let counter = 0;

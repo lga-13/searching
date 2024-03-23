@@ -6,7 +6,7 @@ export interface MessageBlockType{
     text: string,
     time: string,
     read: boolean,
-    settings: {withInternalID: boolean}
+    settings?: {withInternalID: boolean}
 }
 
 export default class Message extends Block {

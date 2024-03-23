@@ -18,19 +18,19 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: true,
         text: 'В лесу растут шишки!',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T10:30:34'),
         read: true
       },
       {
         me: true,
         text: 'Крупные?',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T10:30:36'),
         read: true
       },
       {
         me: false,
         text: 'Крупные',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T10:31:38'),
         read: false,
       }],
   },
@@ -42,31 +42,31 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: false,
         text: 'Привет!',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T09:54:12'),
         read: true,
       },
       {
         me: true,
         text: 'Привет! Как ты',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T09:55:12'),
         read: true,
       },
       {
         me: false,
         text: 'Пойдет! А ты?',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T09:58:12'),
         read: false,
       },
       {
         me: false,
         text: 'Ау',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T09:59:12'),
         read: false,
       },
       {
         me: false,
         text: 'Ты тут?',
-        time: new Date('2022-01-02T10:30:34'),
+        time: new Date('2024-03-23T10:00:12'),
         read: false,
       }],
   },
@@ -176,8 +176,20 @@ export const MOCK_MESSAGE_DATA = [
   },
 ];
 
+MOCK_MESSAGE_DATA.forEach(chat => {
+  chat.message_chain.sort((a, b) => new Date(a.time) - new Date(b.time));
+});
+
 export function get_chats_list() {
-  return MOCK_MESSAGE_DATA;
+  const sortChats = (chats) => {
+    return chats.sort((a, b) => {
+      const lastMessageTimeA = a.message_chain[a.message_chain.length - 1].time;
+      const lastMessageTimeB = b.message_chain[b.message_chain.length - 1].time;
+      return lastMessageTimeB - lastMessageTimeA;
+    });
+  };
+
+  return  sortChats(MOCK_MESSAGE_DATA);
 }
 
 export function getMessageChain(index: number) {
@@ -200,6 +212,9 @@ export function addMessageChain(index, message, time) {
   } else {
     console.log(`Нет элемента с индексом ${index}`);
   }
+  MOCK_MESSAGE_DATA.forEach(chat => {
+    chat.message_chain.sort((a, b) => new Date(a.time) - new Date(b.time));
+  });
 }
 
 export function readMessageChain(index) {
