@@ -196,8 +196,9 @@ hr:first-of-type{
 }
 
 .chats-time {
-    position: relative;
-    right: 10px;
+    position: absolute;
+    right: 7px;
+    width: 35px;
     margin-bottom: 10px;
     font-size: 9px;
     white-space: nowrap;
