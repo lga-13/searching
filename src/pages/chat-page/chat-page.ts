@@ -180,7 +180,7 @@ MOCK_MESSAGE_DATA.forEach((chat) => {
   chat.message_chain.sort((a, b) => new Date(a.time) - new Date(b.time));
 });
 
-export function get_chats_list() {
+export function getChatsList() {
   const sortChats = (chats) => chats.sort((a, b) => {
     const lastMessageTimeA = a.message_chain[a.message_chain.length - 1].time;
     const lastMessageTimeB = b.message_chain[b.message_chain.length - 1].time;
@@ -199,16 +199,16 @@ export function getSender(index: number) {
 }
 
 export function addMessageChain(index, message, time) {
-  const item = MOCK_MESSAGE_DATA.find((item) => item.index === index);
-  if (item) {
-    item.message_chain.push({
+  const messageItem = MOCK_MESSAGE_DATA.find((item) => item.index === index);
+  if (messageItem) {
+    messageItem.message_chain.push({
       me: true,
       text: message,
       time,
       read: false,
     });
   } else {
-    console.log(`Нет элемента с индексом ${index}`);
+    throw new Error(`Нет элемента с индексом ${index}`);
   }
   MOCK_MESSAGE_DATA.forEach((chat) => {
     chat.message_chain.sort((a, b) => new Date(a.time) - new Date(b.time));
@@ -216,13 +216,13 @@ export function addMessageChain(index, message, time) {
 }
 
 export function readMessageChain(index) {
-  const item = MOCK_MESSAGE_DATA.find((item) => item.index === index);
-  if (item) {
-    Object.values(item.message_chain).forEach((message) => {
+  const messageItem = MOCK_MESSAGE_DATA.find((item) => item.index === index);
+  if (messageItem) {
+    Object.values(messageItem.message_chain).forEach((message) => {
       message.read = true;
     });
   } else {
-    console.log(`Нет элемента с индексом ${index}`);
+    throw new Error(`Нет элемента с индексом ${index}`);
   }
 }
 
@@ -239,7 +239,7 @@ export default class ChatPage extends Block {
     // Передаем функцию которая будет прочитывать все чаты при клике на миниматюру.
 
     const chatList = new ChatList({
-      showMessageChain: (user_id: number) => { this.showMessageChain(user_id); },
+      showMessageChain: (userId: number) => { this.showMessageChain(userId); },
     });
 
     // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
@@ -265,9 +265,7 @@ export default class ChatPage extends Block {
                 props.messageChain.children.messageChainForm.clear();
               }
             },
-            keydown: (event) => {
-              console.log(event);
-            },
+            keydown: () => {},
           },
         },
         fields: [
@@ -294,7 +292,7 @@ export default class ChatPage extends Block {
         typeName: 'button',
         text: '',
       },
-      chatListHook: () => { chatList.update(props.messageChain.props.user_id) },
+      chatListHook: () => { chatList.update(props.messageChain.props.user_id); },
     });
     props.messageChain.hide();
 
@@ -325,7 +323,7 @@ export default class ChatPage extends Block {
               if (props.searchForm.validate()) {
                 console.log(props.searchForm.get_data());
               }
-            }
+            },
           },
         },
         fields: [{
@@ -344,10 +342,10 @@ export default class ChatPage extends Block {
     super('div', props);
   }
 
-  showMessageChain(user_id: number) {
+  showMessageChain(userId: number) {
     this.children.messageChain.show();
     this.children.chatPlug.hide();
-    this.children.messageChain.setCurrentMessage(user_id);
+    this.children.messageChain.setCurrentMessage(userId);
     return true;
   }
 

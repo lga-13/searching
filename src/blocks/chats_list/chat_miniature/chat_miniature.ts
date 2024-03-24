@@ -3,7 +3,7 @@ import greetings from './chat_miniature-template.ts';
 
 interface ChatMiniatureBlockType {
     active: boolean,
-    srcName: {},
+    srcName: string,
     index: number,
     sender: string,
     your: boolean,

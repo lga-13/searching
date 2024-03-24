@@ -1,9 +1,7 @@
-import Title, { TitleBlockType } from '../../components/title/title.ts';
 import greetings from './user_info_card-template.ts';
 import Block from '../../components/base/block.ts';
-import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
-import Message from '../message_chain/message/message.ts';
-import { getUserData, MOCK_USER_DATA } from '../../pages/settings-page/settings-page.ts';
+import { getUserData } from '../../pages/settings-page/settings-page.ts';
+import Title from '../../components/title/title.ts';
 
 export interface UserInfoCardBlockType{
     cardTitles?: Title[]
@@ -24,13 +22,13 @@ export class UserInfoCard extends Block {
     super('div', props);
   }
 
-  generateBlock(data: {string: string}) {
+  static generateBlock(data: {string: string}) {
     const titles = [];
     // Делаем запрос пользователя
-    Object.values(data).forEach((title_text) => {
+    Object.values(data).forEach((titleText) => {
       titles.push(new Title({
         className: 'settings-label',
-        text: title_text,
+        text: titleText,
         settings: { withInternalID: true },
         tag: 'p',
       }));
@@ -39,7 +37,7 @@ export class UserInfoCard extends Block {
   }
 
   refreshUserData() {
-    this.children.cardTitles = this.generateBlock(getUserData());
+    this.children.cardTitles = UserInfoCard.generateBlock(getUserData());
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 

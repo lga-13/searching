@@ -6,17 +6,17 @@ import Message from './message/message.ts';
 import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
 import Form, { FormProps } from '../form/form.ts';
 import MessageContainer from './message_container/message_container.ts';
-import TimeConverter from "../../modules/time_prepare/converter.ts";
-import DateComparator from "../../modules/time_prepare/dateComparator.ts";
+import TimeConverter from '../../modules/time_prepare/converter.ts';
+import DateComparator from '../../modules/time_prepare/dateComparator.ts';
 
 export interface MessageChainBlockType {
 
-    srcName: {}
+    srcName: Record<string, never>
     sender_name: TitleBlockType,
     messageForm: FormProps,
     attachmentButton: buttonBlockType,
     moreButton: buttonBlockType
-    user_id?: number | null
+    userId?: number | null
     settings?: {withInternalID: boolean}
 
     // ЭЛЕМЕНТЫ
@@ -34,7 +34,7 @@ export default class MessageChain extends Block {
     props.messageSenderName = new Title(props.sender_name);
     props.messageChainAttachmentsButton = new Button(props.attachmentButton);
     props.messageChainForm = new Form(props.messageForm);
-    props.user_id = null;
+    props.userId = null;
     props.settings = { withInternalID: true };
     super('div', props);
   }
@@ -42,9 +42,9 @@ export default class MessageChain extends Block {
   // Обработка времени сообщеняи
 
   // Функция которая обновляет содержимое мессадж чейна.
-  setCurrentMessage(user_id: number) {
+  setCurrentMessage(userId: number) {
     // Уставнавливается id для текущего чейна
-    this.props.user_id = user_id;
+    this.props.user_id = userId;
 
     // Делаем запрос пользователя
     const sender = getSender(this.props.user_id);
@@ -53,11 +53,11 @@ export default class MessageChain extends Block {
     this.children.messageSenderName.setText(sender);
 
     // Делаем запрос сообщений
-    const messages_list = getMessageChain(this.props.user_id);
+    const messagesList = getMessageChain(this.props.user_id);
 
     const messages = [];
     let currentData: null | Date = null;
-    Object.values(messages_list).forEach((message) => {
+    Object.values(messagesList).forEach((message) => {
       let dataTitle = null;
       if (!(currentData instanceof Date) || !DateComparator.inOneDay(currentData, message.time)
       ) {

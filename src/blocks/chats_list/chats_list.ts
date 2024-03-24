@@ -1,9 +1,9 @@
 import Block from '../../components/base/block.ts';
 import greetings from './chats_list-template.ts';
 import ChatMiniature from './chat_miniature/chat_miniature.ts';
-import {get_chats_list, readMessageChain} from '../../pages/chat-page/chat-page.ts';
-import TimeConverter from "../../modules/time_prepare/converter.ts";
-import RandomAvatar from "../../modules/random_avatar_generator/default_avatar_pool.ts";
+import { getChatsList, readMessageChain } from '../../pages/chat-page/chat-page.ts';
+import TimeConverter from '../../modules/time_prepare/converter.ts';
+import RandomAvatar from '../../modules/random_avatar_generator/default_avatar_pool.ts';
 
 export interface ChatListBlockType
     {
@@ -20,8 +20,7 @@ export default class ChatList extends Block {
 
   buildChatList(active_chat = null) {
     const chatList = [];
-    Object.values(get_chats_list()).forEach((chat) => {
-
+    Object.values(getChatsList()).forEach((chat) => {
       let counter = 0;
       Object.values(chat.message_chain).forEach((message) => {
         if (!message.read && !message.me) {
@@ -53,20 +52,19 @@ export default class ChatList extends Block {
       });
       chatList.push(currentChatMiniature);
     });
-    this.children.chatList = chatList
+    this.children.chatList = chatList;
   }
 
-  update(user_id: number){
-    this.userId = user_id
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+  update(user_id: number) {
+    this.userId = user_id;
+    this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
   render() {
-    if (!this.children.chatList){
-        this.buildChatList()
-    }
-    else {
-      this.buildChatList(this.userId)
+    if (!this.children.chatList) {
+      this.buildChatList();
+    } else {
+      this.buildChatList(this.userId);
     }
     return this.compile(greetings, this.props);
   }

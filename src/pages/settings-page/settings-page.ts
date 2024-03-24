@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-
 import './settings-page.css';
 import './change-data-form.css';
 import './change-password-form.css';
@@ -10,9 +9,9 @@ import greetings from './settings-page-template.ts';
 import Plug from '../../components/plug/plug.ts';
 import Button from '../../components/button/button.ts';
 import Form from '../../blocks/form/form.ts';
-import { ErrorMessages, Validator } from '../../utils/field_validator.ts';
 import avatar from '../../public/static/img/avatar.svg';
 import { UserInfoCard } from '../../blocks/user_info_card/user_info_card.ts';
+import { ErrorMessages, Validator } from '../../validators/field_validator.ts';
 
 let MOCK_USER_DATA = {
   login: 'admin',

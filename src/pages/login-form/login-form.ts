@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 
-import { ErrorMessages, Validator } from '../../utils/field_validator.ts';
 import './login-form.css';
 import Form from '../../blocks/form/form.ts';
+import { ErrorMessages, Validator } from '../../validators/field_validator.ts';
 
 const loginForm = new Form(
   {

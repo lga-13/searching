@@ -1,10 +1,9 @@
-
-
 class BaseData {
-    _date: Date
-    constructor(data: Date) {
-        this._date = data
-    }
+  preparingDate: Date;
+
+  constructor(data: Date) {
+    this.preparingDate = data;
+  }
 }
 
-export default BaseData
+export default BaseData;

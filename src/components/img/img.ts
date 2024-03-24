@@ -3,7 +3,7 @@ import greetings from './img-template.ts';
 
 export interface ImgBlockType {
     className: string,
-    srcName: {},
+    srcName: string,
     altText: string,
     settings: {withInternalID: boolean}
 }

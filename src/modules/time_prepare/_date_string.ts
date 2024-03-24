@@ -1,27 +1,25 @@
-import DataParser from "./_dateParser.ts";
-import monthDict from "./_month_dict.ts";
+import DataParser from './_dateParser.ts';
+import monthDict from './_month_dict.ts';
 
-class DateString extends DataParser{
+class DateString extends DataParser {
+  dayMonthYear() {
+    return `${this.day}.${this.month}.${this.year}`;
+  }
 
-    dayMonthYear(){
-        return `${this.day}.${this.month}.${this.year}`;
-    }
+  timeToday() {
+    return `${this.hours}:${this.minutes}`;
+  }
 
-    timeToday(){
-        return `${this.hours}:${this.minutes}`;
-    }
+  dayMonth() {
+    return `${this.day} ${monthDict[this.month]}`;
+  }
 
-    dayMonth(){
-        return `${this.day} ${monthDict[this.month]}`;
-    }
+  static yesterday() {
+    return 'Вчера';
+  }
 
-    static yesterday(){
-        return 'Вчера'
-    }
-
-    static dayBeforeYesterday(){
-        return 'Позавчера'
-    }
-
+  static dayBeforeYesterday() {
+    return 'Позавчера';
+  }
 }
-export default DateString
+export default DateString;

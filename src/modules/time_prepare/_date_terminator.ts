@@ -1,38 +1,34 @@
-import BaseData from "./_base_data.ts";
-import DataParser from "./_dateParser.ts";
+import BaseData from './_base_data.ts';
+import DataParser from './_dateParser.ts';
 
+class DateTerminator extends BaseData {
+  private todayParsedData: DataParser = new DataParser(new Date());
 
+  private parsedData(): DataParser { return new DataParser(this.preparingDate); }
 
-class DateTerminator extends BaseData{
+  isToday() {
+    return (
+      this.parsedData().day === this.todayParsedData.day
+            && this.parsedData().month === this.todayParsedData.month
+            && this.parsedData().year === this.todayParsedData.year
+    );
+  }
 
-    _today: DataParser = new DataParser(new Date())
+  inThisYear() {
+    return this.parsedData().year === this.todayParsedData.year;
+  }
 
-    _parsedData(): DataParser {return new DataParser(this._date)}
+  inThisMonths() {
+    return this.parsedData().month === this.todayParsedData.month;
+  }
 
-    isToday() {
-        return (
-            this._parsedData().day === this._today.day
-            && this._parsedData().month === this._today.month
-            && this._parsedData().year === this._today.year
-        )
-    }
+  isYesterday() {
+    return this.parsedData().day === this.todayParsedData.day - 1;
+  }
 
-    inThisYear(){
-        return this._parsedData().year === this._today.year
-    }
-
-    inThisMonths(){
-        return this._parsedData().month === this._today.month
-
-    }
-
-    isYesterday(){
-        return this._parsedData().day === this._today.day - 1
-    }
-
-    isDayBeforeYesterday(){
-        return this._parsedData().day === this._today.day - 2
-    }
+  isDayBeforeYesterday() {
+    return this.parsedData().day === this.todayParsedData.day - 2;
+  }
 }
 
-export default DateTerminator
+export default DateTerminator;
