@@ -2,6 +2,8 @@
 
 export default `
     {{{ messageData }}}
-    {{{ message }}}
+    <div class="message-chain-message-container">
+        {{{ message }}}
+    </div>
     <br>
 `;

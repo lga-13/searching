@@ -72,7 +72,7 @@ export default class MessageChain extends Block {
             currentData = message.time
             dataTitle = new Title(
                 {
-                    className: "message-chain-header-title",
+                    className: "message-chain-data-title",
                     text: cutTimeStringTitle(message.time),
                     tag: "h3"
                 }

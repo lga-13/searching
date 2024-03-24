@@ -30,7 +30,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: false,
         text: 'Крупные',
-        time: new Date('2024-03-23T10:31:38'),
+        time: new Date('2024-03-24T10:31:38'),
         read: false,
       }],
   },
