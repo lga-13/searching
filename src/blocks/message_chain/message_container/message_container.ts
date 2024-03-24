@@ -1,7 +1,7 @@
 import Block from '../../../components/base/block.ts';
 import greetings from './message_container-template.ts';
-import Message from "../message/message.ts";
-import Title from "../../../components/title/title.ts";
+import Message from '../message/message.ts';
+import Title from '../../../components/title/title.ts';
 
 export interface MessageContainerBlockType{
     messageData?: Title,

@@ -5,8 +5,9 @@ import Block from '../../components/base/block.ts';
 import Message from './message/message.ts';
 import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
 import Form, { FormProps } from '../form/form.ts';
-import {cutTimeStringMessageChain, cutTimeStringTitle} from "../chats_list/chats_list.ts";
-import MessageContainer from "./message_container/message_container.ts";
+import MessageContainer from './message_container/message_container.ts';
+import TimeConverter from "../../deps/time_prepare/converter.ts";
+import DateComparator from "../../deps/time_prepare/dateComparator.ts";
 
 export interface MessageChainBlockType {
 
@@ -40,7 +41,6 @@ export default class MessageChain extends Block {
 
   // Обработка времени сообщеняи
 
-
   // Функция которая обновляет содержимое мессадж чейна.
   setCurrentMessage(user_id: number) {
     // Уставнавливается id для текущего чейна
@@ -56,42 +56,33 @@ export default class MessageChain extends Block {
     const messages_list = getMessageChain(this.props.user_id);
 
     const messages = [];
-
-    let currentData: null | Date = null
-
+    let currentData: null | Date = null;
     Object.values(messages_list).forEach((message) => {
-      // Создание ссобщения.
+      let dataTitle = null;
+      if (!(currentData instanceof Date) || !DateComparator.inOneDay(currentData, message.time)
+      ) {
+        currentData = message.time;
+        dataTitle = new Title(
+          {
+            className: 'message-chain-data-title',
+            text: new TimeConverter(message.time).toChainTitles(),
+            tag: 'h3',
+          },
 
-
-        let dataTitle = null
-        if (!(currentData instanceof Date) ||
-            currentData.getFullYear() !== message.time.getFullYear() ||
-            currentData.getMonth() !== message.time.getMonth() ||
-            currentData.getDate() !== message.time.getDate()
-        ) {
-            currentData = message.time
-            dataTitle = new Title(
-                {
-                    className: "message-chain-data-title",
-                    text: cutTimeStringTitle(message.time),
-                    tag: "h3"
-                }
-
-            )
-
-        }
-        const currentMessage = new MessageContainer({
-          messageData: dataTitle,
-          message: new Message(
-              {
-                  me: message.me,
-                  text: message.text,
-                  time: cutTimeStringMessageChain(message.time),
-                  read: message.read
-              }
-          )
-        })
-        messages.push(currentMessage);
+        );
+      }
+      const currentMessage = new MessageContainer({
+        messageData: dataTitle,
+        message: new Message(
+          {
+            me: message.me,
+            text: message.text,
+            time: new TimeConverter(message.time).toChain(),
+            read: message.read,
+          },
+        ),
+      });
+      messages.push(currentMessage);
     });
 
     // Присваивание this.children.messages

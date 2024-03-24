@@ -19,13 +19,13 @@ export const MOCK_MESSAGE_DATA = [
         me: true,
         text: 'В лесу растут шишки!',
         time: new Date('2024-03-23T10:30:34'),
-        read: true
+        read: true,
       },
       {
         me: true,
         text: 'Крупные?',
         time: new Date('2024-03-23T10:30:36'),
-        read: true
+        read: true,
       },
       {
         me: false,
@@ -66,7 +66,7 @@ export const MOCK_MESSAGE_DATA = [
       {
         me: false,
         text: 'Ты тут?',
-        time: new Date('2024-03-23T10:00:12'),
+        time: new Date('2024-03-24T10:00:12'),
         read: false,
       }],
   },
@@ -176,20 +176,18 @@ export const MOCK_MESSAGE_DATA = [
   },
 ];
 
-MOCK_MESSAGE_DATA.forEach(chat => {
+MOCK_MESSAGE_DATA.forEach((chat) => {
   chat.message_chain.sort((a, b) => new Date(a.time) - new Date(b.time));
 });
 
 export function get_chats_list() {
-  const sortChats = (chats) => {
-    return chats.sort((a, b) => {
-      const lastMessageTimeA = a.message_chain[a.message_chain.length - 1].time;
-      const lastMessageTimeB = b.message_chain[b.message_chain.length - 1].time;
-      return lastMessageTimeB - lastMessageTimeA;
-    });
-  };
+  const sortChats = (chats) => chats.sort((a, b) => {
+    const lastMessageTimeA = a.message_chain[a.message_chain.length - 1].time;
+    const lastMessageTimeB = b.message_chain[b.message_chain.length - 1].time;
+    return lastMessageTimeB - lastMessageTimeA;
+  });
 
-  return  sortChats(MOCK_MESSAGE_DATA);
+  return sortChats(MOCK_MESSAGE_DATA);
 }
 
 export function getMessageChain(index: number) {
@@ -212,7 +210,7 @@ export function addMessageChain(index, message, time) {
   } else {
     console.log(`Нет элемента с индексом ${index}`);
   }
-  MOCK_MESSAGE_DATA.forEach(chat => {
+  MOCK_MESSAGE_DATA.forEach((chat) => {
     chat.message_chain.sort((a, b) => new Date(a.time) - new Date(b.time));
   });
 }

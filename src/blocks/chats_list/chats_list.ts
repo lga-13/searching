@@ -2,8 +2,8 @@ import Block from '../../components/base/block.ts';
 import greetings from './chats_list-template.ts';
 import ChatMiniature from './chat_miniature/chat_miniature.ts';
 import { get_chats_list } from '../../pages/chat-page/chat-page.ts';
-
-
+import monthDict from "../../deps/time_prepare/_month_dict.ts";
+import TimeConverter from "../../deps/time_prepare/converter.ts";
 
 export function cutTimeStringMessageChain(messageDate: Date) {
   const hours = messageDate.getHours();
@@ -12,30 +12,11 @@ export function cutTimeStringMessageChain(messageDate: Date) {
 }
 
 
-const monthDict = {
-  0: "января",
-  1: "февраля",
-  2: "марта",
-  3: "апреля",
-  4: "мая",
-  5: "июня",
-  6: "июля",
-  7: "августа",
-  8: "сентября",
-  9: "октбря",
-  10: "нобря",
-  11: "декабря"
-}
-
-
 export function cutTimeStringTitle(messageDate: Date) {
-
   const day = messageDate.getDate();
   const month = messageDate.getMonth();
   return `${day} ${monthDict[month]}`;
 }
-
-
 
 export function cutTimeStringChatList(messageDate: Date) {
   const day = messageDate.getDate();
@@ -45,28 +26,26 @@ export function cutTimeStringChatList(messageDate: Date) {
   const minutes = messageDate.getMinutes();
   const today = new Date();
   if (
-      day === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear()
+    day === today.getDate()
+      && month === today.getMonth()
+      && year === today.getFullYear()
   ) {
     return `${hours}:${minutes}`;
-  } else if (
-      year === today.getFullYear()
+  } if (
+    year === today.getFullYear()
   ) {
     if (month === today.getMonth()) {
       if (day === today.getDate() - 1) {
-        return `Вчера`;
+        return 'Вчера';
       }
       if (day === today.getDate() - 2) {
-        return `Позавчера`;
+        return 'Позавчера';
       }
     }
     return `${month}.${day}`;
-  } else {
-    return `${month}.${day}.${year}`;
   }
+  return `${month}.${day}.${year}`;
 }
-
 
 export interface ChatListBlockType
     {
@@ -86,10 +65,9 @@ export default class ChatList extends Block {
   rebuildChatList(active_chat = null) {
     const chatList = [];
     Object.values(get_chats_list()).forEach((chat) => {
-
       // Сборка времени миниатюры чата
       const raw_time = chat.message_chain[chat.message_chain.length - 1].time;
-      const newTime = cutTimeStringChatList(raw_time)
+      const newTime = new TimeConverter(raw_time).toChatList();
 
       // Подсчет сообщений
       let counter = 0;
