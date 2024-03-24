@@ -25,7 +25,7 @@ export default class Input extends Block {
     return this.compile(greetings, this.props);
   }
 
-  _addEvents() {
+  addEvents() {
     const { events = {} } = this.props;
     Object.keys(events).forEach((eventName) => {
       if (eventName === 'blur') {

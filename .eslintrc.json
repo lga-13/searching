@@ -7,7 +7,7 @@
   "rules": {
     "max-len": [2, 100],
     "no-param-reassign": "off",
-    "max-params": [2, 3]
+    "max-params": [2, 4]
   },
   "parserOptions": {
     "project": "./tsconfig.json"

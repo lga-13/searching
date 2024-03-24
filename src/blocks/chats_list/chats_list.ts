@@ -11,6 +11,8 @@ export interface ChatListBlockType
     }
 
 export default class ChatList extends Block {
+  userId: number;
+
   constructor(props: ChatListBlockType) {
     // Созадние чат листа
 
@@ -18,7 +20,7 @@ export default class ChatList extends Block {
     super('div', props);
   }
 
-  buildChatList(active_chat = null) {
+  buildChatList(activeChat = null) {
     const chatList = [];
     Object.values(getChatsList()).forEach((chat) => {
       let counter = 0;
@@ -34,13 +36,15 @@ export default class ChatList extends Block {
       }
 
       const currentChatMiniature = new ChatMiniature({
-        active: active_chat && active_chat == chat.index,
+        active: activeChat && activeChat === chat.index,
         srcName: RandomAvatar.get(chat.index),
         index: chat.index,
         sender: chat.sender,
         your: chat.message_chain[chat.message_chain.length - 1].me,
         content: formattedText,
-        time: new TimeConverter(chat.message_chain[chat.message_chain.length - 1].time).toChatList(),
+        time: new TimeConverter(
+          chat.message_chain[chat.message_chain.length - 1].time,
+        ).toChatList(),
         count: counter,
         events: {
           click: () => {
@@ -55,8 +59,8 @@ export default class ChatList extends Block {
     this.children.chatList = chatList;
   }
 
-  update(user_id: number) {
-    this.userId = user_id;
+  update(userId: number) {
+    this.userId = userId;
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 

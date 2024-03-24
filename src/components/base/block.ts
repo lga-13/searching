@@ -204,7 +204,7 @@ export default class Block {
 
     this._element.appendChild(block);
 
-    this._addEvents();
+    this.addEvents();
   }
 
   render() {
@@ -257,7 +257,7 @@ export default class Block {
     this.element.style.display = 'none';
   }
 
-  _addEvents() {
+  addEvents() {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach((eventName) => {

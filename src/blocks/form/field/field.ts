@@ -5,7 +5,6 @@ import ErrorMessage, { ErrorMessageBlockType } from './error-message/error-messa
 import Block from '../../../components/base/block.ts';
 import Link, { LinkBlockType } from '../../../components/link/link.ts';
 import Button from '../../../components/button/button.ts';
-import EventBus from '../../../components/base/event-bus.ts';
 
 export interface fieldBlockType {
 
@@ -21,6 +20,7 @@ export interface fieldBlockType {
     fieldInput?: Input;
     fieldErrorMessage?: ErrorMessage | null;
     fieldLink?: Link | null;
+    fieldToggleButton?: Button;
 
     settings?: { withInternalID: boolean };
 }
@@ -33,17 +33,14 @@ export default class Field extends Block {
       fieldLabel = new Label(props.label);
     }
     props.fieldLabel = fieldLabel;
-
-    console.log(props);
     // Инпут
     props.input.events = {
       click: () => {
-        if (fieldErrorMessage) {
-          fieldErrorMessage.hide();
+        if (props.fieldErrorMessage) {
+          props.fieldErrorMessage.hide();
         }
       },
       blur: (event) => {
-        console.log('Вызван блюр ');
         if (!this.validate()) {
           if (this.props.fieldErrorMessage) {
             this.props.fieldErrorMessage.show();
