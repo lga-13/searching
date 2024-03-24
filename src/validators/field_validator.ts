@@ -29,7 +29,7 @@ export const ErrorMessages = {
 export const Validator = {
 
   validateName(value: string): boolean {
-    const re: RegExp = /^[А-ЯA-Z][А-Яа-яA-Za-z\-]*$/;
+    const re: RegExp = /^[А-ЯA-Z][А-Яа-яA-Za-z-]*$/;
     const result: boolean = re.test(value);
     if (!result) {
       console.log(ErrorMessages.validateName);

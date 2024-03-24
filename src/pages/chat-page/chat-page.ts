@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Block from '../../components/base/block.ts';
 import greetings from './chat-page-template.ts';
 import Link from '../../components/link/link.ts';
@@ -8,6 +9,7 @@ import ChatList from '../../blocks/chats_list/chats_list.ts';
 import { Validator } from '../../validators/field_validator.ts';
 import Form from '../../blocks/form/form.ts';
 import './chat-page.css';
+import render from '../../utils/render.ts';
 
 export const MOCK_MESSAGE_DATA = [
   {
@@ -307,7 +309,7 @@ export default class ChatPage extends Block {
 
     props.accountLink = new Link({
       className: 'chats-account',
-      href: '#',
+      href: '/src/pages/settings-page/settings-page.html',
       text: 'Аккаунт',
     });
 
@@ -355,3 +357,5 @@ export default class ChatPage extends Block {
 }
 
 export const chatPage = new ChatPage({});
+
+render('#app', chatPage);

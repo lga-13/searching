@@ -13,7 +13,7 @@ export interface inputBlockType {
 }
 
 export default class Input extends Block {
-  _currentEvents: {
+  currentEvents: {
         click: () => void
     };
 
@@ -29,13 +29,13 @@ export default class Input extends Block {
     const { events = {} } = this.props;
     Object.keys(events).forEach((eventName) => {
       if (eventName === 'blur') {
-        this._element.querySelector('input').addEventListener(eventName, events[eventName]);
+        this.element.querySelector('input').addEventListener(eventName, events[eventName]);
       } else {
-        this._element.addEventListener(eventName, events[eventName]);
+        this.element.addEventListener(eventName, events[eventName]);
       }
     });
 
-    this._currentEvents = events;
+    this.currentEvents = events;
   }
 
   clear() {

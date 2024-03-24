@@ -40,13 +40,12 @@ export default class Field extends Block {
           props.fieldErrorMessage.hide();
         }
       },
-      blur: (event) => {
+      blur: () => {
         if (!this.validate()) {
           if (this.props.fieldErrorMessage) {
             this.props.fieldErrorMessage.show();
           }
         }
-        console.log(event);
       },
     };
     props.fieldInput = new Input(props.input);
@@ -82,18 +81,18 @@ export default class Field extends Block {
     super('div', props);
   }
 
-  _inputValue() {
+  private inputValue() {
     return this.children.fieldInput.getInputValue();
   }
 
   showErrorMessage() {
     if (this.children.fieldErrorMessage) {
-      return this.children.fieldErrorMessage.show();
+      this.children.fieldErrorMessage.show();
     }
   }
 
   validate(): boolean {
-    return this.props.validator(this._inputValue());
+    return this.props.validator(this.inputValue());
   }
 
   clear() {
@@ -101,7 +100,7 @@ export default class Field extends Block {
   }
 
   getInputValue() {
-    return this._inputValue();
+    return this.inputValue();
   }
 
   getName() {

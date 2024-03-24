@@ -12,6 +12,7 @@ import Form from '../../blocks/form/form.ts';
 import avatar from '../../public/static/img/avatar.svg';
 import { UserInfoCard } from '../../blocks/user_info_card/user_info_card.ts';
 import { ErrorMessages, Validator } from '../../validators/field_validator.ts';
+import render from '../../utils/render.ts';
 
 let MOCK_USER_DATA = {
   login: 'admin',
@@ -356,7 +357,7 @@ export default class SettingsPage extends Block {
     props.settingsExitLink = new Link(
       {
         className: 'settings-change-exit',
-        href: '#',
+        href: '/src/pages/login-form/login-form.html',
         text: 'Выйти из аккаунта',
         settings: { withInternalID: true },
       },
@@ -408,3 +409,5 @@ export const settingsPage = new SettingsPage(
     settings: { withInternalID: true },
   },
 );
+
+render('#app', settingsPage);

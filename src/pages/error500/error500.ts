@@ -2,6 +2,7 @@ import Block from '../../components/base/block.ts';
 import greetings from './error500-template.ts';
 import ErrorCard from '../../blocks/error-card/error-card.ts';
 import './error500.css';
+import render from '../../utils/render.ts';
 
 export interface Error500BlockType {
     errorCard?: ErrorCard
@@ -37,3 +38,5 @@ class Error500Page extends Block {
   }
 }
 export const error500Page = new Error500Page({});
+
+render('#app', error500Page);

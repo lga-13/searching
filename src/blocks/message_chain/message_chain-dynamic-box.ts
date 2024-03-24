@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+
 const dynamicBox: HTMLElement | null = document.getElementById('dynamicBox');
 
 if (dynamicBox) {

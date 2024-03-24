@@ -3,6 +3,7 @@
 import './registration-form.css';
 import Form from '../../blocks/form/form.ts';
 import { ErrorMessages, Validator } from '../../validators/field_validator.ts';
+import render from '../../utils/render.ts';
 
 const registrationForm = new Form(
   {
@@ -33,7 +34,7 @@ const registrationForm = new Form(
     },
     link: {
       className: 'registration-form-login',
-      href: '#',
+      href: '/src/pages/login-form/l  ogin-form.html',
       text: 'Войти',
       settings: { withInternalID: true },
     },
@@ -184,3 +185,5 @@ const registrationForm = new Form(
 );
 
 export default registrationForm;
+
+render('#app', registrationForm);
