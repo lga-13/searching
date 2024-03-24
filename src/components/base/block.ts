@@ -5,6 +5,7 @@ import EventBus from './event-bus.ts';
 type UUID = string & { isUUID: true };
 
 export default class Block {
+
   static EVENTS: {INIT: string, FLOW_CDM: string, FLOW_RENDER: string, FLOW_CDU: string} = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',

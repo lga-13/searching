@@ -308,6 +308,8 @@ hr:first-of-type{
     color: #757575;
     position: relative;
     text-align: center;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 .message-chain-message-container{

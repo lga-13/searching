@@ -6,8 +6,8 @@ import Message from './message/message.ts';
 import { getMessageChain, getSender } from '../../pages/chat-page/chat-page.ts';
 import Form, { FormProps } from '../form/form.ts';
 import MessageContainer from './message_container/message_container.ts';
-import TimeConverter from "../../deps/time_prepare/converter.ts";
-import DateComparator from "../../deps/time_prepare/dateComparator.ts";
+import TimeConverter from "../../modules/time_prepare/converter.ts";
+import DateComparator from "../../modules/time_prepare/dateComparator.ts";
 
 export interface MessageChainBlockType {
 

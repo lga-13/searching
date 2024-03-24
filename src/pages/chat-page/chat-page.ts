@@ -5,7 +5,7 @@ import Plug from '../../components/plug/plug.ts';
 import MessageChain from '../../blocks/message_chain/message_chain.ts';
 import chat2 from '../../public/static/img/chat2.svg';
 import ChatList from '../../blocks/chats_list/chats_list.ts';
-import { Validator } from '../../utils/field_validator.ts';
+import { Validator } from '../../validators/field_validator.ts';
 import Form from '../../blocks/form/form.ts';
 import './chat-page.css';
 
@@ -240,7 +240,6 @@ export default class ChatPage extends Block {
 
     const chatList = new ChatList({
       showMessageChain: (user_id: number) => { this.showMessageChain(user_id); },
-      readAllMessages: (user_id: number) => { readMessageChain(user_id); },
     });
 
     // Генерация месадж чейна и заглушки. По умолчанию скрыт месадж чейн.
@@ -249,7 +248,7 @@ export default class ChatPage extends Block {
       sender_name: {
         className: 'message-chain-header-title',
         text: '',
-        tag: 'h3',
+        tag: 'p',
       },
       messageForm: {
         className: 'message-chain-send-field',
@@ -257,7 +256,6 @@ export default class ChatPage extends Block {
           className: 'message-chain-send-button',
           typeName: 'button',
           text: '',
-          settings: { withInternalID: true },
           events: {
             click: () => {
               if (props.messageChain.children.messageChainForm.validate()) {
@@ -279,11 +277,6 @@ export default class ChatPage extends Block {
               name: 'message',
               placeholder: 'Cообщение',
               inputType: 'text',
-              settings: { withInternalID: true },
-              events: {
-                click: () => {
-                },
-              },
             },
             validator: Validator.validateMessage,
           },
@@ -300,9 +293,8 @@ export default class ChatPage extends Block {
         className: 'message-chain-more-button',
         typeName: 'button',
         text: '',
-        settings: { withInternalID: true },
       },
-      chatListHook: () => { chatList.rebuildChatList(props.messageChain.props.user_id); },
+      chatListHook: () => { chatList.update(props.messageChain.props.user_id) },
     });
     props.messageChain.hide();
 
@@ -319,7 +311,6 @@ export default class ChatPage extends Block {
       className: 'chats-account',
       href: '#',
       text: 'Аккаунт',
-      settings: { withInternalID: true },
     });
 
     props.searchForm = new Form(
@@ -329,7 +320,13 @@ export default class ChatPage extends Block {
           className: 'chats-search-btn',
           typeName: 'button',
           text: '',
-          settings: { withInternalID: true },
+          events: {
+            click: () => {
+              if (props.searchForm.validate()) {
+                console.log(props.searchForm.get_data());
+              }
+            }
+          },
         },
         fields: [{
           input: {
@@ -337,10 +334,6 @@ export default class ChatPage extends Block {
             name: 'chat_search',
             placeholder: '',
             inputType: 'text',
-            settings: { withInternalID: true },
-            events: {
-              click: () => {},
-            },
           },
           validator: Validator.validateSearch,
         }],
